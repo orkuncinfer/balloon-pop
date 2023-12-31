@@ -1,0 +1,3 @@
+[submodule "Assets/Plugins/actor-core"]
+	path = Assets/Plugins/actor-core
+	url = git@github.com:orkuncinfer/actor-core.git

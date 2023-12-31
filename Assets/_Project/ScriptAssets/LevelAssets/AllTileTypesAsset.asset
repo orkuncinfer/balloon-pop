@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff6027a730c80be429a638856d4d7619, type: 3}
+  m_Name: AllTileTypesAsset
+  m_EditorClassIdentifier: 
+  TileDropTypes:
+  - MachItemRepKey: {fileID: 11400000, guid: 10f9d439fe98da84382ea06e7ca109e8, type: 2}
+    Prefab: {fileID: 318768223846939070, guid: 94bc2e4e0ea24ac44ba53d2696644476, type: 3}
+    MatchedEffectPrefab: {fileID: 1383781389932898816, guid: 688e7f738ac46ed4a922feefd5118695, type: 3}
+    Visual: {fileID: 21300000, guid: e31d769f6b41bcd40bfb6a382e952326, type: 3}
+  - MachItemRepKey: {fileID: 11400000, guid: 42a7e04cb860c9742b177d8f9a79d06c, type: 2}
+    Prefab: {fileID: 318768223846939070, guid: 94bc2e4e0ea24ac44ba53d2696644476, type: 3}
+    MatchedEffectPrefab: {fileID: 1383781389932898816, guid: b7ec5f93a22d5e247aa3b8b0e47f949f, type: 3}
+    Visual: {fileID: 21300000, guid: 25fc0deb5e5e7ed4196d75009f472b5c, type: 3}
+  - MachItemRepKey: {fileID: 11400000, guid: e25391632bc0a1c45afa5c51f2fb1ee3, type: 2}
+    Prefab: {fileID: 318768223846939070, guid: 94bc2e4e0ea24ac44ba53d2696644476, type: 3}
+    MatchedEffectPrefab: {fileID: 1383781389932898816, guid: bdbc2ae14b703714896829f63e307c36, type: 3}
+    Visual: {fileID: 21300000, guid: 1f2636c8f96dad84e8b07a04199a1c5c, type: 3}
+  - MachItemRepKey: {fileID: 11400000, guid: 20604e11a21b92c408a50a9fc611fe76, type: 2}
+    Prefab: {fileID: 318768223846939070, guid: 94bc2e4e0ea24ac44ba53d2696644476, type: 3}
+    MatchedEffectPrefab: {fileID: 1383781389932898816, guid: 017caa6b9d3ef194ba2d1d0d4041ad2b, type: 3}
+    Visual: {fileID: 21300000, guid: 44d798ece21b296419a27ff3983396cd, type: 3}
+  - MachItemRepKey: {fileID: 11400000, guid: 751ed23685fb0dc449890ade80f0d9cc, type: 2}
+    Prefab: {fileID: 318768223846939070, guid: 94bc2e4e0ea24ac44ba53d2696644476, type: 3}
+    MatchedEffectPrefab: {fileID: 1383781389932898816, guid: 017caa6b9d3ef194ba2d1d0d4041ad2b, type: 3}
+    Visual: {fileID: 21300000, guid: b06488c460707ac4296af3cc3372cc36, type: 3}
+  - MachItemRepKey: {fileID: 11400000, guid: 4d72e06a53846614aa3e2447bd6a33df, type: 2}
+    Prefab: {fileID: 9086318816577894736, guid: 25ee4cb014b722a4aabb65d3295914eb, type: 3}
+    MatchedEffectPrefab: {fileID: 1383781389932898816, guid: dfd614aa1e4af654ca5827231c3a5f36, type: 3}
+    Visual: {fileID: 21300000, guid: ccd0733095293b749b6ec703add0f2fb, type: 3}
+  TileCellTypes:
+  - MachItemRepKey: {fileID: 11400000, guid: 60a47acf78a29ad4dbb090cd9fedcae0, type: 2}
+    Prefab: {fileID: 318768223846939070, guid: 1f30d572ed19bbc46b2315eb4ac59ef0, type: 3}
+    Visual: {fileID: 21300000, guid: 5721ca0eb8939fc40b288342254a0531, type: 3}
+  - MachItemRepKey: {fileID: 11400000, guid: e2bbaf2f4b83c954fa9163f3f97c9765, type: 2}
+    Prefab: {fileID: 318768223846939070, guid: 4a5b8af85e2ce924b8af06b238242728, type: 3}
+    Visual: {fileID: 21300000, guid: e687e64428af6ab49bbd075961be7eea, type: 3}
+  - MachItemRepKey: {fileID: 11400000, guid: 42ee239e156f7534ab9787fdc992f258, type: 2}
+    Prefab: {fileID: 318768223846939070, guid: 036c1b9caee84ac49a7d19d816a34eb9, type: 3}
+    Visual: {fileID: 21300000, guid: 79873c0409142f94a891a5563c5b04b3, type: 3}

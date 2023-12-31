@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04e00c890644cc9adb05d0c17f5ee62, type: 3}
+  m_Name: SOGenerationDatabase
+  m_EditorClassIdentifier: 
+  _genericArgumentKeys:
+  - _typeNameAndAssembly: System.String, mscorlib
+    _guid: 
+  - _typeNameAndAssembly: Codice.Client.BaseCommands.Map, unityplastic
+    _guid: 
+  _genericArgumentValues:
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: System.String, mscorlib
+        _guid: 
+      _assemblyGUID: 6e26c63012d935d4a9e4b4b81fafa42b
+    - _arguments:
+      - _typeNameAndAssembly: Codice.Client.BaseCommands.Map, unityplastic
+        _guid: 
+      _assemblyGUID: d7a314e0424384c458d6357ae38f7c10
+  - _array: []
+  _genericTypeValues:
+  - _array:
+    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp-firstpass
+      _guid: 0c14aa0e79df3324b8eefb73cc8facb9
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp-firstpass
+      _guid: 0c14aa0e79df3324b8eefb73cc8facb9
+      AssemblyGUID: 
+      _argNames:
+      - T
+  _genericTypeKeys:
+  - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePath`1, Unity.2D.Path.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePathInspector`2,
+      Unity.2D.Path.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - U
+    - T
+  - _typeNameAndAssembly: UnityEditor.U2D.Path.ScriptableData`1, Unity.2D.Path.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEngine.HexagonalRuleTile`1, Unity.2D.Tilemap.Extras
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEngine.IsometricRuleTile`1, Unity.2D.Tilemap.Extras
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEngine.RuleTile`1, Unity.2D.Tilemap.Extras
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp-firstpass
+    _guid: 0c14aa0e79df3324b8eefb73cc8facb9
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
