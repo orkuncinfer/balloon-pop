@@ -17,6 +17,10 @@ MonoBehaviour:
     _fileName: New GameEvent`1
     _menuName: GameEvent<T>
     _order: 0
+  - _typeName: GameVariable`1, Assembly-CSharp-firstpass
+    _fileName: New GameVariable`1
+    _menuName: GameVariable<T>
+    _order: 0
   _afterReloadEvent:
     _persistentListeners: []
     Expanded: 1

@@ -22,6 +22,15 @@ MonoBehaviour:
   - _typeNameAndAssembly: UnityEngine.RuleTile`1, Unity.2D.Tilemap.Extras
   - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp-firstpass
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
+  - _typeNameAndAssembly: GameVariable`1, Assembly-CSharp-firstpass
+  - _typeNameAndAssembly: Animancer.AnimancerTransitionAsset`1, Animancer
+  - _typeNameAndAssembly: UnityEditor.Rendering.DebugState`1, Unity.RenderPipelines.Core.Editor
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.GenericScriptablePath`1,
+      Unity.RenderPipelines.Universal.Editor
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.GenericScriptablePathInspector`2,
+      Unity.RenderPipelines.Universal.Editor
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.ScriptableData`1,
+      Unity.RenderPipelines.Universal.Editor
   _values:
   - _keys: []
     _values: []
@@ -45,5 +54,21 @@ MonoBehaviour:
         z_GameEvent_String
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_d7a314e0424384c458d6357ae38f7c10,
         z_GameEvent_Map
+  - _keys: []
+    _values: []
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: System.Boolean, mscorlib
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_db7d3eaecd6cb63428353168d3a4f489,
+        z_GameVariable_Boolean
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
   - _keys: []
     _values: []

@@ -1,0 +1,162 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Sirenix.OdinInspector;
+using Sirenix.OdinInspector.Editor;
+using Sirenix.Utilities.Editor;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.Timeline;
+
+public class NexusHelperEditor : OdinMenuEditorWindow
+{
+    [MenuItem("My Game/My Window")]
+    private static void OpenWindow()
+    {
+        GetWindow<NexusHelperEditor>().Show();
+    }
+	
+    protected override OdinMenuTree BuildMenuTree()
+    {
+        var tree = new OdinMenuTree();
+        tree.Selection.SupportsMultiSelect = false;
+
+        tree.Add("Create", new TextureUtilityEditor());
+        tree.Add("Scenes", new SceneAssetsViewer());
+        
+        return tree;
+    }
+}
+
+public class TextureUtilityEditor
+{
+    public string FileName;
+    [HorizontalGroup]
+    [Button(ButtonSizes.Large)]
+    public void GenericKey()
+    {
+        string fileName = "GK_";
+        if (!string.IsNullOrEmpty(FileName)) fileName = FileName;
+        string path = "Assets/_Project/GenericKeys/" + fileName + ".asset";
+        
+        CreateGenericKey(path);
+    }
+
+    [HorizontalGroup]
+    [Button(ButtonSizes.Large)]
+    public void DataKey()
+    {
+        string fileName = "DK_";
+        if (!string.IsNullOrEmpty(FileName)) fileName = FileName;
+        string path = "Assets/_Project/GenericKeys/DataKeys/" + fileName + ".asset";
+        
+        CreateGenericKey(path);
+    }
+
+    [HorizontalGroup]
+    [Button(ButtonSizes.Large)]
+    public void ItemKey()
+    {
+        string fileName = "IK_";
+        if (!string.IsNullOrEmpty(FileName)) fileName = FileName;
+        string path = "Assets/_Project/GenericKeys/ItemKeys/" + fileName + ".asset";
+        
+        CreateGenericKey(path);
+    }
+
+    [HorizontalGroup]
+    [Button(ButtonSizes.Large)]
+    public void ActorTag()
+    {
+        string fileName = "AT_";
+        if (!string.IsNullOrEmpty(FileName)) fileName = FileName;
+        string path = "Assets/_Project/GenericKeys/ActorTags/" + fileName + ".asset";
+        
+        CreateGenericKey(path);
+    }
+
+    private void CreateGenericKey(string path)
+    {
+        if (string.IsNullOrEmpty(path)) {
+            Debug.LogError("Asset path is empty.");
+            return;
+        }
+
+        GenericKey asset = ScriptableObject.CreateInstance<GenericKey>();
+        AssetDatabase.CreateAsset(asset, path);
+        AssetDatabase.SaveAssets();
+        asset.ID = asset.name;
+
+        EditorUtility.FocusProjectWindow();
+        Selection.activeObject = asset;
+    }
+}
+
+public class SceneAssetsViewer
+{
+    [ShowInInspector]
+    public List<SceneItem> Scenes;
+
+    public SceneAssetsViewer()
+    {
+        Scenes = new List<SceneItem>();
+        LoadScenesInBuildSettings();
+    }
+
+    private void LoadScenesInBuildSettings()
+    {
+        Scenes.Clear();
+        var scenesInBuild = new HashSet<string>();
+
+        // Collect all scenes that are in the build settings
+        foreach (EditorBuildSettingsScene buildScene in EditorBuildSettings.scenes)
+        {
+            if (buildScene.enabled)
+            {
+                scenesInBuild.Add(buildScene.path);
+            }
+        }
+
+        // Add only those scenes to the list
+        foreach (string scenePath in scenesInBuild)
+        {
+            SceneAsset sceneAsset = AssetDatabase.LoadAssetAtPath<SceneAsset>(scenePath);
+            if (sceneAsset != null)
+            {
+                var sceneItem = new SceneItem();
+                sceneItem.SceneAsset = sceneAsset;
+                Scenes.Add(sceneItem);
+            }
+        }
+    }
+
+    [Button(ButtonSizes.Medium), GUIColor(0.7f, 0.7f, 1f)]
+    private void RefreshScenes()
+    {
+        LoadScenesInBuildSettings();
+    }
+
+    
+    
+    [Serializable]
+    public class SceneItem
+    {
+        public SceneAsset SceneAsset;
+        
+        [Button(ButtonSizes.Small), GUIColor(0.3f, 0.8f, 0.3f)]
+        public void Show()
+        {
+            if (SceneAsset != null)
+            {
+                string scenePath = AssetDatabase.GetAssetPath(SceneAsset);
+                if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+                {
+                    EditorSceneManager.OpenScene(scenePath);
+                }
+            }
+        }
+    }
+}
+
+

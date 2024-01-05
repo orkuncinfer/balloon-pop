@@ -15,11 +15,27 @@ MonoBehaviour:
   _genericArgumentKeys: []
   _genericArgumentValues:
   - _array: []
+  - _array: []
+  - _array: []
   _genericTypeValues: []
   _genericTypeKeys:
   - _typeNameAndAssembly: Singleton`1, Assembly-CSharp-firstpass
     _guid: b2c851d9b902be34b8c67d72ed82db22
     AssemblyGUID: e1dab898b48952e44b83d6c54be47da0
+    _argNames:
+    - T
+    _componentName: 
+    _order: 0
+  - _typeNameAndAssembly: EasyMobileInput.DelayInputProcessor`1, Assembly-CSharp
+    _guid: 5e7a1f8217e173245bef8421fb8e1720
+    AssemblyGUID: c81edf041eb7e91449a2e797dc137974
+    _argNames:
+    - T
+    _componentName: 
+    _order: 0
+  - _typeNameAndAssembly: EasyMobileInput.PassthroughInputProcessor`1, Assembly-CSharp
+    _guid: 9906f0df96ed5c142b33c6e17020252f
+    AssemblyGUID: 3c3291c1960c97a44b5c8508d9ee0961
     _argNames:
     - T
     _componentName: 

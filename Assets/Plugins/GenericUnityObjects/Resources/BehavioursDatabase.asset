@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _keys:
   - _typeNameAndAssembly: Singleton`1, Assembly-CSharp-firstpass
+  - _typeNameAndAssembly: EasyMobileInput.DelayInputProcessor`1, Assembly-CSharp
+  - _typeNameAndAssembly: EasyMobileInput.PassthroughInputProcessor`1, Assembly-CSharp
   _values:
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
   - _keys: []
     _values: []

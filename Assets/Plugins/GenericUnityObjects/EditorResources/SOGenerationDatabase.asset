@@ -17,6 +17,8 @@ MonoBehaviour:
     _guid: 
   - _typeNameAndAssembly: Codice.Client.BaseCommands.Map, unityplastic
     _guid: 
+  - _typeNameAndAssembly: System.Boolean, mscorlib
+    _guid: 
   _genericArgumentValues:
   - _array: []
   - _array: []
@@ -34,6 +36,16 @@ MonoBehaviour:
         _guid: 
       _assemblyGUID: d7a314e0424384c458d6357ae38f7c10
   - _array: []
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: System.Boolean, mscorlib
+        _guid: 
+      _assemblyGUID: db7d3eaecd6cb63428353168d3a4f489
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
   _genericTypeValues:
   - _array:
     - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp-firstpass
@@ -44,6 +56,17 @@ MonoBehaviour:
   - _array:
     - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp-firstpass
       _guid: 0c14aa0e79df3324b8eefb73cc8facb9
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GameVariable`1, Assembly-CSharp-firstpass
+      _guid: 44b2a474358af5c40989cd121b50809c
+      AssemblyGUID: 
+      _argNames:
+      - T
+    - _typeNameAndAssembly: GameVariable`1, Assembly-CSharp-firstpass
+      _guid: 44b2a474358af5c40989cd121b50809c
       AssemblyGUID: 
       _argNames:
       - T
@@ -86,6 +109,40 @@ MonoBehaviour:
     _argNames:
     - T
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: GameVariable`1, Assembly-CSharp-firstpass
+    _guid: 44b2a474358af5c40989cd121b50809c
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: Animancer.AnimancerTransitionAsset`1, Animancer
+    _guid: 6855b77e046ea2045ac187ab02afcdad
+    AssemblyGUID: 
+    _argNames:
+    - TTransition
+  - _typeNameAndAssembly: UnityEditor.Rendering.DebugState`1, Unity.RenderPipelines.Core.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.GenericScriptablePath`1,
+      Unity.RenderPipelines.Universal.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.GenericScriptablePathInspector`2,
+      Unity.RenderPipelines.Universal.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - U
+    - T
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.ScriptableData`1,
+      Unity.RenderPipelines.Universal.Editor
     _guid: 
     AssemblyGUID: 
     _argNames:
