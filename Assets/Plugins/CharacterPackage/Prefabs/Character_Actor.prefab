@@ -771,6 +771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsGlobal: 0
+  UseKey: 0
   DataKey: {fileID: 0}
   DataType: {fileID: 2206061338597293925}
   OwnerActor: {fileID: 0}
@@ -3386,8 +3387,6 @@ GameObject:
   - component: {fileID: 1012474894599067079}
   - component: {fileID: 4736923556313416570}
   - component: {fileID: 7535361450453033384}
-  - component: {fileID: 8607851794081350145}
-  - component: {fileID: 301956853781812224}
   m_Layer: 0
   m_Name: Data
   m_TagString: Untagged
@@ -3423,6 +3422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsGlobal: 1
+  UseKey: 1
   DataKey: {fileID: 11400000, guid: 9a2d0557cae4eee4785971131622a812, type: 2}
   DataType: {fileID: 4736923556313416570}
   OwnerActor: {fileID: 0}
@@ -3443,44 +3443,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsGlobal: 0
+  UseKey: 0
   DataKey: {fileID: 0}
   DataType: {fileID: 0}
   OwnerActor: {fileID: 0}
   _animancerComponent: {fileID: 8506609382860025413}
   _animancerController: {fileID: 3496216681715756166}
   _animator: {fileID: 3665310527077997686}
---- !u!114 &8607851794081350145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9050830968198548310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ecdd8fc0068a9d4a930a481eba2c681, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Description: Movement Data
-  ChangeName: Movement Data
-  AbilityActions:
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &301956853781812224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9050830968198548310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ecdd8fc0068a9d4a930a481eba2c681, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Description: NewName
-  ChangeName: NewName
-  AbilityActions: []
 --- !u!1 &9142439652701634807
 GameObject:
   m_ObjectHideFlags: 0
