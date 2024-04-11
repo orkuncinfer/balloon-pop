@@ -1,0 +1,79 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+namespace ExtEvents
+{
+<#
+const string _sbyte = "sbyte";
+const string _byte = "byte";
+const string _short = "short";
+const string _ushort = "ushort";
+const string _int = "int";
+const string _uint = "uint";
+const string _long = "long";
+const string _ulong = "ulong";
+const string _float = "float";
+const string _double = "double";
+const string _decimal = "decimal";
+
+// https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions
+// nint and nuint types are not included because they exist since C# 9 only and I don't think they would be widely used in ExtEvents. If someone needs to use them, they can create a custom converter.
+var types = new (string fromType, string[] toTypes)[]
+   {
+       (_sbyte,  new[] { _short,          _int,        _long,         _float, _double, _decimal }),
+       (_byte,   new[] { _short, _ushort, _int, _uint, _long, _ulong, _float, _double, _decimal }),
+       (_short,  new[] {                  _int,        _long,         _float, _double, _decimal }),
+       (_ushort, new[] {                  _int, _uint, _long, _ulong, _float, _double, _decimal }),
+       (_int,    new[] {                               _long,         _float, _double, _decimal }),
+       (_uint,   new[] {                               _long, _ulong, _float, _double, _decimal }),
+       (_long,   new[] {                                              _float, _double, _decimal }),
+       (_ulong,  new[] {                                              _float, _double, _decimal }),
+       (_float,  new[] {                                                      _double })
+   };
+#>
+    using System;
+    using System.Collections.Generic;
+    using System.Runtime.CompilerServices;
+    using UnityEngine.Scripting;
+
+    public partial class Converter
+    {
+        public static readonly Dictionary<(Type from, Type to), Type> BuiltInConverters = new Dictionary<(Type from, Type to), Type>()
+        {
+<#
+foreach ((string fromType, var toTypes) in types)
+{
+    foreach (string toType in toTypes)
+    {
+#>
+            { (typeof(<#=fromType#>), typeof(<#=toType#>)), typeof(<#=fromType#>_<#=toType#>_Converter) },
+<#
+    }
+}
+#>
+        };
+
+        public static readonly Dictionary<(Type from, Type to), Type> ConverterTypes = new Dictionary<(Type from, Type to), Type>(BuiltInConverters);
+    }
+<#
+foreach ((string fromType, var toTypes) in types)
+{
+    foreach (string toType in toTypes)
+    {
+#>
+
+    [Preserve]
+    internal class <#=fromType#>_<#=toType#>_Converter : Converter
+    {
+        private <#=toType#> _arg;
+
+        public override unsafe void* Convert(void* sourceTypePointer)
+        {
+            _arg = Unsafe.Read<<#=fromType#>>(sourceTypePointer);
+            return Unsafe.AsPointer(ref _arg);
+        }
+    }
+<#
+    }
+}
+#>
+}

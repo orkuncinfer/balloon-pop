@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: ScriptableObjectsDatabase
   m_EditorClassIdentifier: 
   _keys:
-  - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePath`1, Unity.2D.Path.Editor
-  - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePathInspector`2,
-      Unity.2D.Path.Editor
-  - _typeNameAndAssembly: UnityEditor.U2D.Path.ScriptableData`1, Unity.2D.Path.Editor
+  - _typeNameAndAssembly: UnityEditor.U2D.Common.Path.ScriptableData`1, Unity.2D.Common.Path.Editor
+  - _typeNameAndAssembly: UnityEditor.U2D.Common.Path.GenericScriptablePathInspector`2,
+      Unity.2D.Common.Path.Editor
+  - _typeNameAndAssembly: UnityEditor.U2D.Common.Path.GenericScriptablePath`1, Unity.2D.Common.Path.Editor
   - _typeNameAndAssembly: UnityEngine.HexagonalRuleTile`1, Unity.2D.Tilemap.Extras
   - _typeNameAndAssembly: UnityEngine.IsometricRuleTile`1, Unity.2D.Tilemap.Extras
   - _typeNameAndAssembly: UnityEngine.RuleTile`1, Unity.2D.Tilemap.Extras
@@ -31,6 +31,10 @@ MonoBehaviour:
       Unity.RenderPipelines.Universal.Editor
   - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.ScriptableData`1,
       Unity.RenderPipelines.Universal.Editor
+  - _typeNameAndAssembly: Cinemachine.Editor.CinemachineVirtualCameraBaseEditor`1,
+      com.unity.cinemachine.editor
+  - _typeNameAndAssembly: Cinemachine.Editor.BaseEditor`1, com.unity.cinemachine.editor
+  - _typeNameAndAssembly: UnityEditor.Rendering.PostProcessing.BaseEditor`1, Assembly-CSharp-Editor
   _values:
   - _keys: []
     _values: []
@@ -48,20 +52,30 @@ MonoBehaviour:
     - _collection:
       - _typeNameAndAssembly: System.String, mscorlib
     - _collection:
-      - _typeNameAndAssembly: Codice.Client.BaseCommands.Map, unityplastic
+      - _typeNameAndAssembly: Actor, Assembly-CSharp-firstpass
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_6e26c63012d935d4a9e4b4b81fafa42b,
         z_GameEvent_String
-    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_d7a314e0424384c458d6357ae38f7c10,
-        z_GameEvent_Map
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_37d3de5bdc47dcc4e8de4f903f5cf350,
+        z_GameEvent_Actor
   - _keys: []
     _values: []
   - _keys:
     - _collection:
       - _typeNameAndAssembly: System.Boolean, mscorlib
+    - _collection:
+      - _typeNameAndAssembly: Actor, Assembly-CSharp-firstpass
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_db7d3eaecd6cb63428353168d3a4f489,
         z_GameVariable_Boolean
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_34d2e50f83e53aa449eb0feb1f5124ea,
+        z_GameVariable_Actor
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
   - _keys: []
     _values: []
   - _keys: []

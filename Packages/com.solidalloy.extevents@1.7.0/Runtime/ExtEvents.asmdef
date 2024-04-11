@@ -1,0 +1,19 @@
+{
+    "name": "ExtEvents",
+    "rootNamespace": "ExtEvents",
+    "references": [
+        "TypeReferences",
+        "Unity.Settings.Editor",
+        "SolidUtilities",
+        "ExtEvents.OdinSerializer"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

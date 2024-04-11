@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using SaveSystem.Scripts.Runtime;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities.Editor;
@@ -24,8 +25,37 @@ public class NexusHelperEditor : OdinMenuEditorWindow
 
         tree.Add("Create", new TextureUtilityEditor());
         tree.Add("Scenes", new SceneAssetsViewer());
-        
+        tree.Add("Save", new SaveWindow());
         return tree;
+    }
+}
+
+public class SaveWindow
+{
+    [Button(ButtonSizes.Large)]
+    public void DeleteSaveData()
+    {
+        string[] guids = AssetDatabase.FindAssets("t:SaveData");
+        List<SaveData> saveDataAssets = new List<SaveData>();
+        foreach (string guid in guids)
+        {
+            string assetPath = AssetDatabase.GUIDToAssetPath(guid);
+            SaveData saveData = AssetDatabase.LoadAssetAtPath<SaveData>(assetPath);
+            if (saveData != null)
+            {
+                saveDataAssets.Add(saveData);
+            }
+        }
+        foreach (SaveData saveData in saveDataAssets)
+        {
+            saveData.DeleteSave();
+            EditorUtility.SetDirty(saveData);
+        }
+        AssetDatabase.SaveAssets();
+        EditorUtility.DisplayDialog("Save Data Deletion",
+            saveDataAssets.Count + " SaveData assets were processed and their saves were deleted.",
+            "OK");
+        
     }
 }
 

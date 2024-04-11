@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,7 +13,7 @@ public class ActivateSelectedObjectEditor : Editor
         base.OnInspectorGUI();
         selectedObject = (ActivateSelectedObject) target;
         
-        selectedObject.GameObject().SetActive(true);
+        selectedObject.gameObject.SetActive(true);
     }
 
     private void OnDisable()

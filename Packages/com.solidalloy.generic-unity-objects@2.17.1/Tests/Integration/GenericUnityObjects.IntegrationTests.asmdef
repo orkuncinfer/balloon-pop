@@ -1,0 +1,31 @@
+{
+    "name": "GenericUnityObjects.IntegrationTests",
+    "rootNamespace": "GenericUnityObjects.IntegrationTests",
+    "references": [
+        "GenericUnityObjects",
+        "GenericUnityObjects.Editor",
+        "SolidUtilities.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS",
+        "TEST_FRAMEWORK"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.test-framework",
+            "expression": "",
+            "define": "TEST_FRAMEWORK"
+        }
+    ],
+    "noEngineReferences": false
+}

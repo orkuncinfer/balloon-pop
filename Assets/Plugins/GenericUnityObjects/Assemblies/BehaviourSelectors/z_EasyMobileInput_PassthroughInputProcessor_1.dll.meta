@@ -1,10 +1,9 @@
-fileFormatVersion: 2
-guid: 3c3291c1960c97a44b5c8508d9ee0961
+﻿fileFormatVersion: 2
+guid: 84d7db93c0e96d84b929d108c3e26197
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
-  iconMap:
-    GenericUnityObjects.ConcreteClasses.ClassSelector_3c3291c1960c97a44b5c8508d9ee0961: {fileID: -8204150473280056172, guid: 0000000000000000d000000000000000, type: 0}
+  iconMap: {}
   executionOrder: {}
   defineConstraints: []
   isPreloaded: 0
@@ -23,7 +22,7 @@ PluginImporter:
         Exclude Win: 0
         Exclude Win64: 0
   - first:
-      Any: 
+      Any:
     second:
       enabled: 1
       settings: {}
@@ -65,6 +64,6 @@ PluginImporter:
       enabled: 0
       settings:
         CPU: AnyCPU
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  userData:
+  assetBundleName:
+  assetBundleVariant:

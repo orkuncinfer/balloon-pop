@@ -1,0 +1,22 @@
+{
+    "name": "UnityDropdown.Editor",
+    "rootNamespace": "UnityDropdown.Editor",
+    "references": [
+        "SolidUtilities",
+        "SolidUtilities.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "UnityEngineInternals.dll",
+        "System.Memory.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -26,16 +26,16 @@ MonoBehaviour:
     - T
     _componentName: 
     _order: 0
-  - _typeNameAndAssembly: EasyMobileInput.DelayInputProcessor`1, Assembly-CSharp
-    _guid: 5e7a1f8217e173245bef8421fb8e1720
-    AssemblyGUID: c81edf041eb7e91449a2e797dc137974
+  - _typeNameAndAssembly: EasyMobileInput.PassthroughInputProcessor`1, Assembly-CSharp-firstpass
+    _guid: 
+    AssemblyGUID: 84d7db93c0e96d84b929d108c3e26197
     _argNames:
     - T
     _componentName: 
     _order: 0
-  - _typeNameAndAssembly: EasyMobileInput.PassthroughInputProcessor`1, Assembly-CSharp
-    _guid: 9906f0df96ed5c142b33c6e17020252f
-    AssemblyGUID: 3c3291c1960c97a44b5c8508d9ee0961
+  - _typeNameAndAssembly: EasyMobileInput.DelayInputProcessor`1, Assembly-CSharp-firstpass
+    _guid: 
+    AssemblyGUID: 742724946f854524e9597eda512b0714
     _argNames:
     - T
     _componentName: 

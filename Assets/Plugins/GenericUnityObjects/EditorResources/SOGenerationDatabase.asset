@@ -19,6 +19,8 @@ MonoBehaviour:
     _guid: 
   - _typeNameAndAssembly: System.Boolean, mscorlib
     _guid: 
+  - _typeNameAndAssembly: Actor, Assembly-CSharp-firstpass
+    _guid: 19e848314a384c9b81b04c3e7d87af69
   _genericArgumentValues:
   - _array: []
   - _array: []
@@ -32,15 +34,22 @@ MonoBehaviour:
         _guid: 
       _assemblyGUID: 6e26c63012d935d4a9e4b4b81fafa42b
     - _arguments:
-      - _typeNameAndAssembly: Codice.Client.BaseCommands.Map, unityplastic
-        _guid: 
-      _assemblyGUID: d7a314e0424384c458d6357ae38f7c10
+      - _typeNameAndAssembly: Actor, Assembly-CSharp-firstpass
+        _guid: 19e848314a384c9b81b04c3e7d87af69
+      _assemblyGUID: 37d3de5bdc47dcc4e8de4f903f5cf350
   - _array: []
   - _array:
     - _arguments:
       - _typeNameAndAssembly: System.Boolean, mscorlib
         _guid: 
       _assemblyGUID: db7d3eaecd6cb63428353168d3a4f489
+    - _arguments:
+      - _typeNameAndAssembly: Actor, Assembly-CSharp-firstpass
+        _guid: 19e848314a384c9b81b04c3e7d87af69
+      _assemblyGUID: 34d2e50f83e53aa449eb0feb1f5124ea
+  - _array: []
+  - _array: []
+  - _array: []
   - _array: []
   - _array: []
   - _array: []
@@ -70,20 +79,31 @@ MonoBehaviour:
       AssemblyGUID: 
       _argNames:
       - T
+  - _array:
+    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp-firstpass
+      _guid: 0c14aa0e79df3324b8eefb73cc8facb9
+      AssemblyGUID: 
+      _argNames:
+      - T
+    - _typeNameAndAssembly: GameVariable`1, Assembly-CSharp-firstpass
+      _guid: 44b2a474358af5c40989cd121b50809c
+      AssemblyGUID: 
+      _argNames:
+      - T
   _genericTypeKeys:
-  - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePath`1, Unity.2D.Path.Editor
+  - _typeNameAndAssembly: UnityEditor.U2D.Common.Path.ScriptableData`1, Unity.2D.Common.Path.Editor
     _guid: 
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePathInspector`2,
-      Unity.2D.Path.Editor
+  - _typeNameAndAssembly: UnityEditor.U2D.Common.Path.GenericScriptablePathInspector`2,
+      Unity.2D.Common.Path.Editor
     _guid: 
     AssemblyGUID: 
     _argNames:
     - U
     - T
-  - _typeNameAndAssembly: UnityEditor.U2D.Path.ScriptableData`1, Unity.2D.Path.Editor
+  - _typeNameAndAssembly: UnityEditor.U2D.Common.Path.GenericScriptablePath`1, Unity.2D.Common.Path.Editor
     _guid: 
     AssemblyGUID: 
     _argNames:
@@ -143,6 +163,22 @@ MonoBehaviour:
     - T
   - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.ScriptableData`1,
       Unity.RenderPipelines.Universal.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: Cinemachine.Editor.CinemachineVirtualCameraBaseEditor`1,
+      com.unity.cinemachine.editor
+    _guid: 211d719bb25901043833928f50e9d0ea
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: Cinemachine.Editor.BaseEditor`1, com.unity.cinemachine.editor
+    _guid: 15ef94834d9e4aa44ac8fe619843346b
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.Rendering.PostProcessing.BaseEditor`1, Assembly-CSharp-Editor
     _guid: 
     AssemblyGUID: 
     _argNames:
