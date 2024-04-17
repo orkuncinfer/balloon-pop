@@ -22,7 +22,7 @@ using UnityEngine;
         public void Shoot(Projectile projectile, Transform target, float projectileSpeed,
             ShotType shotType = ShotType.MOST_DIRECT, bool isSpinning = false)
         {
-            Debug.Log("shooted33");
+            DDebug.Log("shooted33");
             projectile.gameObject.layer = gameObject.layer;
             Vector3 position = _spawnPoint.position;
             projectile.transform.SetPositionAndRotation(position, Quaternion.LookRotation(target.position - position));

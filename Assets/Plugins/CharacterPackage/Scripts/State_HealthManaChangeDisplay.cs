@@ -4,10 +4,15 @@ using Core;
 using StatSystem;
 using UnityEngine;
 
-public class State_HealthManaDisplay : MonoState
+public class State_HealthManaChangeDisplay : MonoState
 {
     private StatController _statController;
     [SerializeField] private GameObject _floatingTextPrefab;
+
+    [SerializeField] private Color _healColor;
+    [SerializeField] private Color _damageColor;
+    
+    
     protected override void OnEnter()
     {
         base.OnEnter();
@@ -56,12 +61,12 @@ public class State_HealthManaDisplay : MonoState
         int value = arg2 - arg1;
         if (value > 0)
         {
-            floatingText.Set("+" + value.ToString(),Color.green);
+            floatingText.Set("+" + value.ToString(),_healColor);
             floatingText.Animate();
         }
         else
         {
-            floatingText.Set(value.ToString(),Color.red);
+            floatingText.Set(value.ToString(),_damageColor);
             floatingText.Animate();
         }
     }

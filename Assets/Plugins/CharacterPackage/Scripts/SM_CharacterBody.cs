@@ -31,15 +31,13 @@ public class SM_CharacterBody : ActorStateMachine
 
     private void OnGameplayTagAdded(GameplayTag obj)
     {
-        Debug.Log("state ability tag added" + obj.FullTag);
         if (obj.Matches(AbilityStateTag))
         {
-            Debug.Log("state ability tag matched" + obj.FullTag);
             _shouldUseAbility = true;
         }
         else
         {
-            Debug.Log("state ability tag no match" + obj.FullTag);
+            // no match
         }
     }
 

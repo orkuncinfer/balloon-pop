@@ -26,12 +26,12 @@ public class SM_CharacterLifeCycle : ActorStateMachine
 
     private bool AbilityToAlive()
     {
-        return !_dataPlayer.Data.TagController.Contains(AbilityStateTag.FullTag);
+        return !_dataPlayer.Data.TagController.Matches(AbilityStateTag);
     }
 
 
     private bool AliveToAbility()
     {
-        return _dataPlayer.Data.TagController.Contains(AbilityStateTag.FullTag);
+        return _dataPlayer.Data.TagController.Matches(AbilityStateTag);
     }
 }

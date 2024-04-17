@@ -16,7 +16,7 @@ public class State_HandleEquipment : MonoState
 
     private void OnEquipmentPrefabChanged(GameObject arg1, GameObject arg2)
     {
-        Debug.Log("equipment changed");
+        DDebug.Log("equipment changed");
         _equipmentData.EquipmentInstance.GetComponent<GOPoolMember>().ReturnToPool();
         
         EquipCurrent();
@@ -29,5 +29,10 @@ public class State_HandleEquipment : MonoState
         _equipmentData.EquipmentInstance.transform.SetParent(Owner.GetSocket(_equipmentData.SocketName));
         _equipmentData.EquipmentInstance.transform.localPosition = Vector3.zero;
         _equipmentData.EquipmentInstance.transform.localEulerAngles = Vector3.zero;
+
+        if (_equipmentData.EquipmentInstance.TryGetComponent(out Weapon weapon))
+        {
+            weapon.Owner = Owner;
+        }
     }
 }

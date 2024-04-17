@@ -237,8 +237,30 @@
                 },
                 {
                     "name": "",
+                    "id": "4e83b6b7-0a7c-43f9-ae29-67da0b745714",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability-1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "0dbd86ed-985f-4ccf-b2fd-2fd02ac091e8",
                     "path": "<Touchscreen>/touch2/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability-2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "164fcc7e-6c9b-4f3b-85a4-2d3b65f8be57",
+                    "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

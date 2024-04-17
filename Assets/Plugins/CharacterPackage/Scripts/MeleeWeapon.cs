@@ -15,7 +15,6 @@ public class MeleeWeapon : Weapon
     {
         Vector3 worldCenter = Collider.transform.TransformPoint(Collider.center);
         Vector3 worldHalfExtents = Collider.size * 0.5f; // only necessary when collider is scaled by non-uniform transform
-        Vector3 direction = transform.forward; // Assuming you're casting in the GameObject's forward direction
         float maxDistance = 10f; // Max distance for the cast
         RaycastHit hitInfo;
 
@@ -27,7 +26,8 @@ public class MeleeWeapon : Weapon
 
         for (int i = 0; i < numColliders; i++)
         {
-            Debug.Log("Hit : " + hitColliders[i].name + i);
+            if(hitColliders[i].transform == Owner.transform) continue;
+            //DDebug.Log("Hit : " + hitColliders[i].name + i);
             onHit?.Invoke(hitColliders[i]);
         }
         // ExtDebug.DrawBox(center,halfExtents,transform.rotation,Color.red);
