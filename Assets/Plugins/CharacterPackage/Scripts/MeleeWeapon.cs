@@ -28,7 +28,10 @@ public class MeleeWeapon : Weapon
         {
             if(hitColliders[i].transform == Owner.transform) continue;
             //DDebug.Log("Hit : " + hitColliders[i].name + i);
-            onHit?.Invoke(hitColliders[i]);
+            if(hitColliders[i].transform.TryGetComponent(out Actor actor))
+            {
+                onHit?.Invoke(hitColliders[i]);
+            }
         }
         // ExtDebug.DrawBox(center,halfExtents,transform.rotation,Color.red);
     

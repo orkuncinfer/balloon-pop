@@ -263,7 +263,6 @@ GameObject:
   m_Component:
   - component: {fileID: 565596521780665427}
   - component: {fileID: 1626169084493208979}
-  - component: {fileID: 7916588792831613500}
   m_Layer: 0
   m_Name: SaveManager
   m_TagString: Untagged
@@ -299,30 +298,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SaveData: {fileID: 11400000, guid: 8d9642a181c6fc047889d7ea12e1c6e7, type: 2}
---- !u!114 &7916588792831613500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2751943403701377506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99e3b0fb185053e42b8442a0ebfa8b8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tag:
-    fullTag: Status.Poison
-    tagHierarchy:
-    - Status
-    - Status.Poison
-    HashCode: 51266778-e8cb-40c5-86d8-927e37f3dd39
-  tag2:
-    fullTag: Immunity.Poison
-    tagHierarchy:
-    - Immunity
-    - Immunity.Poison
-    HashCode: 331ea717-399f-4bc6-8ed3-d1f7f01d85ad
 --- !u!1 &3723082014021291832
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,8 +839,7 @@ MonoBehaviour:
   m_AnimatedTarget: {fileID: 0}
   m_LayerIndex: 0
   m_ShowDebugText: 0
-  m_ChildCameras:
-  - {fileID: 1658212570993119039}
+  m_ChildCameras: []
   m_Instructions: []
   m_DefaultBlend:
     m_Style: 1

@@ -118,8 +118,14 @@ MonoBehaviour:
   Panels:
   - PanelId: Completed
     PanelPrefab: {fileID: 8344619639409629626, guid: 1e2ceda6f22b23449b2afedb92dd4972, type: 3}
+    IsAdditive: 0
   - PanelId: Gameplay
     PanelPrefab: {fileID: 8649069807766009267, guid: ee9015b471030484aaf2c2b4ad3c233d, type: 3}
+    IsAdditive: 0
   - PanelId: Failed
     PanelPrefab: {fileID: 140204668184401453, guid: ec6f88ad354b2334584c704cf12523b5, type: 3}
+    IsAdditive: 0
+  - PanelId: IngameInventory
+    PanelPrefab: {fileID: 8344619639409629626, guid: c794a7326674467459d2a130ed5e28d6, type: 3}
+    IsAdditive: 1
   _currentPanel: {fileID: 0}

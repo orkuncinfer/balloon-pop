@@ -189,6 +189,7 @@ Transform:
   m_Children:
   - {fileID: 2431236345066893562}
   - {fileID: 5101902774224673633}
+  - {fileID: 6551588936732063077}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8709743846803308276
@@ -264,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1057846cc6b242268d78cb272fd3f912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initLevel: 1
+  _level: 1
   m_CurrentExperience: 0
   m_RequiredExperienceFormula: {fileID: 11400000, guid: c3a719c29e4e31f488f0ece83e9bccc9, type: 2}
 --- !u!54 &8774349267527388585
@@ -504,6 +505,7 @@ MonoBehaviour:
         EffectController: {fileID: 6773500608851670926}
         StatController: {fileID: 8517090838785524529}
         TagController: {fileID: 5274133919373567049}
+        LevelController: {fileID: 5701260258647879609}
 --- !u!114 &2281015456273405078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,6 +634,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
+--- !u!1 &8004522158987883055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6551588936732063077}
+  m_Layer: 0
+  m_Name: GAS_Module
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6551588936732063077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8004522158987883055}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 563464831144762664}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8197100707211586686
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "451855103079",
+    "project_id": "templateproject-174cf",
+    "storage_bucket": "templateproject-174cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451855103079:android:131571f9b74a98f0bc90c2",
+        "android_client_info": {
+          "package_name": "com.mushigames.templateproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQw9IHcvvRY3dav5G05HyosfoZTCrFxm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

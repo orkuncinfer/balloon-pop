@@ -85,6 +85,10 @@ PrefabInstance:
       propertyPath: m_BlockingMask.m_Bits
       value: 55
       objectReference: {fileID: 0}
+    - target: {fileID: 2542959605112962930, guid: 11bdcb244cc660b4c9e5ad83ab9ce736, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5402710228858723547, guid: 11bdcb244cc660b4c9e5ad83ab9ce736, type: 3}
       propertyPath: m_Name
       value: BarCanvas
@@ -174,15 +178,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11bdcb244cc660b4c9e5ad83ab9ce736, type: 3}
---- !u!114 &4057243962704847122 stripped
+--- !u!114 &326138243205895909 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2658619313750137554, guid: 11bdcb244cc660b4c9e5ad83ab9ce736, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1742265012740304165, guid: 11bdcb244cc660b4c9e5ad83ab9ce736, type: 3}
   m_PrefabInstance: {fileID: 2065861184360233920}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59565b2839944951bca62bc6c30df7f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 23cd919b9a574fe697585712655bf24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &5895160924553746976 stripped
@@ -321,7 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
-  _redirectTo: {fileID: 4057243962704847122}
+  _redirectTo: {fileID: 326138243205895909}
 --- !u!114 &3983535027383559163 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8517090838785524529, guid: 50dfdb3525e27a14dacf6c16859d7e54, type: 3}
