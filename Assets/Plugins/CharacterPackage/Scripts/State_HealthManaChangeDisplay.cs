@@ -11,13 +11,13 @@ public class State_HealthManaChangeDisplay : MonoState
 
     [SerializeField] private Color _healColor;
     [SerializeField] private Color _damageColor;
-    
-    
+
+    [SerializeField] private Data_GAS _gasData;
     protected override void OnEnter()
     {
         base.OnEnter();
-        _statController = Owner.GetComponent<StatController>();
-        
+        _gasData = Owner.GetData<Data_GAS>();
+        _statController = _gasData.StatController;
         if(_statController.Stats.TryGetValue("Health", out Stat healthStat))
         {
             if (healthStat is Attribute attribute)

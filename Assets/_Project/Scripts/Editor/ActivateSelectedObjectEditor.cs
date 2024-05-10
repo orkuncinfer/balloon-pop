@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(ActivateSelectedObject))]
-public class ActivateSelectedObjectEditor : Editor
+public class ActivateSelectedObjectEditor : UnityEditor.Editor
 {
     private ActivateSelectedObject selectedObject;
     public override void OnInspectorGUI()

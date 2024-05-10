@@ -9,29 +9,31 @@ public class SM_CharacterLifeCycle : ActorStateMachine
     [SerializeField] private MonoState _revive;
     
     [SerializeField] private GameplayTag AbilityStateTag;
-    [SerializeField] private DataGetter<Data_Player> _dataPlayer;
+ 
+    [SerializeField] private Data_Living _livingData;
     
     protected override MonoState _initialState => _alive;
 
     protected override void OnEnter()
     {
         base.OnEnter();
-        _dataPlayer.GetData();
+        _livingData = Owner.GetData<Data_Living>();
     }
 
     public override void OnRequireAddTransitions()
     {
-        
+        AddTransition(_alive,_dead, AliveToDead);
     }
 
-    private bool AbilityToAlive()
+    private bool AliveToDead()
     {
-        return !_dataPlayer.Data.TagController.Matches(AbilityStateTag);
+        if(_livingData.ShouldDieTrigger)
+        {
+            _livingData.ShouldDieTrigger = false;
+            return true;
+        }
+
+        return false;
     }
 
-
-    private bool AliveToAbility()
-    {
-        return _dataPlayer.Data.TagController.Matches(AbilityStateTag);
-    }
 }

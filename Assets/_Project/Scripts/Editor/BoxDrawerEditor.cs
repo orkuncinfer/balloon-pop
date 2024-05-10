@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(BoxDrawer))]
-public class BoxDrawerEditor : Editor
+public class BoxDrawerEditor : UnityEditor.Editor
 {
     void OnSceneGUI()
     {

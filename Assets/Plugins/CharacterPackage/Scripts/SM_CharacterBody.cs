@@ -11,12 +11,14 @@ public class SM_CharacterBody : ActorStateMachine
     protected override MonoState _initialState => _grounded;
     
     TagController _tagController;
+    private Data_GAS _gasData;
     private bool _shouldUseAbility;
 
     protected override void OnEnter()
     {
         base.OnEnter();
-        _tagController = Owner.GetComponent<TagController>();
+        _gasData = Owner.GetData<Data_GAS>();
+        _tagController = _gasData.TagController;
         _tagController.onGameplaytagAdded += OnGameplayTagAdded;
         _tagController.onGameplaytagRemoved += OnGameplayTagRemoved;
     }

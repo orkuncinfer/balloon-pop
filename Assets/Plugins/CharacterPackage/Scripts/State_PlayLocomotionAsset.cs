@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class State_PlayLocomotionAsset : MonoState
 {
-    [SerializeField] private LinearMixerTransitionAsset Asset;
+    [SerializeField] private DataGetter<Data_RefVar> _locomotionAsset;
     private Character _character;
     
     private Data_Animancer _dataAnimancer;
@@ -16,8 +16,10 @@ public class State_PlayLocomotionAsset : MonoState
         base.OnEnter();
         _character = Owner.GetComponent<Character>();
         _dataAnimancer = Owner.GetData<Data_Animancer>();
+        _locomotionAsset.GetData(Owner);
         
-        _dataAnimancer.AnimancerComponent.Play(Asset);
+        LinearMixerTransitionAsset asset = (LinearMixerTransitionAsset) _locomotionAsset.Data.Reference;
+        _dataAnimancer.AnimancerComponent.Play(asset);
 
        
     }
