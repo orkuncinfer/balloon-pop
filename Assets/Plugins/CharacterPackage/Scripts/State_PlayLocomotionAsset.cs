@@ -18,7 +18,7 @@ public class State_PlayLocomotionAsset : MonoState
         _dataAnimancer = Owner.GetData<Data_Animancer>();
         _locomotionAsset.GetData(Owner);
         
-        LinearMixerTransitionAsset asset = (LinearMixerTransitionAsset) _locomotionAsset.Data.Reference;
+        LinearMixerTransitionAsset asset = (LinearMixerTransitionAsset) _locomotionAsset.Data.Value;
         _dataAnimancer.AnimancerComponent.Play(asset);
 
        

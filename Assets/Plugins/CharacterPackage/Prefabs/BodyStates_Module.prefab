@@ -61,7 +61,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
-  Asset: {fileID: 11400000, guid: 368947fa572fb514eb1b2ad1c42e8ef9, type: 2}
   _locomotionAsset:
     Key: {fileID: 11400000, guid: 39f79a05a3ea4d2429a5099721ae3d2e, type: 2}
     From: 1
@@ -146,18 +145,18 @@ MonoBehaviour:
   Description: Locomotion
   ChangeName: Locomotion
   Datas:
-  - rid: 3860127133563617284
+  - rid: 3860127184013754369
   references:
     version: 2
     RefIds:
-    - rid: 3860127133563617284
+    - rid: 3860127184013754369
       type: {class: Data_RefVar, ns: , asm: Assembly-CSharp-firstpass}
       data:
         IsGlobal: 0
         UseKey: 1
         DataKey: {fileID: 11400000, guid: 39f79a05a3ea4d2429a5099721ae3d2e, type: 2}
         OwnerActor: {fileID: 0}
-        _reference: {fileID: 11400000, guid: 368947fa572fb514eb1b2ad1c42e8ef9, type: 2}
+        _value: {fileID: 11400000, guid: 368947fa572fb514eb1b2ad1c42e8ef9, type: 2}
 --- !u!1 &4949499734420387882
 GameObject:
   m_ObjectHideFlags: 0

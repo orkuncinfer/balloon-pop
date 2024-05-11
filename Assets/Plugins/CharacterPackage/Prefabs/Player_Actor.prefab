@@ -95,6 +95,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4985143496754328954, guid: 47db6d04bd5c47e4bac85980213a33fc, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985143496754328954, guid: 47db6d04bd5c47e4bac85980213a33fc, type: 3}
       propertyPath: m_Name
       value: GAS_ModulePlayer
       objectReference: {fileID: 0}
@@ -116,10 +120,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1724676043800231173, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
-      propertyPath: comps.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3088911046572383347, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
       propertyPath: ChangeName
       value: 13232
@@ -180,6 +180,10 @@ PrefabInstance:
       propertyPath: ActionAsset
       value: 
       objectReference: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
+    - target: {fileID: 7208237998808775816, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7208237998808775816, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
       propertyPath: m_Name
       value: Player_Actor
