@@ -4,5 +4,11 @@ using UnityEngine;
 
 public class Data_Monster : Data
 {
-    [SerializeField] private MonsterDefinition _monsterDefinition;
+    [SerializeField]
+    private MonsterDefinition _definition; 
+    public MonsterDefinition Definition 
+    {
+        get => _definition;
+        set => _definition = value;
+    }
 }

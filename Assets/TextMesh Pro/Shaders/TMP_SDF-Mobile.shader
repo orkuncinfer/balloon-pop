@@ -54,12 +54,11 @@ Properties {
 }
 
 SubShader {
-	Tags
-	{
-		"Queue"="Transparent"
-		"IgnoreProjector"="True"
-		"RenderType"="Transparent"
-	}
+	Tags {
+        "Queue" = "Overlay+1" // Changed from "Transparent" to ensure it is on top
+        "IgnoreProjector" = "True"
+        "RenderType" = "Transparent"
+    }
 
 
 	Stencil
@@ -72,12 +71,12 @@ SubShader {
 	}
 
 	Cull [_CullMode]
-	ZWrite Off
-	Lighting Off
-	Fog { Mode Off }
-	ZTest [unity_GUIZTestMode]
-	Blend One OneMinusSrcAlpha
-	ColorMask [_ColorMask]
+    ZWrite Off
+    Lighting Off
+    Fog { Mode Off }
+    ZTest Always // Changed to Always to ensure rendering on top
+    Blend One OneMinusSrcAlpha
+    ColorMask [_ColorMask]
 
 	Pass {
 		CGPROGRAM

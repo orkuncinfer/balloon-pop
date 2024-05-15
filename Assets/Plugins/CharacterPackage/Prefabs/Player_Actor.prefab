@@ -124,6 +124,42 @@ PrefabInstance:
       propertyPath: ChangeName
       value: 13232
       objectReference: {fileID: 0}
+    - target: {fileID: 3088911046572383347, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+      propertyPath: Datas.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088911046572383347, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+      propertyPath: Datas.Array.data[3]
+      value: 3860127242074193936
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088911046572383347, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+      propertyPath: managedReferences[3860127242074193936]
+      value: Assembly-CSharp-firstpass Data_Monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088911046572383347, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+      propertyPath: managedReferences[3860127242074193936].UseKey
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088911046572383347, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+      propertyPath: managedReferences[3860127242074193936].DataKey
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088911046572383347, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+      propertyPath: managedReferences[3860127242074193936].IsGlobal
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088911046572383347, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+      propertyPath: managedReferences[3860127242074193936].OwnerActor
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088911046572383347, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+      propertyPath: managedReferences[3860127242074193936]._definition
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088911046572383347, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+      propertyPath: managedReferences[3860127242074193936]._monsterDefinition
+      value: 
+      objectReference: {fileID: 11400000, guid: 1eeeeb34f4f58794690c6c043fdd922d, type: 2}
     - target: {fileID: 4153916582480092734, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
       propertyPath: _initialTags.Array.size
       value: 1
