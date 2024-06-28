@@ -148,11 +148,11 @@ GameObject:
   m_Component:
   - component: {fileID: 563464831144762664}
   - component: {fileID: 8709743846803308276}
-  - component: {fileID: 8774349267527388585}
-  - component: {fileID: 1552983450168105441}
   - component: {fileID: 1607448033958173341}
   - component: {fileID: 2123839152688426411}
   - component: {fileID: 1209880465961813417}
+  - component: {fileID: 8774349267527388585}
+  - component: {fileID: 1552983450168105441}
   m_Layer: 0
   m_Name: LivingBase_Actor
   m_TagString: Untagged
@@ -194,56 +194,6 @@ MonoBehaviour:
   _initialTags: []
   _initialState: {fileID: 7317867615134314451}
   _poolMember: {fileID: 0}
---- !u!54 &8774349267527388585
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2698318884401208386}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!136 &1552983450168105441
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2698318884401208386}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &1607448033958173341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +304,56 @@ MonoBehaviour:
   _pushForceScale: 1
   _standingDownwardForceScale: 1
   _camera: {fileID: 0}
+--- !u!54 &8774349267527388585
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698318884401208386}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &1552983450168105441
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698318884401208386}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5212766378399164247
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,8 +402,7 @@ MonoBehaviour:
   Description: Character
   ChangeName: Character
   Datas:
-  - rid: 4448694695146815592
-  - rid: 4448694695146815747
+  - rid: 8209950300375875609
   - rid: 3860127108524146689
   references:
     version: 2
@@ -414,25 +413,16 @@ MonoBehaviour:
         IsGlobal: 0
         UseKey: 0
         DataKey: {fileID: 0}
+        ProgressBar: 100
         OwnerActor: {fileID: 0}
         _shouldDietrigger: 0
-    - rid: 4448694695146815592
-      type: {class: Data_Player, ns: , asm: Assembly-CSharp-firstpass}
-      data:
-        IsGlobal: 1
-        UseKey: 1
-        DataKey: {fileID: 11400000, guid: 9a2d0557cae4eee4785971131622a812, type: 2}
-        OwnerActor: {fileID: 0}
-        AbilityController: {fileID: 0}
-        GEffectController: {fileID: 0}
-        StatController: {fileID: 0}
-        TagController: {fileID: 0}
-    - rid: 4448694695146815747
+    - rid: 8209950300375875609
       type: {class: Data_Character, ns: , asm: Assembly-CSharp-firstpass}
       data:
         IsGlobal: 0
         UseKey: 0
         DataKey: {fileID: 0}
+        ProgressBar: 100
         OwnerActor: {fileID: 0}
         Movement: {fileID: 1607448033958173341}
         MovementInput: {fileID: 2123839152688426411}
@@ -462,6 +452,7 @@ MonoBehaviour:
         IsGlobal: 0
         UseKey: 1
         DataKey: {fileID: 11400000, guid: 88df2921f43af974d8e72e025c2f03bf, type: 2}
+        ProgressBar: 100
         OwnerActor: {fileID: 0}
         _abilityDefinition: {fileID: 11400000, guid: 9cebe87f2c0fc554189e396be762c199, type: 2}
     - rid: 4448694695146815620
@@ -470,6 +461,7 @@ MonoBehaviour:
         IsGlobal: 0
         UseKey: 1
         DataKey: {fileID: 11400000, guid: 37901bcc6d6c73f449f83ae5731e5b15, type: 2}
+        ProgressBar: 100
         OwnerActor: {fileID: 0}
         _abilityDefinition: {fileID: 11400000, guid: 3355855094e52d845a16e204eef14050, type: 2}
 --- !u!1 &7630399742836939037
