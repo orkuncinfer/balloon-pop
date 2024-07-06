@@ -931,4 +931,5 @@ MonoBehaviour:
         UseKey: 0
         DataKey: {fileID: 0}
         OwnerActor: {fileID: 0}
+        IsInstalled: 0
         _currentCamera: {fileID: 1658212570993119039}

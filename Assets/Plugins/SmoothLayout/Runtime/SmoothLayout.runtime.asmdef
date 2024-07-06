@@ -1,0 +1,16 @@
+{
+    "name": "SmoothLayout.runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2880e01edae07e74db9800628907378b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

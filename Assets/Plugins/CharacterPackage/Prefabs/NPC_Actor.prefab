@@ -204,7 +204,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 563464831144762664, guid: 50dfdb3525e27a14dacf6c16859d7e54, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.07
+      value: -4.08
       objectReference: {fileID: 0}
     - target: {fileID: 563464831144762664, guid: 50dfdb3525e27a14dacf6c16859d7e54, type: 3}
       propertyPath: m_LocalPosition.y
@@ -212,23 +212,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 563464831144762664, guid: 50dfdb3525e27a14dacf6c16859d7e54, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.37
+      value: 3.86
       objectReference: {fileID: 0}
     - target: {fileID: 563464831144762664, guid: 50dfdb3525e27a14dacf6c16859d7e54, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.31061918
       objectReference: {fileID: 0}
     - target: {fileID: 563464831144762664, guid: 50dfdb3525e27a14dacf6c16859d7e54, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 563464831144762664, guid: 50dfdb3525e27a14dacf6c16859d7e54, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.95053446
       objectReference: {fileID: 0}
     - target: {fileID: 563464831144762664, guid: 50dfdb3525e27a14dacf6c16859d7e54, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 563464831144762664, guid: 50dfdb3525e27a14dacf6c16859d7e54, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -236,7 +236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 563464831144762664, guid: 50dfdb3525e27a14dacf6c16859d7e54, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -143.807
       objectReference: {fileID: 0}
     - target: {fileID: 563464831144762664, guid: 50dfdb3525e27a14dacf6c16859d7e54, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -323,8 +323,8 @@ MonoBehaviour:
         IsGlobal: 0
         UseKey: 0
         DataKey: {fileID: 0}
-        ProgressBar: 50
         OwnerActor: {fileID: 0}
+        IsInstalled: 0
         _definition: {fileID: 11400000, guid: 1eeeeb34f4f58794690c6c043fdd922d, type: 2}
 --- !u!1 &2926834931798211031 stripped
 GameObject:
@@ -345,6 +345,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
+  _onMobKilled:
+    _addressType: 16
+    _eventKey: {fileID: 11400000, guid: 38e444d1567cd5140931875a8e1c9d3a, type: 2}
 --- !u!1 &3436327559896216848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7983436607677126106, guid: 50dfdb3525e27a14dacf6c16859d7e54, type: 3}

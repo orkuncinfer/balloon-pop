@@ -1,0 +1,16 @@
+{
+    "name": "SmoothLayout.editor",
+    "rootNamespace": "",
+    "references": ["GUID:7d9ae3c372637e04cbdbf36b55ebf841"],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
