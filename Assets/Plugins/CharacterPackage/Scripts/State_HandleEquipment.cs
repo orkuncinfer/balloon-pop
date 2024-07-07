@@ -24,7 +24,7 @@ public class State_HandleEquipment : MonoState
     
     private void EquipCurrent()
     {
-        _equipmentData.EquipmentInstance = GOPoolProvider.Retrieve(_equipmentData.EquipmentPrefab, Vector3.zero, Quaternion.identity);
+        _equipmentData.EquipmentInstance = PoolProvider.Retrieve(_equipmentData.EquipmentPrefab, Vector3.zero, Quaternion.identity);
         
         _equipmentData.EquipmentInstance.transform.SetParent(Owner.GetSocket(_equipmentData.SocketName));
         _equipmentData.EquipmentInstance.transform.localPosition = Vector3.zero;

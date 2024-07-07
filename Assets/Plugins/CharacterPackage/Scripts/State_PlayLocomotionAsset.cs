@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class State_PlayLocomotionAsset : MonoState
 {
-    [SerializeField] private DataGetter<Data_RefVar> _locomotionAsset;
+    [SerializeField] private DSGetter<Data_RefVar> _locomotionAsset;
     private Character _character;
     
     private Data_Animancer _dataAnimancer;
