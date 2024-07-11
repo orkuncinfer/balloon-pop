@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6db90f1c0c896d48bdb75d58952248a, type: 3}
+  m_Name: Preferences
+  m_EditorClassIdentifier: 
+  selectedTabIndex: 1
+  historyItemsMax: 20
+  history:
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-1302157909-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-1063792841-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-1140084869-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-470753819-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-1759700976-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-1481119014-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-295963322-0
+  favorites:
+  - context: 2
+    title: BalloonPop
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-0-00000000000000000000000000000000-0-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 102900000, guid: 86bff2b66d87b0a4982c9fde4ab2ad61, type: 3}
+    objectGuid: GlobalObjectId_V1-1-86bff2b66d87b0a4982c9fde4ab2ad61-102900000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 102900000, guid: 13406debcff0ad74ca6b91518cc02592, type: 3}
+    objectGuid: GlobalObjectId_V1-1-13406debcff0ad74ca6b91518cc02592-102900000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 102900000, guid: b3bb126da10f7f74f800eb12d917f1ff, type: 3}
+    objectGuid: GlobalObjectId_V1-1-b3bb126da10f7f74f800eb12d917f1ff-102900000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 102900000, guid: 8a4b26afcbe54cd45939296c04f87401, type: 3}
+    objectGuid: GlobalObjectId_V1-1-8a4b26afcbe54cd45939296c04f87401-102900000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 102900000, guid: 0efdcd0a9f6f57b4db94b80ea1c4f473, type: 3}
+    objectGuid: GlobalObjectId_V1-1-0efdcd0a9f6f57b4db94b80ea1c4f473-102900000-0
+  - context: 2
+    title: _Project
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-0-00000000000000000000000000000000-0-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 102900000, guid: b475cd6a2b53ebc4d89553373a5c0e63, type: 3}
+    objectGuid: GlobalObjectId_V1-1-b475cd6a2b53ebc4d89553373a5c0e63-102900000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 102900000, guid: e3db6216e11dd4742bea9f1f02f961c4, type: 3}
+    objectGuid: GlobalObjectId_V1-1-e3db6216e11dd4742bea9f1f02f961c4-102900000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 102900000, guid: 9bb69450fe2d8384d98a2ee98bb24bbe, type: 3}
+    objectGuid: GlobalObjectId_V1-1-9bb69450fe2d8384d98a2ee98bb24bbe-102900000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 102900000, guid: 131a6b21c8605f84396be9f6751fb6e3, type: 3}
+    objectGuid: GlobalObjectId_V1-1-131a6b21c8605f84396be9f6751fb6e3-102900000-0
+  - context: 2
+    title: Scene
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-0-00000000000000000000000000000000-0-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-8567789084366124670-995163632

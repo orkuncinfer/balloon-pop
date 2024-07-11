@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -485,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4bdfe5023824447b245829bfaa7d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerData:
+  _playerDS:
     Key: {fileID: 11400000, guid: 9a2d0557cae4eee4785971131622a812, type: 2}
     From: 0
     _retrievedData:
@@ -2825,6 +2824,14 @@ PrefabInstance:
       propertyPath: TestAbility
       value: 
       objectReference: {fileID: 11400000, guid: 9cebe87f2c0fc554189e396be762c199, type: 2}
+    - target: {fileID: 2206005825451645798, guid: 4c66f491bca2c3b40967abab12494c5a, type: 3}
+      propertyPath: managedReferences[4448694695146815619].DataKey
+      value: Ability_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2206005825451645798, guid: 4c66f491bca2c3b40967abab12494c5a, type: 3}
+      propertyPath: managedReferences[4448694695146815620].DataKey
+      value: Ability_2
+      objectReference: {fileID: 0}
     - target: {fileID: 2614585179637846962, guid: 4c66f491bca2c3b40967abab12494c5a, type: 3}
       propertyPath: m_Name
       value: Player_Actor
@@ -3618,7 +3625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2776dfb9c2af7a344af090606ce9066c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerData:
+  _playerDS:
     Key: {fileID: 11400000, guid: 9a2d0557cae4eee4785971131622a812, type: 2}
     From: 0
     _retrievedData:
@@ -4709,7 +4716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActorID: 
-  BeginOnStart: 0
+  StartMethod: 0
   _initialTags: []
   _initialState: {fileID: 0}
   _poolMember: {fileID: 0}

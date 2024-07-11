@@ -9,6 +9,7 @@ public class State_RaiseEvent : MonoState
     protected override void OnEnter()
     {
         base.OnEnter();
+        Debug.Log("State_RaiseEvent OnEnter");
         _eventField.Raise(null);
     }
 }
