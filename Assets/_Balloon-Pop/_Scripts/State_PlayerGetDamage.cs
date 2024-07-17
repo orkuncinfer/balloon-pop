@@ -30,8 +30,7 @@ public class State_PlayerGetDamage : MonoState
             {
                 
             }
-            
-            balloon.PoolMember.ReturnToPool();
+            balloon.TakeDamage(999);
         }
     }
 }

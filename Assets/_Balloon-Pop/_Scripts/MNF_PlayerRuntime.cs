@@ -9,7 +9,7 @@ public class MNF_PlayerRuntime : DataManifest
     
     protected override Data[] InstallData()
     {
-        return new Data[] { _playerRuntime };
+        return new Data[] { _playerRuntime};
     }
     [Button]
     public void Test()
@@ -37,16 +37,9 @@ public class DS_PlayerRuntime : Data
         set => _inGameBuffs = value;
     }
 
-    public override void OnInstalled()
-    {
-        base.OnInstalled();
-        
-    }
-
     public override void OnActorStarted()
     {
         base.OnActorStarted();
-        Debug.Log("DS_PlayerRuntime OnInstalled0");
         GlobalData.SubscribeToDataInstalled(OnDataInstalledHandler, "", typeof(DS_PlayerPersistent));
         GlobalData.OnDataInstalled += data =>
         {
@@ -59,7 +52,6 @@ public class DS_PlayerRuntime : Data
 
     private void OnDataInstalledHandler(Data obj)
     {
-        Debug.Log("DS_PlayerRuntime OnInstalled");
         _currentHealth = GlobalData.GetData<DS_PlayerPersistent>().MaxHealth;
     }
 

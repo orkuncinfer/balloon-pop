@@ -28,7 +28,7 @@ public class State_SpawnEnemies : MonoState
       base.OnExit();
       foreach (var balloon in _spawnedBalloons)
       {
-         balloon.GetComponent<GOPoolMember>().ReturnToPool();
+         PoolManager.ReleaseObject(balloon);
       }
    }
 
@@ -57,10 +57,9 @@ public class State_SpawnEnemies : MonoState
          for (int j = 0; j < waveData.BoardHeight; j++)
          {
             if(waveData.BoardDropsDictionary.Get(new Vector2Int(i, j)) == null) continue;
-            GameObject go = PoolProvider.Retrieve(_balloonPrefab, new Vector3(i * _horizontalSpacing, j * _verticalSpacing, 0), Quaternion.identity);
-            if(!_spawnedBalloons.Contains(go)) _spawnedBalloons.Add(go);
             float xOffset = (_horizontalSpacing * (waveData.BoardWidth / 2f)) - _horizontalSpacing / 2f;
-            go.transform.position += new Vector3(-xOffset, 0, 0);
+            GameObject go = PoolManager.SpawnObject(_balloonPrefab, new Vector3((i * _horizontalSpacing) - xOffset, j * _verticalSpacing, 0), Quaternion.identity);
+            if(!_spawnedBalloons.Contains(go)) _spawnedBalloons.Add(go);
             go.transform.SetParent(transform);
          }
       }

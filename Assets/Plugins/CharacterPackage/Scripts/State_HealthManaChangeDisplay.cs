@@ -37,7 +37,7 @@ public class State_HealthManaChangeDisplay : MonoState
 
     private void OnManaChanged(int arg1, int arg2)
     {
-        GameObject instance = PoolProvider.Retrieve(_floatingTextPrefab,Owner.transform.position+ Vector3.up,Quaternion.identity);
+        GameObject instance = PoolManager.SpawnObject(_floatingTextPrefab,Owner.transform.position+ Vector3.up,Quaternion.identity);
         FloatingText floatingText = instance.GetComponent<FloatingText>();
 
         int value = arg2 - arg1;
@@ -55,7 +55,7 @@ public class State_HealthManaChangeDisplay : MonoState
 
     private void OnHealthChanged(int arg1, int arg2)
     {
-        GameObject instance = PoolProvider.Retrieve(_floatingTextPrefab,Owner.transform.position + Vector3.up * 2,Quaternion.identity);
+        GameObject instance = PoolManager.SpawnObject(_floatingTextPrefab,Owner.transform.position + Vector3.up * 2,Quaternion.identity);
         FloatingText floatingText = instance.GetComponent<FloatingText>();
 
         int value = arg2 - arg1;

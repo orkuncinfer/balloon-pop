@@ -17,14 +17,14 @@ public class State_HandleEquipment : MonoState
     private void OnEquipmentPrefabChanged(GameObject arg1, GameObject arg2)
     {
         DDebug.Log("equipment changed");
-        _equipmentData.EquipmentInstance.GetComponent<GOPoolMember>().ReturnToPool();
+        PoolManager.ReleaseObject(_equipmentData.EquipmentInstance);
         
         EquipCurrent();
     }
     
     private void EquipCurrent()
     {
-        _equipmentData.EquipmentInstance = PoolProvider.Retrieve(_equipmentData.EquipmentPrefab, Vector3.zero, Quaternion.identity);
+        _equipmentData.EquipmentInstance = PoolManager.SpawnObject(_equipmentData.EquipmentPrefab, Vector3.zero, Quaternion.identity);
         
         _equipmentData.EquipmentInstance.transform.SetParent(Owner.GetSocket(_equipmentData.SocketName));
         _equipmentData.EquipmentInstance.transform.localPosition = Vector3.zero;

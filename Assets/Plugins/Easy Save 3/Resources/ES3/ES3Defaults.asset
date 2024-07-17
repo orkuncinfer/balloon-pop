@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
     _location: 0
-    path: SaveFile.es3
+    path: SaveFile.save
     encryptionType: 0
     compressionType: 0
     encryptionPassword: password
@@ -40,13 +40,18 @@ MonoBehaviour:
     - ECM2
     - ECM2.Examples
     - ECM2.Walkthrough
+    - Flexalon
+    - Flexalon.Samples
     - Google.Play.Games
     - LeTai.TrueShadow
     - LeTai.TrueShadow.Demo
     - LiteNetLib
+    - SingularityGroup.HotReload.Runtime
+    - SingularityGroup.HotReload.Runtime.Public
     - SmoothLayout.runtime
     - StompyRobot.SRDebugger
     - StompyRobot.SRF
+    - UnityCommunity.UnitySingleton.Runtime
     showAdvancedSettings: 1
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

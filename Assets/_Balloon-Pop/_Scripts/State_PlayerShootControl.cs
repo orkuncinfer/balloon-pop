@@ -54,6 +54,6 @@ public class State_PlayerShootControl : MonoState
 
     private void Shoot()
     {
-        PoolProvider.Retrieve(_projectilePrefab, _shootPoint.position, Quaternion.identity);
+        PoolManager.SpawnObject(_projectilePrefab, _shootPoint.position, Quaternion.identity);
     }
 }
