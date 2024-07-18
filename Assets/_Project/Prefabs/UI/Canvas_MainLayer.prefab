@@ -127,6 +127,8 @@ MonoBehaviour:
     PanelPrefab: {fileID: 8344619639409629626, guid: c794a7326674467459d2a130ed5e28d6, type: 3}
   - PanelId: MainMenu
     PanelPrefab: {fileID: 4325773732780786145}
+  - PanelId: SelectLevel
+    PanelPrefab: {fileID: 8344619639409629626, guid: 74d61b9134d86e14393e4a823c95d440, type: 3}
   _currentPanel: {fileID: 0}
   _registerAsDefaultLayer: 1
 --- !u!1001 &1627897197997672592

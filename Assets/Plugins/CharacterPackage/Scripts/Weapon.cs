@@ -7,8 +7,8 @@ public class Weapon : MonoBehaviour
     public string id => m_Id;
     
     [SerializeField]
-    private Actor _owner; 
-    public Actor Owner 
+    private ActorBase _owner; 
+    public ActorBase Owner 
     {
         get => _owner;
         set => _owner = value;

@@ -46,9 +46,9 @@ MonoBehaviour:
     - LeTai.TrueShadow
     - LeTai.TrueShadow.Demo
     - LiteNetLib
+    - Nobi.UiRoundedCorners
     - SingularityGroup.HotReload.Runtime
     - SingularityGroup.HotReload.Runtime.Public
-    - SmoothLayout.runtime
     - StompyRobot.SRDebugger
     - StompyRobot.SRF
     - UnityCommunity.UnitySingleton.Runtime

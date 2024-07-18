@@ -185,7 +185,6 @@ GameObject:
   - component: {fileID: 2689277034116487190}
   - component: {fileID: 4347932691487197187}
   - component: {fileID: 3159287589490411415}
-  - component: {fileID: 8723665416168179528}
   m_Layer: 5
   m_Name: Panel_MainMenuTabs_Vertical
   m_TagString: Untagged
@@ -307,21 +306,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PanelId: 
   PanelInstance: {fileID: 0}
+  onShowComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideComplete:
+    m_PersistentCalls:
+      m_Calls: []
   FadeOutOnHide: 1
   FadeInOnShow: 0
---- !u!114 &8723665416168179528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3071261066355542385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2b055da640c6b14c87a8ffa1f59bd1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ReturnOnDisable: 1
 --- !u!1 &3853257482312196228
 GameObject:
   m_ObjectHideFlags: 0

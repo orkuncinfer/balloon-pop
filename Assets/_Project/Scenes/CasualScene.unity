@@ -1239,6 +1239,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8567789084366124645, guid: 404221e614e53704d84304df65491d32, type: 3}
+      propertyPath: Panels.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567789084366124645, guid: 404221e614e53704d84304df65491d32, type: 3}
+      propertyPath: Panels.Array.data[5].PanelId
+      value: SelectLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567789084366124645, guid: 404221e614e53704d84304df65491d32, type: 3}
+      propertyPath: Panels.Array.data[5].PanelPrefab
+      value: 
+      objectReference: {fileID: 8344619639409629626, guid: 74d61b9134d86e14393e4a823c95d440, type: 3}
     - target: {fileID: 8567789084366124670, guid: 404221e614e53704d84304df65491d32, type: 3}
       propertyPath: m_Name
       value: Canvas_MainLayer
@@ -1889,6 +1901,7 @@ MonoBehaviour:
     OwnerActor: {fileID: 0}
     IsInstalled: 0
     _currentLevelIndex: 0
+    _maxReachedLevel: 0
     _attackSpeed: 2
     _maxHealth: 10
     _lastTimeRewardCollected: 

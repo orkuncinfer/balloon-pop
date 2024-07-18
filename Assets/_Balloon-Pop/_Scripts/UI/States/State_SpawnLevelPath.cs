@@ -12,9 +12,11 @@ public class State_SpawnLevelPath : MonoState
     [SerializeField] private float _startY;
     private bool _spawned;
 
+    private DS_LevelSelection _levelSelection;
     protected override void OnEnter()
     {
         base.OnEnter();
+        _levelSelection = Owner.GetData<DS_LevelSelection>();
         if(_spawned) return;
         SpawnLevelPaths();
     }
@@ -25,16 +27,14 @@ public class State_SpawnLevelPath : MonoState
         for (int i = 0; i < pathCount; i++)
         {
             GameObject path = Instantiate(_pathPrefab, _pathParent);
-           /* RectTransform rectTransform = path.GetComponent<RectTransform>();
-            if(i == 0){rectTransform.localPosition = new Vector2(0, _startY);}
-            else
-            {
-                rectTransform.localPosition = new Vector2(0, _startY + (i * rectTransform.rect.height) + (i * _heightOffset));
-            }*/
-            
             LevelPath levelPath = path.GetComponent<LevelPath>();
             levelPath.StartLevelNumber = (i * _levelPerPath) + 1;
             levelPath.UpdateLevelNodes();
+
+            foreach (var node in levelPath.Nodes)
+            {
+                _levelSelection.LevelNodes.Add(node);
+            }
         }
         _spawned = true;
     }
