@@ -51,6 +51,8 @@ MonoBehaviour:
     - SingularityGroup.HotReload.Runtime.Public
     - StompyRobot.SRDebugger
     - StompyRobot.SRF
+    - Tayx.Graphy
+    - Unity Timer
     - UnityCommunity.UnitySingleton.Runtime
     showAdvancedSettings: 1
   addMgrToSceneAutomatically: 0
