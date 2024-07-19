@@ -1240,22 +1240,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8567789084366124645, guid: 404221e614e53704d84304df65491d32, type: 3}
-      propertyPath: Panels.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8567789084366124645, guid: 404221e614e53704d84304df65491d32, type: 3}
-      propertyPath: Panels.Array.data[5].PanelId
-      value: SelectLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 8567789084366124645, guid: 404221e614e53704d84304df65491d32, type: 3}
-      propertyPath: Panels.Array.data[5].PanelPrefab
+      propertyPath: Panels.Array.data[4].PanelPrefab
       value: 
-      objectReference: {fileID: 8344619639409629626, guid: 74d61b9134d86e14393e4a823c95d440, type: 3}
+      objectReference: {fileID: 3071261066355542385, guid: 0804616d5cda96b469b90d75fd85af6b, type: 3}
     - target: {fileID: 8567789084366124670, guid: 404221e614e53704d84304df65491d32, type: 3}
       propertyPath: m_Name
       value: Canvas_MainLayer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8036634612833832920, guid: 404221e614e53704d84304df65491d32, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
