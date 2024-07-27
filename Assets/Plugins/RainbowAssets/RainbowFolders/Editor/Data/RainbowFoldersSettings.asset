@@ -109,7 +109,7 @@ MonoBehaviour:
     SmallIcon: {fileID: 0}
     LargeIcon: {fileID: 0}
     IsIconRecursive: 0
-    BackgroundType: 0
+    BackgroundType: 200
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 0
   - Type: 0

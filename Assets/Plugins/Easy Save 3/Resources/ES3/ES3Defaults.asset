@@ -35,6 +35,7 @@ MonoBehaviour:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - Cinemachine
+    - DCFApixels.Notes
     - DOTween.Modules
     - DOTweenPro.Scripts
     - ECM2
@@ -52,6 +53,7 @@ MonoBehaviour:
     - StompyRobot.SRDebugger
     - StompyRobot.SRF
     - Tayx.Graphy
+    - UIEffect
     - Unity Timer
     - UnityCommunity.UnitySingleton.Runtime
     showAdvancedSettings: 1

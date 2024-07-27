@@ -15,34 +15,10 @@ MonoBehaviour:
   selectedTabIndex: 1
   historyItemsMax: 20
   history:
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-00000000000000000000000000000000-1590288086830777143-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-00000000000000000000000000000000-1135470606169209015-6299120382206487286
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-00000000000000000000000000000000-1590288086830777143-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-00000000000000000000000000000000-8344619639409629626-0
   - context: 1
     title: 
-    unityObject: {fileID: 8344619639409629626, guid: 74d61b9134d86e14393e4a823c95d440, type: 3}
-    objectGuid: GlobalObjectId_V1-1-74d61b9134d86e14393e4a823c95d440-8344619639409629626-0
-  - context: 1
-    title: 
-    unityObject: {fileID: 140204668184401453, guid: ec6f88ad354b2334584c704cf12523b5, type: 3}
-    objectGuid: GlobalObjectId_V1-1-ec6f88ad354b2334584c704cf12523b5-140204668184401453-0
-  - context: 1
-    title: 
-    unityObject: {fileID: 8344619639409629626, guid: 1e2ceda6f22b23449b2afedb92dd4972, type: 3}
-    objectGuid: GlobalObjectId_V1-1-1e2ceda6f22b23449b2afedb92dd4972-8344619639409629626-0
+    unityObject: {fileID: 11400000, guid: 309b00a6d122216498b8a0c30d8a5a74, type: 2}
+    objectGuid: GlobalObjectId_V1-3-309b00a6d122216498b8a0c30d8a5a74-11400000-0
   favorites:
   - context: 2
     title: BalloonPop
