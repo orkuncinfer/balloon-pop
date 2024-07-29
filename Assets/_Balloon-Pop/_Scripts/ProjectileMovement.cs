@@ -104,7 +104,7 @@ public class ProjectileDetectionState : MonoBehaviour
 
     private void CollidedWith(Collider2D collider, Vector2 hitPoint)
     {
-        Debug.Log($"Collided with {collider.gameObject.name} at {hitPoint} by {gameObject.name}");
+        //Debug.Log($"Collided with {collider.gameObject.name} at {hitPoint} by {gameObject.name}");
         if(_hitRegistry.Contains(collider.gameObject.GetInstanceID().ToString())) return;
 
         if (!_hasPierce)

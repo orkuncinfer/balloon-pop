@@ -12,7 +12,7 @@ public class State_SetCurrentLevelText : MonoState
         base.OnEnter();
         foreach (var text in LevelTexts)
         {
-            text.text = $"LEVEL {GlobalData.GetData<DS_PlayerPersistent>().CurrentLevelIndex + 1}";
+            text.text = $"LEVEL {GlobalData.GetData<DS_GameModePersistent>().CurrentLevelIndex + 1}";
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class LevelPath : MonoBehaviour
@@ -7,13 +8,13 @@ public class LevelPath : MonoBehaviour
     public LevelNode[] Nodes;
 
     public int StartLevelNumber;
-    public IntVar CurrentLevelIndexSO;
 
-    public void UpdateLevelNodes()
+    [Button]
+    public void UpdateLevelNodes(int currentLevelIndex)
     {
         for (int i = 0; i < Nodes.Length; i++)
         {
-            bool locked = CurrentLevelIndexSO.Value + 1 < StartLevelNumber + i;
+            bool locked = currentLevelIndex + 1 < StartLevelNumber + i;
             Nodes[i].SetLocked(locked);
             Nodes[i].SetLevelNumber(StartLevelNumber + i);
         }

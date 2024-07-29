@@ -15,10 +15,86 @@ MonoBehaviour:
   selectedTabIndex: 1
   historyItemsMax: 20
   history:
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-00000000000000000000000000000000-140204668184401453-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-0-00000000000000000000000000000000-0-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-00000000000000000000000000000000-140204668184401453-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-00000000000000000000000000000000-140204668043149281-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-0-00000000000000000000000000000000-0-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-00000000000000000000000000000000-140204668184401453-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-00000000000000000000000000000000-140204668043149281-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-00000000000000000000000000000000-140204668184401453-0
   - context: 1
     title: 
-    unityObject: {fileID: 11400000, guid: 309b00a6d122216498b8a0c30d8a5a74, type: 2}
-    objectGuid: GlobalObjectId_V1-3-309b00a6d122216498b8a0c30d8a5a74-11400000-0
+    unityObject: {fileID: 140204668184401453, guid: 0a919bc676b56c846a7eca794d037550, type: 3}
+    objectGuid: GlobalObjectId_V1-1-0a919bc676b56c846a7eca794d037550-140204668184401453-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-987207809-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-672654359-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-8567789083748486030-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-1642453131-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-1791942326-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-762901082-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-1791942326-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-762901082-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-1466604141-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: 922743c51339feb408bb77dea49b9e8f, type: 2}
+    objectGuid: GlobalObjectId_V1-3-922743c51339feb408bb77dea49b9e8f-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: 8e092d48b498d1048ba85fcb3fa63ad7, type: 2}
+    objectGuid: GlobalObjectId_V1-3-8e092d48b498d1048ba85fcb3fa63ad7-11400000-0
   favorites:
   - context: 2
     title: BalloonPop

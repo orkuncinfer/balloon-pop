@@ -125,8 +125,10 @@ MonoBehaviour:
   - PanelId: IngameInventory
     PanelPrefab: {fileID: 8344619639409629626, guid: c794a7326674467459d2a130ed5e28d6, type: 3}
   - PanelId: MainMenu
-    PanelPrefab: {fileID: 0}
+    PanelPrefab: {fileID: 3071261066355542385, guid: 0804616d5cda96b469b90d75fd85af6b, type: 3}
   - PanelId: SelectLevel
     PanelPrefab: {fileID: 8344619639409629626, guid: 74d61b9134d86e14393e4a823c95d440, type: 3}
+  - PanelId: Paused
+    PanelPrefab: {fileID: 140204668184401453, guid: 0a919bc676b56c846a7eca794d037550, type: 3}
   _currentPanel: {fileID: 0}
   _registerAsDefaultLayer: 1
