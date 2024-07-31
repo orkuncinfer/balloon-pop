@@ -122,6 +122,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &238719093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 238719094}
+  m_Layer: 0
+  m_Name: SpawnParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &238719094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238719093}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1063792842}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &243729576
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,8 +288,9 @@ GameObject:
   m_Component:
   - component: {fileID: 358526149}
   - component: {fileID: 358526150}
+  - component: {fileID: 358526151}
   m_Layer: 0
-  m_Name: GlobalDataInstaller
+  m_Name: Essentials
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,6 +324,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsTimeLodaed: 0
+--- !u!114 &358526151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358526147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 890c61de71da0f34ba6abab101fa3c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &373944115
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +440,7 @@ GameObject:
   - component: {fileID: 470753821}
   - component: {fileID: 470753820}
   - component: {fileID: 470753822}
+  - component: {fileID: 470753823}
   m_Layer: 0
   m_Name: State
   m_TagString: Untagged
@@ -426,7 +471,7 @@ Transform:
   m_GameObject: {fileID: 470753819}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 15.23, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -446,12 +491,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
-  waveData: {fileID: 11400000, guid: 1f1a7e5af47a78b438538b489b7313d4, type: 2}
+  _onBalloonDied:
+    _addressType: 16
+    _eventKey: {fileID: 11400000, guid: 87e2836a4654d004ca867a69d4b814f3, type: 2}
+  _requestLevelComplete:
+    _addressType: 16
+    _eventKey: {fileID: 11400000, guid: 922743c51339feb408bb77dea49b9e8f, type: 2}
+  _allLevelData: {fileID: 11400000, guid: cdf2467e0427c954bb444dee87a41ffc, type: 2}
+  _waveData: {fileID: 11400000, guid: 8db06f2267fe02d4fbe5db3c65508ae3, type: 2}
   _balloonPrefab: {fileID: 4452272116122377041, guid: cb76e6d54fbdc8c418c9e1121349c9d0, type: 3}
-  _redBalloon: {fileID: 11400000, guid: f7898775afb6f46498bbffa6a384887a, type: 2}
-  _verticalSpacing: 1.2
-  _horizontalSpacing: 1.3
-  _delayBetweenWaves: 1
+  _spawnParent: {fileID: 238719094}
+  _verticalSpacing: 1.1
+  _horizontalSpacing: 1.1
+  _delayBetweenWaves: 0
+--- !u!114 &470753823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470753819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd93ea16bcb2eb047a002c59c21b597c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: "\u2022 Spawner must spawn next wave when the last member of last spawned
+    wave's is inside of the sceren.\n\u2022 Spawner must spawn the waves according
+    to the LevelData.\n\u2022 Spawner must have a global data set that has variables
+    like WavesLeft etc."
+  _height: 100
+  _color: {r: 1, g: 0.8, b: 0.3, a: 1}
+  _drawIcon: 1
 --- !u!1 &471332326
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,10 +1061,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8567789084366124645, guid: 404221e614e53704d84304df65491d32, type: 3}
-      propertyPath: Panels.Array.data[4].PanelPrefab
-      value: 
-      objectReference: {fileID: 3071261066355542385, guid: 0804616d5cda96b469b90d75fd85af6b, type: 3}
     - target: {fileID: 8567789084366124670, guid: 404221e614e53704d84304df65491d32, type: 3}
       propertyPath: m_Name
       value: Canvas_MainLayer
@@ -1031,11 +1098,12 @@ Transform:
   m_GameObject: {fileID: 1063792841}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 470753821}
+  - {fileID: 238719094}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1063792843
@@ -1458,6 +1526,14 @@ MonoBehaviour:
     _attackSpeed: 2
     _maxHealth: 10
     _lastTimeRewardCollected: 
+  _gameSettings:
+    IsGlobal: 1
+    UseKey: 0
+    IsPersistent: 0
+    DataKey: 
+    OwnerActor: {fileID: 0}
+    IsInstalled: 0
+    _balloonSpeedFactor: 1
 --- !u!1001 &1528883673
 PrefabInstance:
   m_ObjectHideFlags: 0

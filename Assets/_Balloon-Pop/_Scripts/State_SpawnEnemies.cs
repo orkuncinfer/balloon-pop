@@ -4,23 +4,55 @@ using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class State_SpawnEnemies : MonoState
 {
-   [SerializeField] private WaveDataSO waveData;
+   [SerializeField] private EventField<GameObject> _onBalloonDied;
+   [SerializeField] private EventField _requestLevelComplete;
+   [SerializeField] private BP_AllLevelListSO _allLevelData;
+   [SerializeField] private WaveDataSO _waveData;
    [SerializeField] private GameObject _balloonPrefab;
-   [SerializeField] private ItemDefinition _redBalloon;
+   [SerializeField] private Transform _spawnParent;
 
+   //layout settings & spawn settings
    [SerializeField] private float _verticalSpacing;
    [SerializeField] private float _horizontalSpacing;
-
    [SerializeField] private float _delayBetweenWaves;
    private float _timeSinceLastWave;
    
    private List<GameObject> _spawnedBalloons = new List<GameObject>();
+
+   
+   [ShowInInspector]public int SpawnedBalloonsCount => _spawnedBalloons.Count;
+   private bool _listeningOneBalloon;
+   private bool _canSpawnNextWave;
+   private int _currentWaveIndex;
+   
+   private DS_GameModePersistent _gameModePersistent;
    protected override void OnEnter()
    {
       base.OnEnter();
+      _gameModePersistent = Owner.GetData<DS_GameModePersistent>();
+      _canSpawnNextWave = true;
+      _currentWaveIndex = 0;
+      
+      _onBalloonDied.Register(null,OnBalloonDied);
+   }
+
+   private void OnBalloonDied(EventArgs arg1, GameObject arg2)
+   {
+      if (_spawnedBalloons.Contains(arg2))
+      {
+         _spawnedBalloons.Remove(arg2);
+      }
+      BP_LevelDataSO levelData = GetLevelData();
+      bool isLastWave = _currentWaveIndex >= levelData.Waves.Length;
+      bool isLastBalloon = _spawnedBalloons.Count == 0;
+      if(isLastBalloon && isLastWave)
+      {
+         _requestLevelComplete.Raise();
+      }
    }
 
    protected override void OnExit()
@@ -30,38 +62,88 @@ public class State_SpawnEnemies : MonoState
       {
          PoolManager.ReleaseObject(balloon);
       }
+            
+      _onBalloonDied.Unregister(null,OnBalloonDied);
    }
-
-   [Button]
-   public void GetData()
-   {
-      //Debug.Log("Data: " + _redBalloon.GetData<DataVar_Float>(TagEnum.Health.ToString()).Value);
-   }
-
-
-
    protected override void OnUpdate()
    {
       base.OnUpdate();
-      if (Time.time >= _timeSinceLastWave)
+      if (Time.time >= _timeSinceLastWave && _canSpawnNextWave)
       {
          SpawnWave();
-         _timeSinceLastWave = Time.time + _delayBetweenWaves;
       }
    }
 
    private void SpawnWave()
    {
-      for (int i = 0; i < waveData.BoardWidth; i++)
+      BP_LevelDataSO levelData = GetLevelData();
+      if (_currentWaveIndex >= levelData.Waves.Length)
       {
-         for (int j = 0; j < waveData.BoardHeight; j++)
+         return;
+      }
+      _waveData = levelData.Waves[_currentWaveIndex];
+      Vector2Int mostTopMember = FindTheMostTopMember(_waveData);
+      for (int i = 0; i < _waveData.BoardWidth; i++)
+      {
+         for (int j = 0; j < _waveData.BoardHeight; j++)
          {
-            if(waveData.BoardDropsDictionary.Get(new Vector2Int(i, j)) == null) continue;
-            float xOffset = (_horizontalSpacing * (waveData.BoardWidth / 2f)) - _horizontalSpacing / 2f;
-            GameObject go = PoolManager.SpawnObject(_balloonPrefab, new Vector3((i * _horizontalSpacing) - xOffset, j * _verticalSpacing, 0), Quaternion.identity);
+            if(_waveData.BoardDropsDictionary.Get(new Vector2Int(i, j)) == null) continue;
+            float xOffset = (_horizontalSpacing * (_waveData.BoardWidth / 2f)) - _horizontalSpacing / 2f;
+            GameObject go = PoolManager.SpawnObject(_balloonPrefab, _spawnParent.position, Quaternion.identity);
             if(!_spawnedBalloons.Contains(go)) _spawnedBalloons.Add(go);
-            go.transform.SetParent(transform);
+            go.transform.SetParent(_spawnParent);
+            go.transform.localPosition = new Vector3((i * _horizontalSpacing) - xOffset, j * _verticalSpacing, 0);
+            
+            if(i == mostTopMember.x && j == mostTopMember.y)
+            {
+               go.GetComponent<IsInsideScreen>().onInsideScreen += OnLastMemberEnteredScreen;
+               go.GetComponent<IsInsideScreen>().StartChecking();
+            }
          }
       }
+      _currentWaveIndex++;
+      _canSpawnNextWave = false;
+   }
+
+   private void OnLastMemberEnteredScreen(IsInsideScreen obj)
+   {
+      _canSpawnNextWave = true;
+      _timeSinceLastWave = Time.time + _delayBetweenWaves;
+      obj.onInsideScreen -= OnLastMemberEnteredScreen;
+      obj.StopChecking();
+   }
+
+   [Button]
+   private Vector2Int FindTheMostTopMember(WaveDataSO waveData)
+   {
+      Vector2Int topMember = new Vector2Int();
+
+      for (int i = waveData.BoardHeight-1; i > 0 ; i--)
+      {
+         for (int j = 0; j < waveData.BoardWidth; j++)
+         {
+            if (waveData.BoardDropsDictionary.Get(new Vector2Int(j, i)) != null)
+            {
+               topMember = new Vector2Int(j, i);
+               return topMember;
+            }
+         }
+      }
+      return topMember;
+   }
+
+   private BP_LevelDataSO GetLevelData()
+   {
+      BP_LevelDataSO levelData = null;
+      if (_gameModePersistent.CurrentLevelIndex >= _allLevelData.Items.Count)
+      {
+         int mod = _gameModePersistent.CurrentLevelIndex % _allLevelData.Items.Count;
+         levelData = _allLevelData.Items[mod];
+      }
+      else
+      {
+         levelData = _allLevelData.Items[_gameModePersistent.CurrentLevelIndex];
+      }
+      return levelData;
    }
 }

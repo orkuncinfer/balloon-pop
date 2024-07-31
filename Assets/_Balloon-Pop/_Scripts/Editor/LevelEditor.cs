@@ -30,7 +30,7 @@ public class LevelEditor : OdinEditorWindow
     public  List<ItemBaseDefinition> LevelDropTypes = new List<ItemBaseDefinition>();
     private HashSet<Vector2Int> clickedCells = new HashSet<Vector2Int>();
 
-    public AllTileTypesSO _allAllTilesData;
+    public AllBalloonsSO _allAllTilesData;
     
     [FormerlySerializedAs("LevelDataAsset")] [SerializeField] [OnValueChanged("OnLevelDataAssetChanged")]
     private WaveDataSO _waveDataAsset;
@@ -54,7 +54,7 @@ public class LevelEditor : OdinEditorWindow
             ItemBaseDefinition[] array = new ItemBaseDefinition[_allAllTilesData.TileDropTypes.Count];
             for (int i = 0; i < _allAllTilesData.TileDropTypes.Count; i++)
             {
-                array[i] = _allAllTilesData.TileDropTypes[i].MachItemRepKey;
+                array[i] = _allAllTilesData.TileDropTypes[i];
             }
             return array;
         }
@@ -83,7 +83,7 @@ public class LevelEditor : OdinEditorWindow
 
         if (_allAllTilesData == null)
         {
-            _allAllTilesData = FindAssetByType<AllTileTypesSO>();
+            _allAllTilesData = FindAssetByType<AllBalloonsSO>();
         }
         
         FetchLevelDataAsset();
@@ -183,7 +183,7 @@ public class LevelEditor : OdinEditorWindow
                     ItemBaseDefinition dropKey = _waveDataAsset.BoardDropsDictionary.Get(new Vector2Int(x, y));
                     if (dropKey != null)
                     {
-                        Sprite refSprite = _allAllTilesData.GetTileDropType(dropKey)?.Visual;
+                        Sprite refSprite = dropKey.Icon;
                         Texture2D spriteTexture = refSprite ? refSprite.texture : null;
                         Rect spriteRect = refSprite ? refSprite.textureRect : new Rect();
                         if (spriteTexture)

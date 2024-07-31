@@ -16,6 +16,10 @@ MonoBehaviour:
   ItemName: RedBalloon
   Description: 
   Icon: {fileID: 21300000, guid: 11a9d689e1c571044874570adf9ba241, type: 3}
+  DataList:
+  - rid: 658624179164938255
+  - rid: 658624179164938258
+  - rid: 658624198462668804
   WorldPrefab: {fileID: 0}
   UIPrefab: {fileID: 0}
   _rpgItemTypes: 0
@@ -23,10 +27,6 @@ MonoBehaviour:
   MaxStack: 0
   DefaultRarity: 0
   IsUniqueItem: 0
-  DataList:
-  - rid: 658624179164938255
-  - rid: 658624179164938258
-  - rid: 658624198462668804
   ItemActions:
   - rid: 658624274845138946
   references:
@@ -51,7 +51,7 @@ MonoBehaviour:
         DataKey: MoveSpeed
         OwnerActor: {fileID: 0}
         IsInstalled: 0
-        _value: 4
+        _value: 2
     - rid: 658624198462668804
       type: {class: DataVar_Int, ns: , asm: Assembly-CSharp-firstpass}
       data:

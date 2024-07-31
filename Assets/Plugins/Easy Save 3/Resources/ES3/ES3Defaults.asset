@@ -15,7 +15,7 @@ MonoBehaviour:
   settings:
     _location: 0
     path: SaveFile.save
-    encryptionType: 0
+    encryptionType: 1
     compressionType: 0
     encryptionPassword: password
     directory: 0

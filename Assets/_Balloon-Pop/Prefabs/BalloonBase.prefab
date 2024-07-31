@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 7377525779438611600}
   - component: {fileID: 78809969835314398}
   - component: {fileID: 4761842838226738813}
+  - component: {fileID: 9114014368185202523}
   - component: {fileID: 6043793684135022568}
   m_Layer: 7
   m_Name: BalloonBase
@@ -166,11 +167,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed49d8a40c2bb414cb925787f033ee33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onBalloonDied:
+    _addressType: 16
+    _eventKey: {fileID: 11400000, guid: 87e2836a4654d004ca867a69d4b814f3, type: 2}
   ItemDefinition: {fileID: 11400000, guid: f7898775afb6f46498bbffa6a384887a, type: 2}
   _rigidbody: {fileID: 6043793684135022568}
   _deadFx: {fileID: 3709155058987024252, guid: 76512d53b5c64fd44aa278c66daae7d6, type: 3}
   _currentHealth: 0
   _moveSpeed: 0
+  _globalSpeedFactor: {fileID: 11400000, guid: 52e51e3bd5b4021478a79e9efdbd48a4, type: 2}
+--- !u!114 &9114014368185202523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452272116122377041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0889a4faf6f5d874d96c5f755cc2a2f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 6842167869705464157}
 --- !u!50 &6043793684135022568
 Rigidbody2D:
   serializedVersion: 4
