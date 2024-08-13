@@ -26,6 +26,7 @@ public class NexusHelperEditor : OdinMenuEditorWindow
         tree.Add("Create", new TextureUtilityEditor());
         tree.Add("Scenes", new SceneAssetsViewer());
         tree.Add("Save", new SaveWindow());
+        tree.Add("Build", new BuildWindow());
         return tree;
     }
 }
@@ -55,7 +56,16 @@ public class SaveWindow
         EditorUtility.DisplayDialog("Save Data Deletion",
             saveDataAssets.Count + " SaveData assets were processed and their saves were deleted.",
             "OK");
-        
+    }
+}
+
+public class BuildWindow
+{
+    public ItemListDefinition AllItemsList;
+    [Button(ButtonSizes.Large)]
+    public void MagicButton()
+    {
+        AllItemsList.FindAllItems();
     }
 }
 

@@ -28,7 +28,7 @@ public class State_PlayerGetDamage : MonoState
             _playerRuntime.CurrentHealth -= damage;
             if (_playerRuntime.CurrentHealth <= 0)
             {
-                
+                _playerRuntime.CurrentHealth = 0;
             }
             balloon.TakeDamage(999);
         }

@@ -10,6 +10,7 @@ public class State_PlayerShootControl : MonoState
     [SerializeField] private Transform _shootPoint;
     
     private DS_PlayerPersistent _playerData;
+    private DS_PlayerRuntime _playerRuntime;
 
     private float _lastShootTime;
     private Camera _camera;
@@ -18,8 +19,8 @@ public class State_PlayerShootControl : MonoState
     {
         base.OnEnter();
         _playerData = DataGetter.GetData<DS_PlayerPersistent>();
+        _playerRuntime = MainPlayer.Actor.GetData<DS_PlayerRuntime>();
         _camera = Camera.main;
-        Debug.Log(_playerData.AttackSpeed);
     }
 
     protected override void OnUpdate()
@@ -30,7 +31,7 @@ public class State_PlayerShootControl : MonoState
         {
             
             Shoot();
-            _lastShootTime = Time.time + 1 / _playerData.AttackSpeed;
+            _lastShootTime = Time.time + 1 /( _playerRuntime.AttackSpeedRuntime + _playerData.AttackSpeedPersistent);
         }
         Vector3 movementDelta = new Vector3(_playerInputDefinition.MoveInput.x, 0, 0) * (Time.deltaTime * 2);
         Owner.transform.position += movementDelta;
@@ -54,6 +55,6 @@ public class State_PlayerShootControl : MonoState
 
     private void Shoot()
     {
-        PoolManager.SpawnObject(_projectilePrefab, _shootPoint.position, Quaternion.identity);
+        GameObject spawned = PoolManager.SpawnObject(_projectilePrefab, _shootPoint.position, Quaternion.identity);
     }
 }

@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 337674390394317922}
   - component: {fileID: 3345075126989002908}
   - component: {fileID: 1923673424762387905}
-  - component: {fileID: 2596103825998836710}
   m_Layer: 5
   m_Name: Bg
   m_TagString: Untagged
@@ -190,7 +189,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: cbfc3f7c9c7691b4da328876ee993f8f, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -200,20 +199,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2596103825998836710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959619831719198931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb30198aa32dd140b5750692dd48104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 50
-  image: {fileID: 1923673424762387905}
 --- !u!1 &1569843530815527441
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19b7e2285c104f6ca47d583f3e5444f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectFactor: 0.494
+  m_EffectFactor: 0
   m_Width: 0.246
   m_Rotation: 120
   m_Softness: 0.615
@@ -684,6 +669,8 @@ MonoBehaviour:
   IsFinished: 0
   LevelTexts:
   - {fileID: 1394182254040263784}
+  Prefix: 'LEVEL '
+  LevelOffset: 1
 --- !u!1 &5838186242899865917
 GameObject:
   m_ObjectHideFlags: 0

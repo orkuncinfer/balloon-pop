@@ -8,8 +8,15 @@ public class IsInsideScreen : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
     private bool _registered;
+    private Camera _camera;
     
     public event Action<IsInsideScreen> onInsideScreen;
+
+    private void Awake()
+    {
+        _camera = Camera.main;
+    }
+
     public void StartChecking()
     {
         if (!_registered)
@@ -43,7 +50,7 @@ public class IsInsideScreen : MonoBehaviour
 
         foreach (Vector3 corner in corners)
         {
-            Vector3 viewportPoint = Camera.main.WorldToViewportPoint(corner);
+            Vector3 viewportPoint = _camera.WorldToViewportPoint(corner);
             if (viewportPoint.x < 0 || viewportPoint.x > 1 || viewportPoint.y < 0 || viewportPoint.y > 1)
             {
                 //Debug.Log("not visible");

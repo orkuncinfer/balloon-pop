@@ -16,9 +16,9 @@ public class DisplayItemCount : MonoCore
         
     }
 
-    protected override void OnReady()
+    protected override void OnGameReady()
     {
-        base.OnReady();
+        base.OnGameReady();
         DefaultPlayerInventory.Instance.onItemChanged += OnItemChanged;
         _icon.sprite = _itemDefinition.Icon;
         _text.text = DefaultPlayerInventory.Instance.GetItemCount(_itemDefinition.ItemId).ToString();

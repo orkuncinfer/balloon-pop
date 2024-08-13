@@ -1048,6 +1048,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button_Base
       objectReference: {fileID: 0}
+    - target: {fileID: 3160772936871898250, guid: ac25742e4eab87f4bacf85ac111372e5, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160772936871898250, guid: ac25742e4eab87f4bacf85ac111372e5, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160772936871898250, guid: ac25742e4eab87f4bacf85ac111372e5, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5177411503478254370}
+    - target: {fileID: 3160772936871898250, guid: ac25742e4eab87f4bacf85ac111372e5, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160772936871898250, guid: ac25742e4eab87f4bacf85ac111372e5, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetCurrentLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160772936871898250, guid: ac25742e4eab87f4bacf85ac111372e5, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelNode, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3160772936871898250, guid: ac25742e4eab87f4bacf85ac111372e5, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8364282987245930727, guid: ac25742e4eab87f4bacf85ac111372e5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

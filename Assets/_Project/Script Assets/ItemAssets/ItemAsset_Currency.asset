@@ -12,14 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148c1a5ce18bec84787ea1e31fe7df8c, type: 3}
   m_Name: ItemAsset_Currency
   m_EditorClassIdentifier: 
-  IdemID: 1
+  ItemID: Currency
+  _itemIDLocked: 1
   ItemName: Currency
+  _itemNameLocked: 1
   Description: 
   Icon: {fileID: 21300000, guid: 94ea43556dfb347439e67a9da6005b9a, type: 3}
+  DataList: []
   WorldPrefab: {fileID: 0}
   UIPrefab: {fileID: 0}
-  ItemType: 0
+  _rpgItemTypes: 0
   IsStackable: 0
   MaxStack: 0
   DefaultRarity: 0
   IsUniqueItem: 0
+  ItemActions: []
+  references:
+    version: 2
+    RefIds: []

@@ -14,60 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedTabIndex: 1
   historyItemsMax: 20
-  history:
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-1481119014-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-513055871-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-1823009860-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-513055871-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-1481119014-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-1063792841-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-358526147-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-1523173555-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-d9ea1da1de0c7b042a8099a98bbd0f0e-358526147-0
-  - context: 1
-    title: 
-    unityObject: {fileID: 11400000, guid: 52e51e3bd5b4021478a79e9efdbd48a4, type: 2}
-    objectGuid: GlobalObjectId_V1-3-52e51e3bd5b4021478a79e9efdbd48a4-11400000-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-00000000000000000000000000000000-4452272116122377041-0
+  history: []
   favorites:
   - context: 2
     title: BalloonPop
     unityObject: {fileID: 0}
     objectGuid: GlobalObjectId_V1-0-00000000000000000000000000000000-0-0
-  - context: 1
-    title: 
-    unityObject: {fileID: 102900000, guid: 86bff2b66d87b0a4982c9fde4ab2ad61, type: 3}
-    objectGuid: GlobalObjectId_V1-1-86bff2b66d87b0a4982c9fde4ab2ad61-102900000-0
   - context: 1
     title: 
     unityObject: {fileID: 102900000, guid: 13406debcff0ad74ca6b91518cc02592, type: 3}

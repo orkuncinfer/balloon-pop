@@ -78,6 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c77a14469bfd447957e9c121354298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleDownValue: 0.8
+  scaleDownValue: 0.9
   animationDuration: 0.2
   easeType: 30

@@ -13,6 +13,14 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   Waves:
-  - {fileID: 11400000, guid: 1f1a7e5af47a78b438538b489b7313d4, type: 2}
+  - {fileID: 11400000, guid: 6ad7ff8da52b56b4987ffe9ac114420b, type: 2}
+  - {fileID: 11400000, guid: 8db06f2267fe02d4fbe5db3c65508ae3, type: 2}
+  - {fileID: 11400000, guid: 8db06f2267fe02d4fbe5db3c65508ae3, type: 2}
+  - {fileID: 11400000, guid: 8db06f2267fe02d4fbe5db3c65508ae3, type: 2}
+  - {fileID: 11400000, guid: 8db06f2267fe02d4fbe5db3c65508ae3, type: 2}
+  - {fileID: 11400000, guid: 8db06f2267fe02d4fbe5db3c65508ae3, type: 2}
+  - {fileID: 11400000, guid: 8db06f2267fe02d4fbe5db3c65508ae3, type: 2}
+  - {fileID: 11400000, guid: 8db06f2267fe02d4fbe5db3c65508ae3, type: 2}
+  - {fileID: 11400000, guid: 8db06f2267fe02d4fbe5db3c65508ae3, type: 2}
   - {fileID: 11400000, guid: 8db06f2267fe02d4fbe5db3c65508ae3, type: 2}
   - {fileID: 11400000, guid: 8db06f2267fe02d4fbe5db3c65508ae3, type: 2}

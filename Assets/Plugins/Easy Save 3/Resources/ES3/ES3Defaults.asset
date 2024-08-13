@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
     _location: 0
-    path: SaveFile.save
-    encryptionType: 1
+    path: SaveFile.es3
+    encryptionType: 0
     compressionType: 0
-    encryptionPassword: password
+    encryptionPassword: 521169
     directory: 0
     format: 0
     prettyPrint: 1
@@ -35,6 +35,8 @@ MonoBehaviour:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - Cinemachine
+    - Coffee.SoftMaskForUGUI
+    - Coffee.SoftMaskForUGUI.Demo
     - DCFApixels.Notes
     - DOTween.Modules
     - DOTweenPro.Scripts
@@ -47,6 +49,18 @@ MonoBehaviour:
     - LeTai.TrueShadow
     - LeTai.TrueShadow.Demo
     - LiteNetLib
+    - Lofelt.NiceVibrations
+    - Lofelt.NiceVibrations.Demo
+    - MoreMountains.Feedbacks
+    - MoreMountains.Feedbacks.Authorizations
+    - MoreMountains.Feedbacks.Cinemachine
+    - MoreMountains.Feedbacks.HDRP
+    - MoreMountains.Feedbacks.MMTools
+    - MoreMountains.Feedbacks.NiceVibrations
+    - MoreMountains.Feedbacks.PostProcessing
+    - MoreMountains.Feedbacks.TextMeshPro
+    - MoreMountains.Feedbacks.URP
+    - MoreMountains.Tools
     - Nobi.UiRoundedCorners
     - SingularityGroup.HotReload.Runtime
     - SingularityGroup.HotReload.Runtime.Public
@@ -55,6 +69,7 @@ MonoBehaviour:
     - Tayx.Graphy
     - UIEffect
     - Unity Timer
+    - Unity.DbgDraw.Runtime
     - UnityCommunity.UnitySingleton.Runtime
     showAdvancedSettings: 1
   addMgrToSceneAutomatically: 0

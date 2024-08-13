@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MNF_PlayerRuntime : DataManifest
 {
@@ -21,38 +23,50 @@ public class MNF_PlayerRuntime : DataManifest
 [System.Serializable]
 public class DS_PlayerRuntime : Data
 {
+    public BP_PlayerLevelableSO RuntimePlayerLevel;
+    
     [SerializeField]
     private int _currentHealth; 
-    public int CurrentHealth 
+    public event Action<int,int> onCurrentHealthChanged;
+    public int CurrentHealth
     {
         get => _currentHealth;
-        set => _currentHealth = value;
+        set
+        {
+            int oldValue = _currentHealth;
+            bool isChanged = _currentHealth != value;
+            _currentHealth = value;
+            if (isChanged)
+            {
+                onCurrentHealthChanged?.Invoke(oldValue,value);
+            }
+        }
     }
     
     [SerializeField]
-    private List<ItemDefinition> _inGameBuffs; 
-    public List<ItemDefinition> InGameBuffs 
+    private float _attackSpeedRuntime; 
+    public float AttackSpeedRuntime 
     {
-        get => _inGameBuffs;
-        set => _inGameBuffs = value;
+        get => _attackSpeedRuntime;
+        set => _attackSpeedRuntime = value;
     }
 
     public override void OnActorStarted()
     {
         base.OnActorStarted();
         GlobalData.SubscribeToDataInstalled(OnDataInstalledHandler, "", typeof(DS_PlayerPersistent));
-        GlobalData.OnDataInstalled += data =>
+        /*GlobalData.OnDataInstalled += data =>
         {
             if (data is DS_PlayerPersistent)
             {
-                _currentHealth = GlobalData.GetData<DS_PlayerPersistent>().MaxHealth;
+                CurrentHealth = GlobalData.GetData<DS_PlayerPersistent>().MaxHealth;
             }
-        };
+        };*/
     }
 
     private void OnDataInstalledHandler(Data obj)
     {
-        _currentHealth = GlobalData.GetData<DS_PlayerPersistent>().MaxHealth;
+        CurrentHealth = GlobalData.GetData<DS_PlayerPersistent>().MaxHealth;
     }
 
 }

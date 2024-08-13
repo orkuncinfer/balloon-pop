@@ -46,13 +46,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allBuffItems: {fileID: 11400000, guid: e1bd31d07a87abd46bb0706b697d3232, type: 2}
-  moveSpeed: 60
+  moveSpeed: 100
   hitLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   detectionDistance: 1.2
   visual: {fileID: 5679514439301552458}
   _returnIfOutsideOfScreen: 1
+  _ricochet2Item: {fileID: 11400000, guid: 9949ec90bfd77ff4798545d769ff52e6, type: 2}
+  _ricochet4Item: {fileID: 11400000, guid: 1bb2615f0c63e8e4086525b7bb3c012e, type: 2}
 --- !u!1 &5679514439301552458
 GameObject:
   m_ObjectHideFlags: 0

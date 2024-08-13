@@ -44,4 +44,9 @@ public class LevelNode : MonoBehaviour
             text.text = _levelNumber.ToString();
         }
     }
+    
+    public void SetCurrentLevel()
+    {
+        GlobalData.GetData<DS_GameModePersistent>().CurrentLevelIndex = _levelNumber -1;
+    }
 }
