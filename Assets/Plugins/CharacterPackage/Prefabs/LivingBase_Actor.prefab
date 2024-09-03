@@ -190,10 +190,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActorID: 
-  BeginOnStart: 0
+  StartMethod: 0
   _initialTags: []
   _initialState: {fileID: 7317867615134314451}
-  _poolMember: {fileID: 0}
+  _returnToPoolOnStop: 0
 --- !u!114 &1607448033958173341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,18 +412,20 @@ MonoBehaviour:
       data:
         IsGlobal: 0
         UseKey: 0
-        DataKey: {fileID: 0}
-        ProgressBar: 100
+        IsPersistent: 0
+        DataKey: 
         OwnerActor: {fileID: 0}
+        IsInstalled: 0
         _shouldDietrigger: 0
     - rid: 8209950300375875609
       type: {class: Data_Character, ns: , asm: Assembly-CSharp-firstpass}
       data:
         IsGlobal: 0
         UseKey: 0
-        DataKey: {fileID: 0}
-        ProgressBar: 100
+        IsPersistent: 0
+        DataKey: 
         OwnerActor: {fileID: 0}
+        IsInstalled: 0
         Movement: {fileID: 1607448033958173341}
         MovementInput: {fileID: 2123839152688426411}
 --- !u!114 &2281015456273405078
@@ -451,18 +453,20 @@ MonoBehaviour:
       data:
         IsGlobal: 0
         UseKey: 1
-        DataKey: {fileID: 11400000, guid: 88df2921f43af974d8e72e025c2f03bf, type: 2}
-        ProgressBar: 100
+        IsPersistent: 0
+        DataKey: Ability_1
         OwnerActor: {fileID: 0}
+        IsInstalled: 0
         _abilityDefinition: {fileID: 11400000, guid: 9cebe87f2c0fc554189e396be762c199, type: 2}
     - rid: 4448694695146815620
       type: {class: Data_AbilityDefinition, ns: , asm: Assembly-CSharp-firstpass}
       data:
         IsGlobal: 0
         UseKey: 1
-        DataKey: {fileID: 11400000, guid: 37901bcc6d6c73f449f83ae5731e5b15, type: 2}
-        ProgressBar: 100
+        IsPersistent: 0
+        DataKey: Ability_2
         OwnerActor: {fileID: 0}
+        IsInstalled: 0
         _abilityDefinition: {fileID: 11400000, guid: 3355855094e52d845a16e204eef14050, type: 2}
 --- !u!1 &7630399742836939037
 GameObject:

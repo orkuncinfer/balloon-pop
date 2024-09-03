@@ -255,8 +255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
-  _abilityData:
-    Key: {fileID: 11400000, guid: 88df2921f43af974d8e72e025c2f03bf, type: 2}
+  _abilityDS:
+    Key: Ability_1
     From: 1
     _retrievedData:
       rid: -2
@@ -281,8 +281,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
-  _abilityData:
-    Key: {fileID: 11400000, guid: 37901bcc6d6c73f449f83ae5731e5b15, type: 2}
+  _abilityDS:
+    Key: Ability_2
     From: 1
     _retrievedData:
       rid: -2

@@ -1,5 +1,6 @@
 using StatSystem;
 using UnityEngine;
+[System.Serializable]
 public class Condition_HasItem : GameCondition
 {
     [SerializeField] private ItemDefinition[] _items;
