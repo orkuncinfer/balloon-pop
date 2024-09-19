@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7471197238305285798}
   - component: {fileID: 5293453081992281506}
   - component: {fileID: 4057664484091656221}
+  - component: {fileID: 7028144977651133810}
   m_Layer: 0
   m_Name: Grounded
   m_TagString: Untagged
@@ -66,11 +67,34 @@ MonoBehaviour:
     From: 1
     _retrievedData:
       rid: -2
+  _interpolationSpeed: 5
+  _velocityDebug: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+--- !u!114 &7028144977651133810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554463331039559992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e0d4b26b9486b4abfa0b69f94746f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsRunning: 0
+  IsFinished: 0
+  Character: {fileID: 0}
+  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
+  BlockInput: 0
+  MoveInput: {x: 0, y: 0}
+  _isCameraRelative: 1
+  _orientToCamera: 1
+  _orientationSpeed: 10
 --- !u!1 &3879393037448793828
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
+  _states: []
   _grounded: {fileID: 5293453081992281506}
   _airborne: {fileID: 1937926139648802252}
   _ability: {fileID: 4038927201619736794}
@@ -169,7 +194,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5720918715761107650}
   - component: {fileID: 4038927201619736794}
-  - component: {fileID: 8671664258989348611}
   m_Layer: 0
   m_Name: Ability
   m_TagString: Untagged
@@ -206,22 +230,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
---- !u!114 &8671664258989348611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4949499734420387882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e8cfaea33f562f488045222139974aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsRunning: 0
-  IsFinished: 0
-  _blockInputOnEnter: 1
-  _blockInputOnExit: 0
 --- !u!1 &8495564030702546167
 GameObject:
   m_ObjectHideFlags: 0

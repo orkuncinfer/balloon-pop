@@ -19,7 +19,7 @@ public class State_PlayerShootControl : MonoState
     {
         base.OnEnter();
         _playerData = DataGetter.GetData<DS_PlayerPersistent>();
-        _playerRuntime = MainPlayer.Actor.GetData<DS_PlayerRuntime>();
+        _playerRuntime = ActorRegistry.PlayerActor.GetData<DS_PlayerRuntime>();
         _camera = Camera.main;
     }
 

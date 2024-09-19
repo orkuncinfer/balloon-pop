@@ -12,14 +12,14 @@ public class State_UI_PlayerHealthBind : MonoState
     protected override void OnEnter()
     {
         base.OnEnter();
-        _healthText.text = $"{MainPlayer.Actor.GetData<DS_PlayerRuntime>().CurrentHealth}";
-        MainPlayer.Actor.GetData<DS_PlayerRuntime>().onCurrentHealthChanged += OnCurrentHealthChanged;
+        _healthText.text = $"{ActorRegistry.PlayerActor.GetData<DS_PlayerRuntime>().CurrentHealth}";
+        ActorRegistry.PlayerActor.GetData<DS_PlayerRuntime>().onCurrentHealthChanged += OnCurrentHealthChanged;
     }
 
     protected override void OnExit()
     {
         base.OnExit();
-        MainPlayer.Actor.GetData<DS_PlayerRuntime>().onCurrentHealthChanged -= OnCurrentHealthChanged;
+        ActorRegistry.PlayerActor.GetData<DS_PlayerRuntime>().onCurrentHealthChanged -= OnCurrentHealthChanged;
     }
 
     private void OnCurrentHealthChanged(int arg1,int arg2)

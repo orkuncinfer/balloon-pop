@@ -36,4 +36,9 @@ public class MeleeWeapon : Weapon
         // ExtDebug.DrawBox(center,halfExtents,transform.rotation,Color.red);
     
     }
+
+    public override void OnEquip(ActorBase owner)
+    {
+        base.OnEquip(owner);
+    }
 }

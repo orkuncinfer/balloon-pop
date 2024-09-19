@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
+  _states: []
   _alive: {fileID: 3659634193567542638}
   _dead: {fileID: 2680314217352092126}
   _revive: {fileID: 2247356866501038119}
@@ -149,7 +150,6 @@ GameObject:
   - component: {fileID: 563464831144762664}
   - component: {fileID: 8709743846803308276}
   - component: {fileID: 1607448033958173341}
-  - component: {fileID: 2123839152688426411}
   - component: {fileID: 1209880465961813417}
   - component: {fileID: 8774349267527388585}
   - component: {fileID: 1552983450168105441}
@@ -232,23 +232,6 @@ MonoBehaviour:
     impartPlatformRotation: 0
     impartPlatformVelocity: 0
   _minSlopeLimit: 0.7069833
---- !u!114 &2123839152688426411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2698318884401208386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbdf89c67334d384093614e2829daa62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Character: {fileID: 1209880465961813417}
-  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
-  BlockInput: 0
-  MoveInput: {x: 0, y: 0}
-  _isCameraRelative: 1
 --- !u!114 &1209880465961813417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +410,7 @@ MonoBehaviour:
         OwnerActor: {fileID: 0}
         IsInstalled: 0
         Movement: {fileID: 1607448033958173341}
-        MovementInput: {fileID: 2123839152688426411}
+        MovementInput: {fileID: 0}
 --- !u!114 &2281015456273405078
 MonoBehaviour:
   m_ObjectHideFlags: 0

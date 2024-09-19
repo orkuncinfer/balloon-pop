@@ -322,7 +322,8 @@ MonoBehaviour:
       data:
         IsGlobal: 0
         UseKey: 0
-        DataKey: {fileID: 0}
+        IsPersistent: 0
+        DataKey: 
         OwnerActor: {fileID: 0}
         IsInstalled: 0
         _definition: {fileID: 11400000, guid: 1eeeeb34f4f58794690c6c043fdd922d, type: 2}
@@ -408,6 +409,17 @@ MonoBehaviour:
   IsRunning: 0
   IsFinished: 0
   _redirectTo: {fileID: 6630111515616064807}
+--- !u!114 &5886432457344476515 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1209880465961813417, guid: 50dfdb3525e27a14dacf6c16859d7e54, type: 3}
+  m_PrefabInstance: {fileID: 4718247380347936970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cf32970eac4c9498a96ba8d86aad38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5833155771244440715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -478,6 +490,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5092234967853923810}
     m_Modifications:
+    - target: {fileID: 1927168087167425646, guid: d82e4083f98aa1d45985e3db164b48a3, type: 3}
+      propertyPath: _character
+      value: 
+      objectReference: {fileID: 5886432457344476515}
     - target: {fileID: 4807429423832342766, guid: d82e4083f98aa1d45985e3db164b48a3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

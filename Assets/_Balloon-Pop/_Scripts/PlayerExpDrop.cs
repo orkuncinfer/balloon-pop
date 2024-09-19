@@ -14,7 +14,7 @@ public class PlayerExpDrop : MonoBehaviour
     private Vector3 _targetPosition;
     private void OnEnable()
     {
-        _playerActor = MainPlayer.Actor;
+        _playerActor = ActorRegistry.PlayerActor;
         _targetTransform = _playerActor.transform;
         _gameEnded = false;
         _onGameEnded.Register(null,OnGameEnded);

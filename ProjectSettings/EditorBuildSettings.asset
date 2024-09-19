@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Project/Scenes/CasualScene.unity
-    guid: d9ea1da1de0c7b042a8099a98bbd0f0e
+    path: Assets/_Project/Scenes/ThirdPersonScene.unity
+    guid: 0b76f415db5afff448563bb2fe61df42
   m_configObjects: {}

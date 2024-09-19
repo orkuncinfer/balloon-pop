@@ -34,6 +34,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 658624179164938255
       type: {class: DataVar_Int, ns: , asm: Assembly-CSharp-firstpass}
       data:

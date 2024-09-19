@@ -269,6 +269,74 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Debugs",
+            "id": "e7bcb2a6-1fbe-4578-bc96-4a10c9fcb3dc",
+            "actions": [
+                {
+                    "name": "ToggleDebug",
+                    "type": "Button",
+                    "id": "b56ba077-b5fb-41d7-9734-4aa63f3ba709",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DebugCommand",
+                    "type": "Button",
+                    "id": "3e8d00c9-ad1f-45b2-b18f-84967e482158",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleGas",
+                    "type": "Button",
+                    "id": "d7c35caf-5776-4625-b121-7826899c613f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c6f03643-ef17-4fa3-bfde-40b9de2859f5",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleDebug",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab00a57f-7e7c-47ed-8f62-07a9383c4075",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DebugCommand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b1c9e061-60de-4d45-9a1f-4cd504f257aa",
+                    "path": "<Keyboard>/f2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleGas",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

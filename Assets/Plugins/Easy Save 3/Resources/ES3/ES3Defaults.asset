@@ -34,6 +34,8 @@ MonoBehaviour:
     - Animancer.FSM
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
+    - BandoWare.GameplayTags
+    - BandoWare.GameplayTags.Tests
     - Cinemachine
     - Coffee.SoftMaskForUGUI
     - Coffee.SoftMaskForUGUI.Demo
@@ -43,6 +45,7 @@ MonoBehaviour:
     - ECM2
     - ECM2.Examples
     - ECM2.Walkthrough
+    - Elringus.UnityConsole.Runtime
     - Flexalon
     - Flexalon.Samples
     - Google.Play.Games
@@ -81,6 +84,6 @@ MonoBehaviour:
   updateReferencesWhenSceneIsSaved: 1
   updateReferencesWhenSceneIsOpened: 1
   referenceFolders: []
-  logDebugInfo: 1
-  logWarnings: 1
-  logErrors: 1
+  logDebugInfo: 0
+  logWarnings: 0
+  logErrors: 0

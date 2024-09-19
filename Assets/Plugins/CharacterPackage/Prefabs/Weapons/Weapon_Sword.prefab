@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8242856785959123562}
   - component: {fileID: 3074627379908291903}
-  - component: {fileID: 1807123519620203110}
   - component: {fileID: 5887351453918988996}
   m_Layer: 0
   m_Name: Weapon_Sword
@@ -49,24 +48,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Id: Weapon_Sword
   _owner: {fileID: 0}
+  _overrideLocomotionAsset: {fileID: 11400000, guid: 368947fa572fb514eb1b2ad1c42e8ef9, type: 2}
+  _equipSocketName: SwordPivot
   DrawDebug: 0
   LayerMask:
     serializedVersion: 2
     m_Bits: 55
   Collider: {fileID: 5887351453918988996}
---- !u!114 &1807123519620203110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423140520730457204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2b055da640c6b14c87a8ffa1f59bd1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ReturnOnDisable: 0
 --- !u!65 &5887351453918988996
 BoxCollider:
   m_ObjectHideFlags: 0

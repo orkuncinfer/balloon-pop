@@ -78,7 +78,7 @@ public class State_SpawnEnemies : MonoState
       
       if(_spawnerData.BalloonsInBounds.Count == 0)
       {
-         _globalSpeedFactor.CurrentValue = 0.15f;
+         _globalSpeedFactor.CurrentValue = 0.5f;
       }
    }
 

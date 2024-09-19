@@ -10,7 +10,7 @@ public class State_LevelComplete : MonoState
     protected override void OnEnter()
     {
         base.OnEnter();
-        _playerRuntime = MainPlayer.Actor.GetData<DS_PlayerRuntime>();
+        _playerRuntime = ActorRegistry.PlayerActor.GetData<DS_PlayerRuntime>();
         _playerPersistent = Owner.GetData<DS_PlayerPersistent>();
         _gameModePersistent = Owner.GetData<DS_GameModePersistent>();
         

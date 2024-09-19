@@ -1802,6 +1802,38 @@ namespace ECM2
         {
             return characterMovement.velocity;
         }
+        public Vector3 GetWorldSpaceVelocity()
+        {
+            if(camera == null) camera = Camera.main;
+            Vector3 relativeMoveDirection = GetVelocity();
+            // Get the camera's forward and right vectors
+            Vector3 cameraForward = camera.transform.forward;
+            Vector3 cameraRight = camera.transform.right;
+
+            // Ignore the y-axis to keep movement on the horizontal plane
+            cameraForward.y = 0;
+            cameraRight.y = 0;
+    
+            // Normalize the vectors to ensure proper scaling
+            cameraForward.Normalize();
+            cameraRight.Normalize();
+
+            // Create a rotation matrix that represents the camera's current orientation relative to the world
+            Matrix4x4 cameraRotationMatrix = new Matrix4x4(
+                new Vector4(cameraRight.x, cameraRight.y, cameraRight.z, 0),
+                new Vector4(0, 1, 0, 0), // Y-axis (up) stays the same
+                new Vector4(cameraForward.x, cameraForward.y, cameraForward.z, 0),
+                new Vector4(0, 0, 0, 1)
+            );
+
+            // Use the inverse of the camera's rotation matrix to transform the relative movement direction
+            Matrix4x4 inverseCameraMatrix = cameraRotationMatrix.inverse;
+
+            // Convert the camera-relative movement direction to a world-space direction
+            Vector3 worldSpaceDirection = inverseCameraMatrix.MultiplyPoint3x4(relativeMoveDirection);
+
+            return worldSpaceDirection;
+        }
 
         /// <summary>
         /// Sets the character's velocity.

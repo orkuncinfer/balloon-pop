@@ -43,7 +43,7 @@ public class InGameSelectableBuff : MonoBehaviour
         playerPersistent.RuntimeBuffs[BuffItem.ItemId] = currentCount + 1;
         foreach (var itemAction in BuffItem.ItemActions)
         {
-            itemAction.OnAction(MainPlayer.Actor);
+            itemAction.OnAction(ActorRegistry.PlayerActor);
         }
         Debug.Log("BuffSelecteeed");
     }
