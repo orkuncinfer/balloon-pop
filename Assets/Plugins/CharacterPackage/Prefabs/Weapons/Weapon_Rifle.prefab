@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Id: Weapon_Sword
   _owner: {fileID: 0}
-  _overrideLocomotionAsset: {fileID: 11400000, guid: 368947fa572fb514eb1b2ad1c42e8ef9, type: 2}
+  _overrideLocomotionAsset: {fileID: 11400000, guid: ad1b42678f57ebc40b474dd62e967ea2, type: 2}
   _equipSocketName: RiflePivot
   DrawDebug: 0
   LayerMask:

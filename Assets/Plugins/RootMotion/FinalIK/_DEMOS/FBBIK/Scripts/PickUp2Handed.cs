@@ -66,8 +66,16 @@ namespace RootMotion.Demos {
 			interactionSystem.OnInteractionStart += OnStart;
 			interactionSystem.OnInteractionPause += OnPause;
 			interactionSystem.OnInteractionResume += OnDrop;
+			
+			obj.onInteractionStarted+= ObjOnonInteractionStarted;
+			Debug.Log("onstartt");
 		}
-		
+
+		private void ObjOnonInteractionStarted(InteractionSystem ınteractionSystem)
+		{
+			Debug.Log("Interaction Started " + ınteractionSystem + transform.name);
+		}
+
 		// Called by the InteractionSystem when an interaction is paused (on trigger)
 		private void OnPause(FullBodyBipedEffector effectorType, InteractionObject interactionObject) {
 			if (effectorType != FullBodyBipedEffector.LeftHand) return;

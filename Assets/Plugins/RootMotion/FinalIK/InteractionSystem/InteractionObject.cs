@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
 
@@ -312,6 +313,7 @@ namespace RootMotion.FinalIK {
 		/// The last InteractionSystem that started an interaction with this InteractionObject.
 		/// </summary>
 		/// <value>The last used interaction system.</value>
+		public event Action<InteractionSystem> onInteractionStarted;
 		public InteractionSystem lastUsedInteractionSystem { get; private set; }
 
 		/// <summary>
@@ -395,6 +397,7 @@ namespace RootMotion.FinalIK {
 		// Called when interaction is started with this InteractionObject
 		public void OnStartInteraction(InteractionSystem interactionSystem) {
 			this.lastUsedInteractionSystem = interactionSystem;
+			onInteractionStarted?.Invoke(interactionSystem);
 		}
 
 		// Applies the weight curves and multipliers to the FBBIK solver
