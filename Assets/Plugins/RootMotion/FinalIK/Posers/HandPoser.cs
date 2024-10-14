@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using Sirenix.OdinInspector;
 
 namespace RootMotion.FinalIK {
 
@@ -7,6 +9,22 @@ namespace RootMotion.FinalIK {
 	/// Posing the children of a Transform to match the children of another Transform
 	/// </summary>
 	public class HandPoser : Poser {
+		[Button]
+		public void AutoMapFingers(Transform[] fingers = null)
+		{
+			List<Transform> tempChildren = new List<Transform>();
+			tempChildren.Add(transform);
+			foreach (var finger in fingers)
+			{
+				Transform[] fingerChildren = finger.GetComponentsInChildren<Transform>();
+				foreach (var fingerChild in fingerChildren)
+				{
+					tempChildren.Add(fingerChild);
+				}
+			}
+			
+			children = tempChildren.ToArray();
+		}
 
 		public override void AutoMapping() {
 			if (poseRoot == null) poseChildren = new Transform[0];
@@ -17,7 +35,7 @@ namespace RootMotion.FinalIK {
 
 		protected override void InitiatePoser() {
 			// Find the children
-			children = (Transform[])GetComponentsInChildren<Transform>();
+			//children = (Transform[])GetComponentsInChildren<Transform>();
 			
 			StoreDefaultState();
 		}
@@ -57,7 +75,7 @@ namespace RootMotion.FinalIK {
 			}
 		}
 
-		protected Transform[] children;
+		public Transform[] children;
 
 		private Transform _poseRoot;
 		private Transform[] poseChildren;

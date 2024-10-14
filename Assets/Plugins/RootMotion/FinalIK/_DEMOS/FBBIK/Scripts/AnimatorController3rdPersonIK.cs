@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using RootMotion.FinalIK;
+using Sirenix.OdinInspector;
+using UnityEngine.Serialization;
 
 namespace RootMotion.Demos {
 
@@ -12,6 +14,7 @@ namespace RootMotion.Demos {
 		public Vector3 leftHandOffset;
 		public Recoil recoil;
 
+		 [Range(0f, 1f)] public float gunHoldWeight = 1f;
 		// The IK components
 		private AimIK aim;
 		private FullBodyBipedIK ik;
@@ -82,7 +85,7 @@ namespace RootMotion.Demos {
 			rightHandRotation = ik.references.rightHand.rotation;
 
 			// Offsetting hands, you might need that to support multiple weapons with the same aiming pose
-			Vector3 rightHandOffset = ik.references.rightHand.rotation * gunHoldOffset;
+			Vector3 rightHandOffset = ik.references.rightHand.rotation * gunHoldOffset * gunHoldWeight;
 			ik.solver.rightHandEffector.positionOffset += rightHandOffset;
 
 			if (recoil != null) recoil.SetHandRotations(rightHandRotation * leftHandRotRelToRightHand, rightHandRotation);

@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using RootMotion.FinalIK;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class InteractionObjectEquipment : MonoBehaviour
 {
     [SerializeField] private  InteractionObject _interactionObject;
-    [SerializeField] private Weapon _weapon;
+    private Equipable _equipable;
 
     public void PickUp()
     {
         ActorBase actor =
             ActorUtilities.FindFirstActorInParents(_interactionObject.lastUsedInteractionSystem.transform);
-        _weapon.EquipThisInstance(actor);
+        _equipable.EquipThisInstance(actor);
     }
 }

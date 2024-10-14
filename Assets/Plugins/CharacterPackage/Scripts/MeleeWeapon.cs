@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RootMotion.FinalIK;
 using UnityEngine;
 
-public class MeleeWeapon : Weapon
+public class MeleeWeapon : Equipable
 {
-    public bool DrawDebug;
     public LayerMask LayerMask;
     public BoxCollider Collider;
+    public Transform AimTransform;
 
     public event Action<Collider> onHit;
     
@@ -40,5 +41,7 @@ public class MeleeWeapon : Weapon
     public override void OnEquip(ActorBase owner)
     {
         base.OnEquip(owner);
+        AimIK aimIK = Owner.GetComponentInChildren<AimIK>();
+        aimIK.solver.transform = AimTransform;
     }
 }

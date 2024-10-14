@@ -244,10 +244,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4cf32970eac4c9498a96ba8d86aad38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationMode: 1
+  _rotationMode: 4
   _rotationRate: 540
   _startingMovementMode: 1
-  _maxWalkSpeed: 5
+  _maxWalkSpeed: 3
   _minAnalogWalkSpeed: 0
   _maxAcceleration: 20
   _brakingDecelerationWalking: 20

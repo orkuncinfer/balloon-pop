@@ -75,7 +75,7 @@ public class DS_EquipmentUser : Data
         ReleaseInstance();
         EquipmentInstance = PoolManager.SpawnObject(EquipmentPrefab, Vector3.zero, Quaternion.identity);
         
-        if (EquipmentInstance.TryGetComponent(out Weapon weapon))
+        if (EquipmentInstance.TryGetComponent(out Equipable weapon))
         {
             weapon.Owner = OwnerActor;
             weapon.OnEquip(OwnerActor);
@@ -84,6 +84,7 @@ public class DS_EquipmentUser : Data
         EquipmentInstance.transform.SetParent(OwnerActor.GetSocket(SocketName));
         EquipmentInstance.transform.localPosition = Vector3.zero;
         EquipmentInstance.transform.localEulerAngles = Vector3.zero;
+        EquipmentInstance.transform.localScale = Vector3.one;
     }
     
     public void EquipWorldInstance(GameObject equipmentInstance,string socketName = "")
@@ -95,7 +96,7 @@ public class DS_EquipmentUser : Data
         EquipmentInstance = equipmentInstance;
         if(socketName != "") SocketName = socketName;
         
-        if (EquipmentInstance.TryGetComponent(out Weapon weapon))
+        if (EquipmentInstance.TryGetComponent(out Equipable weapon))
         {
             weapon.Owner = OwnerActor;
             weapon.OnEquip(OwnerActor);
@@ -104,6 +105,7 @@ public class DS_EquipmentUser : Data
         EquipmentInstance.transform.SetParent(OwnerActor.GetSocket(SocketName));
         EquipmentInstance.transform.localPosition = Vector3.zero;
         EquipmentInstance.transform.localEulerAngles = Vector3.zero;
+        EquipmentInstance.transform.localScale = Vector3.one;
     }
 
     private void ReleaseInstance()

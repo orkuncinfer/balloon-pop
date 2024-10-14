@@ -61,7 +61,7 @@ public class State_ApplyCharacterInput : MonoState
 
             if (_orientToCamera)
             {
-                Character.RotateTowards(_mainCam.transform.forward, Time.deltaTime * _orientationSpeed);
+                Character.RotateTowards(_mainCam.transform.forward, Time.fixedDeltaTime * _orientationSpeed);
             }
             
             // Obtain the camera's forward and right vectors, but ignore the y component to keep movement horizontal.

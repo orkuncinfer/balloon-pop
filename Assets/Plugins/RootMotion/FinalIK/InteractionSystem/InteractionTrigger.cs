@@ -13,39 +13,7 @@ namespace RootMotion.FinalIK {
 	[HelpURL("https://www.youtube.com/watch?v=-TDZpNjt2mk&index=15&list=PLVxSIA1OaTOu8Nos3CalXbJ2DrKnntMv6")]
 	[AddComponentMenu("Scripts/RootMotion.FinalIK/Interaction System/Interaction Trigger")]
 	public class InteractionTrigger: MonoBehaviour {
-
-        // Open the User Manual URL
-        [ContextMenu("User Manual")]
-        void OpenUserManual()
-        {
-            Application.OpenURL("http://www.root-motion.com/finalikdox/html/page10.html");
-        }
-
-        // Open the Script Reference URL
-        [ContextMenu("Scrpt Reference")]
-        void OpenScriptReference()
-        {
-            Application.OpenURL("http://www.root-motion.com/finalikdox/html/class_root_motion_1_1_final_i_k_1_1_interaction_trigger.html");
-        }
-
-        // Open a video tutorial video
-        [ContextMenu("TUTORIAL VIDEO")]
-		void OpenTutorial4() {
-			Application.OpenURL("https://www.youtube.com/watch?v=-TDZpNjt2mk&index=15&list=PLVxSIA1OaTOu8Nos3CalXbJ2DrKnntMv6");
-		}
-
-		// Link to the Final IK Google Group
-		[ContextMenu("Support Group")]
-		void SupportGroup() {
-			Application.OpenURL("https://groups.google.com/forum/#!forum/final-ik");
-		}
 		
-		// Link to the Final IK Asset Store thread in the Unity Community
-		[ContextMenu("Asset Store Thread")]
-		void ASThread() {
-			Application.OpenURL("http://forum.unity3d.com/threads/final-ik-full-body-ik-aim-look-at-fabrik-ccd-ik-1-0-released.222685/");
-		}
-
 		/// <summary>
 		/// Defines the valid range of the character's position and rotation relative to this trigger.
 		/// </summary>

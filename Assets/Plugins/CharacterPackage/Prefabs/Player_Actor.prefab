@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2922813409719551426}
   - component: {fileID: 2724415231482783843}
+  - component: {fileID: 9139636003874493097}
   m_Layer: 0
   m_Name: PlayerFollower
   m_TagString: Untagged
@@ -46,6 +47,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerFollowerVar: {fileID: 11400000, guid: b56893f1410e4c447ae815174b3810b3, type: 2}
   Player: {fileID: 2614585179637846962}
+--- !u!114 &9139636003874493097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429956675240717238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e92ad7adfe6a74caed3e4475b0da77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 100
+  minXRotation: -35
+  maxXRotation: 75
 --- !u!1001 &4629719222923603770
 PrefabInstance:
   m_ObjectHideFlags: 0

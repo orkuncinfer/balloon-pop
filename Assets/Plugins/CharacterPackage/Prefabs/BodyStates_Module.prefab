@@ -69,6 +69,8 @@ MonoBehaviour:
       rid: -2
   _interpolationSpeed: 5
   _velocityDebug: {x: 0, y: 0, z: 0}
+  ActionAsset: {fileID: 0}
+  MoveInput: {x: 0, y: 0}
   references:
     version: 2
     RefIds:
@@ -170,11 +172,11 @@ MonoBehaviour:
   Description: Locomotion
   ChangeName: Locomotion
   Datas:
-  - rid: 3860127184013754369
+  - rid: 3670662662312689665
   references:
     version: 2
     RefIds:
-    - rid: 3860127184013754369
+    - rid: 3670662662312689665
       type: {class: Data_RefVar, ns: , asm: Assembly-CSharp-firstpass}
       data:
         IsGlobal: 0
@@ -183,7 +185,7 @@ MonoBehaviour:
         DataKey: Locomotion
         OwnerActor: {fileID: 0}
         IsInstalled: 0
-        _value: {fileID: 11400000, guid: 368947fa572fb514eb1b2ad1c42e8ef9, type: 2}
+        _value: {fileID: 11400000, guid: 84234004315e2b74aa4bdc642c11fc26, type: 2}
 --- !u!1 &4949499734420387882
 GameObject:
   m_ObjectHideFlags: 0

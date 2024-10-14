@@ -139,6 +139,7 @@ namespace RootMotion.FinalIK {
 
 			if (interactionObject == null) return false;
 
+			Debug.Log("Started Interaction " + effectorType + " " + interactionObject.name);
 			for (int i = 0; i < interactionEffectors.Length; i++) {
 				if (interactionEffectors[i].effectorType == effectorType) {
 					return interactionEffectors[i].Start(interactionObject, targetTag, fadeInTime, interrupt);
