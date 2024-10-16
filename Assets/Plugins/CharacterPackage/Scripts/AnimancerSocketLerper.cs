@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Animancer;
+using Sirenix.OdinInspector;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Profiling; // Add this namespace for Profiler API
@@ -16,6 +17,7 @@ public class SocketLerpInfo
     public float LerpSpeed = 3f;
     public Vector3 _defaultPosition;
     public Vector3 _defaultRotation;
+    [ReadOnly]public float RemappedWeight;
 }
 
 public class AnimancerSocketLerper : MonoBehaviour
@@ -43,30 +45,16 @@ public class AnimancerSocketLerper : MonoBehaviour
         Profiler.BeginSample("SocketLerper Update");
 
         int count = _socketLerpInfos.Count;
+        bool anyPlaying = false;
         for (int i = 0; i < count; i++)
         {
             Profiler.BeginSample("Lerping Character");
             var socketLerpInfo = _socketLerpInfos[i];
             float weight;
-            if (IsAnimationPlaying(socketLerpInfo._lerpClips, out weight))
+            if (IsAnimationPlaying(socketLerpInfo, out weight))
             {
-                Profiler.BeginSample("Remap Weight and Lerp");
                 float remappedWeight = MathUtils.StepRemap(0, 1, socketLerpInfo._weightRange.x, socketLerpInfo._weightRange.y, weight);
-
-                if (remappedWeight <= 0.05f)
-                {
-                    Vector3 currentPosition = socketLerpInfo._lerpTransform.localPosition;
-                    Vector3 currentRotation = socketLerpInfo._lerpTransform.localEulerAngles;
-
-                    if (currentPosition != socketLerpInfo._defaultPosition || currentRotation != socketLerpInfo._defaultRotation)
-                    {
-                        socketLerpInfo._lerpTransform.localPosition = Vector3.Lerp(currentPosition, socketLerpInfo._defaultPosition, Time.deltaTime * socketLerpInfo.LerpSpeed);
-                        socketLerpInfo._lerpTransform.localRotation = Quaternion.Lerp(socketLerpInfo._lerpTransform.localRotation, Quaternion.Euler(socketLerpInfo._defaultRotation), Time.deltaTime * socketLerpInfo.LerpSpeed);
-                    }
-                    Profiler.EndSample(); // End "Remap Weight and Lerp"
-                    continue;
-                }
-
+                socketLerpInfo.RemappedWeight = remappedWeight;
                 Vector3 targetPosition = socketLerpInfo.LerpPosition;
                 Vector3 targetRotation = socketLerpInfo.LerpRotation;
                 Vector3 currentPos = socketLerpInfo._lerpTransform.localPosition;
@@ -79,25 +67,37 @@ public class AnimancerSocketLerper : MonoBehaviour
                 }
                 Profiler.EndSample(); // End "Remap Weight and Lerp"
             }
+            else
+            {
+                Vector3 currentPosition = socketLerpInfo._lerpTransform.localPosition;
+                Vector3 currentRotation = socketLerpInfo._lerpTransform.localEulerAngles;
+
+                if (currentPosition != socketLerpInfo._defaultPosition || currentRotation != socketLerpInfo._defaultRotation)
+                {
+                    socketLerpInfo._lerpTransform.localPosition = Vector3.Lerp(currentPosition, socketLerpInfo._defaultPosition, Time.deltaTime * socketLerpInfo.LerpSpeed);
+                    socketLerpInfo._lerpTransform.localRotation = Quaternion.Lerp(socketLerpInfo._lerpTransform.localRotation, Quaternion.Euler(socketLerpInfo._defaultRotation), Time.deltaTime * socketLerpInfo.LerpSpeed);
+                }
+            }
             Profiler.EndSample(); // End "Lerping Character"
         }
 
         Profiler.EndSample(); // End "SocketLerper Update"
     }
 
-    private bool IsAnimationPlaying(AnimationClip[] clips, out float highestWeight)
+    private bool IsAnimationPlaying(SocketLerpInfo lerpInfo, out float highestWeight)
     {
         Profiler.BeginSample("Check Animation Playing");
         highestWeight = 0;
         var states = _animancer.States.Current;
+        if(states == null) return false;
         var enumerator = states.GetEnumerator();
 
         while (enumerator.MoveNext())
         {
             var animancerState = enumerator.Current;
-            for (int i = 0; i < clips.Length; i++)
+            for (int i = 0; i < lerpInfo._lerpClips.Length; i++)
             {
-                if (animancerState.Clip == clips[i] && animancerState.IsPlaying)
+                if (animancerState.Clip == lerpInfo._lerpClips[i] && animancerState.IsPlaying)
                 {
                     if (animancerState.Weight > highestWeight)
                     {
@@ -108,6 +108,6 @@ public class AnimancerSocketLerper : MonoBehaviour
         }
 
         Profiler.EndSample(); // End "Check Animation Playing"
-        return highestWeight > 0.1f;
+        return highestWeight > lerpInfo._weightRange.x;
     }
 }

@@ -72,6 +72,7 @@ public class DS_EquipmentUser : Data
     
     public void EquipCurrent()
     {
+        if(EquipmentPrefab == null) return;
         ReleaseInstance();
         EquipmentInstance = PoolManager.SpawnObject(EquipmentPrefab, Vector3.zero, Quaternion.identity);
         

@@ -17,9 +17,11 @@ public class EquipmentSetupIKTargets : MonoBehaviour
     [SerializeField] private Transform _aimTransform;
     [SerializeField] private Transform _leftHandPivot;
     [SerializeField] private Transform _rightHandPivot;
+    [SerializeField] private Transform _leftHandBendTarget;
     
     private FullBodyBipedIK ik;
     private AimIK _aimIK;
+    private AimIKWeightHandler _aimIKWeightHandler;
     private Camera _camera;
     private void OnEnable()
     {
@@ -35,12 +37,19 @@ public class EquipmentSetupIKTargets : MonoBehaviour
     public void SetupIKTargets(ActorBase actor)
     {
         ik = actor.GetComponentInChildren<FullBodyBipedIK>();
+        _aimIKWeightHandler = actor.GetComponentInChildren<AimIKWeightHandler>();
+        _aimIKWeightHandler.ToggleAiming(true);
         if (_aimTransform)
         {
             _aimIK = actor.GetComponentInChildren<AimIK>();
             _aimIK.solver.transform = _aimTransform;
         }
 
+        if (_aimIKWeightHandler)
+        {
+            _aimIKWeightHandler.LeftHandBendTarget = _leftHandBendTarget;
+        }
+        
         if (_leftHandPivot)
         {
             
@@ -72,7 +81,7 @@ public class EquipmentSetupIKTargets : MonoBehaviour
                 break;
         }
         
-        StaticUpdater.onLateUpdate += UpdateIK;
+        //StaticUpdater.onLateUpdate += UpdateIK;
     }
 
     private void UpdateIK()

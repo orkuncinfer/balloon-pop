@@ -27,7 +27,6 @@ MonoBehaviour:
           _Names: []
         _Speed: 1
         _Animations:
-        - {fileID: 8993902097722301239, guid: cc1f49313a7c0ef4d9efba330be2c95b, type: 3}
         - {fileID: 8993902097722301239, guid: 3ed29921918445c43a135311a7533859, type: 3}
         - {fileID: 8993902097722301239, guid: 1aa1f455c44aa94468336175787a1cf0, type: 3}
         - {fileID: 7400000, guid: d3076a190b6fa584f8481511ea67f53b, type: 2}
@@ -45,9 +44,8 @@ MonoBehaviour:
         - {fileID: 7400000, guid: e7a8d286b97a99c4cb5e19a28ba57025, type: 2}
         - {fileID: 7400000, guid: 7cda79542e0edf04c9a3ab06f69d03be, type: 2}
         _Speeds:
-        - 1
         - 0.9
-        - 0.8
+        - 0.9
         - 1
         - 1
         - 1
@@ -64,9 +62,8 @@ MonoBehaviour:
         - 1
         _SynchronizeChildren: 
         _Thresholds:
-        - {x: 0, y: 0}
         - {x: 0, y: 3}
-        - {x: 0, y: -2.2}
+        - {x: 0, y: -3}
         - {x: -3, y: 0}
         - {x: 3, y: 0}
         - {x: -2, y: 2}
@@ -74,7 +71,7 @@ MonoBehaviour:
         - {x: -2, y: -2}
         - {x: 2, y: -2}
         - {x: 0, y: 9}
-        - {x: 0, y: -8}
+        - {x: 0, y: -9}
         - {x: -6, y: 0}
         - {x: 6, y: 0}
         - {x: -4.5, y: 4.5}

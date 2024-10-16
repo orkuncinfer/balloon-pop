@@ -192,6 +192,8 @@ MonoBehaviour:
   ActorID: 
   StartMethod: 0
   _initialTags: []
+  GameplayTags:
+    m_SerializedExplicitTags: []
   _initialState: {fileID: 7317867615134314451}
   _returnToPoolOnStop: 0
 --- !u!114 &1607448033958173341
@@ -428,9 +430,31 @@ MonoBehaviour:
   Datas:
   - rid: 4448694695146815619
   - rid: 4448694695146815620
+  - rid: 3670662740903198766
+  - rid: 3670662740903198767
   references:
     version: 2
     RefIds:
+    - rid: 3670662740903198766
+      type: {class: Data_AbilityDefinition, ns: , asm: Assembly-CSharp-firstpass}
+      data:
+        IsGlobal: 0
+        UseKey: 1
+        IsPersistent: 0
+        DataKey: Ability_Sprint
+        OwnerActor: {fileID: 0}
+        IsInstalled: 0
+        _abilityDefinition: {fileID: 11400000, guid: 0e2e3e246ef0b6244a2956f7d9443ba6, type: 2}
+    - rid: 3670662740903198767
+      type: {class: Data_AbilityDefinition, ns: , asm: Assembly-CSharp-firstpass}
+      data:
+        IsGlobal: 0
+        UseKey: 1
+        IsPersistent: 0
+        DataKey: Ability_Interaction
+        OwnerActor: {fileID: 0}
+        IsInstalled: 0
+        _abilityDefinition: {fileID: 11400000, guid: e0fd6c925b2d19341bac8f870d52cfff, type: 2}
     - rid: 4448694695146815619
       type: {class: Data_AbilityDefinition, ns: , asm: Assembly-CSharp-firstpass}
       data:
