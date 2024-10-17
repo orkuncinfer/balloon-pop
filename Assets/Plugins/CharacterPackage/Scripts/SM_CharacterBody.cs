@@ -25,7 +25,7 @@ public class SM_CharacterBody : ActorStateMachine
 
     private void OnGameplayTagRemoved(GameplayTag obj)
     {
-        if (obj.Matches(AbilityStateTag))
+        if (obj.MatchesExact(AbilityStateTag))
         {
             _shouldUseAbility = false;
         }

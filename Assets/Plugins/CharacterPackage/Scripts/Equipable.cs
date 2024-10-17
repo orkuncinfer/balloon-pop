@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 public class Equipable : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField][ReadOnly]
     private ActorBase _owner; 
     public ActorBase Owner 
     {

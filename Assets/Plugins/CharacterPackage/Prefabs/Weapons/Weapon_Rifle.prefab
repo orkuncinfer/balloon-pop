@@ -305,7 +305,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8242856785959123562}
-  - component: {fileID: 3074627379908291903}
+  - component: {fileID: 6005983464366768730}
   - component: {fileID: 5887351453918988996}
   - component: {fileID: 7941266571296540520}
   m_Layer: 0
@@ -333,7 +333,7 @@ Transform:
   - {fileID: 9041521809067248878}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3074627379908291903
+--- !u!114 &6005983464366768730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,17 +342,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1423140520730457204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bcc850b72bd29c4680d7e2bb63cce7e, type: 3}
+  m_Script: {fileID: 11500000, guid: a7c400d9d3884384c859654ed8c21063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _owner: {fileID: 0}
   _overrideLocomotionAsset: {fileID: 11400000, guid: 44606da7cf2afbd4894642a2fab1943a, type: 2}
   _equipSocketName: RiflePivot
-  LayerMask:
-    serializedVersion: 2
-    m_Bits: 55
-  Collider: {fileID: 5887351453918988996}
-  AimTransform: {fileID: 9041521809067248878}
 --- !u!65 &5887351453918988996
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -386,7 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2677c08f4b6c241815bbfc1a7317b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _equipable: {fileID: 3074627379908291903}
+  _equipable: {fileID: 6005983464366768730}
   _equipHand: 1
   rightHandOffset: {x: 0, y: 0, z: 0}
   _aimTransform: {fileID: 9041521809067248878}

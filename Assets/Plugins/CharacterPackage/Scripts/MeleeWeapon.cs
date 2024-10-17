@@ -8,7 +8,6 @@ public class MeleeWeapon : Equipable
 {
     public LayerMask LayerMask;
     public BoxCollider Collider;
-    public Transform AimTransform;
 
     public event Action<Collider> onHit;
     
@@ -20,8 +19,6 @@ public class MeleeWeapon : Equipable
         RaycastHit hitInfo;
 
         // Perform the BoxCast
-       
-        
         Collider[] hitColliders = new Collider[10];  // Adjust the size as necessary
         int numColliders = Physics.OverlapBoxNonAlloc(worldCenter, worldHalfExtents, hitColliders, transform.rotation, LayerMask);
 
@@ -35,13 +32,10 @@ public class MeleeWeapon : Equipable
             }
         }
         // ExtDebug.DrawBox(center,halfExtents,transform.rotation,Color.red);
-    
     }
 
     public override void OnEquip(ActorBase owner)
     {
         base.OnEquip(owner);
-        AimIK aimIK = Owner.GetComponentInChildren<AimIK>();
-        aimIK.solver.transform = AimTransform;
     }
 }
