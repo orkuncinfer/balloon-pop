@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6db90f1c0c896d48bdb75d58952248a, type: 3}
   m_Name: Preferences
   m_EditorClassIdentifier: 
-  selectedTabIndex: 1
+  selectedTabIndex: 0
   historyItemsMax: 20
   history: []
   favorites:

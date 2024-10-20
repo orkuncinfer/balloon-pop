@@ -21,7 +21,7 @@ public class AimIKWeightHandler : MonoBehaviour
     public Vector3 leftHandOffset;
     public float _leftHandBendSpeed;
     public Recoil recoil;
-    
+    public bool HoldLeftHand = true;
     private Vector3 headLookAxis;
     private Vector3 leftHandPosRelToRightHand;
     private Quaternion leftHandRotRelToRightHand;
@@ -46,8 +46,11 @@ public class AimIKWeightHandler : MonoBehaviour
         _leftHandBendWeight = Mathf.MoveTowards(_leftHandBendWeight, IsAiming ? 1 : 0, Time.deltaTime * _leftHandBendSpeed);
         
         _aimIK.solver.IKPositionWeight = _aimIKWeight;
-        
-        
+
+        if (HoldLeftHand)
+        {
+	        ik.solver.leftHandEffector.positionWeight = _aimIKWeight;
+        }
         if (LeftHandBendTarget)
         {
 	        ik.solver.leftArmChain.bendConstraint.bendGoal = LeftHandBendTarget;
@@ -80,10 +83,24 @@ public class AimIKWeightHandler : MonoBehaviour
 	    }
     }
 
-    public void ToggleAiming(bool isAiming)
+    public void ToggleAiming(bool isAiming,bool isInstant = false)
     {
+	    Debug.Log("toggled aiming" + isAiming);
         IsAiming = isAiming;
 
+        if (isAiming && isInstant)
+        {
+	        _aimIKWeight = 1;
+	        _leftHandBendWeight = 1;
+	        _aimIK.solver.IKPositionWeight = 1;
+        }
+        else
+        {
+	        _aimIKWeight = 0;
+	        _leftHandBendWeight = 0;
+	        _aimIK.solver.IKPositionWeight = 0;
+        }
+        
         if (isAiming)
         {
 	        //_aimIK.enabled = false;

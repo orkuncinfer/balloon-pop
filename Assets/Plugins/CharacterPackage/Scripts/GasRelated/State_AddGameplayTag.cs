@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using BandoWare.GameplayTags;
 using UnityEngine;
 
 public class State_AddGameplayTag : MonoState
 {
-    [SerializeField] private List<GameplayTag> _tagsToAdd;
+    [SerializeField] private GameplayTagContainer _tagsToAdd;
     [SerializeField] private bool _removeOnExit;
     private Data_GAS _gasData;
     
@@ -12,10 +13,7 @@ public class State_AddGameplayTag : MonoState
     {
         base.OnEnter();
         _gasData = Owner.GetData<Data_GAS>();
-        foreach (var tag in _tagsToAdd)
-        {
-            _gasData.TagController.AddTag(tag);
-        }
+        Owner.GameplayTags.AddTags(_tagsToAdd);
     }
 
     protected override void OnExit()
@@ -23,10 +21,7 @@ public class State_AddGameplayTag : MonoState
         base.OnExit();
         if (_removeOnExit)
         {
-            foreach (var tag in _tagsToAdd)
-            {
-                _gasData.TagController.RemoveTag(tag);
-            }
+           Owner.GameplayTags.RemoveTags(_tagsToAdd);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using BandoWare.GameplayTags;
+using UnityEngine;
 
 public class SM_CharacterBody : ActorStateMachine
 {
@@ -6,7 +7,7 @@ public class SM_CharacterBody : ActorStateMachine
     [SerializeField] private MonoState _airborne;
     [SerializeField] private MonoState _ability;
     
-    [SerializeField] private GameplayTag AbilityStateTag;
+    [SerializeField] private BandoWare.GameplayTags.GameplayTag AbilityStateTag;
     
     protected override MonoState _initialState => _grounded;
     
@@ -19,27 +20,24 @@ public class SM_CharacterBody : ActorStateMachine
         base.OnEnter();
         _gasData = Owner.GetData<Data_GAS>();
         _tagController = _gasData.TagController;
-        _tagController.onGameplaytagAdded += OnGameplayTagAdded;
-        _tagController.onGameplaytagRemoved += OnGameplayTagRemoved;
+        Owner.GameplayTags.OnTagChanged += OnAnyTagCountChange;
     }
 
-    private void OnGameplayTagRemoved(GameplayTag obj)
+    protected override void OnExit()
     {
-        if (obj.MatchesExact(AbilityStateTag))
-        {
-            _shouldUseAbility = false;
-        }
+        base.OnExit();
+        Owner.GameplayTags.OnTagChanged -= OnAnyTagCountChange;
     }
 
-    private void OnGameplayTagAdded(GameplayTag obj)
+    private void OnAnyTagCountChange()
     {
-        if (obj.Matches(AbilityStateTag))
+        if(AbilityStateTag == BandoWare.GameplayTags.GameplayTag.None) return;
+        if (Owner.GameplayTags.HasTagExact(AbilityStateTag))
         {
             _shouldUseAbility = true;
-        }
-        else
+        }else
         {
-            // no match
+            _shouldUseAbility = false; // no match
         }
     }
 

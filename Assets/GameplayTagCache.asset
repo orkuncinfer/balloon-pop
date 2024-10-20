@@ -19,7 +19,8 @@ MonoBehaviour:
     - Assets/_Project/Scenes/ThirdPersonScene.unity/test
   - Tag: Ability.Crouch
     References:
-    - Assets/Plugins/actor-core/AbilitySystem/Demo/Abilities/Melee/GA_GetHit.asset
     - Assets/Plugins/actor-core/AbilitySystem/Demo/Abilities/Melee/test.prefab
-    - Assets/Plugins/actor-core/AbilitySystem/Demo/Abilities/Melee/GA_MeleeAttack.asset
     - Assets/_Project/Scenes/ThirdPersonScene.unity/test
+  - Tag: State.Movement.Sprint
+    References:
+    - Assets/Plugins/actor-core/AbilitySystem/Demo/Abilities/Sprint/GE_Sprint.asset

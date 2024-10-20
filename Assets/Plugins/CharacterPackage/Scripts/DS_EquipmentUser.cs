@@ -87,7 +87,17 @@ public class DS_EquipmentUser : Data
         EquipmentInstance.transform.localEulerAngles = Vector3.zero;
         EquipmentInstance.transform.localScale = Vector3.one;
     }
-    
+    public void UnequipCurrent()
+    {
+        if (_equipmentInstance != null)
+        {
+            if (EquipmentInstance.TryGetComponent(out Equipable weapon))
+            {
+                weapon.OnUnequip(OwnerActor);
+            }
+            ReleaseInstance();
+        }
+    }
     public void EquipWorldInstance(GameObject equipmentInstance,string socketName = "")
     {
         _equippedAsWorldInstance = true;
@@ -107,6 +117,7 @@ public class DS_EquipmentUser : Data
         EquipmentInstance.transform.localPosition = Vector3.zero;
         EquipmentInstance.transform.localEulerAngles = Vector3.zero;
         EquipmentInstance.transform.localScale = Vector3.one;
+        equipmentInstance.SetActive(true);
     }
 
     private void ReleaseInstance()

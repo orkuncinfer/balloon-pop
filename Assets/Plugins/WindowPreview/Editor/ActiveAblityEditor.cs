@@ -28,6 +28,7 @@ public class ActiveAblityEditor : OdinEditor
     protected override void OnEnable()
     {
         base.OnEnable();
+        _abilityDefinition = (ActiveAbilityDefinition)target;
         _previewUtility = new PreviewRenderUtility();
         _previewUtility.camera.farClipPlane = 1000;
         _previewUtility.lights[0].transform.rotation = Quaternion.Euler(70, -160, -220);

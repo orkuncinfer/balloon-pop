@@ -27,11 +27,19 @@ public class EquipmentSetupIKTargets : MonoBehaviour
     {
         _camera = Camera.main;
         _equipable.onEquipped += SetupIKTargets;
+        _equipable.onUnequipped += OnUnequip;
     }
+
 
     private void OnDisable()
     {
         _equipable.onEquipped -= SetupIKTargets;
+       
+    }
+    private void OnUnequip(ActorBase obj)
+    {
+        _aimIKWeightHandler.ToggleAiming(false);
+        _equipable.onUnequipped -= OnUnequip;
     }
 
     public void SetupIKTargets(ActorBase actor)
@@ -71,7 +79,7 @@ public class EquipmentSetupIKTargets : MonoBehaviour
             handPoserRight.poseRoot = _rightHandPivot;
         }
         
-        switch (_equipHand)
+       /* switch (_equipHand)
         {
             case EEquipHand.LeftHand:
                 ik.solver.rightHandEffector.positionWeight = 1;
@@ -79,7 +87,7 @@ public class EquipmentSetupIKTargets : MonoBehaviour
             case EEquipHand.RightHand:
                 ik.solver.leftHandEffector.positionWeight = 1;
                 break;
-        }
+        }*/
         
         //StaticUpdater.onLateUpdate += UpdateIK;
     }

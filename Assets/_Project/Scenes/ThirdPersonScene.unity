@@ -2183,6 +2183,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1201701109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &590210317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 590210318}
+  m_Layer: 0
+  m_Name: WeaponBack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &590210318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590210317}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.49245876, y: -0.530416, z: 0.61411685, w: -0.31464878}
+  m_LocalPosition: {x: -0.066, y: 0.493, z: -0.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5139614003759491823}
+  m_LocalEulerAnglesHint: {x: 74.024, y: -99.983, z: 150.399}
 --- !u!4 &590497055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7956613700593044526, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
@@ -3207,7 +3238,6 @@ GameObject:
   - component: {fileID: 826528387}
   - component: {fileID: 826528389}
   - component: {fileID: 826528388}
-  - component: {fileID: 826528390}
   m_Layer: 0
   m_Name: UpperBody_State
   m_TagString: Untagged
@@ -3252,12 +3282,7 @@ MonoBehaviour:
   _airborne: {fileID: 1562023542}
   _ability: {fileID: 744839099}
   AbilityStateTag:
-    fullTag: State.Ability.UpperBody
-    tagHierarchy:
-    - State
-    - State.Ability
-    - State.Ability.UpperBody
-    HashCode: 3dfe870d-c954-43a6-a9dd-bc6d99ade74d
+    m_Name: AbilitySlot.UpperBody.Busy
 --- !u!114 &826528389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3272,21 +3297,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
---- !u!114 &826528390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 826528386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28ec17e20b7e20f4a8fc65d5e4b5b127, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsRunning: 0
-  IsFinished: 0
-  _unequipAbility: {fileID: 11400000, guid: deeafac36a8104f4d96b5674f6822dee, type: 2}
 --- !u!1 &889841673
 GameObject:
   m_ObjectHideFlags: 0
@@ -4209,7 +4219,7 @@ MonoBehaviour:
   AnimationFloorLevel: 0.001
   _Editor_Foldout_Setup_LegsList: 1
   _Editor_EnsureCount: 0
-  _Editor_OnValidateTrigger: 1
+  _Editor_OnValidateTrigger: 0
   _EditorAllowAutoUpdateFeetParams: 1
   _EditorCategory: 1
   _EditorSetupCategory: 0
@@ -13045,7 +13055,7 @@ GameObject:
   - component: {fileID: 3715584028635483515}
   - component: {fileID: 7017730232411590520}
   - component: {fileID: 6747016997672034518}
-  - component: {fileID: 7479088653559580288}
+  - component: {fileID: 7017730232411590521}
   m_Layer: 0
   m_Name: BaseBody_StateModule
   m_TagString: Untagged
@@ -13482,6 +13492,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: test
       objectReference: {fileID: 0}
+    - target: {fileID: 7343776321860064671, guid: 494b16444103f3e40afae273b6caf640, type: 3}
+      propertyPath: _container2.m_SerializedExplicitTags.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7343776321860064671, guid: 494b16444103f3e40afae273b6caf640, type: 3}
+      propertyPath: _container2.m_SerializedExplicitTags.Array.data[0]
+      value: Ability.Crouch
+      objectReference: {fileID: 0}
     - target: {fileID: 8165803278939053743, guid: 494b16444103f3e40afae273b6caf640, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.52982837
@@ -13548,6 +13566,7 @@ MonoBehaviour:
   leftHandOffset: {x: 0, y: 0, z: 0}
   _leftHandBendSpeed: 2
   recoil: {fileID: 3056048713569200229}
+  HoldLeftHand: 1
   LeftHandBendTarget: {fileID: 0}
 --- !u!4 &3035423385754960102
 Transform:
@@ -13757,6 +13776,7 @@ GameObject:
   - component: {fileID: 7143611272247228243}
   - component: {fileID: 5466762520776304515}
   - component: {fileID: 1324504780972781420}
+  - component: {fileID: 7143611272247228244}
   m_Layer: 0
   m_Name: Grounded
   m_TagString: Untagged
@@ -13872,11 +13892,7 @@ MonoBehaviour:
   IsRunning: 0
   IsFinished: 0
   _tagsToAdd:
-  - fullTag: State.IsDead
-    tagHierarchy:
-    - State
-    - State.IsDead
-    HashCode: 83a4c44d-27ab-481a-9e80-360307a0c519
+    m_SerializedExplicitTags: []
   _removeOnExit: 1
 --- !u!114 &3508812757567338301
 MonoBehaviour:
@@ -13972,8 +13988,7 @@ MonoBehaviour:
   _initialTags:
   - {fileID: 11400000, guid: f7b2489220fef5547a9de7ec1c3fe1ba, type: 2}
   GameplayTags:
-    m_SerializedExplicitTags:
-    - Ability
+    m_SerializedExplicitTags: []
   _initialState: {fileID: 7256649438962629439}
   _returnToPoolOnStop: 0
 --- !u!114 &3706993587181594357
@@ -14137,10 +14152,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9cebe87f2c0fc554189e396be762c199, type: 2}
   - {fileID: 11400000, guid: ac99efc38aade324c9caf47644189dab, type: 2}
   - {fileID: 11400000, guid: 0e2e3e246ef0b6244a2956f7d9443ba6, type: 2}
+  - {fileID: 11400000, guid: deeafac36a8104f4d96b5674f6822dee, type: 2}
   AbilitySet: {fileID: 0}
   LastUsedAbility:
     Owner: {fileID: 0}
-  ActiveAbilities: []
   Target: {fileID: 0}
   TestAbility: {fileID: 0}
 --- !u!1 &3886494402611604596
@@ -14320,8 +14335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e85204b77f26d4689c4e9bc5b2c920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugCanvas: {fileID: 7024509497372333798, guid: d94b94463511913429ae10a08e0f3ed8, type: 3}
-  _gameplayTags: []
 --- !u!4 &4181772157333453734
 Transform:
   m_ObjectHideFlags: 0
@@ -14901,6 +14914,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 42293259240102827}
+  - {fileID: 590210318}
   m_Father: {fileID: 5239795605763481977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5157925503537181581
@@ -15806,6 +15820,9 @@ MonoBehaviour:
   - Key: RiflePivot
     Transform: {fileID: 7925740258917013784}
     IsBone: 0
+  - Key: WeaponBack
+    Transform: {fileID: 590210318}
+    IsBone: 0
 --- !u!4 &6697465664166297209
 Transform:
   m_ObjectHideFlags: 0
@@ -15998,6 +16015,7 @@ GameObject:
   m_Component:
   - component: {fileID: 834367065866241287}
   - component: {fileID: 3508812757567338301}
+  - component: {fileID: 6895966967958693383}
   m_Layer: 0
   m_Name: Airborne
   m_TagString: Untagged
@@ -16005,6 +16023,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6895966967958693383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6895966967958693382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9d9418414fca7418bb202d5a9839bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsRunning: 0
+  IsFinished: 0
+  _tagsToAdd:
+    m_SerializedExplicitTags:
+    - State.Movement.Airborne
+  _removeOnExit: 0
 --- !u!1 &6897831934150321190
 GameObject:
   m_ObjectHideFlags: 0
@@ -16055,33 +16091,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8358561449009025997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6973032018383931634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8066044442521108790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e749362636fe5e04cb426bef9d6c93bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsRunning: 0
-  IsFinished: 0
-  _abilityDS:
-    Key: Ability_1
-    From: 1
-    _retrievedData:
-      rid: -2
-  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
-  ActionName: Ability-1
-  CancelOnRelease: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
 --- !u!1 &7007490284959226251
 GameObject:
   m_ObjectHideFlags: 0
@@ -16117,11 +16126,22 @@ MonoBehaviour:
   _airborne: {fileID: 3508812757567338301}
   _ability: {fileID: 1321821843978056235}
   AbilityStateTag:
-    fullTag: Blocker.GetHit
-    tagHierarchy:
-    - Blocker
-    - Blocker.GetHit
-    HashCode: 0672803e-7082-4040-931f-abe9766f2b0f
+    m_Name: AbilitySlot.BaseBody
+--- !u!114 &7017730232411590521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2270786710262465557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ec17e20b7e20f4a8fc65d5e4b5b127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsRunning: 0
+  IsFinished: 0
+  _unequipAbility: {fileID: 11400000, guid: deeafac36a8104f4d96b5674f6822dee, type: 2}
 --- !u!4 &7046155376299108603
 Transform:
   m_ObjectHideFlags: 0
@@ -16251,6 +16271,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
+--- !u!114 &7143611272247228244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3307034539905960905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6c77ff8102eff4286db1a6187d73d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsRunning: 0
+  IsFinished: 0
+  _locomotionAsset:
+    Key: Locomotion
+    From: 1
+    _retrievedData:
+      rid: -2
+  _interpolationSpeed: 5
+  _velocityDebug: {x: 0, y: 0, z: 0}
+  _velocityThreshold: 2
+  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
+  MoveInput: {x: 0, y: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!114 &7184251580231865170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16421,35 +16470,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8559849682693166422}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7479088653559580288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2270786710262465557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf6c77ff8102eff4286db1a6187d73d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsRunning: 0
-  IsFinished: 0
-  _locomotionAsset:
-    Key: Locomotion
-    From: 1
-    _retrievedData:
-      rid: -2
-  _interpolationSpeed: 5
-  _velocityDebug: {x: 0, y: 0, z: 0}
-  _velocityThreshold: 2
-  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
-  MoveInput: {x: 0, y: 0}
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
 --- !u!1 &7556518764952079857
 GameObject:
   m_ObjectHideFlags: 0
@@ -16659,7 +16679,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.19382069, y: 0.62376785, z: -0.742654, w: -0.14768986}
   m_LocalPosition: {x: 0.048, y: -0.059, z: -0.029}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5952664041315098384}
@@ -16742,7 +16762,7 @@ GameObject:
   - component: {fileID: 6436562845219690301}
   - component: {fileID: 8066044442521108791}
   - component: {fileID: 8015660175212734157}
-  - component: {fileID: 6973032018383931634}
+  - component: {fileID: 8066044442521108792}
   - component: {fileID: 758003586246178139}
   - component: {fileID: 4539881040686054047}
   m_Layer: 0
@@ -16767,6 +16787,33 @@ MonoBehaviour:
   IsRunning: 0
   IsFinished: 0
   _redirectTo: {fileID: 826528389}
+--- !u!114 &8066044442521108792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066044442521108790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e749362636fe5e04cb426bef9d6c93bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsRunning: 0
+  IsFinished: 0
+  _abilityDS:
+    Key: Ability_1
+    From: 1
+    _retrievedData:
+      rid: -2
+  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
+  ActionName: Ability-1
+  CancelOnRelease: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!4 &8073987904103608999
 Transform:
   m_ObjectHideFlags: 0
