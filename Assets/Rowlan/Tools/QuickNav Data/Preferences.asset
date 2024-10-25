@@ -12,9 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6db90f1c0c896d48bdb75d58952248a, type: 3}
   m_Name: Preferences
   m_EditorClassIdentifier: 
-  selectedTabIndex: 0
+  selectedTabIndex: 1
   historyItemsMax: 20
-  history: []
+  history:
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-8066044442521108790-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-7556518764952079857-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-1590105485186618173-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-8509202938367848477-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-1590105485186618173-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-8509202938367848477-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-1590105485186618173-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-8066044442521108790-0
   favorites:
   - context: 2
     title: BalloonPop
@@ -72,3 +104,7 @@ MonoBehaviour:
     title: 
     unityObject: {fileID: 11400000, guid: bb2368afad43bb146a5d9a604f24fc69, type: 2}
     objectGuid: GlobalObjectId_V1-3-bb2368afad43bb146a5d9a604f24fc69-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 102900000, guid: 0b76f415db5afff448563bb2fe61df42, type: 3}
+    objectGuid: GlobalObjectId_V1-1-0b76f415db5afff448563bb2fe61df42-102900000-0

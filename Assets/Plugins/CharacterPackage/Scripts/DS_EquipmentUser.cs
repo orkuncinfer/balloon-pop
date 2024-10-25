@@ -87,7 +87,7 @@ public class DS_EquipmentUser : Data
         EquipmentInstance.transform.localEulerAngles = Vector3.zero;
         EquipmentInstance.transform.localScale = Vector3.one;
     }
-    public void UnequipCurrent()
+    public void UnequipCurrent(bool destroyInstance = true)
     {
         if (_equipmentInstance != null)
         {
@@ -95,7 +95,9 @@ public class DS_EquipmentUser : Data
             {
                 weapon.OnUnequip(OwnerActor);
             }
-            ReleaseInstance();
+            EquipmentInstance = null;
+            if(destroyInstance)
+                ReleaseInstance();
         }
     }
     public void EquipWorldInstance(GameObject equipmentInstance,string socketName = "")

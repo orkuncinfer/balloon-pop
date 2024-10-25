@@ -350,6 +350,8 @@ MonoBehaviour:
   _equipSocketName: RiflePivot
   _equipAbility: {fileID: 0}
   _unequipAbility: {fileID: 11400000, guid: deeafac36a8104f4d96b5674f6822dee, type: 2}
+  EquipTags:
+    m_SerializedExplicitTags: []
 --- !u!65 &5887351453918988996
 BoxCollider:
   m_ObjectHideFlags: 0

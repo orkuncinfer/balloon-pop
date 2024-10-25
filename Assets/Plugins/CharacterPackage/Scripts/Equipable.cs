@@ -1,5 +1,6 @@
 ﻿using System;
 using Animancer;
+using BandoWare.GameplayTags;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
@@ -27,6 +28,8 @@ public class Equipable : MonoBehaviour
     public event Action<ActorBase> onUnequipped; 
     public string EquipSocketName => _equipSocketName;
     
+    public GameplayTagContainer EquipTags;
+    
     private Object _previousLocomotionAsset;
     
     public virtual void OnEquip(ActorBase owner)
@@ -38,6 +41,8 @@ public class Equipable : MonoBehaviour
             _previousLocomotionAsset = owner.GetData<Data_RefVar>("Locomotion").Value;
             _owner.GetData<Data_RefVar>("Locomotion").Value = _overrideLocomotionAsset;
         }
+        
+        Owner.GameplayTags.AddTags(EquipTags);
         onEquipped?.Invoke(owner);
     }
 
@@ -47,6 +52,7 @@ public class Equipable : MonoBehaviour
         {
             _owner.GetData<Data_RefVar>("Locomotion").Value = _previousLocomotionAsset;
         }
+        Owner.GameplayTags.RemoveTags(EquipTags);
         onUnequipped?.Invoke(Owner);
     }
     

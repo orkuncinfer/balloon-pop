@@ -49,7 +49,10 @@ public class AimIKWeightHandler : MonoBehaviour
 
         if (HoldLeftHand)
         {
-	        ik.solver.leftHandEffector.positionWeight = _aimIKWeight;
+	        if (ik.solver.leftHandEffector.target != null)
+	        {
+		        //ik.solver.leftHandEffector.positionWeight = 1;
+	        }
         }
         if (LeftHandBendTarget)
         {
@@ -83,7 +86,7 @@ public class AimIKWeightHandler : MonoBehaviour
 	    }
     }
 
-    public void ToggleAiming(bool isAiming,bool isInstant = false)
+    public void ToggleAiming(bool isAiming,bool isInstant = false, bool releaseLeftHand = false)
     {
 	    Debug.Log("toggled aiming" + isAiming);
         IsAiming = isAiming;
@@ -94,7 +97,7 @@ public class AimIKWeightHandler : MonoBehaviour
 	        _leftHandBendWeight = 1;
 	        _aimIK.solver.IKPositionWeight = 1;
         }
-        else
+        else if(!isAiming && isInstant)
         {
 	        _aimIKWeight = 0;
 	        _leftHandBendWeight = 0;
@@ -110,6 +113,11 @@ public class AimIKWeightHandler : MonoBehaviour
         else
         {
             ik.solver.OnPreRead -= OnPreRead;
+        }
+
+        if (releaseLeftHand)
+        {
+	        ik.solver.leftHandEffector.positionWeight = 0;
         }
     }
 

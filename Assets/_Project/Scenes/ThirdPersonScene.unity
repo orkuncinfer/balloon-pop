@@ -2367,6 +2367,83 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.04, y: 0.19, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &608634024
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2381324435396065751, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381324435396065751, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381324435396065751, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381324435396065751, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381324435396065751, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381324435396065751, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381324435396065751, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381324435396065751, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381324435396065751, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381324435396065751, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381324435396065751, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381324435396065751, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381324435396065751, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381324435396065751, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2385085020829250743, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: m_Name
+      value: LegsAnim_Fultieye
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386156122183778711, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
+      propertyPath: _Editor_OnValidateTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6dc7001c86a4127419c232eff3563845, type: 3}
 --- !u!4 &608833783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
@@ -3628,7 +3705,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7126702329198681683}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f3505aa6d98bd4418e0744d5ab56fdd, type: 3}
   m_Name: 
@@ -3646,7 +3723,7 @@ MonoBehaviour:
   ChestBone: {fileID: 0}
   RagdolledParameter: 
   SwingHelper: 1
-  GluingFloorLevel: 0.05
+  GluingFloorLevel: 0.11
   GluingFloorLevelUseOnMoving: 0
   GluingFloorLevelOnMoving: 0
   StepPointsOverlapRadius: 0
@@ -3934,7 +4011,7 @@ MonoBehaviour:
       BrakePower: 0.2
     HipsRotElasticityBlend: 0
     HipsRotMuscle:
-      DesiredRotation: {x: 0, y: 0, z: 0, w: 0}
+      DesiredRotation: {x: 0, y: 0, z: 0, w: 1}
       Acceleration: 5000
       AccelerationLimit: 1000
       Damping: 10
@@ -3967,10 +4044,10 @@ MonoBehaviour:
     AnkleToFeetEnd: {x: 0.014888498, y: 0.101895645, z: -0.14640972}
     AnkleRight: {x: 0.9948693, y: -0.000000005355105, z: 0.101168856}
     AnkleUp: {x: 0.0000000037252903, y: -1, z: -0.000000007450581}
-    AnkleForward: {x: 0.101168856, y: 0.000000007450581, z: -0.99486923}
+    AnkleForward: {x: 0.10116886, y: 0.0000000074505815, z: -0.9948693}
     FootMiddlePosition: 0.5
     AnkleYawCorrection: 0
-    _FinalIKPos: {x: 0, y: 0, z: 0}
+    _FinalIKPos: {x: -6.799091, y: 0.038731586, z: 4.0974994}
   - G_CustomForceAttach: 0
     G_CustomForceNOTDetach: 0
     G_CustomForceDetach: 0
@@ -3997,10 +4074,10 @@ MonoBehaviour:
     AnkleToFeetEnd: {x: -0.014888492, y: -0.101895556, z: 0.1464097}
     AnkleRight: {x: 0.9948693, y: -0.000000005355105, z: 0.101168856}
     AnkleUp: {x: -0.0000000037252903, y: 1, z: 0.000000007450581}
-    AnkleForward: {x: -0.101168856, y: -0.000000007450581, z: 0.99486923}
+    AnkleForward: {x: -0.10116886, y: -0.0000000074505815, z: 0.9948693}
     FootMiddlePosition: 0.5
     AnkleYawCorrection: 0
-    _FinalIKPos: {x: 0, y: 0, z: 0}
+    _FinalIKPos: {x: -7.2293963, y: 0.043738343, z: 4.02131}
   BaseLegAnimating:
     StepMoveDuration: 0.5
     MoveToGoalCurve:
@@ -4202,12 +4279,12 @@ MonoBehaviour:
       m_RotationOrder: 4
   UseGluing: 1
   MainGlueBlend: 1
-  GlueRangeThreshold: 0.25
-  GlueFadeInSpeed: 0.85
-  AllowGlueBelowFoot: 0.2
-  GlueFadeOutSpeed: 0.5
+  GlueRangeThreshold: 0.12
+  GlueFadeInSpeed: 0.066
+  AllowGlueBelowFoot: 0
+  GlueFadeOutSpeed: 0.073
   UnglueOn: 90
-  AllowGlueDrag: 0.6
+  AllowGlueDrag: 1
   GlueMode: 2
   SmoothSuddenSteps: 0.85
   LegElevateBlend: 0.7
@@ -4219,11 +4296,11 @@ MonoBehaviour:
   AnimationFloorLevel: 0.001
   _Editor_Foldout_Setup_LegsList: 1
   _Editor_EnsureCount: 0
-  _Editor_OnValidateTrigger: 0
+  _Editor_OnValidateTrigger: 1
   _EditorAllowAutoUpdateFeetParams: 1
   _EditorCategory: 1
   _EditorSetupCategory: 0
-  _EditorMotionCategory: 3
+  _EditorMotionCategory: 2
   _EditorExtraCategory: 1
   IKHintMode: 0
   LimitLegStretch: 0.987
@@ -4233,7 +4310,7 @@ MonoBehaviour:
   Hips: {fileID: 5239795605763481977}
   ScaleReferenceMode: 0
   finalScaleReference: 0.84645826
-  finalScaleReferenceSqrt: 0.96255445
+  finalScaleReferenceSqrt: 0.7164916
   customScaleReferenceValue: 1.2
   DelayedInitialization: 0
   Calibrate: 1
@@ -14156,6 +14233,7 @@ MonoBehaviour:
   AbilitySet: {fileID: 0}
   LastUsedAbility:
     Owner: {fileID: 0}
+    AbilityActions: []
   Target: {fileID: 0}
   TestAbility: {fileID: 0}
 --- !u!1 &3886494402611604596
@@ -16765,6 +16843,7 @@ GameObject:
   - component: {fileID: 8066044442521108792}
   - component: {fileID: 758003586246178139}
   - component: {fileID: 4539881040686054047}
+  - component: {fileID: 8066044442521108793}
   m_Layer: 0
   m_Name: Alive
   m_TagString: Untagged
@@ -16814,6 +16893,25 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+--- !u!114 &8066044442521108793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066044442521108790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9658a7f71a4787802f45e1428ae766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsRunning: 0
+  IsFinished: 0
+  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
+  EquipActionNames:
+  - Equip-1
+  - Equip-2
+  - Equip-3
 --- !u!4 &8073987904103608999
 Transform:
   m_ObjectHideFlags: 0
@@ -18088,3 +18186,4 @@ SceneRoots:
   - {fileID: 609802548}
   - {fileID: 2967932372826686182}
   - {fileID: 1670645451}
+  - {fileID: 608634024}
