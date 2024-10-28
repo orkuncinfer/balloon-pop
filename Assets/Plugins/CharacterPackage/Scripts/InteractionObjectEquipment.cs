@@ -7,12 +7,12 @@ using UnityEngine.Serialization;
 public class InteractionObjectEquipment : MonoBehaviour
 {
     [SerializeField] private  InteractionObject _interactionObject;
-    private Equipable _equipable;
+    private Equippable _equippable;
 
     public void PickUp()
     {
         ActorBase actor =
             ActorUtilities.FindFirstActorInParents(_interactionObject.lastUsedInteractionSystem.transform);
-        _equipable.EquipThisInstance(actor);
+        _equippable.EquipThisInstance(actor);
     }
 }

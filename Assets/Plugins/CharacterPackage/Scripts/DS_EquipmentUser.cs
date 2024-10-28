@@ -42,6 +42,13 @@ public class DS_EquipmentUser : Data
         }
     }
 
+    [SerializeField] private GameObject _itemToEquip;
+    public GameObject ItemToEquip
+    {
+        get => _itemToEquip;
+        set => _itemToEquip = value;
+    }
+    
     [SerializeField] private string _socketName;
 
     public string SocketName
@@ -76,7 +83,7 @@ public class DS_EquipmentUser : Data
         ReleaseInstance();
         EquipmentInstance = PoolManager.SpawnObject(EquipmentPrefab, Vector3.zero, Quaternion.identity);
         
-        if (EquipmentInstance.TryGetComponent(out Equipable weapon))
+        if (EquipmentInstance.TryGetComponent(out Equippable weapon))
         {
             weapon.Owner = OwnerActor;
             weapon.OnEquip(OwnerActor);
@@ -91,7 +98,7 @@ public class DS_EquipmentUser : Data
     {
         if (_equipmentInstance != null)
         {
-            if (EquipmentInstance.TryGetComponent(out Equipable weapon))
+            if (EquipmentInstance.TryGetComponent(out Equippable weapon))
             {
                 weapon.OnUnequip(OwnerActor);
             }
@@ -109,7 +116,7 @@ public class DS_EquipmentUser : Data
         EquipmentInstance = equipmentInstance;
         if(socketName != "") SocketName = socketName;
         
-        if (EquipmentInstance.TryGetComponent(out Equipable weapon))
+        if (EquipmentInstance.TryGetComponent(out Equippable weapon))
         {
             weapon.Owner = OwnerActor;
             weapon.OnEquip(OwnerActor);

@@ -346,12 +346,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _owner: {fileID: 0}
+  ItemDefinition: {fileID: 11400000, guid: cb585809649e90a46a4fe59730952b7a, type: 2}
   _overrideLocomotionAsset: {fileID: 11400000, guid: 44606da7cf2afbd4894642a2fab1943a, type: 2}
   _equipSocketName: RiflePivot
-  _equipAbility: {fileID: 0}
+  _equipAbility: {fileID: 11400000, guid: 516c131ebe1dc414c814381eb59dc02e, type: 2}
   _unequipAbility: {fileID: 11400000, guid: deeafac36a8104f4d96b5674f6822dee, type: 2}
   EquipTags:
-    m_SerializedExplicitTags: []
+    m_SerializedExplicitTags:
+    - Equipment.Primary.Ranged.Rifle
 --- !u!65 &5887351453918988996
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -385,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2677c08f4b6c241815bbfc1a7317b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _equipable: {fileID: 6005983464366768730}
+  _equippable: {fileID: 6005983464366768730}
   _equipHand: 1
   rightHandOffset: {x: 0, y: 0, z: 0}
   _aimTransform: {fileID: 9041521809067248878}

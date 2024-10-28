@@ -22,9 +22,7 @@ public class State_HandleEquipment : MonoState
 
     private void OnEquipmentPrefabChanged(GameObject arg1, GameObject arg2)
     {
-        DDebug.Log("equipment changed");
-       
-       
+        //DDebug.Log("Equipment changed");
     }
     
    

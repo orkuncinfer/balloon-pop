@@ -9,7 +9,7 @@ using UnityEngine;
         LOWEST_SPEED,
         LINEAR
     }
-    public class RangedWeapon : Equipable
+    public class RangedWeapon : Equippable
     {
         [SerializeField]
         private Transform _spawnPoint; 

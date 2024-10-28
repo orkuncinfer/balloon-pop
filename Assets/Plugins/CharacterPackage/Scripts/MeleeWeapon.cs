@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using RootMotion.FinalIK;
 using UnityEngine;
 
-public class MeleeWeapon : Equipable
+public class MeleeWeapon : Equippable
 {
     public LayerMask LayerMask;
     public BoxCollider Collider;

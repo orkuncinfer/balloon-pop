@@ -14,39 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedTabIndex: 1
   historyItemsMax: 20
-  history:
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-8066044442521108790-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-7556518764952079857-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-1590105485186618173-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-8509202938367848477-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-1590105485186618173-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-8509202938367848477-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-1590105485186618173-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-8066044442521108790-0
+  history: []
   favorites:
   - context: 2
     title: BalloonPop

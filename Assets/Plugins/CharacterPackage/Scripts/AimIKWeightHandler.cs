@@ -88,7 +88,7 @@ public class AimIKWeightHandler : MonoBehaviour
 
     public void ToggleAiming(bool isAiming,bool isInstant = false, bool releaseLeftHand = false)
     {
-	    Debug.Log("toggled aiming" + isAiming);
+	    //Debug.Log("toggled aiming" + isAiming);
         IsAiming = isAiming;
 
         if (isAiming && isInstant)
