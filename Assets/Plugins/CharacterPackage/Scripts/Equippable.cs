@@ -26,6 +26,7 @@ public class Equippable : MonoBehaviour
     
     [SerializeField] private AbilityDefinition _equipAbility;
     [SerializeField] private AbilityDefinition _unequipAbility;
+    [SerializeField] private AbilityDefinition[] _grantedAbilities;
     public event Action<ActorBase> onEquipped; 
     public event Action<ActorBase> onUnequipped; 
     public string EquipSocketName => _equipSocketName;
@@ -33,6 +34,9 @@ public class Equippable : MonoBehaviour
     public GameplayTagContainer EquipTags;
     
     private Object _previousLocomotionAsset;
+
+    public bool IsEquipped => _isEquipped;
+    private bool _isEquipped;
     
     public virtual void OnEquip(ActorBase owner)
     {
@@ -44,7 +48,12 @@ public class Equippable : MonoBehaviour
             _owner.GetData<Data_RefVar>("Locomotion").Value = _overrideLocomotionAsset;
         }
         
+        _isEquipped = true;
         Owner.GameplayTags.AddTags(EquipTags);
+        foreach (var abilityDefinition in _grantedAbilities)
+        {
+            Owner.GetData<Data_GAS>().AbilityController.AddAbilityIfNotHave(abilityDefinition);
+        }
         onEquipped?.Invoke(owner);
     }
 
@@ -54,7 +63,12 @@ public class Equippable : MonoBehaviour
         {
             _owner.GetData<Data_RefVar>("Locomotion").Value = _previousLocomotionAsset;
         }
+        _isEquipped = false;
         Owner.GameplayTags.RemoveTags(EquipTags);
+        foreach (var abilityDefinition in _grantedAbilities)
+        {
+            Owner.GetData<Data_GAS>().AbilityController.RemoveAbilityIfHave(abilityDefinition);
+        }
         onUnequipped?.Invoke(Owner);
     }
     

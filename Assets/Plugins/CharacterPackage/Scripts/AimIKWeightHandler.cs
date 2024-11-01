@@ -21,7 +21,8 @@ public class AimIKWeightHandler : MonoBehaviour
     public Vector3 leftHandOffset;
     public float _leftHandBendSpeed;
     public Recoil recoil;
-    public bool HoldLeftHand = true;
+    public HandPoser leftHandPoser;
+    public HandPoser rightHandPoser;
     private Vector3 headLookAxis;
     private Vector3 leftHandPosRelToRightHand;
     private Quaternion leftHandRotRelToRightHand;
@@ -30,6 +31,7 @@ public class AimIKWeightHandler : MonoBehaviour
 
     public Transform LeftHandBendTarget;
     
+    public float AimIKWeight => _aimIKWeight;
     private float _aimIKWeight;
     private float _leftHandBendWeight;
     private void Start()
@@ -46,14 +48,7 @@ public class AimIKWeightHandler : MonoBehaviour
         _leftHandBendWeight = Mathf.MoveTowards(_leftHandBendWeight, IsAiming ? 1 : 0, Time.deltaTime * _leftHandBendSpeed);
         
         _aimIK.solver.IKPositionWeight = _aimIKWeight;
-
-        if (HoldLeftHand)
-        {
-	        if (ik.solver.leftHandEffector.target != null)
-	        {
-		        //ik.solver.leftHandEffector.positionWeight = 1;
-	        }
-        }
+        
         if (LeftHandBendTarget)
         {
 	        ik.solver.leftArmChain.bendConstraint.bendGoal = LeftHandBendTarget;
@@ -66,12 +61,10 @@ public class AimIKWeightHandler : MonoBehaviour
     {
 	    if (_aimIKWeight > 0)
 	    {
-		    
 		    Vector3 lookDirection = _camera.transform.forward;
 		    aimTarget = _camera.transform.position + (lookDirection * 10f);
-		   // 
+		   
 		    Read();
-
 		    // AimIK pass
 		    AimIK();
 
@@ -81,8 +74,27 @@ public class AimIKWeightHandler : MonoBehaviour
 		    // AimIK pass
 		    AimIK();
 
+		    
+		    
 		    // Rotate the head to look at the aim target
 		    HeadLookAt(aimTarget);
+		    
+		    //HandPosers();
+	    }
+    }
+
+    private void HandPosers()
+    {
+	    if (leftHandPoser != null )
+	    {
+		    leftHandPoser.weight = _aimIKWeight;
+		    leftHandPoser.UpdateSolverExternal();
+	    }
+	    
+	    if (rightHandPoser != null )
+	    {
+		    rightHandPoser.weight = _aimIKWeight;
+		    rightHandPoser.UpdateSolverExternal();
 	    }
     }
 
@@ -150,10 +162,10 @@ public class AimIKWeightHandler : MonoBehaviour
 			// Rotating the hand bones after IK has finished
 			if (recoil != null) {
 				ik.references.rightHand.rotation = recoil.rotationOffset * rightHandRotation;
-				ik.references.leftHand.rotation = recoil.rotationOffset * rightHandRotation * leftHandRotRelToRightHand;
+				ik.references.leftHand.rotation = Quaternion.Euler(Vector3.zero);
 			} else {
 				ik.references.rightHand.rotation = rightHandRotation;
-				ik.references.leftHand.rotation = rightHandRotation * leftHandRotRelToRightHand;
+				//ik.references.leftHand.rotation = rightHandRotation * leftHandRotRelToRightHand;
 			}
 		}
 
@@ -162,7 +174,7 @@ public class AimIKWeightHandler : MonoBehaviour
 		private void OnPreRead() {
 			Quaternion r = recoil != null? recoil.rotationOffset * rightHandRotation: rightHandRotation;
 			Vector3 leftHandTarget = ik.references.rightHand.position + ik.solver.rightHandEffector.positionOffset + r * leftHandPosRelToRightHand;
-			ik.solver.leftHandEffector.positionOffset += leftHandTarget - ik.references.leftHand.position - ik.solver.leftHandEffector.positionOffset + r * leftHandOffset * _aimIKWeight;
+			//ik.solver.leftHandEffector.positionOffset += leftHandTarget - ik.references.leftHand.position - ik.solver.leftHandEffector.positionOffset + r * leftHandOffset * _aimIKWeight;
 		}
 
 		// Rotating the head to look at the target

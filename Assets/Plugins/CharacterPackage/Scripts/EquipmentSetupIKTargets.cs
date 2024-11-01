@@ -40,7 +40,9 @@ public class EquipmentSetupIKTargets : MonoBehaviour
     }
     private void OnUnequip(ActorBase obj)
     {
-        _aimIKWeightHandler.ToggleAiming(false);
+        ik.solver.rightHandEffector.positionWeight = 0;
+        ik.solver.leftHandEffector.positionWeight = 0;
+
         _equippable.onUnequipped -= OnUnequip;
     }
 
@@ -48,7 +50,7 @@ public class EquipmentSetupIKTargets : MonoBehaviour
     {
         ik = actor.GetComponentInChildren<FullBodyBipedIK>();
         _aimIKWeightHandler = actor.GetComponentInChildren<AimIKWeightHandler>();
-        _aimIKWeightHandler.ToggleAiming(true);
+        //_aimIKWeightHandler.ToggleAiming(true);
         if (_aimTransform)
         {
             _aimIK = actor.GetComponentInChildren<AimIK>();

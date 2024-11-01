@@ -10108,16 +10108,13 @@ MonoBehaviour:
   Sockets:
   - Key: root
     Transform: {fileID: 1800654621078279832}
-    IsBone: 1
   - Key: right_hand
     Transform: {fileID: 1679713312559155800}
-    IsBone: 1
   - Key: SwordPivot
     Transform: {fileID: 6339499481212468037}
-    IsBone: 0
   - Key: RiflePivot
     Transform: {fileID: 7925740258917013784}
-    IsBone: 0
+  Slots: []
 --- !u!4 &6697465664166297209
 Transform:
   m_ObjectHideFlags: 0
