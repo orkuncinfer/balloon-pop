@@ -81,6 +81,7 @@ public class ActiveAblityEditor : OdinEditor
     {
         if (_isPlaying)
         {
+            if(_abilityDefinition.AnimationClip == null) return;
             _previewTime += _animationSpeed * Time.deltaTime;
             if (_previewTime > _abilityDefinition.AnimationClip.length) _previewTime = 0f;
 

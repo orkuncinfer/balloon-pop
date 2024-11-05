@@ -27,18 +27,18 @@ MonoBehaviour:
           _Names: []
         _Speed: 1
         _Animations:
-        - {fileID: 8993902097722301239, guid: 3ed29921918445c43a135311a7533859, type: 3}
-        - {fileID: 8993902097722301239, guid: 1aa1f455c44aa94468336175787a1cf0, type: 3}
+        - {fileID: 7400000, guid: c1e949f189219ec4886bdc919b412a4a, type: 2}
+        - {fileID: 7400000, guid: 384163310afbabd4eb07d97294f73b58, type: 2}
         - {fileID: 7400000, guid: d3076a190b6fa584f8481511ea67f53b, type: 2}
         - {fileID: 7400000, guid: 55645bae001ef264b8e13e2c24927bb1, type: 2}
         - {fileID: 7400000, guid: d9dafdedfcc92984b9204ba1724e486e, type: 2}
         - {fileID: 7400000, guid: eaf36c55e3103374a9967bf9aec598a8, type: 2}
         - {fileID: 7400000, guid: 6d3962eb70d086048a724b449f093cda, type: 2}
         - {fileID: 7400000, guid: 468cbd2e98a28584e8c5fde55191052d, type: 2}
-        - {fileID: 8993902097722301239, guid: de4217a43bfeb0047abb7534816dc294, type: 3}
-        - {fileID: 8993902097722301239, guid: 8fed00339906ef44bbd439dfeab64c61, type: 3}
-        - {fileID: 8993902097722301239, guid: b0f69cdc52a4f774384e4ad94d2cf51a, type: 3}
-        - {fileID: 8993902097722301239, guid: d189c0800d2484242bd16922a8ebab1c, type: 3}
+        - {fileID: 7400000, guid: f74311a365b8c724fbe809526e8f3d21, type: 2}
+        - {fileID: 7400000, guid: 0d759239b6c8dad43a57b95a6ec2b4b4, type: 2}
+        - {fileID: 7400000, guid: 3954bf9aa29828b448f20cb057b641dc, type: 2}
+        - {fileID: 7400000, guid: 29ecb6fb7c36597499b79b4eb0c6ed62, type: 2}
         - {fileID: 7400000, guid: 41003c341211de542937affb87af4819, type: 2}
         - {fileID: 7400000, guid: c35865178f2b30b48b0b6a3921cdcda5, type: 2}
         - {fileID: 7400000, guid: e7a8d286b97a99c4cb5e19a28ba57025, type: 2}

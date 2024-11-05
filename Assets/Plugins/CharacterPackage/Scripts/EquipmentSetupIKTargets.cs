@@ -76,11 +76,15 @@ public class EquipmentSetupIKTargets : MonoBehaviour
         if (ik.references.leftHand.TryGetComponent(out HandPoser handPoser))
         {
             handPoser.poseRoot = _leftHandPivot;
+            handPoser.weight = 1;
+            handPoser.localRotationWeight = 1;
         }
         
         if (ik.references.rightHand.TryGetComponent(out HandPoser handPoserRight))
         {
             handPoserRight.poseRoot = _rightHandPivot;
+            handPoserRight.weight = 1;
+            handPoserRight.localRotationWeight = 1;
         }
         
         switch (_equipHand)

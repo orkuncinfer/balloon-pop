@@ -20,7 +20,7 @@ public class SM_CharacterLifeCycle : ActorStateMachine
         _livingData = Owner.GetData<Data_Living>();
     }
 
-    public override void OnRequireAddTransitions()
+    protected override void OnRequireAddTransitions()
     {
         AddTransition(_alive,_dead, AliveToDead);
     }

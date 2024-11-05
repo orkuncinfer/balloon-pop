@@ -41,7 +41,7 @@ public class SM_CharacterBody : ActorStateMachine
         }
     }
 
-    public override void OnRequireAddTransitions()
+    protected override void OnRequireAddTransitions()
     {
         AddTransition(_grounded,_ability, GroundedToAbility);
         AddTransition(_ability,_grounded, AbilityToGrounded);

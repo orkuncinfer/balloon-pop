@@ -14,8 +14,100 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedTabIndex: 1
   historyItemsMax: 20
-  history: []
+  history:
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: 08b2bf212e621ae4cbd5ab57becc86b4, type: 2}
+    objectGuid: GlobalObjectId_V1-3-08b2bf212e621ae4cbd5ab57becc86b4-11400000-0
+  - context: 0
+    title: 
+    unityObject: {fileID: 0}
+    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-7126702329198681683-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: 08b2bf212e621ae4cbd5ab57becc86b4, type: 2}
+    objectGuid: GlobalObjectId_V1-3-08b2bf212e621ae4cbd5ab57becc86b4-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: ad1b42678f57ebc40b474dd62e967ea2, type: 2}
+    objectGuid: GlobalObjectId_V1-3-ad1b42678f57ebc40b474dd62e967ea2-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: 08b2bf212e621ae4cbd5ab57becc86b4, type: 2}
+    objectGuid: GlobalObjectId_V1-3-08b2bf212e621ae4cbd5ab57becc86b4-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: ad1b42678f57ebc40b474dd62e967ea2, type: 2}
+    objectGuid: GlobalObjectId_V1-3-ad1b42678f57ebc40b474dd62e967ea2-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: 08b2bf212e621ae4cbd5ab57becc86b4, type: 2}
+    objectGuid: GlobalObjectId_V1-3-08b2bf212e621ae4cbd5ab57becc86b4-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: ad1b42678f57ebc40b474dd62e967ea2, type: 2}
+    objectGuid: GlobalObjectId_V1-3-ad1b42678f57ebc40b474dd62e967ea2-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: 08b2bf212e621ae4cbd5ab57becc86b4, type: 2}
+    objectGuid: GlobalObjectId_V1-3-08b2bf212e621ae4cbd5ab57becc86b4-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: ad1b42678f57ebc40b474dd62e967ea2, type: 2}
+    objectGuid: GlobalObjectId_V1-3-ad1b42678f57ebc40b474dd62e967ea2-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: 08b2bf212e621ae4cbd5ab57becc86b4, type: 2}
+    objectGuid: GlobalObjectId_V1-3-08b2bf212e621ae4cbd5ab57becc86b4-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: ad1b42678f57ebc40b474dd62e967ea2, type: 2}
+    objectGuid: GlobalObjectId_V1-3-ad1b42678f57ebc40b474dd62e967ea2-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: 08b2bf212e621ae4cbd5ab57becc86b4, type: 2}
+    objectGuid: GlobalObjectId_V1-3-08b2bf212e621ae4cbd5ab57becc86b4-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: ad1b42678f57ebc40b474dd62e967ea2, type: 2}
+    objectGuid: GlobalObjectId_V1-3-ad1b42678f57ebc40b474dd62e967ea2-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: 08b2bf212e621ae4cbd5ab57becc86b4, type: 2}
+    objectGuid: GlobalObjectId_V1-3-08b2bf212e621ae4cbd5ab57becc86b4-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: ad1b42678f57ebc40b474dd62e967ea2, type: 2}
+    objectGuid: GlobalObjectId_V1-3-ad1b42678f57ebc40b474dd62e967ea2-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: 08b2bf212e621ae4cbd5ab57becc86b4, type: 2}
+    objectGuid: GlobalObjectId_V1-3-08b2bf212e621ae4cbd5ab57becc86b4-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: ad1b42678f57ebc40b474dd62e967ea2, type: 2}
+    objectGuid: GlobalObjectId_V1-3-ad1b42678f57ebc40b474dd62e967ea2-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: 08b2bf212e621ae4cbd5ab57becc86b4, type: 2}
+    objectGuid: GlobalObjectId_V1-3-08b2bf212e621ae4cbd5ab57becc86b4-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: ad1b42678f57ebc40b474dd62e967ea2, type: 2}
+    objectGuid: GlobalObjectId_V1-3-ad1b42678f57ebc40b474dd62e967ea2-11400000-0
   favorites:
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: dd8874cafb6e7a141b458043ff9b5156, type: 2}
+    objectGuid: GlobalObjectId_V1-3-dd8874cafb6e7a141b458043ff9b5156-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 11400000, guid: 08b2bf212e621ae4cbd5ab57becc86b4, type: 2}
+    objectGuid: GlobalObjectId_V1-3-08b2bf212e621ae4cbd5ab57becc86b4-11400000-0
+  - context: 1
+    title: 
+    unityObject: {fileID: 1423140520730457204, guid: 658437577df6e58419100dd6bf9417a0, type: 3}
+    objectGuid: GlobalObjectId_V1-1-658437577df6e58419100dd6bf9417a0-1423140520730457204-0
   - context: 2
     title: BalloonPop
     unityObject: {fileID: 0}

@@ -48,7 +48,7 @@ public class AimIKWeightHandler : MonoBehaviour
         _leftHandBendWeight = Mathf.MoveTowards(_leftHandBendWeight, IsAiming ? 1 : 0, Time.deltaTime * _leftHandBendSpeed);
         
         _aimIK.solver.IKPositionWeight = _aimIKWeight;
-        
+        ik.solver.leftHandEffector.positionWeight = _aimIKWeight;
         if (LeftHandBendTarget)
         {
 	        ik.solver.leftArmChain.bendConstraint.bendGoal = LeftHandBendTarget;
@@ -88,12 +88,14 @@ public class AimIKWeightHandler : MonoBehaviour
 	    if (leftHandPoser != null )
 	    {
 		    leftHandPoser.weight = _aimIKWeight;
+		    leftHandPoser.localRotationWeight = _aimIKWeight;
 		    leftHandPoser.UpdateSolverExternal();
 	    }
 	    
 	    if (rightHandPoser != null )
 	    {
 		    rightHandPoser.weight = _aimIKWeight;
+		    rightHandPoser.localRotationWeight = _aimIKWeight;
 		    rightHandPoser.UpdateSolverExternal();
 	    }
     }

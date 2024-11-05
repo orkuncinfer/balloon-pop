@@ -19,6 +19,7 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 0}
   DataList:
+  - rid: 428195015235207175
   - rid: 3670663018735468551
   WorldPrefab: {fileID: 1423140520730457204, guid: 33edc42ffeedb8f47aa693e666a6db61, type: 3}
   UIPrefab: {fileID: 0}
@@ -34,6 +35,24 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: 428195015235207175
+      type: {class: Data_Gun, ns: , asm: Assembly-CSharp-firstpass}
+      data:
+        IsGlobal: 0
+        UseKey: 0
+        IsPersistent: 0
+        DataKey: 
+        OwnerActor: {fileID: 0}
+        IsInstalled: 0
+        _reloadClip:
+          _FadeDuration: 0.25
+          _Events:
+            _NormalizedTimes: []
+            _Callbacks: []
+            _Names: []
+          _Clip: {fileID: 8993902097722301239, guid: 90fc5858825cb5c4884ea12146f5b5c1, type: 3}
+          _Speed: 1
+          _NormalizedStartTime: 0
     - rid: 3670663018735468551
       type: {class: Data_Equippable, ns: , asm: Assembly-CSharp-firstpass}
       data:

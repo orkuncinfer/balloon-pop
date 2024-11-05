@@ -16,7 +16,7 @@ public class SM_Player : ActorStateMachine
         _playerRuntime = Owner.GetData<DS_PlayerRuntime>();
     }
 
-    public override void OnRequireAddTransitions()
+    protected override void OnRequireAddTransitions()
     {
         if(_playerRuntime.CurrentHealth <= 0)
         {
