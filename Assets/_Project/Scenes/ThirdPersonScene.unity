@@ -1591,6 +1591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 184025670}
   - component: {fileID: 184025671}
+  - component: {fileID: 184025672}
   m_Layer: 0
   m_Name: Grounded
   m_TagString: Untagged
@@ -1627,6 +1628,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
+--- !u!114 &184025672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184025669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6c77ff8102eff4286db1a6187d73d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsRunning: 0
+  IsFinished: 0
+  _locomotionAsset:
+    Key: LocomotionUpper
+    From: 1
+    _retrievedData:
+      rid: -2
+  _avatarMask: {fileID: 31900000, guid: 7978911be5f9a524a8b11c7076a2b658, type: 2}
+  _layer: 1
+  _interpolationSpeed: 5
+  _velocityDebug: {x: 0, y: 0, z: 0}
+  _parameterDebug: {x: 0, y: 0}
+  _velocityThreshold: 2
+  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
+  MoveInput: {x: 0, y: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &195398715
 GameObject:
   m_ObjectHideFlags: 0
@@ -6184,6 +6217,7 @@ GameObject:
   - component: {fileID: 826528387}
   - component: {fileID: 826528389}
   - component: {fileID: 826528388}
+  - component: {fileID: 826528390}
   m_Layer: 0
   m_Name: UpperBody_State
   m_TagString: Untagged
@@ -6227,7 +6261,7 @@ MonoBehaviour:
   _airborne: {fileID: 1562023542}
   _ability: {fileID: 744839099}
   AbilityStateTag:
-    m_Name: AbilitySlot.UpperBody.Busy
+    m_Name: State.UpperBody.UsingAbility
 --- !u!114 &826528389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6242,6 +6276,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
+--- !u!114 &826528390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826528386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ecdd8fc0068a9d4a930a481eba2c681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Description: Locomotion
+  ChangeName: Locomotion
+  Datas:
+  - rid: 3670662662312689665
+  references:
+    version: 2
+    RefIds:
+    - rid: 3670662662312689665
+      type: {class: Data_RefVar, ns: , asm: Assembly-CSharp-firstpass}
+      data:
+        IsGlobal: 0
+        UseKey: 1
+        IsPersistent: 0
+        DataKey: LocomotionUpper
+        OwnerActor: {fileID: 0}
+        IsInstalled: 0
+        _value: {fileID: 0}
 --- !u!1 &832949682
 GameObject:
   m_ObjectHideFlags: 64
@@ -6406,7 +6469,7 @@ MonoBehaviour:
   ComponentScale: {x: 1, y: 1, z: 1}
   FillSize: {x: 1920, y: 1080, z: 0}
   ShrinkSize: {x: 999999, y: 999999, z: 999999}
-  TargetPosition: {x: 753, y: -389, z: 0}
+  TargetPosition: {x: 1073, y: -569, z: 0}
   TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   TargetScale: {x: 1, y: 1, z: 1}
   TargetRectSize: {x: 334.8766, y: 213.19, z: 0}
@@ -13573,8 +13636,8 @@ MonoBehaviour:
   _equipmentSlots:
     m_Keys: 0000000001000000
     m_Values:
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 2136380743}
+    - {fileID: 1197769573}
   _equipmentInventory: {fileID: 2124475917}
 --- !u!1 &1713989211
 GameObject:
@@ -14511,6 +14574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1941237220}
   - component: {fileID: 1941237219}
+  - component: {fileID: 1941237221}
   m_Layer: 0
   m_Name: Flexalon
   m_TagString: Untagged
@@ -14548,6 +14612,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1941237221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941237218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c004b5f789b187a45aadcd33038fe4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  gk: {fileID: 0}
 --- !u!1 &1951630266
 GameObject:
   m_ObjectHideFlags: 0
@@ -16017,6 +16095,7 @@ GameObject:
   - component: {fileID: 2124475916}
   - component: {fileID: 2124475917}
   - component: {fileID: 2124475918}
+  - component: {fileID: 2124475919}
   m_Layer: 0
   m_Name: SlotInventory_Equipment
   m_TagString: Untagged
@@ -16052,12 +16131,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9794fe5fd80b2a0429fc6a84eb91aab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialSlotCount: 3
+  InitialSlotCount: 0
   Width: 0
-  InventoryId: PlayerEquipment
+  InventoryId: {fileID: 11400000, guid: 1abed141236747b4ab91901399348ed8, type: 2}
   CreateOnInitialize: 0
   InventoryData:
-    _slotCount: 3
+    _slotCount: 2
     _inventorySlots:
     - _allowedTags:
         m_SerializedExplicitTags:
@@ -16103,6 +16182,44 @@ MonoBehaviour:
         OwnerActor: {fileID: 0}
         IsInstalled: 0
         _value: {fileID: 11400000, guid: 002cb4a8989c59443b113f12ad693155, type: 2}
+--- !u!114 &2124475919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124475915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9794fe5fd80b2a0429fc6a84eb91aab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialSlotCount: 3
+  Width: 0
+  InventoryId: {fileID: 11400000, guid: af00880f0d69a8143b51a8c53b0db7d3, type: 2}
+  CreateOnInitialize: 0
+  InventoryData:
+    _slotCount: 3
+    _inventorySlots:
+    - _allowedTags:
+        m_SerializedExplicitTags: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        m_SerializedExplicitTags: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        m_SerializedExplicitTags: []
+      _itemID: 
+      _itemCount: 0
+  InitialItems:
+  - ItemDefinition: {fileID: 11400000, guid: 9f92aca40ea93de42961246c076afdaa, type: 2}
+    Count: 5555
+  - ItemDefinition: {fileID: 11400000, guid: ead1504811c80f0428e0cb8ed0bb613a, type: 2}
+    Count: 5555
+  - ItemDefinition: {fileID: 11400000, guid: 89e7ce017796d8c49a673df423f12770, type: 2}
+    Count: 5555
 --- !u!1 &2136380737
 GameObject:
   m_ObjectHideFlags: 0
@@ -22887,8 +23004,11 @@ MonoBehaviour:
     From: 1
     _retrievedData:
       rid: -2
+  _avatarMask: {fileID: 0}
+  _layer: 0
   _interpolationSpeed: 5
   _velocityDebug: {x: 0, y: 0, z: 0}
+  _parameterDebug: {x: 0, y: 0}
   _velocityThreshold: 2
   ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
   MoveInput: {x: 0, y: 0}

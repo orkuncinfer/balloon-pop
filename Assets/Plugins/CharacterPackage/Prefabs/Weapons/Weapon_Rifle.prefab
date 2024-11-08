@@ -304,7 +304,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAmmoStorage: {fileID: 3059297471211916870}
-  mods: []
+  mods:
+  - {fileID: 11400000, guid: dda3f5496a795614f8f4e5a7ecd16895, type: 2}
   gunData: {fileID: 11400000, guid: e22c08866b4be7140b26e0826fdcd402, type: 2}
   fireComponent: {fileID: 3297550032348396127}
   reloadComponent: {fileID: 2453509592728140188}
@@ -412,8 +413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0a99996bb06ab4981b96eb2f1cf7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingAmmoCategories: 000000000100000002000000
   startingAmmoAmounts: e8030000e8030000e8030000
+  _ammoInventoryKey: {fileID: 11400000, guid: af00880f0d69a8143b51a8c53b0db7d3, type: 2}
 --- !u!114 &6457989537686686347
 MonoBehaviour:
   m_ObjectHideFlags: 0

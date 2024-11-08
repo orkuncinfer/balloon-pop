@@ -34,5 +34,14 @@ public class UI_EquipmentHudControl : MonoBehaviour
             }
             _equipmentSlots[i].SetItemData(_equipmentInventory.InventoryData.InventorySlots[i].ItemID, _equipmentInventory.InventoryData.InventorySlots[i]);
         }*/
+       foreach (var slot in _equipmentSlots)
+       {
+              if (_equipmentInventory.InventoryData.InventorySlots[slot.Key].ItemID.IsNullOrWhitespace())
+              {
+                slot.Value.ClearItemData();
+                continue;
+              }
+              slot.Value.SetItemData(_equipmentInventory.InventoryData.InventorySlots[slot.Key].ItemID, _equipmentInventory.InventoryData.InventorySlots[slot.Key]);
+       }
     }
 }

@@ -15,8 +15,11 @@ public class State_PlayLocomotionAsset : MonoState
     }
 
     [SerializeField] private DSGetter<Data_RefVar> _locomotionAsset;
+    [SerializeField] private AvatarMask _avatarMask;
+    [SerializeField] private int _layer;
     [SerializeField] private float _interpolationSpeed = 5f;
     [SerializeField] [ReadOnly] private Vector3 _velocityDebug;
+    [SerializeField] [ReadOnly] private Vector2 _parameterDebug;
     [SerializeField] private float _velocityThreshold = 2f;
     public InputActionAsset ActionAsset;
     private Character _character;
@@ -31,30 +34,39 @@ public class State_PlayLocomotionAsset : MonoState
     // State management variables
     private AnimationState _currentState;
     private AnimationState _previousState;
-
+    
+    private Dictionary<object,AnimancerState> _cachedTransitions = new Dictionary<object, AnimancerState>();
 
     protected override void OnEnter()
     {
         base.OnEnter();
         _character = Owner.GetComponent<Character>();
         _dataAnimancer = Owner.GetData<Data_Animancer>();
-        _locomotionAsset.GetData(Owner);
-        _dataAnimancer.AnimancerComponent.Layers[0].ApplyFootIK = true;
-        _dataAnimancer.AnimancerComponent.Layers[0].ApplyAnimatorIK = true;
+        _locomotionAsset.GetData(Owner); 
+        _dataAnimancer.AnimancerComponent.Layers[_layer].ApplyFootIK = true;
+        _dataAnimancer.AnimancerComponent.Layers[_layer].ApplyAnimatorIK = true;
         movementInputAction = ActionAsset.FindAction("Movement");
         movementInputAction?.Enable();
 
         _mainCam = Camera.main;
         _locomotionAssetData = _locomotionAsset.Data.Value as LocomotionAsset;
         _locomotionAsset.Data.onValueChanged += OnLocomotionAssetChanged;
+        if(_locomotionAssetData == null) return;
         // Start with Idle state
         PlayIdle();
         ChangeState(AnimationState.Idle);
     }
+    
+
 
     private void OnLocomotionAssetChanged(Object arg1, Object arg2)
     {
         _locomotionAssetData = _locomotionAsset.Data.Value as LocomotionAsset;
+        if (_locomotionAssetData == null)
+        {
+            _dataAnimancer.AnimancerComponent.Layers[_layer].StartFade(0);
+            return;
+        }
         OnEnterState(_currentState);
     }
 
@@ -62,27 +74,63 @@ public class State_PlayLocomotionAsset : MonoState
     {
         if (_locomotionAssetData.Locomotion is LinearMixerTransitionAsset linear)
         {
-            _asset = linear;
-            var state = _dataAnimancer.AnimancerComponent.Play(_asset);
-            state.ApplyFootIK = true;
+            if(_cachedTransitions.ContainsKey(linear.GetTransition().Key))
+            {
+                _asset = linear;
+                var tr = _cachedTransitions[linear.GetTransition().Key];
+                if(_avatarMask) _dataAnimancer.AnimancerComponent.Layers[_layer].SetMask(_avatarMask);
+                var state = _dataAnimancer.AnimancerComponent.Layers[_layer].Play(tr,_asset2D.FadeDuration,_asset2D.FadeMode);
+                state.ApplyFootIK = true;
+            }
+            else
+            {
+                _asset = linear;
+                var tr = linear.Transition.CreateState();
+                if(_avatarMask) _dataAnimancer.AnimancerComponent.Layers[_layer].SetMask(_avatarMask);
+                var state = _dataAnimancer.AnimancerComponent.Layers[_layer].Play(tr,_asset2D.FadeDuration,_asset2D.FadeMode);
+                state.ApplyFootIK = true;
+                _cachedTransitions.Add(linear.GetTransition().Key,tr);
+            }
+            
+            Debug.Log($"played locomotion asset: {_asset.name} on layer {_layer}");
         }
         else if (_locomotionAssetData.Locomotion is MixerTransition2DAsset mixer)
         {
-            _asset2D = mixer;
-            var state = _dataAnimancer.AnimancerComponent.Play(_asset2D);
-            state.ApplyFootIK = true;
+            if(_cachedTransitions.ContainsKey(mixer.GetTransition().Key))
+            {
+                _asset2D = mixer;
+                var tr = _cachedTransitions[mixer.GetTransition().Key];
+                if(_avatarMask) _dataAnimancer.AnimancerComponent.Layers[_layer].SetMask(_avatarMask);
+                var state = _dataAnimancer.AnimancerComponent.Layers[_layer].Play(tr,_asset2D.FadeDuration,_asset2D.FadeMode);
+                state.ApplyFootIK = true;
+            }
+            else
+            {
+                _asset2D = mixer;
+                var tr = mixer.Transition.CreateState();
+                if(_avatarMask) _dataAnimancer.AnimancerComponent.Layers[_layer].SetMask(_avatarMask);
+                var state = _dataAnimancer.AnimancerComponent.Layers[_layer].Play(tr,_asset2D.FadeDuration,_asset2D.FadeMode);
+                state.ApplyFootIK = true;
+                _cachedTransitions.Add(mixer.GetTransition().Key,tr);
+            }
+       
+            Debug.Log($"played locomotion asset: {_asset2D.name} on layer {_layer}");
         }
     }
     protected override void OnUpdate()
     {
         base.OnUpdate();
+        if (_locomotionAssetData == null)
+        {
+            return;
+        }
         _velocityDebug = GetWorldSpaceMovement(_character.GetVelocity());
         Vector2 inputMove = GetMovementInput();
         MoveInput = inputMove.normalized;
 
         float velocity = _character.GetVelocity().magnitude;
         
-        if (velocity < _velocityThreshold)
+        if (velocity < _velocityThreshold && MoveInput.magnitude < 0.1f)
         {
             ChangeState(AnimationState.Idle);
         }
@@ -93,18 +141,20 @@ public class State_PlayLocomotionAsset : MonoState
         // Locomotion parameter update when in locomotion state
         if (_currentState == AnimationState.Locomotion)
         {
-            if (_dataAnimancer.AnimancerComponent.States.Current is LinearMixerState linearMixerState)
+            if (_dataAnimancer.AnimancerComponent.Layers[_layer].CurrentState is LinearMixerState linearMixerState)
             {
                 linearMixerState.Parameter = Mathf.Lerp(linearMixerState.Parameter, velocity,
                     Time.deltaTime * _interpolationSpeed);
+                _parameterDebug = new Vector2(linearMixerState.Parameter, 0);
             }
 
             if (_asset2D != null &&
-                _dataAnimancer.AnimancerComponent.States.Current is CartesianMixerState mixerState2D)
+                _dataAnimancer.AnimancerComponent.Layers[_layer].CurrentState is CartesianMixerState mixerState2D)
             {
                 Vector2 parameter = new Vector2(_velocityDebug.x, _velocityDebug.z);
                 mixerState2D.Parameter =
                     Vector3.Lerp(mixerState2D.Parameter, parameter, Time.deltaTime * _interpolationSpeed);
+                _parameterDebug = mixerState2D.Parameter;
             }
         }
     }
@@ -143,9 +193,21 @@ public class State_PlayLocomotionAsset : MonoState
     // Play the Idle animation
     private void PlayIdle()
     {
-        var state = _dataAnimancer.AnimancerComponent.Play(_locomotionAssetData.Idle);
-        state.Speed = 1f; // Set idle animation speed if needed
-        state.ApplyFootIK = true;
+        if(_cachedTransitions.ContainsKey(_locomotionAssetData.Idle.Key))
+        {
+            var tr = _cachedTransitions[_locomotionAssetData.Idle.Key];
+            if(_avatarMask) _dataAnimancer.AnimancerComponent.Layers[_layer].SetMask(_avatarMask);
+            var state = _dataAnimancer.AnimancerComponent.Layers[_layer].Play(tr,_locomotionAssetData.Idle.FadeDuration,_locomotionAssetData.Idle.FadeMode);
+            state.ApplyFootIK = true;
+        }
+        else
+        {
+            var tr = _locomotionAssetData.Idle.CreateState();
+            if(_avatarMask) _dataAnimancer.AnimancerComponent.Layers[_layer].SetMask(_avatarMask);
+            var state = _dataAnimancer.AnimancerComponent.Layers[_layer].Play(tr,_locomotionAssetData.Idle.FadeDuration,_locomotionAssetData.Idle.FadeMode);
+            state.ApplyFootIK = true;
+            _cachedTransitions.Add(_locomotionAssetData.Idle.Key,tr);
+        }
     }
 
     Vector3 GetWorldSpaceMovement(Vector3 relativeMoveDirection)

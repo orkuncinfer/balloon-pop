@@ -253,6 +253,68 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &2301584111968358087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5234801434325061830}
+  - component: {fileID: 4844520466913781668}
+  - component: {fileID: 7476902437401249721}
+  m_Layer: 0
+  m_Name: DefaultPlayerInventory (Singleton)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5234801434325061830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2301584111968358087}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3723082014902976753}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4844520466913781668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2301584111968358087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d4a5a2e2cb31b45bc237071e56bd45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _allItems: {fileID: 11400000, guid: bb2368afad43bb146a5d9a604f24fc69, type: 2}
+  _testItem: {fileID: 11400000, guid: f7898775afb6f46498bbffa6a384887a, type: 2}
+  _itemAddedDisplayerPrefab: {fileID: 4640685778063512026, guid: 27dc046d65c30ef4f9a4858ad014bf8b, type: 3}
+--- !u!114 &7476902437401249721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2301584111968358087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0b45a8b227eb740a9dbc55c6758304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DebuggerPrefab: {fileID: 6953732099078582213, guid: 56da3d78482c9f849a906522e4c87819, type: 3}
+  clickThreshold: 1
 --- !u!1 &2751943403701377506
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +566,7 @@ Transform:
   - {fileID: 7800062489039636621}
   - {fileID: 565596521780665427}
   - {fileID: 1355033795398748589}
+  - {fileID: 5234801434325061830}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4553737054542788431
@@ -760,6 +823,8 @@ MonoBehaviour:
   ActorID: 
   StartMethod: 0
   _initialTags: []
+  GameplayTags:
+    m_SerializedExplicitTags: []
   _initialState: {fileID: 2361203686563352934}
   _returnToPoolOnStop: 0
 --- !u!114 &1044802082797123766

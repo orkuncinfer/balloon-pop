@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb56b2933146cc4cb17bb42bd3bd0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AimingAbility: {fileID: 11400000, guid: f7761f40c9a2cde478fd4c6874c33028, type: 2}
+  AimingAbility: {fileID: 11400000, guid: ad195443a565a3e4e86c8bd754d09263, type: 2}
 --- !u!114 &-6215310715102850726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,8 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0a99996bb06ab4981b96eb2f1cf7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingAmmoCategories: 000000000100000002000000
   startingAmmoAmounts: e8030000e8030000e8030000
+  _ammoInventoryKey: {fileID: 11400000, guid: af00880f0d69a8143b51a8c53b0db7d3, type: 2}
 --- !u!114 &8221351398084309264
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -235,6 +235,11 @@ namespace Animancer
                     state.SetRoot(Root);
                     state._Key = key;
                     Register(state);
+                    Debug.Log("Created new state: " + state.Key);
+                }
+                else
+                {
+                    Debug.Log("Cached the state: " + state.Key);
                 }
 
                 return state;
