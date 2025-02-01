@@ -418,3 +418,30 @@ MonoBehaviour:
     BackgroundType: 100
     BackgroundTexture: {fileID: 0}
     IsBackgroundRecursive: 0
+  - Type: 1
+    Key: Assets/Plugins/actor-core/_AbilitySystem
+    IconType: 1
+    SmallIcon: {fileID: 2800000, guid: fc368887c2e69c2499c1a39e33d05c15, type: 3}
+    LargeIcon: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+  - Type: 1
+    Key: Assets/Plugins/actor-core/_Core
+    IconType: 2130
+    SmallIcon: {fileID: 0}
+    LargeIcon: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0
+  - Type: 1
+    Key: Assets/Plugins/actor-core/_StatSystem
+    IconType: 1
+    SmallIcon: {fileID: 2800000, guid: bef3780315b0b9842a36de34959e1ee2, type: 3}
+    LargeIcon: {fileID: 0}
+    IsIconRecursive: 0
+    BackgroundType: 0
+    BackgroundTexture: {fileID: 0}
+    IsBackgroundRecursive: 0

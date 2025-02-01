@@ -99,6 +99,18 @@ public class AimIKWeightHandler : MonoBehaviour
 		    rightHandPoser.UpdateSolverExternal();
 	    }
     }
+    
+    public void LeftHandPoserToggle(bool toggle)
+	{
+	    leftHandPoser.weight = toggle ? 1 : 0;
+	    leftHandPoser.localRotationWeight = toggle ? 1 : 0;
+	}
+
+	public void RightHandPoserToggle(bool toggle)
+	{
+		rightHandPoser.weight = toggle ? 1 : 0;
+		rightHandPoser.localRotationWeight = toggle ? 1 : 0;
+	}
 
     public void ToggleAiming(bool isAiming,bool isInstant = false, bool releaseLeftHand = false)
     {

@@ -15,7 +15,7 @@ MonoBehaviour:
   _isEnabled: 1
   _uiInputMode: 0
   _defaultTab: 2
-  _triggerEnableMode: 2
+  _triggerEnableMode: 3
   _triggerBehaviour: 0
   _errorNotification: 1
   _enableKeyboardShortcuts: 1
@@ -59,9 +59,9 @@ MonoBehaviour:
   _enableBugReportScreenshot: 1
   _disabledTabs: 
   _profilerAlignment: 2
-  _optionsAlignment: 3
+  _optionsAlignment: 0
   _consoleAlignment: 0
-  _triggerPosition: 0
+  _triggerPosition: 3
   _maximumConsoleEntries: 1500
   _enableEventSystemCreation: 1
   _automaticShowCursor: 1

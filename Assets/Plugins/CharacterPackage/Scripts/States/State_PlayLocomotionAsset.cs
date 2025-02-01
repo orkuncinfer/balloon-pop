@@ -114,7 +114,7 @@ public class State_PlayLocomotionAsset : MonoState
                 _cachedTransitions.Add(mixer.GetTransition().Key,tr);
             }
        
-            Debug.Log($"played locomotion asset: {_asset2D.name} on layer {_layer}");
+            //Debug.Log($"played locomotion asset: {_asset2D.name} on layer {_layer}");
         }
     }
     protected override void OnUpdate()
