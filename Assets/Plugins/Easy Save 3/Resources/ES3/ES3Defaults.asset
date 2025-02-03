@@ -34,8 +34,6 @@ MonoBehaviour:
     - Animancer.FSM
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
-    - BandoWare.GameplayTags
-    - BandoWare.GameplayTags.Tests
     - Cinemachine
     - Coffee.SoftMaskForUGUI
     - Coffee.SoftMaskForUGUI.Demo

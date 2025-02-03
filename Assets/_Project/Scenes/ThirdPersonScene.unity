@@ -6353,7 +6353,10 @@ MonoBehaviour:
   _airborne: {fileID: 1562023542}
   _ability: {fileID: 744839099}
   AbilityStateTag:
-    m_Name: State.UpperBody.UsingAbility
+    fullTag: 
+    tagHierarchy: []
+    hashCode: 
+    Description: 
 --- !u!114 &826528389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10673,7 +10676,7 @@ MonoBehaviour:
   StartMethod: 0
   _initialTags: []
   GameplayTags:
-    m_SerializedExplicitTags: []
+    _tagHashes: []
   _initialState: {fileID: 202752085}
   _returnToPoolOnStop: 0
 --- !u!4 &1394084665
@@ -14736,8 +14739,8 @@ MonoBehaviour:
     Description: 
   tagContainer:
     _tagHashes: []
-  tag2:
-    m_Name: 
+  _tagContainer:
+    _tagHashes: []
 --- !u!1 &1951630266
 GameObject:
   m_ObjectHideFlags: 0
@@ -16251,11 +16254,11 @@ MonoBehaviour:
     _slotCount: 2
     _inventorySlots:
     - _allowedTags:
-        m_SerializedExplicitTags: []
+        _tagHashes: []
       _itemID: 
       _itemCount: 0
     - _allowedTags:
-        m_SerializedExplicitTags: []
+        _tagHashes: []
       _itemID: 
       _itemCount: 0
   InitialItems:
@@ -16312,15 +16315,15 @@ MonoBehaviour:
     _slotCount: 3
     _inventorySlots:
     - _allowedTags:
-        m_SerializedExplicitTags: []
+        _tagHashes: []
       _itemID: 
       _itemCount: 0
     - _allowedTags:
-        m_SerializedExplicitTags: []
+        _tagHashes: []
       _itemID: 
       _itemCount: 0
     - _allowedTags:
-        m_SerializedExplicitTags: []
+        _tagHashes: []
       _itemID: 
       _itemCount: 0
   InitialItems:
@@ -20706,7 +20709,7 @@ MonoBehaviour:
   IsRunning: 0
   IsFinished: 0
   _tagsToAdd:
-    m_SerializedExplicitTags: []
+    _tagHashes: []
   _removeOnExit: 1
 --- !u!114 &3508812757567338301
 MonoBehaviour:
@@ -20802,7 +20805,7 @@ MonoBehaviour:
   _initialTags:
   - {fileID: 11400000, guid: f7b2489220fef5547a9de7ec1c3fe1ba, type: 2}
   GameplayTags:
-    m_SerializedExplicitTags: []
+    _tagHashes: []
   _initialState: {fileID: 7256649438962629439}
   _returnToPoolOnStop: 0
 --- !u!114 &3706993587181594357
@@ -21396,7 +21399,10 @@ MonoBehaviour:
   IsFinished: 0
   _startWithTag: 0
   _tag:
-    m_Name: 
+    fullTag: 
+    tagHierarchy: []
+    hashCode: 
+    Description: 
   _abilityDS:
     Key: Ability_Sprint
     From: 1
@@ -22848,7 +22854,7 @@ MonoBehaviour:
   IsRunning: 0
   IsFinished: 0
   _tagsToAdd:
-    m_SerializedExplicitTags: []
+    _tagHashes: []
   _removeOnExit: 0
 --- !u!1 &6897831934150321190
 GameObject:
@@ -22934,7 +22940,10 @@ MonoBehaviour:
   _airborne: {fileID: 3508812757567338301}
   _ability: {fileID: 1321821843978056235}
   AbilityStateTag:
-    m_Name: AbilitySlot.BaseBody
+    fullTag: 
+    tagHierarchy: []
+    hashCode: 
+    Description: 
 --- !u!114 &7017730232411590521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23661,7 +23670,10 @@ MonoBehaviour:
   IsFinished: 0
   _startWithTag: 1
   _tag:
-    m_Name: Ability.Ranged.Shooting
+    fullTag: Ability.Ranged.Shooting
+    tagHierarchy: []
+    hashCode: cf9036b0-dad9-4533-8d0c-0968af7c792c
+    Description: 
   _abilityDS:
     Key: Ability_Shoot
     From: 1
@@ -23693,7 +23705,10 @@ MonoBehaviour:
   IsFinished: 0
   _startWithTag: 0
   _tag:
-    m_Name: 
+    fullTag: 
+    tagHierarchy: []
+    hashCode: 
+    Description: 
   _abilityDS:
     Key: Ability_Reload
     From: 1

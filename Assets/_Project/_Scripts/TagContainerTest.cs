@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using BandoWare.GameplayTags;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -30,7 +29,7 @@ public class TagContainerTest : MonoBehaviour
     [Button]
     public void Test2(string tagName)
     {
-        BandoWare.GameplayTags.GameplayTag newTag = GameplayTagManager.RequestTag(tagName);
+        GameplayTag newTag = GameplayTagManger2.RequestTag(tagName);
         _container2.AddTag(newTag);
     }
 }

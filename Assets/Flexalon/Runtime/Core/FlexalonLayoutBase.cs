@@ -64,6 +64,7 @@ namespace Flexalon
         {
             // Check if any old children changed parents. They need to be marked dirty
             // since their size may change after leaving the layout.
+            if(_node== null) return;
             for (int i = 0; i < _node.Children.Count; i++)
             {
                 var childNode = _node.Children[i];

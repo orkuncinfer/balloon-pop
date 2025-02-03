@@ -288,8 +288,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e919656c0302ec746825462d5ddb518c, type: 2}
   - {fileID: 11400000, guid: 73356437e892af84694e3813cb6136c6, type: 2}
   EquipTags:
-    m_SerializedExplicitTags:
-    - Equipment.Secondary.Ranged.Pistol
+    _tagHashes:
+    - 77599826-1ece-4015-88a3-682180c78107
 --- !u!65 &5887351453918988996
 BoxCollider:
   m_ObjectHideFlags: 0

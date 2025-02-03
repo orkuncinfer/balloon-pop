@@ -289,8 +289,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fee12b6feca6fd84bbb7d8c05ddca093, type: 2}
   - {fileID: 11400000, guid: 73356437e892af84694e3813cb6136c6, type: 2}
   EquipTags:
-    m_SerializedExplicitTags:
-    - Equipment.Primary.Ranged.Rifle
+    _tagHashes:
+    - 26e00d47-d053-45bd-8fbe-39d9fc82705a
 --- !u!114 &944769665809874457
 MonoBehaviour:
   m_ObjectHideFlags: 0

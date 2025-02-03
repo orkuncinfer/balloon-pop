@@ -29,8 +29,8 @@ MonoBehaviour:
   DefaultRarity: 0
   IsUniqueItem: 0
   ItemTags:
-    m_SerializedExplicitTags:
-    - Equipment.Secondary.Ranged.Pistol
+    _tagHashes:
+    - 77599826-1ece-4015-88a3-682180c78107
   ItemActions: []
   references:
     version: 2
@@ -44,6 +44,7 @@ MonoBehaviour:
         DataKey: 
         OwnerActor: {fileID: 0}
         IsInstalled: 0
+        _shootAbility: {fileID: 0}
         _reloadClip:
           _FadeDuration: 0.25
           _Events:

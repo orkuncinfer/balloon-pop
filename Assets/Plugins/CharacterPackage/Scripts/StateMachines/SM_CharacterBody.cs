@@ -1,5 +1,4 @@
-﻿using BandoWare.GameplayTags;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SM_CharacterBody : ActorStateMachine
 {
@@ -7,7 +6,7 @@ public class SM_CharacterBody : ActorStateMachine
     [SerializeField] private MonoState _airborne;
     [SerializeField] private MonoState _ability;
     
-    [SerializeField] private BandoWare.GameplayTags.GameplayTag AbilityStateTag;
+    [SerializeField] private GameplayTag AbilityStateTag;
     
     protected override MonoState _initialState => _grounded;
     
@@ -31,7 +30,7 @@ public class SM_CharacterBody : ActorStateMachine
 
     private void OnAnyTagCountChange()
     {
-        if(AbilityStateTag == BandoWare.GameplayTags.GameplayTag.None) return;
+        //if(AbilityStateTag == GameplayTag.None) return;
         if (Owner.GameplayTags.HasTagExact(AbilityStateTag))
         {
             _shouldUseAbility = true;

@@ -12,15 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874c74b0fb78f2c4fa1d24129296de91, type: 3}
   m_Name: GameplayTagCache
   m_EditorClassIdentifier: 
-  Entries:
-  - Tag: CrowdControl.Slow
-    References:
-    - Assets/Plugins/actor-core/AbilitySystem/Demo/Abilities/Melee/test.prefab
-    - Assets/_Project/Scenes/ThirdPersonScene.unity/test
-  - Tag: Ability.Crouch
-    References:
-    - Assets/Plugins/actor-core/AbilitySystem/Demo/Abilities/Melee/test.prefab
-    - Assets/_Project/Scenes/ThirdPersonScene.unity/test
-  - Tag: State.Movement.Sprint
-    References:
-    - Assets/Plugins/actor-core/AbilitySystem/Demo/Abilities/Sprint/GE_Sprint.asset
+  Entries: []
