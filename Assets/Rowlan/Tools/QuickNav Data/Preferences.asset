@@ -18,43 +18,7 @@ MonoBehaviour:
   - context: 0
     title: 
     unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-1941237218-0
-  - context: 1
-    title: 
-    unityObject: {fileID: 9197481963319205126, guid: 9a8ec57733a58d14392df4e9e278e165, type: 3}
-    objectGuid: GlobalObjectId_V1-1-9a8ec57733a58d14392df4e9e278e165-9197481963319205126-0
-  - context: 1
-    title: 
-    unityObject: {fileID: 7433441132597879392, guid: de6432bec3cf852488d048d199829214, type: 3}
-    objectGuid: GlobalObjectId_V1-1-de6432bec3cf852488d048d199829214-7433441132597879392-0
-  - context: 1
-    title: 
-    unityObject: {fileID: 11500000, guid: 5f5faf8b33458de4387ab0f393206e6f, type: 3}
-    objectGuid: GlobalObjectId_V1-1-5f5faf8b33458de4387ab0f393206e6f-11500000-0
-  - context: 1
-    title: 
-    unityObject: {fileID: 9197481963319205126, guid: db44cd71e8064cc43a557aea28ff887f, type: 3}
-    objectGuid: GlobalObjectId_V1-1-db44cd71e8064cc43a557aea28ff887f-9197481963319205126-0
-  - context: 1
-    title: 
-    unityObject: {fileID: 11500000, guid: c318fcca40e141049b8d1abb76351195, type: 3}
-    objectGuid: GlobalObjectId_V1-1-c318fcca40e141049b8d1abb76351195-11500000-0
-  - context: 1
-    title: 
-    unityObject: {fileID: 9197481963319205126, guid: 9a8ec57733a58d14392df4e9e278e165, type: 3}
-    objectGuid: GlobalObjectId_V1-1-9a8ec57733a58d14392df4e9e278e165-9197481963319205126-0
-  - context: 1
-    title: 
-    unityObject: {fileID: 11500000, guid: 5f5faf8b33458de4387ab0f393206e6f, type: 3}
-    objectGuid: GlobalObjectId_V1-1-5f5faf8b33458de4387ab0f393206e6f-11500000-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-1941237218-0
-  - context: 0
-    title: 
-    unityObject: {fileID: 0}
-    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-696344865-0
+    objectGuid: GlobalObjectId_V1-2-0b76f415db5afff448563bb2fe61df42-7052049254446410850-1558989321
   favorites:
   - context: 1
     title: 

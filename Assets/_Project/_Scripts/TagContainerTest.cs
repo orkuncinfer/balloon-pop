@@ -29,7 +29,7 @@ public class TagContainerTest : MonoBehaviour
     [Button]
     public void Test2(string tagName)
     {
-        GameplayTag newTag = GameplayTagManger2.RequestTag(tagName);
+        GameplayTag newTag = GameplayTagManager.RequestTag(tagName);
         _container2.AddTag(newTag);
     }
 }

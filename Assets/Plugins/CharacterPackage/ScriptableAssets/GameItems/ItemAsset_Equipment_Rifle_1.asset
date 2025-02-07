@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemID: Equipment_Rifle_1
   _itemIDLocked: 1
   ItemName: Equipment_Rifle_1
-  _itemNameLocked: 0
+  _itemNameLocked: 1
   Description: 
   Icon: {fileID: 0}
   DataList:

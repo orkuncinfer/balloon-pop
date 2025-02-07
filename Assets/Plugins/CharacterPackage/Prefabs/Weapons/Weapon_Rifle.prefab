@@ -239,8 +239,8 @@ GameObject:
   - component: {fileID: 7941266571296540520}
   - component: {fileID: 6011846932157811543}
   - component: {fileID: 3059297471211916870}
-  - component: {fileID: 6457989537686686347}
   - component: {fileID: 3060393090093635239}
+  - component: {fileID: 6457989537686686347}
   m_Layer: 0
   m_Name: Weapon_Rifle
   m_TagString: Untagged
@@ -415,19 +415,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingAmmoAmounts: e8030000e8030000e8030000
   _ammoInventoryKey: {fileID: 11400000, guid: af00880f0d69a8143b51a8c53b0db7d3, type: 2}
---- !u!114 &6457989537686686347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423140520730457204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cb56b2933146cc4cb17bb42bd3bd0ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AimingAbility: {fileID: 11400000, guid: f7761f40c9a2cde478fd4c6874c33028, type: 2}
 --- !u!114 &3060393090093635239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,6 +428,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _magnitudeRange: {x: 0.5927978, y: 1.4099723}
+--- !u!114 &6457989537686686347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423140520730457204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb56b2933146cc4cb17bb42bd3bd0ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AimingAbility: {fileID: 11400000, guid: f7761f40c9a2cde478fd4c6874c33028, type: 2}
 --- !u!1 &1960734601149361950
 GameObject:
   m_ObjectHideFlags: 0

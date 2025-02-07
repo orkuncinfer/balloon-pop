@@ -5827,12 +5827,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794790458}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 929288488}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &798768106
 GameObject:
@@ -6564,7 +6564,7 @@ MonoBehaviour:
   ComponentScale: {x: 1, y: 1, z: 1}
   FillSize: {x: 1920, y: 1080, z: 0}
   ShrinkSize: {x: 999999, y: 999999, z: 999999}
-  TargetPosition: {x: 753, y: -389, z: 0}
+  TargetPosition: {x: 1073, y: -569, z: 0}
   TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   TargetScale: {x: 1, y: 1, z: 1}
   TargetRectSize: {x: 334.8766, y: 213.19, z: 0}
@@ -6913,6 +6913,11 @@ Transform:
   - {fileID: 48184291}
   m_Father: {fileID: 1523752561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &929288488 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3723082014902976753, guid: 105d01acbb9e80f46affd5b759e45268, type: 3}
+  m_PrefabInstance: {fileID: 1528883673}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &942315625
 GameObject:
   m_ObjectHideFlags: 0
@@ -11939,7 +11944,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 612864524482582690, guid: 105d01acbb9e80f46affd5b759e45268, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3723082014902976753, guid: 105d01acbb9e80f46affd5b759e45268, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 794790460}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 290552613212114807, guid: 105d01acbb9e80f46affd5b759e45268, type: 3}
       insertIndex: -1
@@ -12025,6 +12033,18 @@ PrefabInstance:
     - target: {fileID: 963976322780767108, guid: 815a307aecadc054b94ef7951a153c39, type: 3}
       propertyPath: _continueWithoutMenu
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790292833420043885, guid: 815a307aecadc054b94ef7951a153c39, type: 3}
+      propertyPath: _color.b
+      value: 0.41963333
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790292833420043885, guid: 815a307aecadc054b94ef7951a153c39, type: 3}
+      propertyPath: _color.g
+      value: 0.6727384
+      objectReference: {fileID: 0}
+    - target: {fileID: 4790292833420043885, guid: 815a307aecadc054b94ef7951a153c39, type: 3}
+      propertyPath: _color.r
+      value: 0.7735849
       objectReference: {fileID: 0}
     - target: {fileID: 4790292833420043885, guid: 815a307aecadc054b94ef7951a153c39, type: 3}
       propertyPath: _drawIcon
@@ -14543,6 +14563,173 @@ Transform:
   - {fileID: 803099955}
   m_Father: {fileID: 134665578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1902896027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1902896028}
+  - component: {fileID: 1902896029}
+  - component: {fileID: 1902896030}
+  m_Layer: 0
+  m_Name: SlotInventory_Default
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1902896028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902896027}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 498581948206336452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1902896029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902896027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9794fe5fd80b2a0429fc6a84eb91aab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialSlotCount: 20
+  Width: 0
+  InventoryId: {fileID: 11400000, guid: 8bdc75f4d0e25864c9522f576da078ae, type: 2}
+  CreateOnInitialize: 0
+  InventoryData:
+    _slotCount: 0
+    _inventorySlots:
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+    - _allowedTags:
+        _tagHashes: []
+      _itemID: 
+      _itemCount: 0
+  InitialItems:
+  - ItemDefinition: {fileID: 11400000, guid: 0b4ffddf72fb1ec4e926d0c43a886b84, type: 2}
+    Count: 20
+--- !u!114 &1902896030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902896027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c5496b777b3ea48a46d30fb1adec75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inventoryKey: {fileID: 11400000, guid: 8bdc75f4d0e25864c9522f576da078ae, type: 2}
+  _inventoryPanel: {fileID: 8744719277144872252, guid: c794a7326674467459d2a130ed5e28d6, type: 3}
+  _inputAction:
+    m_Name: Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 727bd119-7246-4d9c-9d09-1cec21d7834b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: dd539cb7-a916-414a-931b-ad3ec62dca03
+      m_Path: <Keyboard>/tab
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input
+      m_Flags: 0
+    m_Flags: 0
+  _characterActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
 --- !u!1 &1916080113
 GameObject:
   m_ObjectHideFlags: 0
@@ -16209,8 +16396,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2124475916}
   - component: {fileID: 2124475917}
-  - component: {fileID: 2124475918}
   - component: {fileID: 2124475919}
+  - component: {fileID: 2124475918}
   m_Layer: 0
   m_Name: SlotInventory_Equipment
   m_TagString: Untagged
@@ -16841,6 +17028,7 @@ Transform:
   - {fileID: 2922813408573005534}
   - {fileID: 4557335582420695162}
   - {fileID: 2124475916}
+  - {fileID: 1902896028}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &499247841099020750
@@ -21413,6 +21601,11 @@ MonoBehaviour:
   CancelOnRelease: 1
   TryActivateWhenHolding: 1
   ActivateOnceWhenHolding: 0
+  ActivationPolicy: 1
+  CancelAbilitiesWithTag:
+    _tagHashes:
+    - cf9036b0-dad9-4533-8d0c-0968af7c792c
+  Conditions: []
   references:
     version: 2
     RefIds:
@@ -23212,14 +23405,14 @@ MonoBehaviour:
     Transitions:
     - ToState: {fileID: 2596578557350022450}
       Conditions:
-      - rid: 428194984417296391
+      - rid: 95553211497447460
   - State: {fileID: 2596578557350022450}
     Transitions: []
   references:
     version: 2
     RefIds:
-    - rid: 428194984417296391
-      type: {class: SC_IsDead, ns: , asm: Assembly-CSharp-firstpass}
+    - rid: 95553211497447460
+      type: {class: Condition_IsDead, ns: , asm: Assembly-CSharp-firstpass}
       data: 
 --- !u!114 &7256649438962629442
 MonoBehaviour:
@@ -23234,9 +23427,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ZoomLevel: 0.85000014
-  Drag: {x: 228.19998, y: 172.95}
-  ScreenWidth: 640
-  ScreenHeight: 480
+  Drag: {x: 182.19998, y: 172.95}
+  ScreenWidth: 549
+  ScreenHeight: 1307
   Nodes:
   - Position: {x: 58, y: -52}
     Size: {x: 100, y: 50}
@@ -23244,7 +23437,7 @@ MonoBehaviour:
     ConnectionIndexes: 
     Rect:
       serializedVersion: 2
-      x: 277.5
+      x: 231.49998
       y: 128.74998
       width: 85.000015
       height: 42.500008
@@ -23254,7 +23447,7 @@ MonoBehaviour:
     ConnectionIndexes: 
     Rect:
       serializedVersion: 2
-      x: 130.93568
+      x: 84.93569
       y: 311.62152
       width: 85.000015
       height: 42.500008
@@ -23684,6 +23877,10 @@ MonoBehaviour:
   CancelOnRelease: 1
   TryActivateWhenHolding: 0
   ActivateOnceWhenHolding: 1
+  ActivationPolicy: 2
+  CancelAbilitiesWithTag:
+    _tagHashes: []
+  Conditions: []
   references:
     version: 2
     RefIds:
@@ -23719,11 +23916,19 @@ MonoBehaviour:
   CancelOnRelease: 0
   TryActivateWhenHolding: 0
   ActivateOnceWhenHolding: 0
+  ActivationPolicy: 0
+  CancelAbilitiesWithTag:
+    _tagHashes: []
+  Conditions:
+  - rid: 95553211497447459
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 95553211497447459
+      type: {class: Condition_AmmoNotFull, ns: , asm: Assembly-CSharp-firstpass}
+      data: 
 --- !u!114 &8066044442521108796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24934,7 +25139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e92ad7adfe6a74caed3e4475b0da77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
+  mouseSensitivity: 50
   minXRotation: -35
   maxXRotation: 75
 --- !u!1 &9151113096595375713
@@ -25040,4 +25245,3 @@ SceneRoots:
   - {fileID: 696344867}
   - {fileID: 1941237220}
   - {fileID: 622235493}
-  - {fileID: 794790460}

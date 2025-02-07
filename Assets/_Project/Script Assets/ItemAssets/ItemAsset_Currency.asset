@@ -23,9 +23,11 @@ MonoBehaviour:
   UIPrefab: {fileID: 0}
   _rpgItemTypes: 0
   IsStackable: 0
-  MaxStack: 0
+  MaxStack: 200
   DefaultRarity: 0
   IsUniqueItem: 0
+  ItemTags:
+    _tagHashes: []
   ItemActions: []
   references:
     version: 2
