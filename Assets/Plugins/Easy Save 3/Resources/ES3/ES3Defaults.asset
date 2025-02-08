@@ -23,7 +23,7 @@ MonoBehaviour:
     prettyPrint: 1
     bufferSize: 2048
     saveChildren: 1
-    postprocessRawCachedData: 0
+    postprocessRawCachedData: 1
     typeChecking: 1
     safeReflection: 1
     memberReferenceMode: 0

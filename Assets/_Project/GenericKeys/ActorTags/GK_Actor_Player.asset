@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 369f8195e2f24b33a5e2987bb259a3af, type: 3}
-  m_Name: AT_Player
+  m_Name: GK_Actor_Player
   m_EditorClassIdentifier: 
   _id: Player

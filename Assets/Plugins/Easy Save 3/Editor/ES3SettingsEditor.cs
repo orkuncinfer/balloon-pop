@@ -1,9 +1,5 @@
 ﻿using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System;
-using System.Collections;
-using ES3Internal;
 
 namespace ES3Editor
 {
@@ -18,7 +14,21 @@ namespace ES3Editor
 			if(settings.location == ES3.Location.File)
 				settings.directory = (ES3.Directory)EditorGUILayout.EnumPopup("Directory", settings.directory);
 
-			settings.path = EditorGUILayout.TextField("Default File Path", settings.path);
+			if (settings.location == ES3.Location.Cache)
+			{
+                EditorGUILayout.BeginVertical(style.area);
+                EditorGUILayout.LabelField("Store cached data:");
+
+                EditorGUILayout.BeginVertical(style.area);
+                settings.storeCacheAtEndOfEveryFrame = EditorGUILayout.Toggle("At end of every frame", settings.storeCacheAtEndOfEveryFrame);
+				settings.storeCacheOnApplicationQuit = EditorGUILayout.Toggle("On Application Quit", settings.storeCacheOnApplicationQuit);
+				settings.storeCacheOnApplicationPause = EditorGUILayout.Toggle("On Application Pause", settings.storeCacheOnApplicationPause);
+                EditorGUILayout.EndVertical();
+
+                EditorGUILayout.EndVertical();
+            }
+
+        settings.path = EditorGUILayout.TextField("Default File Path", settings.path);
 
 			EditorGUILayout.Space();
 

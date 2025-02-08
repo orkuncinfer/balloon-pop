@@ -124,6 +124,11 @@ public class ES3Settings : System.ICloneable
     // <summary>Whether we should apply encryption and/or compression to raw cached data if they're specified in the cached data's settings.</summary>
     public bool postprocessRawCachedData = false;
 
+    // When we should automatically commit the cache to file.
+    public bool storeCacheAtEndOfEveryFrame = true;
+    public bool storeCacheOnApplicationQuit = true;
+    public bool storeCacheOnApplicationPause = true;
+
     /// <summary>Whether we should check that the data we are loading from a file matches the method we are using to load it.</summary>
     [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
 	public bool typeChecking = true;
@@ -362,7 +367,10 @@ public class ES3Settings : System.ICloneable
         newSettings.saveChildren = saveChildren;
         newSettings.serializationDepthLimit = serializationDepthLimit;
         newSettings.postprocessRawCachedData = postprocessRawCachedData;
-    }
+        newSettings.storeCacheAtEndOfEveryFrame = true;
+        newSettings.storeCacheOnApplicationQuit = true;
+        newSettings.storeCacheOnApplicationPause = true;
+}
 
     #endregion
 }

@@ -20,7 +20,7 @@ public class ES3Spreadsheet
 	private const char COMMA_CHAR = ',';
 	private const char NEWLINE_CHAR = '\n';
 	private const string ESCAPED_QUOTE = "\"\"";
-	private static char[] CHARS_TO_ESCAPE = { ',', '"', '\n', ' ' };
+	private static char[] CHARS_TO_ESCAPE = { ',', '"', '\n'};
 
 	public int ColumnCount
 	{
@@ -269,7 +269,7 @@ public class ES3Spreadsheet
 			str = str.Replace(QUOTE, ESCAPED_QUOTE);
 		
 		// If there's chars to escape, wrap the value in quotes.
-		if(str.IndexOfAny(CHARS_TO_ESCAPE) > -1)
+		if(str.IndexOfAny(CHARS_TO_ESCAPE) > -1 || StartsOrEndsWithWhitespace(str))
 			str = QUOTE + str + QUOTE;
 		return str;
 	}
@@ -283,6 +283,20 @@ public class ES3Spreadsheet
 				str = str.Replace(ESCAPED_QUOTE, QUOTE);
 		}
 		return str;
+	}
+
+	private static bool StartsOrEndsWithWhitespace(string str)
+	{
+		if (string.IsNullOrEmpty(str))
+			return false;
+
+		if (char.IsWhiteSpace(str[0]))
+			return true;
+
+		if (char.IsWhiteSpace(str[str.Length - 1]))
+			return true;
+
+		return false;
 	}
 
 	private string[,] ToArray()

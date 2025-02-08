@@ -17,6 +17,7 @@ public class ES3File
     private Dictionary<string, ES3Data> cache = new Dictionary<string, ES3Data>();
     private bool syncWithFile = false;
     private DateTime timestamp = DateTime.UtcNow;
+    private bool dirty = false;
 
     /// <summary>Creates a new ES3File and loads the default file into the ES3File if there is data to load.</summary>
     public ES3File() : this(new ES3Settings(), true) { }
@@ -115,6 +116,9 @@ public class ES3File
             return;
         }
 
+        if (!dirty)
+            return;
+
         using (var baseWriter = ES3Writer.Create(settings, true, !syncWithFile, false))
         {
             foreach (var kvp in cache)
@@ -126,16 +130,20 @@ public class ES3File
                     type = typeof(System.Object);
                 else
                     type = kvp.Value.type.type;
+
                 baseWriter.Write(kvp.Key, type, kvp.Value.bytes);
             }
             baseWriter.Save(!syncWithFile);
         }
+
+        dirty = false;
     }
 
     /// <summary>Removes the data stored in this ES3File. The ES3File will be empty after calling this method.</summary>
     public void Clear()
     {
         cache.Clear();
+        dirty = true;
     }
 
     /// <summary>Returns an array of all of the key names in this ES3File.</summary>
@@ -165,7 +173,11 @@ public class ES3File
         else
             type = value.GetType();
 
-        cache[key] = new ES3Data(ES3TypeMgr.GetOrCreateES3Type(type), ES3.Serialize(value, unencryptedSettings));
+        ES3Type es3Type = ES3TypeMgr.GetOrCreateES3Type(type);
+
+        cache[key] = new ES3Data(es3Type, ES3.Serialize(value, es3Type, unencryptedSettings));
+
+        dirty = true;
     }
 
     /// <summary>Merges the data specified by the bytes parameter into this ES3File.</summary>
@@ -187,6 +199,8 @@ public class ES3File
             foreach (KeyValuePair<string, ES3Data> kvp in reader.RawEnumerator)
                 cache[kvp.Key] = kvp.Value;
         }
+
+        dirty = true;
     }
 
     /// <summary>Merges the data specified by the bytes parameter into this ES3File.</summary>
@@ -198,6 +212,8 @@ public class ES3File
             settings = new ES3Settings();
         // AppendRaw just does the same thing as SaveRaw in ES3File.
         SaveRaw(bytes, settings);
+
+        dirty = true;
     }
 
     #endregion
@@ -234,7 +250,8 @@ public class ES3File
         unencryptedSettings.encryptionType = ES3.EncryptionType.None;
         unencryptedSettings.compressionType = ES3.CompressionType.None;
 
-        if (typeof(T) == typeof(object))
+        // If we're loading a derived type using it's parent type, ensure that we use the ES3Type from the ES3Data.
+        if (typeof(T) != es3Data.type.type && ES3Reflection.IsAssignableFrom(typeof(T), es3Data.type.type))
             return (T)ES3.Deserialize(es3Data.type, es3Data.bytes, unencryptedSettings);
         return ES3.Deserialize<T>(es3Data.bytes, unencryptedSettings);
     }
@@ -252,7 +269,8 @@ public class ES3File
         unencryptedSettings.encryptionType = ES3.EncryptionType.None;
         unencryptedSettings.compressionType = ES3.CompressionType.None;
 
-        if (typeof(T) == typeof(object))
+        // If we're loading a derived type using it's parent type, ensure that we use the ES3Type from the ES3Data.
+        if (typeof(T) != es3Data.type.type && ES3Reflection.IsAssignableFrom(typeof(T), es3Data.type.type))
             return (T)ES3.Deserialize(es3Data.type, es3Data.bytes, unencryptedSettings);
         return ES3.Deserialize<T>(es3Data.bytes, unencryptedSettings);
     }
@@ -271,7 +289,8 @@ public class ES3File
         unencryptedSettings.encryptionType = ES3.EncryptionType.None;
         unencryptedSettings.compressionType = ES3.CompressionType.None;
 
-        if (typeof(T) == typeof(object))
+        // If we're loading a derived type using it's parent type, ensure that we use the ES3Type from the ES3Data.
+        if (typeof(T) != es3Data.type.type && ES3Reflection.IsAssignableFrom(typeof(T), es3Data.type.type))
             ES3.DeserializeInto(es3Data.type, es3Data.bytes, obj, unencryptedSettings);
         else
             ES3.DeserializeInto(es3Data.bytes, obj, unencryptedSettings);
@@ -343,6 +362,7 @@ public class ES3File
     public void DeleteKey(string key)
     {
         cache.Remove(key);
+        dirty = true;
     }
 
     /// <summary>Checks whether a key exists in this ES3File.</summary>
@@ -427,6 +447,14 @@ public class ES3File
         if (!cachedFiles.TryGetValue(settings.path, out cachedFile))
             throw new FileNotFoundException("The file '" + settings.path + "' could not be stored because it could not be found in the cache.");
         cachedFile.Sync(settings);
+    }
+
+    [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+    internal static void StoreAll()
+    {
+        foreach (var kvp in cachedFiles)
+            if (kvp.Key != null && kvp.Value != null)
+                Store(kvp.Value.settings);
     }
 
     [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
