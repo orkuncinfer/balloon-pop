@@ -390,7 +390,7 @@ namespace RootMotion.FinalIK {
 			for (int i = 0; i < targets.Length; i++) {
 				if (targets[i].effectorType == effectorType && targets[i].CompareTag(tag)) return targets[i].transform;
 			}
-
+			Debug.Log("Returned interaction target is " + transform.name);
 			return transform;
 		}
 

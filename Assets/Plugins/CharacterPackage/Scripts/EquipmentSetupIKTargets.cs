@@ -42,6 +42,9 @@ public class EquipmentSetupIKTargets : MonoBehaviour
     {
         ik.solver.rightHandEffector.positionWeight = 0;
         ik.solver.leftHandEffector.positionWeight = 0;
+        
+        ik.solver.rightHandEffector.target = null;
+        ik.solver.leftHandEffector.target = null;
 
         _equippable.onUnequipped -= OnUnequip;
     }

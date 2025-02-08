@@ -29,8 +29,9 @@ MonoBehaviour:
   MaxStack: 0
   DefaultRarity: 0
   IsUniqueItem: 0
-  ItemActions:
-  - rid: 658624274845138946
+  ItemTags:
+    _tagHashes: []
+  ItemActions: []
   references:
     version: 2
     RefIds:
@@ -64,9 +65,3 @@ MonoBehaviour:
         OwnerActor: {fileID: 0}
         IsInstalled: 0
         _value: 1
-    - rid: 658624274845138946
-      type: {class: ItemAction_ModifyHealth, ns: , asm: Assembly-CSharp}
-      data:
-        ModifierValue: 10
-        ModifierOperation: 0
-        CurrentHealthToMax: 1

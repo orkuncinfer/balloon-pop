@@ -26,6 +26,8 @@ MonoBehaviour:
   MaxStack: 0
   DefaultRarity: 0
   IsUniqueItem: 0
+  ItemTags:
+    _tagHashes: []
   ItemActions:
   - rid: 4152201382478741506
   references:
