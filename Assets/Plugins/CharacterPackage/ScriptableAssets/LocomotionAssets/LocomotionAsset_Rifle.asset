@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LocomotionAsset_Rifle
   m_EditorClassIdentifier: 
   Idle:
-    _FadeDuration: 0.25000003
+    _FadeDuration: 0.25
     _Events:
       _NormalizedTimes: []
       _Callbacks: []

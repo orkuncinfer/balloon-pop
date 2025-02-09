@@ -36,17 +36,16 @@ public class EquipmentSetupIKTargets : MonoBehaviour
     private void OnDisable()
     {
         _equippable.onEquipped -= SetupIKTargets;
-       
+        _equippable.onUnequipped -= OnUnequip;
     }
     private void OnUnequip(ActorBase obj)
     {
+        Debug.Log("unequipped");
         ik.solver.rightHandEffector.positionWeight = 0;
         ik.solver.leftHandEffector.positionWeight = 0;
         
         ik.solver.rightHandEffector.target = null;
         ik.solver.leftHandEffector.target = null;
-
-        _equippable.onUnequipped -= OnUnequip;
     }
 
     public void SetupIKTargets(ActorBase actor)

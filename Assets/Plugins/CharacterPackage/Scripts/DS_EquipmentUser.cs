@@ -81,7 +81,14 @@ public class DS_EquipmentUser : Data
     {
         if(EquipmentPrefab == null) return;
         ReleaseInstance();
-        EquipmentInstance = PoolManager.SpawnObject(EquipmentPrefab, Vector3.zero, Quaternion.identity);
+        if (_equipmentPrefab.gameObject.activeInHierarchy)
+        {
+            EquipmentInstance = EquipmentPrefab;
+        }
+        else
+        {
+            EquipmentInstance = PoolManager.SpawnObject(EquipmentPrefab, Vector3.zero, Quaternion.identity);
+        }
         
         if (EquipmentInstance.TryGetComponent(out Equippable weapon))
         {
