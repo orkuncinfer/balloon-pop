@@ -89,7 +89,7 @@ public class EquipmentSetupIKTargets : MonoBehaviour
             handPoserRight.localRotationWeight = 1;
         }
         
-        switch (_equipHand)
+        /*switch (_equipHand)
         {
             case EEquipHand.LeftHand:
                 ik.solver.rightHandEffector.positionWeight = 1;
@@ -97,7 +97,7 @@ public class EquipmentSetupIKTargets : MonoBehaviour
             case EEquipHand.RightHand:
                 ik.solver.leftHandEffector.positionWeight = 1;
                 break;
-        }
+        }*/
         
         //StaticUpdater.onLateUpdate += UpdateIK;
     }

@@ -43,6 +43,8 @@ public class AimIKWeightHandler : MonoBehaviour
 
     private void Update()
     {
+	    if (!IsAiming && _aimIKWeight <= 0f && _leftHandBendWeight <= 0)
+		    return;
         //lerp weight
         _aimIKWeight = Mathf.MoveTowards(_aimIKWeight, IsAiming ? 1 : 0, Time.deltaTime * LerpSpeed);
         _leftHandBendWeight = Mathf.MoveTowards(_leftHandBendWeight, IsAiming ? 1 : 0, Time.deltaTime * _leftHandBendSpeed);

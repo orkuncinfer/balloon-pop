@@ -58,8 +58,8 @@ namespace RootMotion.FinalIK {
 			
 			// Something went wrong
 			if (children.Length < poseChildren.Length) {
-				Debug.LogError("Number of children does not match with the pose", transform);
-				return;
+				//Debug.LogError("Number of children does not match with the pose", transform);
+				//return;
 			}
 			
 			// Calculate weights

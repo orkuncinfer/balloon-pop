@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using RootMotion.FinalIK;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -57,7 +59,9 @@ public class DS_EquipmentUser : Data
         set => _socketName = value;
     }
 
-    private bool _equippedAsWorldInstance;
+    public float LerpSpeed;
+
+    private bool _equippedAsWorldInstance;//??
 
     public override void OnActorStarted()
     {
@@ -81,7 +85,7 @@ public class DS_EquipmentUser : Data
     {
         if(EquipmentPrefab == null) return;
         ReleaseInstance();
-        if (_equipmentPrefab.gameObject.activeInHierarchy)
+        if (_equipmentPrefab.gameObject.activeInHierarchy) // if exist in world
         {
             EquipmentInstance = EquipmentPrefab;
         }
@@ -96,10 +100,8 @@ public class DS_EquipmentUser : Data
             weapon.OnEquip(OwnerActor);
         }
         
-        EquipmentInstance.transform.SetParent(OwnerActor.GetSocket(SocketName));
-        EquipmentInstance.transform.localPosition = Vector3.zero;
-        EquipmentInstance.transform.localEulerAngles = Vector3.zero;
-        EquipmentInstance.transform.localScale = Vector3.one;
+        
+        SetInstanceTransform();
     }
     public void UnequipCurrent(bool destroyInstance = true)
     {
@@ -129,11 +131,35 @@ public class DS_EquipmentUser : Data
             weapon.OnEquip(OwnerActor);
         }
         
-        EquipmentInstance.transform.SetParent(OwnerActor.GetSocket(SocketName));
+        SetInstanceTransform();
+        equipmentInstance.SetActive(true);
+    
+    }
+    
+    private void SetInstanceTransform()
+    {
+        if (EquipmentInstance == null) return;
+        EquipmentInstance.transform.SetParent(OwnerActor.GetSocket(SocketName),true);
+        if(LerpSpeed > 0)
+        {
+            EquipmentInstance.transform.DOLocalRotate(Vector3.zero, LerpSpeed);
+            EquipmentInstance.transform.DOLocalMove(Vector3.zero, LerpSpeed).OnComplete(() =>
+            {
+                EquipmentInstance.transform.SetParent(OwnerActor.GetSocket(SocketName));
+                EquipmentInstance.transform.localPosition = Vector3.zero;
+                EquipmentInstance.transform.localEulerAngles = Vector3.zero;
+                EquipmentInstance.transform.localScale = Vector3.one;
+                LerpSpeed = 0;
+                Debug.Log("Equipped equipment instance");
+            });
+            return;
+        }
+        
         EquipmentInstance.transform.localPosition = Vector3.zero;
         EquipmentInstance.transform.localEulerAngles = Vector3.zero;
         EquipmentInstance.transform.localScale = Vector3.one;
-        equipmentInstance.SetActive(true);
+        
+        Debug.Log("Equipped equipment instance");
     }
 
     private void ReleaseInstance()
