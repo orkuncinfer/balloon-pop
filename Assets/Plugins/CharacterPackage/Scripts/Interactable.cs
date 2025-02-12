@@ -1,0 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Interactable : MonoBehaviour
+{
+    [SerializeField] private AbilityDefinition _interactAbility;
+    [SerializeField] private GameObject _interactionUI;
+    [SerializeField] private Vector3 _displayOffset;
+    [SerializeField] private float _displayScale = 1;
+    [SerializeField]private bool _isInteractable;
+    public bool IsInteractable
+    {
+        get => _isInteractable;
+        set => _isInteractable = value;
+    }
+
+    private bool _showing;
+
+    private GameObject _instance;
+    
+    public void SetInteractable(bool interactable)
+    {
+        _isInteractable = interactable;
+
+
+        if (interactable && !_showing)
+        {
+            _showing = true;
+            _instance = PoolManager.SpawnObject(_interactionUI, transform.position + _displayOffset, Quaternion.identity);
+            _instance.transform.forward = Camera.main.transform.forward;
+            _instance.transform.localScale = Vector3.one * _displayScale;
+        }
+        
+        if (!interactable && _showing)
+        {
+            _showing = false;
+            PoolManager.ReleaseObject(_instance);
+        }
+    }
+
+    public void Interact(ActorBase owner)
+    {
+        owner.GetData<Data_GAS>().AbilityController.AddAndTryActivateAbility(_interactAbility);
+    }
+}

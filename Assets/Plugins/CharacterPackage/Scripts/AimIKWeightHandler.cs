@@ -6,7 +6,13 @@ using UnityEngine;
 
 public class AimIKWeightHandler : MonoBehaviour
 {
-    public bool IsAiming;
+	private bool _isAiming;
+
+	public bool IsAiming
+	{
+		get => _isAiming;
+		set => _isAiming = value;
+	}
     public float LerpSpeed = 10f;
     private AimIK _aimIK;
 
@@ -81,7 +87,7 @@ public class AimIKWeightHandler : MonoBehaviour
 		    // Rotate the head to look at the aim target
 		    HeadLookAt(aimTarget);
 		    
-		    //HandPosers();
+		    HandPosers();
 	    }
     }
 
@@ -90,29 +96,18 @@ public class AimIKWeightHandler : MonoBehaviour
 	    if (leftHandPoser != null )
 	    {
 		    leftHandPoser.weight = _aimIKWeight;
-		    leftHandPoser.localRotationWeight = _aimIKWeight;
 		    leftHandPoser.UpdateSolverExternal();
 	    }
 	    
 	    if (rightHandPoser != null )
 	    {
 		    rightHandPoser.weight = _aimIKWeight;
-		    rightHandPoser.localRotationWeight = _aimIKWeight;
 		    rightHandPoser.UpdateSolverExternal();
 	    }
     }
     
-    public void LeftHandPoserToggle(bool toggle)
-	{
-	    leftHandPoser.weight = toggle ? 1 : 0;
-	    leftHandPoser.localRotationWeight = toggle ? 1 : 0;
-	}
 
-	public void RightHandPoserToggle(bool toggle)
-	{
-		rightHandPoser.weight = toggle ? 1 : 0;
-		rightHandPoser.localRotationWeight = toggle ? 1 : 0;
-	}
+    
 
     public void ToggleAiming(bool isAiming,bool isInstant = false, bool releaseLeftHand = false)
     {

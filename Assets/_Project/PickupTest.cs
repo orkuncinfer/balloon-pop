@@ -23,7 +23,7 @@ public class PickupTest : MonoBehaviour
 
     private void OnInteractionStop(FullBodyBipedEffector effectortype, InteractionObject interactionobject)
     {
-        PlayableDirector.Stop();
+        //PlayableDirector.Stop();
         UserActor.GetComponentInChildren<AbilityController>().AddAndTryActivateAbility(DisableAbility);
     }
 

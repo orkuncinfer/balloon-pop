@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using RootMotion.FinalIK;
+using UnityEngine.Events;
 
 namespace RootMotion.FinalIK {
 
@@ -66,6 +67,8 @@ namespace RootMotion.FinalIK {
 					return Quaternion.AngleAxis(angleOffset, Vector3.up) * Vector3.forward;
 				}
 			}
+
+			
 			
 			// Is the character in range with this character position?
 			public bool IsInRange(Transform character, Transform trigger, out float error) {
@@ -252,6 +255,8 @@ namespace RootMotion.FinalIK {
 		/// </summary>
 		[Tooltip("The valid ranges of the character's and/or its camera's position for triggering interaction when the character is in contact with the collider of this trigger.")]
 		public Range[] ranges = new Range[0];
+		
+		public UnityEvent OnInteraction;
 		
 		// Returns the index of the ranges that is best fit for the current position/rotation of the character and its camera.
 		public int GetBestRangeIndex(Transform character, Transform raycastFrom, RaycastHit raycastHit) {

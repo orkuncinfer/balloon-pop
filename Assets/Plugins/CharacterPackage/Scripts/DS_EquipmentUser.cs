@@ -150,7 +150,6 @@ public class DS_EquipmentUser : Data
                 EquipmentInstance.transform.localEulerAngles = Vector3.zero;
                 EquipmentInstance.transform.localScale = Vector3.one;
                 LerpSpeed = 0;
-                Debug.Log("Equipped equipment instance");
             });
             return;
         }
@@ -158,8 +157,6 @@ public class DS_EquipmentUser : Data
         EquipmentInstance.transform.localPosition = Vector3.zero;
         EquipmentInstance.transform.localEulerAngles = Vector3.zero;
         EquipmentInstance.transform.localScale = Vector3.one;
-        
-        Debug.Log("Equipped equipment instance");
     }
 
     private void ReleaseInstance()

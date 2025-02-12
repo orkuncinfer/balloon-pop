@@ -135,9 +135,19 @@ namespace RootMotion.FinalIK {
 		/// Starts the interaction between an effector and an interaction object.
 		/// </summary>
 		public bool StartInteraction(FullBodyBipedEffector effectorType, InteractionObject interactionObject, bool interrupt) {
-			if (!IsValid(true)) return false;
+			Debug.Log("Couldnt start interaction111");
+			if (!IsValid(true))
+			{
+				Debug.Log("Couldnt start interaction");
+				return false;
+			}
 
-			if (interactionObject == null) return false;
+			if (interactionObject == null)
+			{
+				Debug.Log("Couldnt start interaction");
+				OnInteractionStop?.Invoke(effectorType, interactionObject);
+				return false;
+			}
 
 			Debug.Log("Started Interaction " + effectorType + " " + interactionObject.name);
 			for (int i = 0; i < interactionEffectors.Length; i++) {
@@ -296,6 +306,8 @@ namespace RootMotion.FinalIK {
 
 			var range = triggersInRange[index].ranges[bestRangeIndexes[index]];
 
+			triggersInRange[index].OnInteraction?.Invoke();
+			
 			for (int i = 0; i < range.interactions.Length; i++) {
 				for (int e = 0; e < range.interactions[i].effectors.Length; e++) {
 					bool s = StartInteraction(range.interactions[i].effectors[e], range.interactions[i].interactionObject, interrupt);
@@ -303,6 +315,10 @@ namespace RootMotion.FinalIK {
 				}
 			}
 
+			if (range.interactions.Length == 0)
+			{
+				
+			}
 			return all;
 		}
 

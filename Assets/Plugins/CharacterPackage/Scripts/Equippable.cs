@@ -58,7 +58,6 @@ public class Equippable : MonoBehaviour
 
     public virtual void OnUnequip(ActorBase actor)
     {
-        Debug.Log("unequipped1");
         if (_overrideLocomotionAsset != null)
         {
             _owner.GetData<Data_RefVar>("Locomotion").Value = _previousLocomotionAsset;

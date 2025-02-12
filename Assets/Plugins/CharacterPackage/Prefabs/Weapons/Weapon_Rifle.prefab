@@ -867,12 +867,12 @@ MonoBehaviour:
   multipliers: []
   interactionSpeedMlp: 1
   pivot: {fileID: 0}
-  rotationMode: 1
+  rotationMode: 0
   twistAxis: {x: 0, y: 1, z: 0}
   twistWeight: 1
   swingWeight: 0
   threeDOFWeight: 1
-  rotateOnce: 0
+  rotateOnce: 1
 --- !u!1 &4606357403489979078
 GameObject:
   m_ObjectHideFlags: 0

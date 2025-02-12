@@ -40,7 +40,6 @@ public class EquipmentSetupIKTargets : MonoBehaviour
     }
     private void OnUnequip(ActorBase obj)
     {
-        Debug.Log("unequipped");
         ik.solver.rightHandEffector.positionWeight = 0;
         ik.solver.leftHandEffector.positionWeight = 0;
         

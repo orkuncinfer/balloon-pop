@@ -961,6 +961,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 837043456324522917, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+      propertyPath: Character
+      value: 
+      objectReference: {fileID: 1889811233}
     - target: {fileID: 2153328843312600304, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
       propertyPath: managedReferences[3670662662312689665]._value
       value: 
@@ -3189,6 +3193,7 @@ GameObject:
   - component: {fileID: 1458099984}
   - component: {fileID: 1458099983}
   - component: {fileID: 1458099985}
+  - component: {fileID: 1458099986}
   m_Layer: 0
   m_Name: ItemDropManager
   m_TagString: Untagged
@@ -3223,6 +3228,7 @@ MonoBehaviour:
   onMobKillesd2:
     _addressType: 16
     _eventKey: {fileID: 11400000, guid: b34b8fccd8c06ff48999b17726b3a02e, type: 2}
+  RectHoverDetector: {fileID: 1458099986}
 --- !u!4 &1458099984
 Transform:
   m_ObjectHideFlags: 0
@@ -3342,6 +3348,21 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1458099986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458099982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794c4df3aca706c4a82a5ed8be364cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IgnoredUILayers:
+    serializedVersion: 2
+    m_Bits: 32
 --- !u!1001 &1528883673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3904,6 +3925,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1889811233 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5886432457344476515, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+  m_PrefabInstance: {fileID: 401464658}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cf32970eac4c9498a96ba8d86aad38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1918751959
 GameObject:
   m_ObjectHideFlags: 0
@@ -4795,6 +4827,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
+  _startWithTag: 0
+  _tag:
+    fullTag: 
+    tagHierarchy: []
+    hashCode: 
+    Description: 
   _abilityDS:
     Key: Ability_2
     From: 1
@@ -4803,6 +4841,12 @@ MonoBehaviour:
   ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
   ActionName: Ability-2
   CancelOnRelease: 0
+  TryActivateWhenHolding: 0
+  ActivateOnceWhenHolding: 0
+  ActivationPolicy: 0
+  CancelAbilitiesWithTag:
+    _tagHashes: []
+  Conditions: []
   references:
     version: 2
     RefIds:
@@ -7399,7 +7443,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
-  _states: []
   _alive: {fileID: 3743375351229364610}
   _dead: {fileID: 2596578557350022450}
   _revive: {fileID: 2164739164893447371}
@@ -7408,7 +7451,8 @@ MonoBehaviour:
     tagHierarchy:
     - State
     - State.Ability
-    HashCode: d31150fc-1624-424f-ba4a-1fcc0d71f374
+    hashCode: 
+    Description: 
 --- !u!1 &2012810056480212270
 GameObject:
   m_ObjectHideFlags: 0
@@ -8005,7 +8049,8 @@ MonoBehaviour:
   leftHandOffset: {x: 0, y: 0, z: 0}
   _leftHandBendSpeed: 2
   recoil: {fileID: 3056048713569200229}
-  HoldLeftHand: 1
+  leftHandPoser: {fileID: 0}
+  rightHandPoser: {fileID: 0}
   LeftHandBendTarget: {fileID: 0}
 --- !u!4 &3035423385754960102
 Transform:
@@ -8414,7 +8459,7 @@ MonoBehaviour:
   IsRunning: 0
   IsFinished: 0
   _tagsToAdd:
-    m_SerializedExplicitTags: []
+    _tagHashes: []
   _removeOnExit: 1
 --- !u!114 &3508812757567338301
 MonoBehaviour:
@@ -8510,7 +8555,7 @@ MonoBehaviour:
   _initialTags:
   - {fileID: 11400000, guid: f7b2489220fef5547a9de7ec1c3fe1ba, type: 2}
   GameplayTags:
-    m_SerializedExplicitTags: []
+    _tagHashes: []
   _initialState: {fileID: 7256649438962629439}
   _returnToPoolOnStop: 0
 --- !u!114 &3706993587181594357
@@ -8678,6 +8723,15 @@ MonoBehaviour:
   LastUsedAbility:
     Owner: {fileID: 0}
     AbilityActions: []
+    CustomClipTransition:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 0}
+      _Speed: 1
+      _NormalizedStartTime: 0
   Target: {fileID: 0}
   TestAbility: {fileID: 0}
 --- !u!1 &3886494402611604596
@@ -9036,6 +9090,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
+  _startWithTag: 0
+  _tag:
+    fullTag: 
+    tagHierarchy: []
+    hashCode: 
+    Description: 
   _abilityDS:
     Key: Ability_Sprint
     From: 1
@@ -9044,6 +9104,12 @@ MonoBehaviour:
   ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
   ActionName: Sprint
   CancelOnRelease: 1
+  TryActivateWhenHolding: 0
+  ActivateOnceWhenHolding: 0
+  ActivationPolicy: 0
+  CancelAbilitiesWithTag:
+    _tagHashes: []
+  Conditions: []
   references:
     version: 2
     RefIds:
@@ -9548,7 +9614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
-  Character: {fileID: 0}
+  Character: {fileID: 1292777438171582789}
   ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
   BlockInput: 0
   MoveInput: {x: 0, y: 0}
@@ -9622,6 +9688,7 @@ MonoBehaviour:
         _equipmentInstance: {fileID: 0}
         _itemToEquip: {fileID: 0}
         _socketName: SwordPivot
+        LerpSpeed: 0
 --- !u!4 &5585600509922149082
 Transform:
   m_ObjectHideFlags: 0
@@ -10347,6 +10414,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
+  _startWithTag: 0
+  _tag:
+    fullTag: 
+    tagHierarchy: []
+    hashCode: 
+    Description: 
   _abilityDS:
     Key: Ability_1
     From: 1
@@ -10355,6 +10428,12 @@ MonoBehaviour:
   ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
   ActionName: Ability-1
   CancelOnRelease: 0
+  TryActivateWhenHolding: 0
+  ActivateOnceWhenHolding: 0
+  ActivationPolicy: 0
+  CancelAbilitiesWithTag:
+    _tagHashes: []
+  Conditions: []
   references:
     version: 2
     RefIds:
@@ -10390,12 +10469,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
-  _states: []
   _grounded: {fileID: 7143611272247228243}
   _airborne: {fileID: 3508812757567338301}
   _ability: {fileID: 1321821843978056235}
   AbilityStateTag:
-    m_Name: 
+    fullTag: 
+    tagHierarchy: []
+    hashCode: 
+    Description: 
 --- !u!4 &7046155376299108603
 Transform:
   m_ObjectHideFlags: 0
@@ -10695,8 +10776,11 @@ MonoBehaviour:
     From: 1
     _retrievedData:
       rid: -2
+  _avatarMask: {fileID: 0}
+  _layer: 0
   _interpolationSpeed: 5
   _velocityDebug: {x: 0, y: 0, z: 0}
+  _parameterDebug: {x: 0, y: 0}
   _velocityThreshold: 2
   ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
   MoveInput: {x: 0, y: 0}

@@ -14,6 +14,8 @@ public class State_StartInteractionAbility : MonoState
     
     private InputAction _abilityAction;
     private InteractionSystem _interactionSystem;
+
+    private InteractionTrigger _lastInteractionTrigger;
     protected override void OnEnter()
     {
         base.OnEnter();
@@ -33,16 +35,53 @@ public class State_StartInteractionAbility : MonoState
         _abilityAction.performed -= OnPerformed;
     }
 
-    private void OnPerformed(InputAction.CallbackContext obj)
+    protected override void OnUpdate()
     {
+        base.OnUpdate();
         int closestTriggerIndex = _interactionSystem.GetClosestTriggerIndex();
 
         // ...if none found, do nothing
-        if (closestTriggerIndex == -1) return;
+        if (closestTriggerIndex == -1)
+        {
+            RemoveLastInteractable();
+            return;
+        }
 
         // ...if the effectors associated with the trigger are in interaction, do nothing
-        if (!_interactionSystem.TriggerEffectorsReady(closestTriggerIndex)) return;
-        
-        _gasData.AbilityController.AddAndTryActivateAbility(_interactionAbility);
+        if (!_interactionSystem.TriggerEffectorsReady(closestTriggerIndex))
+        {
+            RemoveLastInteractable();
+            return;
+        }
+
+        if (_lastInteractionTrigger != _interactionSystem.triggersInRange[closestTriggerIndex])
+        {
+            _lastInteractionTrigger = _interactionSystem.triggersInRange[closestTriggerIndex];
+            if(_lastInteractionTrigger.TryGetComponent<Interactable>(out var interactionDisplayer))
+            {
+                interactionDisplayer.SetInteractable(true);
+            }
+        }
+    }
+
+    private void OnPerformed(InputAction.CallbackContext obj)
+    {
+        if(_lastInteractionTrigger == null) return;
+        if(_lastInteractionTrigger.TryGetComponent<Interactable>(out var interactable))
+        {
+            interactable.Interact(Owner);
+        }
+    }
+
+    private void RemoveLastInteractable()
+    {
+        if (_lastInteractionTrigger != null)
+        {
+            if(_lastInteractionTrigger.TryGetComponent<Interactable>(out var interactionDisplayer))
+            {
+                interactionDisplayer.SetInteractable(false);
+            }
+            _lastInteractionTrigger = null;
+        }
     }
 }
