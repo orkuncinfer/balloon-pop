@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
@@ -8,7 +9,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private GameObject _interactionUI;
     [SerializeField] private Vector3 _displayOffset;
     [SerializeField] private float _displayScale = 1;
-    [SerializeField]private bool _isInteractable;
+    [SerializeField][ReadOnly]private bool _isInteractable;
     public bool IsInteractable
     {
         get => _isInteractable;

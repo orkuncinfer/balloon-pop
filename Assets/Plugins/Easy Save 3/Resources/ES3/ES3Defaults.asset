@@ -24,22 +24,29 @@ MonoBehaviour:
     bufferSize: 2048
     saveChildren: 1
     postprocessRawCachedData: 1
+    storeCacheAtEndOfEveryFrame: 1
+    storeCacheOnApplicationQuit: 1
+    storeCacheOnApplicationPause: 1
     typeChecking: 1
     safeReflection: 1
     memberReferenceMode: 0
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
+    - andywiecko.BurstTriangulator
     - Animancer
     - Animancer.FSM
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
+    - AstarPathfindingProject
+    - AstarPathfindingProjectExamples
     - Cinemachine
     - Coffee.SoftMaskForUGUI
     - Coffee.SoftMaskForUGUI.Demo
     - DCFApixels.Notes
     - DOTween.Modules
     - DOTweenPro.Scripts
+    - Drawing
     - ECM2
     - ECM2.Examples
     - ECM2.Walkthrough
@@ -64,6 +71,7 @@ MonoBehaviour:
     - MoreMountains.Feedbacks.URP
     - MoreMountains.Tools
     - Nobi.UiRoundedCorners
+    - PackageTools
     - SingularityGroup.HotReload.Runtime
     - SingularityGroup.HotReload.Runtime.Public
     - StompyRobot.SRDebugger
@@ -72,7 +80,6 @@ MonoBehaviour:
     - UIEffect
     - Unity Timer
     - Unity.DbgDraw.Runtime
-    - UnityCommunity.UnitySingleton.Runtime
     showAdvancedSettings: 1
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

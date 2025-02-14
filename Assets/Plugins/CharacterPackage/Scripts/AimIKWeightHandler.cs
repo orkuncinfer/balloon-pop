@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using RootMotion.FinalIK;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class AimIKWeightHandler : MonoBehaviour
+public class AimIKWeightHandler : ActorMonoService<AimIKWeightHandler>
 {
 	private bool _isAiming;
 
@@ -45,6 +46,14 @@ public class AimIKWeightHandler : MonoBehaviour
         _aimIK = GetComponent<AimIK>();
         
         _camera = Camera.main;
+
+        
+    }
+
+    public override void OnServiceBegin()
+    {
+	    base.OnServiceBegin();
+	    Debug.Log("ServiceTest"+Actor.GetService<AimIKWeightHandler>().gunHoldOffset);
     }
 
     private void Update()
