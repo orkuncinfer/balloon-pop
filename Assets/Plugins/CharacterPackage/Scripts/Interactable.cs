@@ -42,6 +42,6 @@ public class Interactable : MonoBehaviour
 
     public void Interact(ActorBase owner)
     {
-        owner.GetData<Data_GAS>().AbilityController.AddAndTryActivateAbility(_interactAbility);
+        owner.GetService<Service_GAS>().AbilityController.AddAndTryActivateAbility(_interactAbility);
     }
 }

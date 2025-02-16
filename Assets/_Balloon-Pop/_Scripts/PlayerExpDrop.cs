@@ -9,7 +9,7 @@ public class PlayerExpDrop : MonoBehaviour
     [SerializeField] private EventField _onGameEnded;
     
     private Transform _targetTransform;
-    private PlayerActor _playerActor;
+    private Actor _playerActor;
     private bool _gameEnded;
     private Vector3 _targetPosition;
     private void OnEnable()

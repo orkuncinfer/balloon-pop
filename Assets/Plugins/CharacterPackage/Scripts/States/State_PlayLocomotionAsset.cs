@@ -21,9 +21,10 @@ public class State_PlayLocomotionAsset : MonoState
     [SerializeField] [ReadOnly] private Vector3 _velocityDebug;
     [SerializeField] [ReadOnly] private Vector2 _parameterDebug;
     [SerializeField] private float _velocityThreshold = 2f;
-    public InputActionAsset ActionAsset;
+
+    private DS_MovingActor _movingActor;
+    
     private Character _character;
-    protected InputAction movementInputAction { get; set; }
     public Vector2 MoveInput;
     private Data_Animancer _dataAnimancer;
     private LocomotionAsset _locomotionAssetData;
@@ -40,14 +41,13 @@ public class State_PlayLocomotionAsset : MonoState
     protected override void OnEnter()
     {
         base.OnEnter();
+        _movingActor = Owner.GetData<DS_MovingActor>();
         _character = Owner.GetComponent<Character>();
         _dataAnimancer = Owner.GetData<Data_Animancer>();
         _locomotionAsset.GetData(Owner); 
         _dataAnimancer.AnimancerComponent.Layers[_layer].ApplyFootIK = true;
         _dataAnimancer.AnimancerComponent.Layers[_layer].ApplyAnimatorIK = true;
-        movementInputAction = ActionAsset.FindAction("Movement");
-        movementInputAction?.Enable();
-
+        
         _mainCam = Camera.main;
         _locomotionAssetData = _locomotionAsset.Data.Value as LocomotionAsset;
         _locomotionAsset.Data.onValueChanged += OnLocomotionAssetChanged;
@@ -124,13 +124,26 @@ public class State_PlayLocomotionAsset : MonoState
         {
             return;
         }
-        _velocityDebug = GetWorldSpaceMovement(_character.GetVelocity());
+
+        // Get the world-space velocity
+        Vector3 worldVelocity = _character.GetVelocity();
+
+        // Convert world velocity to local velocity
+        Vector3 localVelocity = Owner.transform.InverseTransformDirection(worldVelocity);
+
+        // Convert local velocity to a 2D vector (X for sideways, Z for forward)
+        Vector2 facingVelocity = new Vector2(localVelocity.x, localVelocity.z);
+
+        _velocityDebug = facingVelocity; // Debugging visualization
+
+        // Normalize movement input
         Vector2 inputMove = GetMovementInput();
         MoveInput = inputMove.normalized;
 
-        float velocity = _character.GetVelocity().magnitude;
-        
-        if (velocity < _velocityThreshold && MoveInput.magnitude < 0.1f)
+        float velocityMagnitude = worldVelocity.magnitude;
+
+        // State changes based on movement
+        if (velocityMagnitude < _velocityThreshold && MoveInput.magnitude < 0.1f)
         {
             ChangeState(AnimationState.Idle);
         }
@@ -138,12 +151,13 @@ public class State_PlayLocomotionAsset : MonoState
         {
             ChangeState(AnimationState.Locomotion);
         }
+
         // Locomotion parameter update when in locomotion state
         if (_currentState == AnimationState.Locomotion)
         {
             if (_dataAnimancer.AnimancerComponent.Layers[_layer].CurrentState is LinearMixerState linearMixerState)
             {
-                linearMixerState.Parameter = Mathf.Lerp(linearMixerState.Parameter, velocity,
+                linearMixerState.Parameter = Mathf.Lerp(linearMixerState.Parameter, velocityMagnitude,
                     Time.deltaTime * _interpolationSpeed);
                 _parameterDebug = new Vector2(linearMixerState.Parameter, 0);
             }
@@ -151,13 +165,13 @@ public class State_PlayLocomotionAsset : MonoState
             if (_asset2D != null &&
                 _dataAnimancer.AnimancerComponent.Layers[_layer].CurrentState is CartesianMixerState mixerState2D)
             {
-                Vector2 parameter = new Vector2(_velocityDebug.x, _velocityDebug.z);
-                mixerState2D.Parameter =
-                    Vector3.Lerp(mixerState2D.Parameter, parameter, Time.deltaTime * _interpolationSpeed);
+                mixerState2D.Parameter = Vector3.Lerp(mixerState2D.Parameter, facingVelocity, 
+                    Time.deltaTime * _interpolationSpeed);
                 _parameterDebug = mixerState2D.Parameter;
             }
         }
     }
+
 
     // Method to handle state transitions
     private void ChangeState(AnimationState newState)
@@ -237,11 +251,6 @@ public class State_PlayLocomotionAsset : MonoState
 
     public virtual Vector2 GetMovementInput()
     {
-        if (movementInputAction != null && ActionAsset != null)
-        {
-            return movementInputAction.ReadValue<Vector2>().normalized;
-        }
-
-        return MoveInput;
+        return _movingActor.MoveInput;
     }
 }

@@ -37,23 +37,30 @@ public class AimIKWeightHandler : ActorMonoService<AimIKWeightHandler>
     private Quaternion rightHandRotation;
 
     public Transform LeftHandBendTarget;
-    
+
+    public bool AimFromCamera;
+    [HideIf("AimFromCamera")]public Transform AimFrom;
     public float AimIKWeight => _aimIKWeight;
     private float _aimIKWeight;
     private float _leftHandBendWeight;
+
+    private DS_MovingActor _movingActor;
     private void Start()
     {
         _aimIK = GetComponent<AimIK>();
-        
         _camera = Camera.main;
-
-        
     }
 
     public override void OnServiceBegin()
     {
 	    base.OnServiceBegin();
-	    Debug.Log("ServiceTest"+Actor.GetService<AimIKWeightHandler>().gunHoldOffset);
+	    _movingActor = Owner.GetData<DS_MovingActor>();
+    }
+
+    public override void OnServiceStop()
+    {
+	    base.OnServiceStop();
+	    IsAiming = false;
     }
 
     private void Update()
@@ -78,8 +85,19 @@ public class AimIKWeightHandler : ActorMonoService<AimIKWeightHandler>
     {
 	    if (_aimIKWeight > 0)
 	    {
-		    Vector3 lookDirection = _camera.transform.forward;
-		    aimTarget = _camera.transform.position + (lookDirection * 10f);
+		    Vector3 lookDirection = _movingActor.LookDirection;
+		    if (lookDirection.magnitude < 0.001f)
+		    {
+			    lookDirection = Owner.transform.forward;
+		    }
+		    if (AimFromCamera)
+		    {
+				aimTarget = _camera.transform.position + (lookDirection * 10f);
+		    }
+		    else
+		    {
+			    aimTarget = AimFrom.position + lookDirection * 10f;
+		    }
 		   
 		    Read();
 		    // AimIK pass
@@ -115,9 +133,6 @@ public class AimIKWeightHandler : ActorMonoService<AimIKWeightHandler>
 	    }
     }
     
-
-    
-
     public void ToggleAiming(bool isAiming,bool isInstant = false, bool releaseLeftHand = false)
     {
 	    //Debug.Log("toggled aiming" + isAiming);

@@ -7,12 +7,22 @@ using UnityEngine;
 
 public class BindMoveSpeedToStat : MonoBehaviour
 {
-    [SerializeField] private StatController _statController;
-    [SerializeField] private Character _character;
-
-    private void Awake()
+    private Service_GAS _gas;
+    private StatController _statController;
+    private Character _character;
+    
+    private void Start()
     {
-        if(_statController.IsInitialized)
+        _gas = GetComponentInParent<Service_GAS>();
+        _statController = _gas.StatController;
+        _gas.onServiceBegin += OnGasBegin;
+    }
+
+    private void OnGasBegin(ActorBase owner)
+    {
+        _character = owner.GetData<Data_Character>().Character;
+        
+        if (_statController.IsInitialized)
             OnStatControllerInitialized();
         else
             _statController.onInitialized += OnStatControllerInitialized;

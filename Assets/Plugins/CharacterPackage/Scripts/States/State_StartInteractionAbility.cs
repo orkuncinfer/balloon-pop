@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class State_StartInteractionAbility : MonoState
 {
     [SerializeField] private DSGetter<Data_AbilityDefinition> _abilityDS;
-    [SerializeField] private Data_GAS _gasData;
+
     public InputActionAsset ActionAsset;
     [SerializeField] private AbilityDefinition _interactionAbility;
     public string ActionName;
@@ -19,7 +19,6 @@ public class State_StartInteractionAbility : MonoState
     protected override void OnEnter()
     {
         base.OnEnter();
-        _gasData = Owner.GetData<Data_GAS>();
         _interactionSystem = Owner.GetComponentInChildren<InteractionSystem>();
         _abilityDS.GetData(Owner);
         

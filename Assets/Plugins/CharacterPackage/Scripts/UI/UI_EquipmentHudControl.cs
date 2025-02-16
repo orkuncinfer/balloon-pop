@@ -1,13 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Sirenix.Utilities;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class UI_EquipmentHudControl : MonoBehaviour
 {
-    [SerializeField] private SerializedDictionary<int,UI_ItemElement> _equipmentSlots;
+    [SerializeField] private Sherbert.Framework.Generic.SerializableDictionary<int,UI_ItemElement> _equipmentSlots;
     [SerializeField] private InventoryDefinition _equipmentInventory;
     private ActorBase _owner;
     
@@ -16,6 +12,11 @@ public class UI_EquipmentHudControl : MonoBehaviour
     {
         _owner = ActorUtilities.FindFirstActorInParents(transform);
         _equipmentInventory.onInventoryChanged += OnInventoryChanged;
+    }
+
+    private void OnDestroy()
+    {
+        _equipmentInventory.onInventoryChanged -= OnInventoryChanged;
     }
 
     private void Start()

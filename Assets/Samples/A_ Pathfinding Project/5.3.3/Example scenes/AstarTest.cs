@@ -11,9 +11,7 @@ public class AstarTest : MonoBehaviour
     public AIPath AIPath;
     public Seeker Seeker;
     public Character Character;
-    public Vector3 EstVelocity;
-    public Vector3 Velocity;
-    public Vector3 Destination;
+
     public Vector3 Direction;
     public Transform MovementTransform;
     public float EndReachDistance;

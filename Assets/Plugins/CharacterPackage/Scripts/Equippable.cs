@@ -51,7 +51,7 @@ public class Equippable : MonoBehaviour
         Owner.GameplayTags.AddTags(EquipTags);
         foreach (var abilityDefinition in _grantedAbilities)
         {
-            Owner.GetData<Data_GAS>().AbilityController.AddAbilityIfNotHave(abilityDefinition);
+            Owner.GetService<Service_GAS>().AbilityController.AddAbilityIfNotHave(abilityDefinition);
         }
         onEquipped?.Invoke(owner);
     }
@@ -66,7 +66,7 @@ public class Equippable : MonoBehaviour
         Owner.GameplayTags.RemoveTags(EquipTags);
         foreach (var abilityDefinition in _grantedAbilities)
         {
-            Owner.GetData<Data_GAS>().AbilityController.RemoveAbilityIfHave(abilityDefinition);
+            Owner.GetService<Service_GAS>().AbilityController.RemoveAbilityIfHave(abilityDefinition);
         }
         onUnequipped?.Invoke(Owner);
     }
@@ -80,11 +80,11 @@ public class Equippable : MonoBehaviour
     [Button]
     public ActiveAbility TryUnequipWithAbility()
     {
-        return Owner.GetData<Data_GAS>().AbilityController.AddAndTryActivateAbility(_unequipAbility);
+        return Owner.GetService<Service_GAS>().AbilityController.AddAndTryActivateAbility(_unequipAbility);
     }
     [Button]
     public ActiveAbility TryEquipWithAbility()
     {
-        return Owner.GetData<Data_GAS>().AbilityController.AddAndTryActivateAbility(_equipAbility);
+        return Owner.GetService<Service_GAS>().AbilityController.AddAndTryActivateAbility(_equipAbility);
     }
 }

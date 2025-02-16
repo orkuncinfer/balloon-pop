@@ -5,15 +5,15 @@ using UnityEngine;
 public class State_ShouldDieCheck : MonoState
 {
     private Data_Living _livingData;
-    private Data_GAS _gasData;
+    private Service_GAS _gas;
 
     protected override void OnEnter()
     {
         base.OnEnter();
         _livingData = Owner.GetData<Data_Living>();
-        _gasData = Owner.GetData<Data_GAS>();
+        _gas = Owner.GetService<Service_GAS>();
         
-        _gasData.StatController.GetAttribute("Health").onAttributeChanged += OnHealthChanged;
+        _gas.StatController.GetAttribute("Health").onAttributeChanged += OnHealthChanged;
     }
 
     private void OnHealthChanged(int arg1, int arg2)

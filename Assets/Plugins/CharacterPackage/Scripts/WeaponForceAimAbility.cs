@@ -34,13 +34,13 @@ public class WeaponForceAimAbility : MonoBehaviour
     {
         _equipped = false;
         
-        _weapon.Owner.GetData<Data_GAS>().AbilityController.CancelAbilityIfActive(AimingAbility.name);
+        _weapon.Owner.GetService<Service_GAS>().AbilityController.CancelAbilityIfActive(AimingAbility.name);
     }
 
     private void Update()
     {
         if(_weapon == null) return;
         if(!_equipped) return;
-        _weapon.Owner.GetData<Data_GAS>().AbilityController.AddAndTryActivateAbility(AimingAbility);
+        _weapon.Owner.GetService<Service_GAS>().AbilityController.AddAndTryActivateAbility(AimingAbility);
     }
 }

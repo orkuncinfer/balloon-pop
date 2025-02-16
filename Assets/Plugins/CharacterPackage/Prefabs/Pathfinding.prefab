@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8274180509896698899}
-  - component: {fileID: 436153935064686312}
-  - component: {fileID: 184288059489314741}
+  - component: {fileID: 992187805853989679}
   - component: {fileID: 7525172264116344758}
   - component: {fileID: 3168048812142585880}
   - component: {fileID: 1182728364947434482}
@@ -36,7 +35,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &436153935064686312
+--- !u!114 &992187805853989679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,34 +44,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 584239981383397327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Script: {fileID: 11500000, guid: 479c6080a3ca0384898b4894293f6d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 1073741824
-  target: {fileID: 0}
-  useRotation: 0
---- !u!114 &184288059489314741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 584239981383397327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1e848ac99d6d434a9caf3a4c359a641, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AIPath: {fileID: 3168048812142585880}
-  Seeker: {fileID: 7525172264116344758}
-  Character: {fileID: 0}
-  EstVelocity: {x: 0, y: 0, z: 0}
-  Velocity: {x: 0, y: 0, z: 0}
-  Destination: {x: 0, y: 0, z: 0}
-  Direction: {x: 0, y: 0, z: 0}
-  MovementTransform: {fileID: 0}
-  EndReachDistance: 1
-  RemainingPathBuffer: []
+  _destination: {x: 0, y: 0, z: 0}
 --- !u!114 &7525172264116344758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,8 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1073741824
-  radius: 0.5
-  height: 2
+  radius: 0.38
+  height: 1.64
   canMove: 0
   maxSpeed: 1
   gravity: {x: NaN, y: NaN, z: NaN}
@@ -133,7 +108,7 @@ MonoBehaviour:
   repathRateCompatibility: NaN
   canSearchCompability: 0
   orientation: 0
-  enableRotation: 1
+  enableRotation: 0
   autoRepath:
     mode: 1
     period: 0.1

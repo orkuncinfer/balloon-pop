@@ -4,23 +4,23 @@ using UnityEngine;
 public class LevelBadge_UI : MonoState
 {
     [SerializeField] private TextMeshProUGUI _levelText;
-    private Data_GAS _characterData;
+    private Service_GAS _gas;
     protected override void OnEnter()
     {
         base.OnEnter();
-        _characterData = Owner.GetData<Data_GAS>();
+        _gas = Owner.GetService<Service_GAS>();
         OnLevelChanged();
-        _characterData.LevelController.levelChanged += OnLevelChanged;
+        _gas.LevelController.levelChanged += OnLevelChanged;
     }
 
     private void OnLevelChanged()
     {
-        _levelText.text = _characterData.LevelController.level.ToString();
+        _levelText.text = _gas.LevelController.level.ToString();
     }
 
     protected override void OnExit()
     {
         base.OnExit();
-        _characterData.LevelController.levelChanged -= OnLevelChanged;
+        _gas.LevelController.levelChanged -= OnLevelChanged;
     }
 }

@@ -13,7 +13,7 @@ public class HealthBarUI : MonoState
     
     private Transform m_MainCamera;
     private Attribute _healthAttribute;
-    private Data_GAS _characterData;
+    private Service_GAS _gas;
     
     private void LateUpdate()
     {
@@ -23,9 +23,9 @@ public class HealthBarUI : MonoState
     protected override void OnEnter()
     {
         base.OnEnter();
-        _characterData = Owner.GetData<Data_GAS>();
+        _gas = Owner.GetService<Service_GAS>();
         
-        _healthAttribute = _characterData.StatController.GetAttribute("Health");
+        _healthAttribute = _gas.StatController.GetAttribute("Health");
         _healthAttribute.onCurrentValueChanged += OnCurrentHealthChange;
    
         UpdateHealthBarInstant(); 
