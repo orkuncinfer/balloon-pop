@@ -907,6 +907,7 @@ MonoBehaviour:
     - ToState: {fileID: 8631611629064271566}
       Conditions:
       - rid: 95553211497447460
+      - rid: 95553393713479775
   - State: {fileID: 8631611629064271566}
     Transitions: []
   references:
@@ -915,6 +916,10 @@ MonoBehaviour:
     - rid: 95553211497447460
       type: {class: Condition_IsDead, ns: , asm: Assembly-CSharp-firstpass}
       data: 
+    - rid: 95553393713479775
+      type: {class: Condition_CanUseAbility, ns: , asm: Assembly-CSharp-firstpass}
+      data:
+        _abilityDefinition: {fileID: 11400000, guid: e804a3cc30773564a9aec414af467c32, type: 2}
 --- !u!114 &503114664326849720
 MonoBehaviour:
   m_ObjectHideFlags: 0

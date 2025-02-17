@@ -324,6 +324,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a8e0c718d5453458357ba5d14918be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 1288
   gunfireAudio: {fileID: 8300000, guid: bc8c3727d81b340f685d13c544c0662c, type: 3}
 --- !u!114 &2453509592728140188
 MonoBehaviour:

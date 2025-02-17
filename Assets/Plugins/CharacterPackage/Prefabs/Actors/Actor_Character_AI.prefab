@@ -606,23 +606,23 @@ PrefabInstance:
       objectReference: {fileID: 6505673373041542456}
     - target: {fileID: 503114664326849720, guid: a9cdf8fe45106bf419f6377cca709ff8, type: 3}
       propertyPath: Drag.x
-      value: 228.19998
+      value: 158.19998
       objectReference: {fileID: 0}
     - target: {fileID: 503114664326849720, guid: a9cdf8fe45106bf419f6377cca709ff8, type: 3}
       propertyPath: ScreenWidth
-      value: 640
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 503114664326849720, guid: a9cdf8fe45106bf419f6377cca709ff8, type: 3}
       propertyPath: ScreenHeight
-      value: 480
+      value: 947
       objectReference: {fileID: 0}
     - target: {fileID: 503114664326849720, guid: a9cdf8fe45106bf419f6377cca709ff8, type: 3}
       propertyPath: Nodes.Array.data[0].Rect.x
-      value: 277.5
+      value: 207.49998
       objectReference: {fileID: 0}
     - target: {fileID: 503114664326849720, guid: a9cdf8fe45106bf419f6377cca709ff8, type: 3}
       propertyPath: Nodes.Array.data[1].Rect.x
-      value: 130.93568
+      value: 60.93569
       objectReference: {fileID: 0}
     - target: {fileID: 1868908608688361901, guid: a9cdf8fe45106bf419f6377cca709ff8, type: 3}
       propertyPath: m_Name

@@ -658,7 +658,6 @@ namespace RootMotion.FinalIK {
 		}
 
 		public void OnTriggerEnter(Collider c) {
-			Debug.Log("OnTriggerEnter with " + c.name);
 			if (fullBody == null) return;
 
 			var trigger = c.GetComponent<InteractionTrigger>();

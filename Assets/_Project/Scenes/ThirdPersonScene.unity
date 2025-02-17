@@ -1621,6 +1621,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7230040322744818021, guid: 6755ef06666dac9468c9cecfaf9d731d, type: 3}
+      propertyPath: _Editor_OnValidateTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7584,6 +7588,22 @@ PrefabInstance:
     - target: {fileID: 6229209656860923400, guid: 03ee9de92ab76b04fa9894e47d5267c9, type: 3}
       propertyPath: m_Name
       value: Actor_Character_AI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229209656860923400, guid: 03ee9de92ab76b04fa9894e47d5267c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6789011731445059053, guid: 03ee9de92ab76b04fa9894e47d5267c9, type: 3}
+      propertyPath: TestAbility
+      value: 
+      objectReference: {fileID: 11400000, guid: e804a3cc30773564a9aec414af467c32, type: 2}
+    - target: {fileID: 7230040322744818021, guid: 03ee9de92ab76b04fa9894e47d5267c9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230040322744818021, guid: 03ee9de92ab76b04fa9894e47d5267c9, type: 3}
+      propertyPath: _Editor_OnValidateTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
