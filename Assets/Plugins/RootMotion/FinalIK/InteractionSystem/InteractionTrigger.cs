@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using RootMotion.FinalIK;
@@ -257,6 +258,8 @@ namespace RootMotion.FinalIK {
 		public Range[] ranges = new Range[0];
 		
 		public UnityEvent OnInteraction;
+
+		public event Action onInteraction;
 		
 		// Returns the index of the ranges that is best fit for the current position/rotation of the character and its camera.
 		public int GetBestRangeIndex(Transform character, Transform raycastFrom, RaycastHit raycastHit) {
@@ -280,6 +283,12 @@ namespace RootMotion.FinalIK {
 			}
 			
 			return bestRangeIndex;
+		}
+
+		public void InteractionPerformed()
+		{
+			onInteraction?.Invoke();
+			OnInteraction?.Invoke();
 		}
 	}
 }

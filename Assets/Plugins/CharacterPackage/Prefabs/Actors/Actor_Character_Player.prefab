@@ -406,6 +406,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5621859116769062958}
     m_Modifications:
     - target: {fileID: 4457358166036269931, guid: bffdfcdf3448787408626b4db34f460b, type: 3}
+      propertyPath: _dropEquipment
+      value: 
+      objectReference: {fileID: 11400000, guid: 81b3ed0e8dc22384b8b412dab319bc84, type: 2}
+    - target: {fileID: 4457358166036269931, guid: bffdfcdf3448787408626b4db34f460b, type: 3}
       propertyPath: EquipmentInventory
       value: 
       objectReference: {fileID: 0}
@@ -570,6 +574,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Actor_Character_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1929868276941795452, guid: a9cdf8fe45106bf419f6377cca709ff8, type: 3}
+      propertyPath: _combatable._shootRayFromCamera
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827134634038922196, guid: a9cdf8fe45106bf419f6377cca709ff8, type: 3}
+      propertyPath: _initialTags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827134634038922196, guid: a9cdf8fe45106bf419f6377cca709ff8, type: 3}
+      propertyPath: _initialTags.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f7b2489220fef5547a9de7ec1c3fe1ba, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7619581418612231861, guid: a9cdf8fe45106bf419f6377cca709ff8, type: 3}
@@ -617,6 +633,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1067271784858237131, guid: a9cdf8fe45106bf419f6377cca709ff8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 206574521515932039}
+    - targetCorrespondingSourceObject: {fileID: 1067271784858237131, guid: a9cdf8fe45106bf419f6377cca709ff8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2002659657403988368}
     - targetCorrespondingSourceObject: {fileID: 1567085687522228179, guid: a9cdf8fe45106bf419f6377cca709ff8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 129395191869612258}
@@ -756,6 +775,45 @@ MonoBehaviour:
     - rid: 95553211497447459
       type: {class: Condition_AmmoNotFull, ns: , asm: Assembly-CSharp-firstpass}
       data: 
+--- !u!114 &2002659657403988368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706997592061345646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e749362636fe5e04cb426bef9d6c93bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsRunning: 0
+  IsFinished: 0
+  _startWithTag: 0
+  _tag:
+    fullTag: 
+    tagHierarchy: []
+    hashCode: 
+    Description: 
+  _abilityDS:
+    Key: Ability_DropEquipment
+    From: 1
+    _retrievedData:
+      rid: -2
+  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
+  ActionName: DropEquipment
+  CancelOnRelease: 0
+  TryActivateWhenHolding: 0
+  ActivateOnceWhenHolding: 0
+  ActivationPolicy: 0
+  CancelAbilitiesWithTag:
+    _tagHashes: []
+  Conditions: []
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &4796056305023396498 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 941859922178207031, guid: a9cdf8fe45106bf419f6377cca709ff8, type: 3}
@@ -782,9 +840,20 @@ MonoBehaviour:
   - rid: 3670662740903198767
   - rid: 3670663040529596429
   - rid: 3670663040529596431
+  - rid: 95553526982246416
   references:
     version: 2
     RefIds:
+    - rid: 95553526982246416
+      type: {class: Data_AbilityDefinition, ns: , asm: Assembly-CSharp-firstpass}
+      data:
+        IsGlobal: 0
+        UseKey: 1
+        IsPersistent: 0
+        DataKey: Ability_DropEquipment
+        OwnerActor: {fileID: 0}
+        IsInstalled: 0
+        _abilityDefinition: {fileID: 11400000, guid: 81b3ed0e8dc22384b8b412dab319bc84, type: 2}
     - rid: 3670662740903198766
       type: {class: Data_AbilityDefinition, ns: , asm: Assembly-CSharp-firstpass}
       data:
@@ -1072,6 +1141,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7723961065958893239, guid: 3c32707d2517b3d41a3ec4b1eeab20b7, type: 3}
+      propertyPath: _interactionInputPanel
+      value: 
+      objectReference: {fileID: 8744719277144872252, guid: ec9e32610445ffc4ca4e28ca74b398c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1103,11 +1176,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3099353842231332549, guid: a8a9407b1d4f4314d8ca2bc730cefe05, type: 3}
       propertyPath: TargetPosition.x
-      value: -207
+      value: 753
       objectReference: {fileID: 0}
     - target: {fileID: 3099353842231332549, guid: a8a9407b1d4f4314d8ca2bc730cefe05, type: 3}
       propertyPath: TargetPosition.y
-      value: 151
+      value: -389
       objectReference: {fileID: 0}
     - target: {fileID: 3099353842231332549, guid: a8a9407b1d4f4314d8ca2bc730cefe05, type: 3}
       propertyPath: TransformPosition.x
@@ -1160,6 +1233,10 @@ PrefabInstance:
     - target: {fileID: 4862462971379308731, guid: a8a9407b1d4f4314d8ca2bc730cefe05, type: 3}
       propertyPath: m_Name
       value: SlotInventory_Equipment
+      objectReference: {fileID: 0}
+    - target: {fileID: 5674395001808706807, guid: a8a9407b1d4f4314d8ca2bc730cefe05, type: 3}
+      propertyPath: InitialSlotCount
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

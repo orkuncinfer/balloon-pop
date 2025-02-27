@@ -58,6 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5015321596537612376}
   - component: {fileID: 8048636549471283928}
+  - component: {fileID: 1929868276941795452}
   m_Layer: 0
   m_Name: Data
   m_TagString: Untagged
@@ -121,6 +122,28 @@ MonoBehaviour:
     Movement: {fileID: 1600435257409083137}
     Character: {fileID: 3629644803848340867}
     MovementInput: {fileID: 0}
+--- !u!114 &1929868276941795452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941859922178207031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c226deebc4422abb50ce5d3fb3eaa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Actor: {fileID: 0}
+  _combatable:
+    IsGlobal: 0
+    UseKey: 0
+    IsPersistent: 0
+    DataKey: 
+    OwnerActor: {fileID: 0}
+    IsInstalled: 0
+    _aimDirection: {x: 0, y: 0, z: 0}
+    _shootRayFromCamera: 0
 --- !u!1 &1067271784858237131
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class Equippable : MonoBehaviour
     }
 
     public ItemDefinition ItemDefinition;
+    public ItemData ItemData; // unique data of equippable
     
     [SerializeField]
     private ScriptableObject _overrideLocomotionAsset;
@@ -27,7 +28,8 @@ public class Equippable : MonoBehaviour
     [SerializeField] private AbilityDefinition _unequipAbility;
     [SerializeField] private AbilityDefinition[] _grantedAbilities;
     public event Action<ActorBase> onEquipped; 
-    public event Action<ActorBase> onUnequipped; 
+    public event Action<ActorBase> onUnequipped;
+    public event Action<ActorBase> onDropped;
     public string EquipSocketName => _equipSocketName;
     
     public GameplayTagContainer EquipTags;
@@ -70,19 +72,23 @@ public class Equippable : MonoBehaviour
         }
         onUnequipped?.Invoke(Owner);
     }
+
+    public virtual void DropInstance(ActorBase actor)
+    {
+        OnUnequip(actor);
+        onDropped?.Invoke(actor);
+        transform.SetParent(null);
+    }
     
-    [Button]
     public virtual void EquipThisInstance(ActorBase actor)
     {
         Owner = actor;
         Owner.GetData<DS_EquipmentUser>().EquipWorldInstance(gameObject,EquipSocketName);
     }
-    [Button]
     public ActiveAbility TryUnequipWithAbility()
     {
         return Owner.GetService<Service_GAS>().AbilityController.AddAndTryActivateAbility(_unequipAbility);
     }
-    [Button]
     public ActiveAbility TryEquipWithAbility()
     {
         return Owner.GetService<Service_GAS>().AbilityController.AddAndTryActivateAbility(_equipAbility);

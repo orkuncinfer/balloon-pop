@@ -134,7 +134,7 @@ MonoBehaviour:
       _itemCount: 0
   InitialItems:
   - ItemDefinition: {fileID: 11400000, guid: 0b4ffddf72fb1ec4e926d0c43a886b84, type: 2}
-    Count: 20
+    Count: 1
 --- !u!114 &9174399408512767768
 MonoBehaviour:
   m_ObjectHideFlags: 0

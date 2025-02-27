@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5749120772548165056}
   - component: {fileID: 7302682380934620937}
-  - component: {fileID: 6962366471150725456}
   - component: {fileID: 4457358166036269931}
   - component: {fileID: 2201566296096907037}
   m_Layer: 0
@@ -49,20 +48,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
---- !u!114 &6962366471150725456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6544656457082758492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8065ad5d467f8e4bbbc05db01a2acef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsRunning: 0
-  IsFinished: 0
 --- !u!114 &4457358166036269931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,11 +63,14 @@ MonoBehaviour:
   IsRunning: 0
   IsFinished: 0
   ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
-  EquipmentInventory: {fileID: 0}
+  EquipmentInventoryKey: {fileID: 0}
   EquipActionNames:
   - Equip-1
   - Equip-2
   - Equip-3
+  _equipFromGround:
+    _addressType: 0
+    _eventKey: {fileID: 11400000, guid: c00064f41168a5840be8d84747109c1c, type: 2}
 --- !u!114 &2201566296096907037
 MonoBehaviour:
   m_ObjectHideFlags: 0

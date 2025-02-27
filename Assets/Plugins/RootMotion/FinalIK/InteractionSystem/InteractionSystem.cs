@@ -306,7 +306,7 @@ namespace RootMotion.FinalIK {
 
 			var range = triggersInRange[index].ranges[bestRangeIndexes[index]];
 
-			triggersInRange[index].OnInteraction?.Invoke();
+			triggersInRange[index].InteractionPerformed();
 			
 			for (int i = 0; i < range.interactions.Length; i++) {
 				for (int e = 0; e < range.interactions[i].effectors.Length; e++) {

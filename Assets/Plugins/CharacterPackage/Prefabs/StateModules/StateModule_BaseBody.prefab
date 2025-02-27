@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8195391274454627996}
   - component: {fileID: 8094058853044190149}
   - component: {fileID: 7269973840887298210}
-  - component: {fileID: 1910480357777076289}
   - component: {fileID: 7685025611037964809}
   m_Layer: 0
   m_Name: Grounded
@@ -67,33 +66,6 @@ MonoBehaviour:
   _isCameraRelative: 1
   _orientToLookDirection: 1
   _orientationSpeed: 10
---- !u!114 &1910480357777076289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2985618681137703533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da4203399f3b1de449f61901724b6ea3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsRunning: 0
-  IsFinished: 0
-  _abilityDS:
-    Key: Ability_Interaction
-    From: 1
-    _retrievedData:
-      rid: -2
-  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
-  _interactionAbility: {fileID: 11400000, guid: e0fd6c925b2d19341bac8f870d52cfff, type: 2}
-  ActionName: Interaction
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
 --- !u!114 &7685025611037964809
 MonoBehaviour:
   m_ObjectHideFlags: 0

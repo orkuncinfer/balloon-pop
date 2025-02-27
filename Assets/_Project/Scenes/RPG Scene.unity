@@ -1021,13 +1021,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5609955908284183876, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+      propertyPath: Datas.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7208237998808775816, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
       propertyPath: m_Name
       value: NPC_Actor
       objectReference: {fileID: 0}
     - target: {fileID: 7208237998808775816, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5918159881498778442, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
@@ -4553,8 +4557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630c854f5fb28704db287c035c1ed4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _statController: {fileID: 528642193719306220}
-  _character: {fileID: 1292777438171582789}
 --- !u!1 &309273338298907793
 GameObject:
   m_ObjectHideFlags: 0
@@ -4897,25 +4899,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Description: 
   ChangeName: 
-  Datas:
-  - rid: 3860127092610170881
+  Datas: []
   references:
     version: 2
-    RefIds:
-    - rid: 3860127092610170881
-      type: {class: Data_GAS, ns: , asm: Assembly-CSharp-firstpass}
-      data:
-        IsGlobal: 0
-        UseKey: 0
-        IsPersistent: 0
-        DataKey: 
-        OwnerActor: {fileID: 0}
-        IsInstalled: 0
-        _statController: {fileID: 528642193719306220}
-        _abilityController: {fileID: 3875582911166597226}
-        _effectController: {fileID: 7128338244948586722}
-        _levelController: {fileID: 2231470663651674937}
-        _tagController: {fileID: 4181520627517235188}
+    RefIds: []
 --- !u!1 &1038613409829072456
 GameObject:
   m_ObjectHideFlags: 0
@@ -5260,8 +5247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8065ad5d467f8e4bbbc05db01a2acef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsRunning: 0
-  IsFinished: 0
 --- !u!1 &1429956676219367594
 GameObject:
   m_ObjectHideFlags: 0
@@ -7453,6 +7438,14 @@ MonoBehaviour:
     - State.Ability
     hashCode: 
     Description: 
+  _livingData:
+    IsGlobal: 0
+    UseKey: 0
+    IsPersistent: 0
+    DataKey: 
+    OwnerActor: {fileID: 0}
+    IsInstalled: 0
+    _shouldDietrigger: 0
 --- !u!1 &2012810056480212270
 GameObject:
   m_ObjectHideFlags: 0
@@ -7896,7 +7889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2632732209182433997
 Transform:
   m_ObjectHideFlags: 0
@@ -8040,7 +8033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adefe50182e30e845ab9a13ab2832915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsAiming: 0
+  _owner: {fileID: 0}
   LerpSpeed: 2
   ik: {fileID: 8829793636901517600}
   headLookWeight: 1
@@ -8052,6 +8045,8 @@ MonoBehaviour:
   leftHandPoser: {fileID: 0}
   rightHandPoser: {fileID: 0}
   LeftHandBendTarget: {fileID: 0}
+  AimFromCamera: 0
+  AimFrom: {fileID: 0}
 --- !u!4 &3035423385754960102
 Transform:
   m_ObjectHideFlags: 0
@@ -9614,12 +9609,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
-  Character: {fileID: 1292777438171582789}
-  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
   BlockInput: 0
-  MoveInput: {x: 0, y: 0}
   _isCameraRelative: 1
-  _orientToCamera: 1
+  _orientToLookDirection: 1
   _orientationSpeed: 10
 --- !u!224 &5475959152195769960
 RectTransform:
@@ -10782,7 +10774,6 @@ MonoBehaviour:
   _velocityDebug: {x: 0, y: 0, z: 0}
   _parameterDebug: {x: 0, y: 0}
   _velocityThreshold: 2
-  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
   MoveInput: {x: 0, y: 0}
   references:
     version: 2
@@ -10849,6 +10840,7 @@ MonoBehaviour:
         OwnerActor: {fileID: 0}
         IsInstalled: 0
         Movement: {fileID: 1690055598369394289}
+        Character: {fileID: 0}
         MovementInput: {fileID: 0}
 --- !u!1 &7686863590100544489
 GameObject:

@@ -51,17 +51,10 @@ public class DS_PlayerRuntime : Data
         set => _attackSpeedRuntime = value;
     }
 
-    public override void OnActorStarted()
+    protected override void OnActorStarted()
     {
         base.OnActorStarted();
         GlobalData.SubscribeToDataInstalled(OnDataInstalledHandler, "", typeof(DS_PlayerPersistent));
-        /*GlobalData.OnDataInstalled += data =>
-        {
-            if (data is DS_PlayerPersistent)
-            {
-                CurrentHealth = GlobalData.GetData<DS_PlayerPersistent>().MaxHealth;
-            }
-        };*/
     }
 
     private void OnDataInstalledHandler(Data obj)

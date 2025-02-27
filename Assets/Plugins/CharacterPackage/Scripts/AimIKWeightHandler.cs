@@ -118,6 +118,16 @@ public class AimIKWeightHandler : ActorMonoService<AimIKWeightHandler>
 	    }
     }
 
+    public void ReleaseInstant()
+    {
+	    _aimIKWeight = 0;
+	    _leftHandBendWeight = 0;
+	    
+	    ik.solver.leftArmChain.bendConstraint.weight = 0;
+	    ik.solver.leftHandEffector.rotationWeight = 0;
+	    _aimIK.solver.IKPositionWeight = 0;
+	    ik.solver.leftHandEffector.positionWeight = 0;
+    }
     private void HandPosers()
     {
 	    if (leftHandPoser != null )

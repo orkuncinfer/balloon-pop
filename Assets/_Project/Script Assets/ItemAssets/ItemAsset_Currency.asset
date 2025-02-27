@@ -22,7 +22,7 @@ MonoBehaviour:
   WorldPrefab: {fileID: 0}
   UIPrefab: {fileID: 0}
   _rpgItemTypes: 0
-  IsStackable: 0
+  IsStackable: 1
   MaxStack: 200
   DefaultRarity: 0
   IsUniqueItem: 0

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+
 public class AbilityAction_Equip : AbilityAction
 {
     ActiveAbility _ability;

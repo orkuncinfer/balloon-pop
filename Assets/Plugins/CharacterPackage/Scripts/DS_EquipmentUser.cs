@@ -61,12 +61,14 @@ public class DS_EquipmentUser : Data
 
     public float LerpSpeed;
 
+    public List<Equippable> _equippedInstances; // stays here unless it is dropped
+
     private bool _equippedAsWorldInstance;//??
 
-    public override void OnActorStarted()
+    protected override void OnActorStarted()
     {
         base.OnActorStarted();
-        EquipCurrent();
+        EquipCurrentPrefab();
     }
 
     private void EquipmentPrefabChanged(GameObject oldPrefab, GameObject newPrefab)
@@ -77,11 +79,11 @@ public class DS_EquipmentUser : Data
             return;
         }
         ReleaseInstance();
-        EquipCurrent();
+        EquipCurrentPrefab();
     }
     
     
-    public void EquipCurrent()
+    private void EquipCurrentPrefab()
     {
         if(EquipmentPrefab == null) return;
         ReleaseInstance();
@@ -98,6 +100,7 @@ public class DS_EquipmentUser : Data
         {
             weapon.Owner = OwnerActor;
             weapon.OnEquip(OwnerActor);
+            _equippedInstances.Add(weapon);
         }
         
         
@@ -116,6 +119,34 @@ public class DS_EquipmentUser : Data
                 ReleaseInstance();
         }
     }
+    [Button]
+    public void DropCurrent()
+    {
+        if (_equipmentInstance != null)
+        {
+            if (EquipmentInstance.TryGetComponent(out Equippable weapon))
+            {
+                weapon.DropInstance(OwnerActor);
+                _equippedInstances.Remove(weapon);
+            }
+            EquipmentInstance = null;
+        }
+    }
+    public void DropEquippable(Equippable equippable)
+    {
+        equippable.DropInstance(OwnerActor);
+        _equippedInstances.Remove(equippable);
+        if (_equipmentInstance != null)
+        {
+            if (_equipmentInstance.TryGetComponent(out Equippable equippable2))
+            {
+                if (equippable == equippable2)
+                {
+                    _equipmentInstance = null;
+                }
+            }
+        }
+    }
     public void EquipWorldInstance(GameObject equipmentInstance,string socketName = "")
     {
         _equippedAsWorldInstance = true;
@@ -129,6 +160,7 @@ public class DS_EquipmentUser : Data
         {
             weapon.Owner = OwnerActor;
             weapon.OnEquip(OwnerActor);
+            _equippedInstances.Add(weapon);
         }
         
         SetInstanceTransform();

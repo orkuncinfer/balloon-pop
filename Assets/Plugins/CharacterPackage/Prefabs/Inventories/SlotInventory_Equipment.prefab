@@ -833,11 +833,13 @@ MonoBehaviour:
     _slotCount: 2
     _inventorySlots:
     - _allowedTags:
-        _tagHashes: []
+        _tagHashes:
+        - 93e06ffd-c134-405f-8ee1-38b355e760e7
       _itemID: 
       _itemCount: 0
     - _allowedTags:
-        _tagHashes: []
+        _tagHashes:
+        - a16e414e-4a9d-4d4f-8563-ad06a68659ec
       _itemID: 
       _itemCount: 0
   InitialItems:

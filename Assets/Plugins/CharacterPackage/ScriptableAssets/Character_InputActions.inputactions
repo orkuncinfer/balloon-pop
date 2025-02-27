@@ -60,6 +60,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "DropEquipment",
+                    "type": "Button",
+                    "id": "798dc663-bc7f-4921-b3f2-0b177c184112",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "AbilityAim",
                     "type": "Value",
                     "id": "e7b70d75-1b92-4ecd-8811-0f875763f379",
@@ -92,7 +101,16 @@
                     "id": "af11bb68-183c-49c3-b5cd-4da5d47f3c6b",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Tap",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "EquipGround",
+                    "type": "Button",
+                    "id": "ab158a46-1699-4ffb-8964-ce05217d225d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=1)",
                     "initialStateCheck": false
                 },
                 {
@@ -385,6 +403,28 @@
                     "processors": "",
                     "groups": "Keyboard And Mouse",
                     "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9270be93-774d-4912-9501-a73a5666a573",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard And Mouse",
+                    "action": "DropEquipment",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "89262f21-c016-43b9-9d28-57997de37a6c",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EquipGround",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
