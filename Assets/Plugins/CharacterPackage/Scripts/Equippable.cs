@@ -29,7 +29,6 @@ public class Equippable : MonoBehaviour
     [SerializeField] private AbilityDefinition[] _grantedAbilities;
     public event Action<ActorBase> onEquipped; 
     public event Action<ActorBase> onUnequipped;
-    public event Action<ActorBase> onDropped;
     public string EquipSocketName => _equipSocketName;
     
     public GameplayTagContainer EquipTags;
@@ -72,14 +71,6 @@ public class Equippable : MonoBehaviour
         }
         onUnequipped?.Invoke(Owner);
     }
-
-    public virtual void DropInstance(ActorBase actor)
-    {
-        OnUnequip(actor);
-        onDropped?.Invoke(actor);
-        transform.SetParent(null);
-    }
-    
     public virtual void EquipThisInstance(ActorBase actor)
     {
         Owner = actor;

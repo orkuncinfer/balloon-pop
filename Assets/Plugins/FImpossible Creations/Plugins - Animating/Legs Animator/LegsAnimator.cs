@@ -206,7 +206,7 @@ namespace FIMSpace.FProceduralAnimation
         {
             _MainBlend = LegsAnimatorBlend * cullingBlend * protectedBlend * RadgolledDisablerBlend;
             _MainBlendPlusGrounded = _MainBlend * IsGroundedBlend;
-            if (Mecanim != null) AnimatePhysics = Mecanim.updateMode == AnimatorUpdateMode.AnimatePhysics;
+            if (Mecanim != null) AnimatePhysics = Mecanim.updateMode == AnimatorUpdateMode.Fixed;
 
             if (_lastMainBlend != _MainBlend) 
             { 

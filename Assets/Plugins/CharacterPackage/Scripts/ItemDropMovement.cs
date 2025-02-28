@@ -16,12 +16,10 @@ public class ItemDropMovement : MonoBehaviour
     {
         _equippable = GetComponent<Equippable>();
         _rigidbody = GetComponent<Rigidbody>();
-        _equippable.onDropped += OnDropped;
     }
 
     private void OnDestroy()
     {
-        _equippable.onDropped -= OnDropped;
     }
 
     private void OnDropped(ActorBase obj)

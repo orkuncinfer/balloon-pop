@@ -26,7 +26,7 @@ using UnityEngine;
             projectile.gameObject.layer = gameObject.layer;
             Vector3 position = _spawnPoint.position;
             projectile.transform.SetPositionAndRotation(position, Quaternion.LookRotation(target.position - position));
-            projectile.Rigidbody.velocity = GetVelocity(
+            projectile.Rigidbody.linearVelocity = GetVelocity(
                 target.position + Utils.GetCenterOfCollider(target),
                 position,
                 projectileSpeed,

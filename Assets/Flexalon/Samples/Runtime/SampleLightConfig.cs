@@ -14,7 +14,7 @@ namespace Flexalon.Samples
             var light = GetComponent<Light>();
             if (light)
             {
-                if (GraphicsSettings.renderPipelineAsset?.GetType().Name.Contains("HDRenderPipelineAsset") ?? false)
+                if (GraphicsSettings.defaultRenderPipeline?.GetType().Name.Contains("HDRenderPipelineAsset") ?? false)
                 {
                     light.intensity =  HDRPIntensity;
                 }

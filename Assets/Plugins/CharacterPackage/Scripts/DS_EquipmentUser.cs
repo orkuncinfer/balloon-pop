@@ -44,6 +44,8 @@ public class DS_EquipmentUser : Data
         }
     }
 
+    public event Action<Equippable> onEquipmentDropped; 
+
     [SerializeField] private GameObject _itemToEquip;
     public GameObject ItemToEquip
     {
@@ -126,7 +128,9 @@ public class DS_EquipmentUser : Data
         {
             if (EquipmentInstance.TryGetComponent(out Equippable weapon))
             {
-                weapon.DropInstance(OwnerActor);
+                onEquipmentDropped?.Invoke(weapon);
+                weapon.OnUnequip(OwnerActor);
+                PoolManager.ReleaseObject(weapon.gameObject);
                 _equippedInstances.Remove(weapon);
             }
             EquipmentInstance = null;
@@ -134,7 +138,7 @@ public class DS_EquipmentUser : Data
     }
     public void DropEquippable(Equippable equippable)
     {
-        equippable.DropInstance(OwnerActor);
+        equippable.OnUnequip(OwnerActor);
         _equippedInstances.Remove(equippable);
         if (_equipmentInstance != null)
         {

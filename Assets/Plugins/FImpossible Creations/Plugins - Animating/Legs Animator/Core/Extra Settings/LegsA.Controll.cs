@@ -305,10 +305,10 @@ namespace FIMSpace.FProceduralAnimation
                 {
                     if (Rigidbody)
                     {
-                        if (Rigidbody.velocity.magnitude < ScaleReference * 0.1f)
+                        if (Rigidbody.linearVelocity.magnitude < ScaleReference * 0.1f)
                             DesiredMovementDirection = Vector3.zero;
                         else
-                            DesiredMovementDirection = Rigidbody.velocity.normalized;
+                            DesiredMovementDirection = Rigidbody.linearVelocity.normalized;
                     }
                 }
             }

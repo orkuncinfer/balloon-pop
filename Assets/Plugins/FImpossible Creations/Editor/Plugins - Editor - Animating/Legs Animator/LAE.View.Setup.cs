@@ -118,7 +118,7 @@ namespace FIMSpace.FProceduralAnimation
 
                         if (Get.Mecanim)
                         {
-                            Get.AnimatePhysics = Get.Mecanim.updateMode == AnimatorUpdateMode.AnimatePhysics;
+                            Get.AnimatePhysics = Get.Mecanim.updateMode == AnimatorUpdateMode.Fixed;
                         }
 
                         sp.Next(false);

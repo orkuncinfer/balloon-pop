@@ -172,7 +172,7 @@ namespace FIMSpace.FProceduralAnimation
             float directMovement = DirectMovement;
             directMovement *= Mathf.InverseLerp(180f, 50f, Mathf.Abs(yAngleDiff));
             targetVelo = Vector3.Lerp(targetVelo, (StrafeMode ? transform.rotation * new Vector3(moveDirectionLocalNonZero.x, 0f, moveDirectionLocalNonZero.y) : transform.forward) * targetVelo.magnitude, directMovement);
-            targetVelo.y = Rigb.velocity.y;
+            targetVelo.y = Rigb.linearVelocity.y;
 
             toJump -= Time.fixedDeltaTime;
 
@@ -194,7 +194,7 @@ namespace FIMSpace.FProceduralAnimation
                 }
             }
 
-            Rigb.velocity = targetVelo;
+            Rigb.linearVelocity = targetVelo;
             Rigb.angularVelocity = FEngineering.QToAngularVelocity(Rigb.rotation, targetRotation, true);
 
             if (Time.time - jumpTime > 0.2f)

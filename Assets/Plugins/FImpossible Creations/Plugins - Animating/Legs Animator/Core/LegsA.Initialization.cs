@@ -46,7 +46,7 @@ namespace FIMSpace.FProceduralAnimation
             AllowUpdate = true;
 
             if (StepInfoReceiver != null) _StepReceiver = StepInfoReceiver.GetComponent<ILegStepReceiver>();
-            if (Mecanim) AnimatePhysics = Mecanim.updateMode == AnimatorUpdateMode.AnimatePhysics;
+            if (Mecanim) AnimatePhysics = Mecanim.updateMode == AnimatorUpdateMode.Fixed;
 
             //StepHeatmap_Setup();
 

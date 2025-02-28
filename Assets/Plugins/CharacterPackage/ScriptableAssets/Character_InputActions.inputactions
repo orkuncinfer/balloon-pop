@@ -99,7 +99,7 @@
                     "name": "Interaction",
                     "type": "Button",
                     "id": "af11bb68-183c-49c3-b5cd-4da5d47f3c6b",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "Tap",
                     "initialStateCheck": false
@@ -108,9 +108,9 @@
                     "name": "EquipGround",
                     "type": "Button",
                     "id": "ab158a46-1699-4ffb-8964-ce05217d225d",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Hold(duration=1)",
+                    "interactions": "Hold(duration=0.6)",
                     "initialStateCheck": false
                 },
                 {

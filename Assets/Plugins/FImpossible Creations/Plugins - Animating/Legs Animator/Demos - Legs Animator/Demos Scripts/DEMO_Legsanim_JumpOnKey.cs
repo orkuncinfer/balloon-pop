@@ -17,7 +17,7 @@ namespace FIMSpace.FProceduralAnimation
         {
             if (ToJump == null) return;
 
-            if (Input.GetKeyDown(Key)) { ToJump.position = ToJump.position + JumpVector * 0.01f; ToJump.velocity = JumpVector; }
+            if (Input.GetKeyDown(Key)) { ToJump.position = ToJump.position + JumpVector * 0.01f; ToJump.linearVelocity = JumpVector; }
         }
 
     }

@@ -27,7 +27,7 @@ namespace FIMSpace.FProceduralAnimation
             Vector3 yNeutralVelo;
 
             if (LA.Rigidbody)
-                yNeutralVelo = LA.ToRootLocalSpaceVec(LA.Rigidbody.velocity);
+                yNeutralVelo = LA.ToRootLocalSpaceVec(LA.Rigidbody.linearVelocity);
             else
                 yNeutralVelo = LA.ToRootLocalSpaceVec(LA.DesiredMovementDirection * LA.IsMovingBlend);
 

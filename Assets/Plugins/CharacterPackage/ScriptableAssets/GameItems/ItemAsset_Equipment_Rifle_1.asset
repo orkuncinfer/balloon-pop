@@ -22,6 +22,7 @@ MonoBehaviour:
   - rid: 428195015235207175
   - rid: 3670663018735468551
   WorldPrefab: {fileID: 1423140520730457204, guid: 33edc42ffeedb8f47aa693e666a6db61, type: 3}
+  DropPrefab: {fileID: 6504192977590770944, guid: 37c353438e952954789e0d8fae978984, type: 3}
   UIPrefab: {fileID: 0}
   _rpgItemTypes: 0
   IsStackable: 0

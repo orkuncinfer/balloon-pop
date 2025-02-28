@@ -22,8 +22,8 @@ namespace FIMSpace.FProceduralAnimation
         {
             if (rig == null) return;
             Vector3 newVelo = transform.TransformVector(LocalOffset);
-            newVelo.y = rig.velocity.y;
-            rig.velocity = newVelo;
+            newVelo.y = rig.linearVelocity.y;
+            rig.linearVelocity = newVelo;
         }
     }
 }
