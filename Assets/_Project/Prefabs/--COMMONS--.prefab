@@ -177,9 +177,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902776696734502335}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 1
-  m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.7
   m_Range: 10
@@ -229,8 +228,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &1516055800037618811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,9 +756,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7989424726761580736}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 4
   m_Range: 18.8
@@ -805,8 +807,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &884606864973950588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,7 +848,7 @@ GameObject:
   - component: {fileID: 132367743527890449}
   - component: {fileID: 1044802082797123766}
   m_Layer: 0
-  m_Name: Camera_Actor
+  m_Name: Actor_Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -906,7 +912,7 @@ MonoBehaviour:
     - rid: 4448694768823173227
       type: {class: Data_Camera, ns: , asm: Assembly-CSharp-firstpass}
       data:
-        IsGlobal: 0
+        IsGlobal: 1
         UseKey: 0
         IsPersistent: 0
         DataKey: 

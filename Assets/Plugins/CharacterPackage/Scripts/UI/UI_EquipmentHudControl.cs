@@ -1,52 +1,71 @@
+using System;
 using Sirenix.Utilities;
 using UnityEngine;
 
 public class UI_EquipmentHudControl : MonoBehaviour
 {
-    [SerializeField] private Sherbert.Framework.Generic.SerializableDictionary<int, UI_ItemElement> _equipmentSlots;
+    [SerializeField] private Sherbert.Framework.Generic.SerializableDictionary<int, UI_EquippableHud> _equipmentSlots;
     [SerializeField] private InventoryDefinition _equipmentInventory;
     private ActorBase _owner;
 
-
-    private void Awake()
-    {
-        _owner = ActorUtilities.FindFirstActorInParents(transform);
-        _equipmentInventory.onInventoryChanged += OnInventoryChanged;
-    }
-
-    private void OnDestroy()
-    {
-        _equipmentInventory.onInventoryChanged -= OnInventoryChanged;
-    }
+    private DS_EquipmentUser _equipmentUser;
 
     private void Start()
     {
-        //OnInventoryChanged();
+        _owner = ActorUtilities.FindFirstActorInParents(transform);
+        _equipmentUser = _owner.GetData<DS_EquipmentUser>();
+        
     }
 
-    private void OnInventoryChanged()
+    private void Awake()
     {
-        /* for (int i = 0; i < _equipmentInventory.InventoryData.InventorySlots.Count; i++)
-         {
-             if (_equipmentInventory.InventoryData.InventorySlots[i].ItemID.IsNullOrWhitespace())
-             {
-                 _equipmentSlots[i].ClearItemData();
-                 continue;
-             }
-             _equipmentSlots[i].SetItemData(_equipmentInventory.InventoryData.InventorySlots[i].ItemID, _equipmentInventory.InventoryData.InventorySlots[i]);
-         }*/
+        _equipmentInventory.onInventoryInitialized += OnInventoryInit;
+    }
+
+    private void OnInventoryInit()
+    {
+        _equipmentInventory.onInventoryInitialized -= OnInventoryInit;
+        
+        _equipmentUser.onEquippedListChanged += OnEquippedListChanged;
+    }
+
+    private void OnEquippedListChanged()
+    {
         foreach (var slot in _equipmentSlots)
         {
-            ItemData itemData = _equipmentInventory.InventoryData.InventorySlots[slot.Key].ItemData;
-            if(itemData == null) continue;
-            if (_equipmentInventory.InventoryData.InventorySlots[slot.Key].ItemID.IsNullOrWhitespace())
+            bool found = false;
+            foreach (var equippable in _equipmentUser._equippedInstances)
             {
-                slot.Value.ClearItemData();
-                continue;
+                if(found) continue;
+                ItemData itemData = _equipmentInventory.InventoryData.InventorySlots[slot.Key].ItemData;
+                if (equippable.ItemData == itemData)
+                {
+                    _equipmentSlots[slot.Key].SetEquippable(equippable);
+                    found = true;
+                }
+                //Debug.Log($"checking if {equippable.ItemData.ItemID} equals {arg2.ItemID}");
+                //_equipmentSlots[slot.Key].SetEquippable(null);
             }
-
-            slot.Value.SetItemData(_equipmentInventory.InventoryData.InventorySlots[slot.Key].ItemID,
-                _equipmentInventory.InventoryData.InventorySlots[slot.Key]);
+            if(found == false) _equipmentSlots[slot.Key].SetEquippable(null);
         }
+    }
+
+    private void OnSlotItemDataChangedWrapper(ItemData arg1, ItemData arg2, int slot)
+    {
+        OnSlotItemDataChanged(arg1, arg2, slot);
+    }
+    private void OnSlotItemDataChanged(ItemData arg1, ItemData arg2, int slotIndex)
+    {
+        
+        foreach (var equippable in _equipmentUser._equippedInstances)
+        {
+            Debug.Log($"checking if {equippable.ItemData.ItemID} equals {arg2.ItemID}");
+            if (equippable.ItemData == arg2)
+            {
+                _equipmentSlots[slotIndex].SetEquippable(equippable);
+                return;
+            }
+        }
+        _equipmentSlots[slotIndex].SetEquippable(null);
     }
 }

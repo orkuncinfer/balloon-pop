@@ -59,6 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e92ad7adfe6a74caed3e4475b0da77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 50
-  minXRotation: -35
-  maxXRotation: 75
+  Sensitivity: 50
+  TopClamp: 70
+  BottomClamp: -30
+  CameraAngleOverride: 0
+  LookAction: {fileID: -9123880847021914157, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}

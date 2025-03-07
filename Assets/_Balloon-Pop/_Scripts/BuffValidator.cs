@@ -27,7 +27,7 @@ public static class BuffValidator
     
     public static bool HasBuff(ItemDefinition itemDefinition)
     {
-        bool hasInPersistent = GlobalData.GetData<DS_PlayerPersistent>().Inventory.ContainsKey(itemDefinition.ItemId);
+        bool hasInPersistent = DefaultPlayerInventory.Instance.HasItem(itemDefinition.ItemId);
         bool hasInRuntime = ActorRegistry.PlayerActor.GetData<DS_PlayerPersistent>().RuntimeBuffs.ContainsKey(itemDefinition.ItemId);
         return hasInPersistent || hasInRuntime;
     }

@@ -290,14 +290,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.25
+  m_fontSize: 25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 25
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -306,15 +306,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -517,12 +519,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4951db5e14c04c7a9bc6add38522b988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemIcon: {fileID: 0}
-  _rarityBadge: {fileID: 0}
-  _itemCount: {fileID: 0}
-  _itemName: {fileID: 1416132724964455695}
-  ItemDefinition: {fileID: 0}
-  _ammoText: {fileID: 0}
+  Equippable: {fileID: 0}
+  _ammoText: {fileID: 6263823503954707771}
+  _nameText: {fileID: 1416132724964455695}
 --- !u!1 &1853249990658043466
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,15 +751,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -835,13 +836,17 @@ MonoBehaviour:
     - _allowedTags:
         _tagHashes:
         - 93e06ffd-c134-405f-8ee1-38b355e760e7
-      _itemID: 
       _itemCount: 0
+      _itemData:
+        _itemID: 
+        _uniqueID: 
     - _allowedTags:
         _tagHashes:
         - a16e414e-4a9d-4d4f-8563-ad06a68659ec
-      _itemID: 
       _itemCount: 0
+      _itemData:
+        _itemID: 
+        _uniqueID: 
   InitialItems:
   - ItemDefinition: {fileID: 11400000, guid: cb585809649e90a46a4fe59730952b7a, type: 2}
     Count: 1
@@ -868,16 +873,22 @@ MonoBehaviour:
     _inventorySlots:
     - _allowedTags:
         _tagHashes: []
-      _itemID: 
       _itemCount: 0
+      _itemData:
+        _itemID: 
+        _uniqueID: 
     - _allowedTags:
         _tagHashes: []
-      _itemID: 
       _itemCount: 0
+      _itemData:
+        _itemID: 
+        _uniqueID: 
     - _allowedTags:
         _tagHashes: []
-      _itemID: 
       _itemCount: 0
+      _itemData:
+        _itemID: 
+        _uniqueID: 
   InitialItems:
   - ItemDefinition: {fileID: 11400000, guid: 9f92aca40ea93de42961246c076afdaa, type: 2}
     Count: 5555
@@ -1022,15 +1033,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1156,15 +1169,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1367,12 +1382,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4951db5e14c04c7a9bc6add38522b988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemIcon: {fileID: 0}
-  _rarityBadge: {fileID: 0}
-  _itemCount: {fileID: 0}
-  _itemName: {fileID: 2187695651866105677}
-  ItemDefinition: {fileID: 0}
-  _ammoText: {fileID: 0}
+  Equippable: {fileID: 0}
+  _ammoText: {fileID: 3868968538343104532}
+  _nameText: {fileID: 2187695651866105677}
 --- !u!1 &7391725430020347905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,14 +1477,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28.25
+  m_fontSize: 25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 25
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1481,15 +1493,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -1615,15 +1629,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0

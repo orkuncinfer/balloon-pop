@@ -42,7 +42,6 @@ public class AbilityAction_Unequip : AbilityAction
                 _equippable.transform.SetParent(socket);
             }
         }
-        _equippable.OnUnequip(Owner);
         Owner.GetData<DS_EquipmentUser>().UnequipCurrent(false);
         _hasTick = true;
     }

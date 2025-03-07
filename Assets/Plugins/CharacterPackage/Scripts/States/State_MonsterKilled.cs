@@ -22,3 +22,8 @@ public class State_MonsterKilled : MonoState
         });*/
     }
 }
+public struct MobKilledEventArgs
+{
+    public string MobId;
+    public Vector3 Position;
+}

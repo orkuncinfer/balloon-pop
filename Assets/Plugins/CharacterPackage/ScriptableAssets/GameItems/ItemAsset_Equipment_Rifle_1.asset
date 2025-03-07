@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemID: Equipment_Rifle_1
   _itemIDLocked: 1
-  ItemName: Equipment_Rifle_1
+  ItemName: APR-45 MK
   _itemNameLocked: 1
   Description: 
   Icon: {fileID: 0}
   DataList:
   - rid: 428195015235207175
   - rid: 3670663018735468551
-  WorldPrefab: {fileID: 1423140520730457204, guid: 33edc42ffeedb8f47aa693e666a6db61, type: 3}
+  WorldPrefab: {fileID: 7054090832492327864, guid: a6420e98115efaa40b45b052cc84a6a9, type: 3}
+  Model: {fileID: 1179216752862886640, guid: 9c3799d3fc6608c44920ca014965f464, type: 3}
   DropPrefab: {fileID: 6504192977590770944, guid: 37c353438e952954789e0d8fae978984, type: 3}
   UIPrefab: {fileID: 0}
   _rpgItemTypes: 0

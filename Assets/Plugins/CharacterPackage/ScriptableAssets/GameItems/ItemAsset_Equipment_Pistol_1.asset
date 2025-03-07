@@ -21,7 +21,9 @@ MonoBehaviour:
   DataList:
   - rid: 428195015235207174
   - rid: 3670663018735468551
-  WorldPrefab: {fileID: 1423140520730457204, guid: 658437577df6e58419100dd6bf9417a0, type: 3}
+  WorldPrefab: {fileID: 7054090832492327864, guid: ba9c16e8a144df74fbe0ad2998622c6b, type: 3}
+  Model: {fileID: 7185286414967641847, guid: 3b7bf61f3a3f33e459216e79fe7c728a, type: 3}
+  DropPrefab: {fileID: 6504192977590770944, guid: 37c353438e952954789e0d8fae978984, type: 3}
   UIPrefab: {fileID: 0}
   _rpgItemTypes: 0
   IsStackable: 0

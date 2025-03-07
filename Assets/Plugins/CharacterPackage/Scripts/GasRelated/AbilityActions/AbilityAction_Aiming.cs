@@ -29,16 +29,12 @@ public class AbilityAction_Aiming : AbilityAction
         _ik = owner.GetComponentInChildren<FullBodyBipedIK>();
 
         //_weightHandler.LeftHandPoserToggle(true); why?
-    
+        _weightHandler.IsAiming = true;
         StaticUpdater.onUpdate += OnUpdate;
     }
 
     private void OnUpdate()
     {
-        if(_weightHandler != null)
-        {
-            _weightHandler.IsAiming = true;
-        }
     }
 
     public override void OnExit()
@@ -46,6 +42,5 @@ public class AbilityAction_Aiming : AbilityAction
         _weightHandler.IsAiming = false;
         base.OnExit();
        StaticUpdater.onUpdate -= OnUpdate;
-       _weightHandler.IsAiming = false;
     }
 }

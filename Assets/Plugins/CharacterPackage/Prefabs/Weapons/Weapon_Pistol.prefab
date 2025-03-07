@@ -280,6 +280,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _owner: {fileID: 0}
   ItemDefinition: {fileID: 11400000, guid: dd8874cafb6e7a141b458043ff9b5156, type: 2}
+  ItemData:
+    _itemID: 
+    _uniqueID: 
   _overrideLocomotionAsset: {fileID: 11400000, guid: 72b909a71d2a64a40a18bb06a1b6bb04, type: 2}
   _equipSocketName: weapon_pistol
   _equipAbility: {fileID: 11400000, guid: d67c01063a41e8242baa1ebf4cb7caad, type: 2}
@@ -325,11 +328,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _equippable: {fileID: 6005983464366768730}
   _equipHand: 1
-  rightHandOffset: {x: 0, y: 0, z: 0}
   _aimTransform: {fileID: 9041521809067248878}
   _leftHandPivot: {fileID: 3525241101450122079}
   _rightHandPivot: {fileID: 1967812565516889344}
   _leftHandBendTarget: {fileID: 5797268205874019241}
+  _gunHoldOffset: {x: -0.18, y: -0.05, z: 0.04}
 --- !u!114 &-2644142946962492511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +375,7 @@ MonoBehaviour:
   _magnitudeRange: {x: 0.5927978, y: 1.4099723}
 --- !u!95 &-2400877918964649879
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -386,6 +389,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -423,6 +427,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a8e0c718d5453458357ba5d14918be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   gunfireAudio: {fileID: 8300000, guid: bc8c3727d81b340f685d13c544c0662c, type: 3}
 --- !u!114 &-2966655820430403770
 MonoBehaviour:
@@ -1782,7 +1789,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6634118634212665850, guid: 88153e350ba014e4b8956f305e59eff5, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 3870aa864ae6fcd4194eadc531231c8e, type: 2}
     - target: {fileID: 919132149155446097, guid: 88153e350ba014e4b8956f305e59eff5, type: 3}

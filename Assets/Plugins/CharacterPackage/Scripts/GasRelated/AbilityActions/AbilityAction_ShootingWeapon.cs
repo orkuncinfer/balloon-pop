@@ -31,6 +31,7 @@ public class AbilityAction_ShootingWeapon : AbilityAction
         _weightHandler = owner.GetComponentInChildren<AimIKWeightHandler>();
     
         _heldGun = owner.GetEquippedInstance().GetComponent<Gun>();
+        _heldGun.GetComponent<GunFireComponent>().StartFire();
         LastStaticUpdater.onLateUpdate += OnLateUpdate;
     }
 
@@ -38,7 +39,6 @@ public class AbilityAction_ShootingWeapon : AbilityAction
     {
         if(_weightHandler != null)
         {
-            _weightHandler.IsAiming = true;
             if (_weightHandler.AimIKWeight >= 1)
             {
                 _heldGun.Fire(ActiveAbility);
@@ -51,6 +51,7 @@ public class AbilityAction_ShootingWeapon : AbilityAction
     public override void OnExit()
     {
         base.OnExit();
+        _heldGun.GetComponent<GunFireComponent>().StopFire();
         LastStaticUpdater.onLateUpdate -= OnLateUpdate;
     }
 }

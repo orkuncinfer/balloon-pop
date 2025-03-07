@@ -78,6 +78,7 @@ MonoBehaviour:
     - StompyRobot.SRF
     - Tayx.Graphy
     - UIEffect
+    - ui.crosshairs
     - Unity Timer
     - Unity.DbgDraw.Runtime
     showAdvancedSettings: 1

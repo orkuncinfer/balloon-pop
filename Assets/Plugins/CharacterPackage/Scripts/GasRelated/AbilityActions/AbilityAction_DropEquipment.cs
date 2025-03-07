@@ -17,5 +17,7 @@ public class AbilityAction_DropEquipment : AbilityAction
     {
         base.OnStart(owner, ability);
         owner.GetData<DS_EquipmentUser>().DropCurrent();
+        
+        RequestEndAbility();
     }
 }

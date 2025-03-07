@@ -28,14 +28,12 @@ public class AbilityAction_ToggleAiming : AbilityAction
         clone.HoldLeftHandOnExit = HoldLeftHandOnExit;
         return clone;
     }
-
     public override void Reset()
     {
         base.Reset();
         _ik = null;
         _weightHandler = null;
     }
-
     public override void OnStart(Actor owner, ActiveAbility ability)
     {
         base.OnStart(owner, ability);
@@ -44,28 +42,21 @@ public class AbilityAction_ToggleAiming : AbilityAction
         if (_weightHandler != null)
         {
             _initialAimingState = _weightHandler.IsAiming;
-           //_weightHandler.ToggleAiming(ToggleAiming, IsInstant);
         }
 
         if (ReleaseLeftHand)
         {
-            //_weightHandler.LeftHandPoserToggle(false); why?
-            _ik.solver.leftHandEffector.positionWeight = 0;
+            _weightHandler.ReleaseLeftHand(0.5f);
         }
-           
+        
     }
 
     public override void OnExit()
     {
         base.OnExit();
-        if (_weightHandler != null && BackToDefaultOnExit)
-        {
-            //_weightHandler.ToggleAiming(_initialAimingState, IsInstant);
-        }
-
         if (HoldLeftHandOnExit)
         {
-            //_weightHandler.LeftHandPoserToggle(true); why? try to discard this
+            _weightHandler.HoldLeftHand(0.25f);
         }
     }
 }
