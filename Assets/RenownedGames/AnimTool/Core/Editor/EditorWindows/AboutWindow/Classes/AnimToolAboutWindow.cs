@@ -70,7 +70,7 @@ namespace RenownedGames.AnimTool
             url = "https://assetstore.unity.com/publishers/26774";
         }
 
-        [MenuItem("Renowned Games/AnimTool/About", false, 50)]
+        [MenuItem("Tools/AnimNamingTool/About", false, 50)]
         public static void Open()
         {
             Open<AnimToolAboutWindow>(new GUIContent("About"), new Vector2(470, 170));

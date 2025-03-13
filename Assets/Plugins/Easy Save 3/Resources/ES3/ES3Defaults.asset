@@ -29,7 +29,7 @@ MonoBehaviour:
     storeCacheOnApplicationPause: 1
     typeChecking: 1
     safeReflection: 1
-    memberReferenceMode: 0
+    memberReferenceMode: 1
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
@@ -56,7 +56,6 @@ MonoBehaviour:
     - Flexalon.Samples
     - Google.Play.Games
     - LeTai.TrueShadow
-    - LeTai.TrueShadow.Demo
     - LiteNetLib
     - Lofelt.NiceVibrations
     - Lofelt.NiceVibrations.Demo

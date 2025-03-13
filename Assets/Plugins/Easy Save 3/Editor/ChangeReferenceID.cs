@@ -9,8 +9,8 @@ namespace ES3Internal
         private long id = 0;
         public UnityEngine.Object obj;
 
-        [MenuItem("GameObject/Easy Save 3/Set Reference ID..", false, 33)]
-        [MenuItem("Assets/Easy Save 3/Set Reference ID..", false, 33)]
+        //[MenuItem("GameObject/Easy Save 3/Set Reference ID..", false, 33)]
+        //[MenuItem("Assets/Easy Save 3/Set Reference ID..", false, 33)]
 
         public static void ShowWindow()
         {
@@ -24,7 +24,7 @@ namespace ES3Internal
                 EditorWindow.GetWindow<SetReferenceID>("Set Reference ID").obj = selected[0];
         }
 
-        [MenuItem("CONTEXT/Component/Easy Save 3/Set Reference ID..", false, 33)]
+        //[MenuItem("CONTEXT/Component/Easy Save 3/Set Reference ID..", false, 33)]
         public static void ShowWindowContext(MenuCommand command)
         {
             EditorWindow.GetWindow<SetReferenceID>("Set Reference ID").obj = command.context;

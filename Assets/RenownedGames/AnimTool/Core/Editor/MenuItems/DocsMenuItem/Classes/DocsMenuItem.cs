@@ -13,7 +13,7 @@ namespace RenownedGames.AnimTool
 {
     public static class DocsMenuItem
     {
-        [MenuItem("Renowned Games/AnimTool/Documentation", false, 51)]
+        [MenuItem("Tools/AnimNamingTool/Documentation", false, 51)]
         public static void Open()
         {
             Help.BrowseURL("https://renownedgames.gitbook.io/animtool/");

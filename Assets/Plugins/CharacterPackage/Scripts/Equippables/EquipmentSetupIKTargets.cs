@@ -20,10 +20,16 @@ public class EquipmentSetupIKTargets : MonoBehaviour
     [SerializeField] private Transform _rightHandPivot;
     [SerializeField] private Transform _leftHandBendTarget;
     [SerializeField] private Vector3 _gunHoldOffset;
+
+    [Header("RecoilSettings")] [SerializeField]
+    private Vector3 _handRotationOffset;
+    [SerializeField] private Vector3 _rotationRandom;
+    [SerializeField] private Recoil.RecoilOffset[] _offsets;
     
     private FullBodyBipedIK ik;
     private AimIK _aimIK;
     private AimIKWeightHandler _aimIKWeightHandler;
+    private Recoil _recoil;
     private Camera _camera;
     private void OnEnable()
     {
@@ -98,17 +104,11 @@ public class EquipmentSetupIKTargets : MonoBehaviour
         }
 
         _aimIKWeightHandler.ik.solver.leftArmChain.bendConstraint.bendGoal = _leftHandBendTarget;
-        /*switch (_equipHand)
-        {
-            case EEquipHand.LeftHand:
-                ik.solver.rightHandEffector.positionWeight = 1;
-                break;
-            case EEquipHand.RightHand:
-                ik.solver.leftHandEffector.positionWeight = 1;
-                break;
-        }*/
 
-        //StaticUpdater.onLateUpdate += UpdateIK;
+        _recoil = actor.GetService<AimIKWeightHandler>().GetComponent<Recoil>();
+        _recoil.offsets = _offsets;
+        _recoil.handRotationOffset = _handRotationOffset;
+        _recoil.rotationRandom = _rotationRandom;
     }
 
     private void UpdateIK()

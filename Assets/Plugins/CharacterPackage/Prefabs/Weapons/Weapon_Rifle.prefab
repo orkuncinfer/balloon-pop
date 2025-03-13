@@ -74,6 +74,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon_Rifle
       objectReference: {fileID: 0}
+    - target: {fileID: 7941266571296540520, guid: 33edc42ffeedb8f47aa693e666a6db61, type: 3}
+      propertyPath: _handRotationOffset.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7941266571296540520, guid: 33edc42ffeedb8f47aa693e666a6db61, type: 3}
+      propertyPath: _handRotationOffset.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7941266571296540520, guid: 33edc42ffeedb8f47aa693e666a6db61, type: 3}
+      propertyPath: _offsets.Array.data[0].offset.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7941266571296540520, guid: 33edc42ffeedb8f47aa693e666a6db61, type: 3}
+      propertyPath: _offsets.Array.data[0].offset.z
+      value: -0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7941266571296540520, guid: 33edc42ffeedb8f47aa693e666a6db61, type: 3}
+      propertyPath: _offsets.Array.data[0].additivity
+      value: 0.521
+      objectReference: {fileID: 0}
+    - target: {fileID: 7941266571296540520, guid: 33edc42ffeedb8f47aa693e666a6db61, type: 3}
+      propertyPath: _offsets.Array.data[0].maxAdditiveOffsetMag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7941266571296540520, guid: 33edc42ffeedb8f47aa693e666a6db61, type: 3}
+      propertyPath: _offsets.Array.data[0].effectorLinks.Array.data[1].weight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8242856785959123562, guid: 33edc42ffeedb8f47aa693e666a6db61, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

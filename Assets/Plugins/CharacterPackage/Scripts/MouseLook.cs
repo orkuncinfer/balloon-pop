@@ -58,7 +58,8 @@ public class MouseLook : MonoBehaviour
         _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
         // Cinemachine will follow this target
-        transform.rotation = Quaternion.Euler(_cinemachineTargetPitch, _cinemachineTargetYaw, 0.0f);
+        transform.rotation = Quaternion.Euler(_cinemachineTargetPitch,
+            _cinemachineTargetYaw, 0.0f);
     }
     private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
     {
@@ -70,7 +71,7 @@ public class MouseLook : MonoBehaviour
     public void AddPitchYaw(float pitch, float yaw)
     {
         _cinemachineTargetPitch += pitch;
-        _cinemachineTargetPitch += yaw;
+        _cinemachineTargetYaw += yaw;
     }
 
     public Vector2 GetLookInput()
@@ -88,5 +89,11 @@ public class MouseLook : MonoBehaviour
     {
         Vector2 lookInput = LookAction.action.ReadValue<Vector2>();
         return lookInput.y * 1 * Sensitivity * Time.deltaTime;
+    }
+
+    public float GetAddedYawThisFrame()
+    {
+        Vector2 lookInput = LookAction.action.ReadValue<Vector2>();
+        return lookInput.x * 1 * Sensitivity * Time.deltaTime;
     }
 }

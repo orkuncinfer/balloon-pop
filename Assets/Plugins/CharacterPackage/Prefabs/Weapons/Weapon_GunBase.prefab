@@ -481,6 +481,19 @@ MonoBehaviour:
   _rightHandPivot: {fileID: 1967812565516889344}
   _leftHandBendTarget: {fileID: 5797268205874019241}
   _gunHoldOffset: {x: -0.1, y: -0.02, z: 0.05}
+  _handRotationOffset: {x: 0, y: 7, z: 0}
+  _rotationRandom: {x: 10, y: 10, z: 0}
+  _offsets:
+  - offset: {x: 0.02, y: 0, z: -0.1}
+    additivity: 0.5
+    maxAdditiveOffsetMag: 0.2
+    effectorLinks:
+    - effector: 6
+      weight: 1
+    - effector: 2
+      weight: 0.3
+    - effector: 0
+      weight: 0.1
 --- !u!114 &8005211978383078059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,7 +520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RecoilPattern:
-  - {x: 2, y: 10}
+  - {x: -5, y: 10}
   RecoilMultiplier: 0.1
   CooldownSpeed: 100
   RecoilSpeed: 10

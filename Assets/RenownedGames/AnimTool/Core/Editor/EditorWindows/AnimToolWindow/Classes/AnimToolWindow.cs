@@ -790,7 +790,7 @@ namespace RenownedGames.AnimTool
         }
 
         #region [Static Methods]
-        [MenuItem("Renowned Games/AnimTool/AnimTool Window", false, 80)]
+        [MenuItem("Tools/AnimNamingTool/AnimTool Window", false, 80)]
         public static void Open()
         {
             AnimToolWindow window = GetWindow<AnimToolWindow>(false);

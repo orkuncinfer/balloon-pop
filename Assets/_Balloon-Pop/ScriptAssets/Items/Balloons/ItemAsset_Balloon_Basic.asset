@@ -17,12 +17,14 @@ MonoBehaviour:
   ItemName: Balloon_Basic
   _itemNameLocked: 1
   Description: 
-  Icon: {fileID: 21300000, guid: 11a9d689e1c571044874570adf9ba241, type: 3}
+  Icon: {fileID: 21300000, guid: f79fc17f5c947d04dbf5d653c7426374, type: 3}
   DataList:
   - rid: 658624179164938255
   - rid: 658624179164938258
   - rid: 658624198462668804
   WorldPrefab: {fileID: 5098232916173036125, guid: eedf54c098ee6f341923b22f9002f39a, type: 3}
+  Model: {fileID: 0}
+  DropPrefab: {fileID: 0}
   UIPrefab: {fileID: 0}
   _rpgItemTypes: 0
   IsStackable: 0

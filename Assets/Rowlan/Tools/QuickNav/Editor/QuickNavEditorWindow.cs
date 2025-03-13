@@ -9,7 +9,7 @@ namespace Rowlan.Tools.QuickNav
         [MenuItem(ProjectSetup.MENU)]
         static void CreateWindow()
         {
-            QuickNavEditorWindow wnd = EditorWindow.GetWindow<QuickNavEditorWindow>();
+            QuickNavEditorWindow wnd = EditorWindow.GetWindow<QuickNavEditorWindow>(ProjectSetup.WINDOW_TITLE);
             wnd.titleContent.text = ProjectSetup.WINDOW_TITLE;
 
             wnd.position = new Rect(QuickNavSettingsProvider.WindowPositionX, QuickNavSettingsProvider.WindowPositionY, QuickNavSettingsProvider.WindowWidth, QuickNavSettingsProvider.WindowHeight);

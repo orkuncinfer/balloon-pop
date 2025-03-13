@@ -188,7 +188,35 @@ public class LevelEditor : OdinEditorWindow
                         Rect spriteRect = refSprite ? refSprite.textureRect : new Rect();
                         if (spriteTexture)
                         {
-                            GUI.DrawTextureWithTexCoords(cellRect, spriteTexture, new Rect(spriteRect.x / spriteTexture.width, spriteRect.y / spriteTexture.height, spriteRect.width / spriteTexture.width, spriteRect.height / spriteTexture.height));
+                            // Calculate aspect ratio of sprite
+                            float spriteAspect = spriteRect.width / spriteRect.height;
+
+                            // Get aspect ratio of the target cell rect
+                            float targetAspect = cellRect.width / cellRect.height;
+
+                            // Compute the fitted rectangle
+                            Rect fittedRect = new Rect(cellRect);
+                            if (spriteAspect > targetAspect)
+                            {
+                                // Sprite is wider than target rect, fit by width
+                                float newHeight = cellRect.width / spriteAspect;
+                                fittedRect.y += (cellRect.height - newHeight) / 2f; // Center vertically
+                                fittedRect.height = newHeight;
+                            }
+                            else
+                            {
+                                // Sprite is taller than target rect, fit by height
+                                float newWidth = cellRect.height * spriteAspect;
+                                fittedRect.x += (cellRect.width - newWidth) / 2f; // Center horizontally
+                                fittedRect.width = newWidth;
+                            }
+
+                            // Draw the texture with preserved aspect ratio
+                            GUI.DrawTextureWithTexCoords(fittedRect, spriteTexture, new Rect(
+                                spriteRect.x / spriteTexture.width, 
+                                spriteRect.y / spriteTexture.height, 
+                                spriteRect.width / spriteTexture.width, 
+                                spriteRect.height / spriteTexture.height));
                         }
                     }
                 }

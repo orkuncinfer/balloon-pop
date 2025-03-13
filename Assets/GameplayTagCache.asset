@@ -9,7 +9,92 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 874c74b0fb78f2c4fa1d24129296de91, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d13617e996eeea4faf75e3f9413b693, type: 3}
   m_Name: GameplayTagCache
   m_EditorClassIdentifier: 
-  Entries: []
+  Entries:
+  - Tag: DS_GameModePersistent
+    References:
+    - Assets/Plugins/actor-core/GameMode/GAMEMODE.prefab
+  - Tag: DS_GameModeRuntime
+    References:
+    - Assets/Plugins/actor-core/GameMode/GAMEMODE.prefab
+  - Tag: Data_AbilityDefinition
+    References:
+    - Assets/Plugins/CharacterPackage/Prefabs/LivingBase_Actor.prefab
+    - Assets/_Project/Scenes/EmptyScene.unity/Player_Actor
+  - Tag: Data_Animancer
+    References:
+    - Assets/Plugins/CharacterPackage/Prefabs/LivingBase_Actor.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/Character_Skeleton.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/StateModules/StateModule_BaseBody.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/BodyStates_Module.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/StateModules/StateModule_Body.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/Module_Skeleton.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/StateModules/StateModule_UpperBody.prefab
+    - Assets/_Project/Scenes/EmptyScene.unity/Player_Actor
+  - Tag: Data_Character
+    References:
+    - Assets/Plugins/CharacterPackage/Prefabs/LivingBase_Actor.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/Actors/Actor_CharacterBase.prefab
+    - Assets/_Project/Scenes/EmptyScene.unity/Player_Actor
+  - Tag: DS_PlayerPersistent
+    References:
+    - Assets/Plugins/actor-core/GameMode/GAMEMODE.prefab
+    - Assets/_Balloon-Pop/Prefabs/SideDartThrower.prefab
+    - Assets/_Balloon-Pop/Prefabs/UI/LevelPathPrefab.prefab
+  - Tag: DataVar_Int
+    References:
+    - Assets/_Balloon-Pop/ScriptAssets/Items/Balloons/ItemAsset_Balloon_Basic.asset
+    - Assets/_Balloon-Pop/ScriptAssets/Items/Balloons/ItemAsset_Balloon_Shielded.asset
+  - Tag: Data_Camera
+    References:
+    - Assets/_Project/Prefabs/--COMMONS--.prefab
+  - Tag: DS_MovingActor
+    References:
+    - Assets/Plugins/CharacterPackage/Prefabs/Character_Skeleton.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/StateModules/StateModule_BaseBody.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/StateModules/StateModule_Mind_AI.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/BodyStates_Module.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/Actors/Actor_CharacterBase.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/StateModules/StateModule_Body.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/StateModules/StateModule_Mind_Player.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/Module_Skeleton.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/StateModules/StateModule_UpperBody.prefab
+    - Assets/_Project/Scenes/EmptyScene.unity/Player_Actor
+  - Tag: Data_Combatable
+    References:
+    - Assets/Plugins/CharacterPackage/Prefabs/Actors/Actor_CharacterBase.prefab
+  - Tag: Data_Monster
+    References:
+    - Assets/_Project/Scenes/EmptyScene.unity/Player_Actor
+  - Tag: Data_Equippable
+    References:
+    - Assets/Plugins/CharacterPackage/ScriptableAssets/GameItems/ItemAsset_Equipment_Rifle_1.asset
+    - Assets/Plugins/CharacterPackage/ScriptableAssets/GameItems/ItemAsset_Equipment_Pistol_1.asset
+  - Tag: Data_Gun
+    References:
+    - Assets/Plugins/CharacterPackage/ScriptableAssets/GameItems/ItemAsset_Equipment_Rifle_1.asset
+    - Assets/Plugins/CharacterPackage/ScriptableAssets/GameItems/ItemAsset_Equipment_Pistol_1.asset
+  - Tag: Data_RefVar
+    References:
+    - Assets/Plugins/CharacterPackage/Prefabs/StateModules/StateModule_BaseBody.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/Inventories/SlotInventory_Equipment.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/BodyStates_Module.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/StateModules/StateModule_Body.prefab
+    - Assets/Plugins/actor-core/GAS/_AbilitySystem/Demo/Abilities/Sprint/GA_AimingPistol.asset
+    - Assets/Plugins/CharacterPackage/Prefabs/StateModules/StateModule_UpperBody.prefab
+    - Assets/_Project/Scenes/EmptyScene.unity/Player_Actor
+  - Tag: DS_EquipmentUser
+    References:
+    - Assets/Plugins/CharacterPackage/Prefabs/Inventories/SlotInventory_Equipment.prefab
+    - Assets/_Balloon-Pop/_Scripts/test.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/Equipment_StateModule.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/StateModules/StateModule_Equipment.prefab
+    - Assets/_Project/Scenes/EmptyScene.unity/Player_Actor
+    - Assets/_Project/Scenes/EmptyScene.unity/test
+  - Tag: Data_Living
+    References:
+    - Assets/Plugins/CharacterPackage/Prefabs/LivingBase_Actor.prefab
+    - Assets/Plugins/CharacterPackage/Prefabs/Actors/Actor_CharacterBase.prefab
+    - Assets/_Project/Scenes/EmptyScene.unity/Player_Actor
