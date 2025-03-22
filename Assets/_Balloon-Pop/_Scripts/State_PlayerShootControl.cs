@@ -56,5 +56,6 @@ public class State_PlayerShootControl : MonoState
     private void Shoot()
     {
         GameObject spawned = PoolManager.SpawnObject(_projectilePrefab, _shootPoint.position, Quaternion.identity);
+        spawned.GetComponent<FastProjectile>().Initialize(Vector3.up, false);
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class MNF_Spawner : DataManifest
@@ -15,5 +16,6 @@ public class MNF_Spawner : DataManifest
 [Serializable]
 public class DS_Spawner : Data
 {
-    public List<Balloon> BalloonsInBounds = new List<Balloon>();
+    public List<Balloon> BalloonsInBounds => _balloonsInBounds;
+    [ShowInInspector]private List<Balloon> _balloonsInBounds = new List<Balloon>();
 }

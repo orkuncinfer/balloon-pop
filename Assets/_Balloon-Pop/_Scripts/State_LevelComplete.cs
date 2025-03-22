@@ -30,5 +30,7 @@ public class State_LevelComplete : MonoState
     protected override void OnExit()
     {
         base.OnExit();
+
+        Owner.GetData<DS_GameModeRuntime>().ResetResult();
     }
 }

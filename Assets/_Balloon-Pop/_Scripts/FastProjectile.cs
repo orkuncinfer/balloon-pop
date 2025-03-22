@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class FastProjectile : MonoBehaviour
 {
-    [SerializeField] private BuffItemListDefinition allBuffItems;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private LayerMask hitLayerMask;
     [SerializeField] private float detectionDistance = 50f;
@@ -15,6 +14,8 @@ public class FastProjectile : MonoBehaviour
     [SerializeField] private bool _returnIfOutsideOfScreen = true;
     [SerializeField] private ItemDefinition _ricochet2Item;
     [SerializeField] private ItemDefinition _ricochet4Item;
+    [SerializeField] private ItemDefinition _pierce1Item;
+    [SerializeField] private ItemDefinition _pierce2Item;
     private bool canHit = true;
     private Vector3 positionFirstFrame;
     private float distanceTraveledStep;
@@ -26,10 +27,12 @@ public class FastProjectile : MonoBehaviour
 
     private HashSet<string> _hitRegistry = new HashSet<string>();
 
-    private bool _hasPierce => DefaultPlayerInventory.Instance.HasItem(allBuffItems.Pierce.ItemId);
+    private bool _hasPierce => false;
 
     private Vector3 _moveDirection;
     private bool _isSubProjectile;
+
+    private int _health;
 
     void OnEnable()
     {
@@ -72,6 +75,20 @@ public class FastProjectile : MonoBehaviour
         transform.up = dir;
         _moveDirection = dir;
         _isSubProjectile = isSubProjectile;
+        if (BuffValidator.HasBuff(_pierce2Item))
+        {
+            _health = 3;
+        }else if (BuffValidator.HasBuff(_pierce1Item))
+        {
+            _health = 2;
+        }
+        else
+        {
+            _health = 1;
+        }
+
+        if (isSubProjectile) _health = 1;
+        Debug.Log("Projectile health :" + _health);
     }
 
     void Update()
@@ -127,7 +144,9 @@ public class FastProjectile : MonoBehaviour
         if (!_hasPierce)
         {
             if (!canHit) return;
-            canHit = false;
+            
+            _health--;
+            if (_health <= 0) canHit = false;
         }
 
         _hitRegistry.Add(collider.gameObject.GetInstanceID().ToString());
@@ -165,6 +184,7 @@ public class FastProjectile : MonoBehaviour
         lockedCollideTransform = null;
         hitCollider = null;
 
+      
         if (gameObject.activeSelf && !_hasPierce)
             StartCoroutine(WaitAndReturnToPool());
     }
@@ -173,8 +193,11 @@ public class FastProjectile : MonoBehaviour
     {
         transform.position = hitPoint;
         yield return null;
-        PoolManager.ReleaseObject(gameObject);
-        StopAllCoroutines();
+        if (_health <= 0)
+        {
+            PoolManager.ReleaseObject(gameObject);
+            StopAllCoroutines();
+        }
     }
 
     private void OnDrawGizmos()

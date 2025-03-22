@@ -28,9 +28,9 @@ public class DartThrower : MonoCore
         spawned.GetComponent<FastProjectile>().Initialize(transform.right,true);
     }
 
-    protected override void OnGameStopped()
+    protected override void OnGameModeStopped()
     {
-        base.OnGameStopped();
+        base.OnGameModeStopped();
         PoolManager.ReleaseObject(gameObject);
     }
 }

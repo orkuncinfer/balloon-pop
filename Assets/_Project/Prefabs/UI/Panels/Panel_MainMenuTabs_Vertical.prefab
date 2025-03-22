@@ -224,8 +224,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActorID: 
-  StartMethod: 1
+  StartMethod: 662
   _initialTags: []
+  GameplayTags:
+    _tagHashes: []
   _openedState: {fileID: 0}
   _viewTransform: {fileID: 8793459515222098700}
   PanelId: 
@@ -260,8 +262,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  FadeOutOnHide: 1
-  FadeInOnShow: 1
+  ParentPanelKey: 
+  _childPanels: []
 --- !u!222 &7772574352700268730
 CanvasRenderer:
   m_ObjectHideFlags: 0

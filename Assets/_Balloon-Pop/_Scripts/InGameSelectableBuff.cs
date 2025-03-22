@@ -36,8 +36,6 @@ public class InGameSelectableBuff : MonoBehaviour
 
     public void OnSelected()
     {
-        onBuffSelected?.Invoke(BuffItem.ItemId);
-       
         DS_PlayerPersistent playerPersistent = GlobalData.GetData<DS_PlayerPersistent>();
         int currentCount = playerPersistent.RuntimeBuffs.ContainsKey(BuffItem.ItemId) ? playerPersistent.RuntimeBuffs[BuffItem.ItemId] : 0;
         playerPersistent.RuntimeBuffs[BuffItem.ItemId] = currentCount + 1;
@@ -45,6 +43,7 @@ public class InGameSelectableBuff : MonoBehaviour
         {
             itemAction.OnAction(ActorRegistry.PlayerActor);
         }
+        onBuffSelected?.Invoke(BuffItem.ItemId);
         Debug.Log("BuffSelecteeed");
     }
 }

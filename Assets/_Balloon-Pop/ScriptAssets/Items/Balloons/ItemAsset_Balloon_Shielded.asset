@@ -46,7 +46,7 @@ MonoBehaviour:
         DataKey: Health
         OwnerActor: {fileID: 0}
         IsInstalled: 0
-        _value: 2
+        _value: 1
     - rid: 658624179164938258
       type: {class: DataVar_Int, ns: , asm: Assembly-CSharp-firstpass}
       data:

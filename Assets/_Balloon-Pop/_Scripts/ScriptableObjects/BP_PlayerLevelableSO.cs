@@ -28,6 +28,7 @@ public class BP_PlayerLevelableSO : ScriptableObject
         }
     }
 
+    [Button]
     public float GetExperienceForLevel(int targetLevel)
     {
         return experienceCurve.Evaluate((float)targetLevel / MaxLevel);
@@ -43,17 +44,17 @@ public class BP_PlayerLevelableSO : ScriptableObject
     [Button]
     public void ResetLevel()
     {
-        Level = 1;
+        Level = 0;
         CurrentExperience = 0;
         onExpChanged?.Invoke(CurrentExperience);
     }
 
     private void CheckLevelUp()
     {
-        while (CurrentExperience >= GetExperienceForLevel(Level + 1) && Level < MaxLevel)
+        while (CurrentExperience >= GetExperienceForLevel(Level) && Level < MaxLevel)
         {
-            Level++;
             CurrentExperience -= GetExperienceForLevel(Level);
+            Level++;
 
             onLevelUp?.Invoke(Level);
             onExpChanged?.Invoke(CurrentExperience);

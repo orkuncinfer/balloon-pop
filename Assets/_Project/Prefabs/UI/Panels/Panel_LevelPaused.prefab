@@ -235,8 +235,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActorID: 
-  StartMethod: 1
+  StartMethod: 662
   _initialTags: []
+  GameplayTags:
+    _tagHashes: []
   _openedState: {fileID: 0}
   _viewTransform: {fileID: 324796413455033027}
   PanelId: 
@@ -247,8 +249,8 @@ MonoBehaviour:
   onHideComplete:
     m_PersistentCalls:
       m_Calls: []
-  FadeOutOnHide: 1
-  FadeInOnShow: 1
+  ParentPanelKey: 
+  _childPanels: []
 --- !u!225 &140204668184401451
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -379,15 +381,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -588,15 +592,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 00000000
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0

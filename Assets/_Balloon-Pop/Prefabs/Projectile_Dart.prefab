@@ -49,12 +49,14 @@ MonoBehaviour:
   moveSpeed: 100
   hitLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 3583
   detectionDistance: 1.2
   visual: {fileID: 5679514439301552458}
   _returnIfOutsideOfScreen: 1
   _ricochet2Item: {fileID: 11400000, guid: 9949ec90bfd77ff4798545d769ff52e6, type: 2}
   _ricochet4Item: {fileID: 11400000, guid: 1bb2615f0c63e8e4086525b7bb3c012e, type: 2}
+  _pierce1Item: {fileID: 11400000, guid: adf85ac1b807f9a458ca058c543e5630, type: 2}
+  _pierce2Item: {fileID: 11400000, guid: 4ebac167fc131e74f8b66ed408743c44, type: 2}
 --- !u!1 &5679514439301552458
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +106,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

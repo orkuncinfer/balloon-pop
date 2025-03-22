@@ -678,10 +678,7 @@ MonoBehaviour:
     _retrievedData:
       rid: -2
   ActionReference: {fileID: -2517347363742752317, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
-  ActionName: Sprint
   CancelOnRelease: 1
-  TryActivateWhenHolding: 1
-  ActivateOnceWhenHolding: 0
   ActivationPolicy: 1
   CancelAbilitiesWithTag:
     _tagHashes:
@@ -723,10 +720,7 @@ MonoBehaviour:
     _retrievedData:
       rid: -2
   ActionReference: {fileID: -7078167138812104432, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
-  ActionName: Shoot
   CancelOnRelease: 1
-  TryActivateWhenHolding: 0
-  ActivateOnceWhenHolding: 1
   ActivationPolicy: 2
   CancelAbilitiesWithTag:
     _tagHashes: []
@@ -762,10 +756,7 @@ MonoBehaviour:
     _retrievedData:
       rid: -2
   ActionReference: {fileID: -4790670117762973758, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
-  ActionName: Reload
   CancelOnRelease: 0
-  TryActivateWhenHolding: 0
-  ActivateOnceWhenHolding: 0
   ActivationPolicy: 0
   CancelAbilitiesWithTag:
     _tagHashes: []
@@ -805,10 +796,7 @@ MonoBehaviour:
     _retrievedData:
       rid: -2
   ActionReference: {fileID: 3420258565368829637, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
-  ActionName: DropEquipment
   CancelOnRelease: 0
-  TryActivateWhenHolding: 0
-  ActivateOnceWhenHolding: 0
   ActivationPolicy: 0
   CancelAbilitiesWithTag:
     _tagHashes: []
@@ -1192,19 +1180,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3099353842231332549, guid: a8a9407b1d4f4314d8ca2bc730cefe05, type: 3}
       propertyPath: TargetPosition.x
-      value: 1073
+      value: -207
       objectReference: {fileID: 0}
     - target: {fileID: 3099353842231332549, guid: a8a9407b1d4f4314d8ca2bc730cefe05, type: 3}
       propertyPath: TargetPosition.y
-      value: -569
+      value: 151
       objectReference: {fileID: 0}
     - target: {fileID: 3099353842231332549, guid: a8a9407b1d4f4314d8ca2bc730cefe05, type: 3}
       propertyPath: TransformPosition.x
-      value: 753
+      value: -207
       objectReference: {fileID: 0}
     - target: {fileID: 3099353842231332549, guid: a8a9407b1d4f4314d8ca2bc730cefe05, type: 3}
       propertyPath: TransformPosition.y
-      value: -389
+      value: 151
       objectReference: {fileID: 0}
     - target: {fileID: 3559296177720889040, guid: a8a9407b1d4f4314d8ca2bc730cefe05, type: 3}
       propertyPath: m_LocalPosition.x

@@ -6,11 +6,17 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using WolarGames.Variables;
-
+public struct RequestSpawnArgs
+{
+   public GameObject Prefab;
+   public Vector3 Position;
+   public int SpriteIndex;
+}
 public class State_SpawnEnemies : MonoState
 {
    [SerializeField] private EventField<GameObject> _onBalloonDied;
    [SerializeField] private EventField _requestLevelComplete;
+   [SerializeField] private EventField<RequestSpawnArgs> _requestSpawn;
    [SerializeField] private BP_AllLevelListSO _allLevelData;
    [SerializeField] private WaveDataSO _waveData;
    [SerializeField] private Transform _spawnParent;
@@ -22,7 +28,7 @@ public class State_SpawnEnemies : MonoState
    [SerializeField] private float _delayBetweenWaves;
    private float _timeSinceLastWave;
    
-   private readonly List<GameObject> _spawnedBalloons = new List<GameObject>();
+   [SerializeField] private  List<GameObject> _spawnedBalloons = new List<GameObject>();
 
    
    [ShowInInspector]public int SpawnedBalloonsCount => _spawnedBalloons.Count;
@@ -40,8 +46,19 @@ public class State_SpawnEnemies : MonoState
       _canSpawnNextWave = true;
       _currentWaveIndex = 0;
       
+      _requestSpawn.Register(null,OnRequestSpawn);
       _onBalloonDied.Register(null,OnBalloonDied);
    }
+
+   private void OnRequestSpawn(EventArgs arg1, RequestSpawnArgs arg2)
+   {
+      GameObject go = PoolManager.SpawnObject(arg2.Prefab, arg2.Position, Quaternion.identity);
+      go.GetComponent<Balloon>().SetSpriteOrder(arg2.SpriteIndex);
+      if(!_spawnedBalloons.Contains(go)) _spawnedBalloons.Add(go);
+      go.transform.SetParent(_spawnParent);
+   }
+
+ 
 
    private void OnBalloonDied(EventArgs arg1, GameObject arg2)
    {
@@ -66,6 +83,7 @@ public class State_SpawnEnemies : MonoState
          PoolManager.ReleaseObject(balloon);
       }
             
+      _requestSpawn.Unregister(null,OnRequestSpawn);
       _onBalloonDied.Unregister(null,OnBalloonDied);
    }
    protected override void OnUpdate()

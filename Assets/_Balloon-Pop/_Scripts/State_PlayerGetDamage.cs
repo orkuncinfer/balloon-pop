@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using Heimdallr.Core;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 public class State_PlayerGetDamage : MonoState
 {
+    [SerializeField] private EventField<GameObject> _onBalloonDied;
     private DS_PlayerRuntime _playerRuntime;
     [SerializeField] private TriggerDetector2D _detector2D;
+    [SerializeField] private MMF_Player _damageEffect;
     protected override void OnEnter()
     {
         base.OnEnter();
@@ -26,11 +29,13 @@ public class State_PlayerGetDamage : MonoState
         {
             int damage = balloon.ItemDefinition.GetData<DataVar_Int>(TagEnum.Damage.ToString()).Value;
             _playerRuntime.CurrentHealth -= damage;
+            _damageEffect.PlayFeedbacks();
             if (_playerRuntime.CurrentHealth <= 0)
             {
                 _playerRuntime.CurrentHealth = 0;
             }
-            balloon.TakeDamage(999);
+            PoolManager.ReleaseObject(balloon.gameObject);
+            _onBalloonDied.Raise(balloon.gameObject);
         }
     }
 }

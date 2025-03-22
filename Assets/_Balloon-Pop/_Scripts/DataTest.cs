@@ -2,27 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataTest : MonoBehaviour
+public class DataTest : DataGroup
 {
-    public float Health;
-    public bool Dead;
-    public Vector2 vectorr;
-
-    public List<int> listt;
-
-    private void Start()
+    [SerializeField] private DataInstaller<DS_PlayerPersistent> _data;
+    
+    protected override IEnumerable<IDataInstaller> GetInstallers()
     {
-        if (ES3.KeyExists("deneme"+GetInstanceID()))
-        {
-           // object loadedData = ES3.Load("deneme" + GetInstanceID());
-            //JsonUtility.FromJsonOverwrite((string)loadedData, this);
-            ES3.LoadInto("deneme" + GetInstanceID(), this);
-        }
+        yield return _data;
     }
-
-    private void OnDestroy()
-    {
-        //string json = JsonUtility.ToJson(this,true);
-        ES3.Save("deneme"+GetInstanceID(),this);
-    }
+    
 }

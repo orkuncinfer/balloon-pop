@@ -45,10 +45,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f92b7e64f553645b23ac8a4e1a4fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
-  Dead: 1
-  vectorr: {x: 0, y: 0}
-  listt: 000000000500000000000000000000000000000000000000
+  _data:
+    _isVisible: 0
+    _editorID: 
+    _installType: 0
+    _isPersistent: 1
+    _installGlobal: 0
+    _loadAtInitialize: 0
+    _saveAtRemove: 0
+    _overrideGlobalCategory: 0
+    _globalDataCategory: 
+    Key: {fileID: 11400000, guid: 37901bcc6d6c73f449f83ae5731e5b15, type: 2}
+    DataSet:
+      IsGlobal: 0
+      UseKey: 0
+      IsPersistent: 0
+      DataKey: 
+      OwnerActor: {fileID: 0}
+      IsInstalled: 0
+      _attackSpeedPersistent: 50
+      _maxAttackSpeed: 0
+      _maxHealth: 5
+      _playerInLevelExp: 0
+      _lastTimeRewardCollected: 
+      _hasOngoingSession: 0
 --- !u!114 &985063230786692471
 MonoBehaviour:
   m_ObjectHideFlags: 0

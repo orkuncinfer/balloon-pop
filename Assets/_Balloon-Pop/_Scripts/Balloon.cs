@@ -12,6 +12,7 @@ using WolarGames.Variables;
 public class Balloon : MonoBehaviour, IDamageable
 {
 
+    public AllBalloonsSO AllBalloons;
     public ItemDefinition ItemDefinition;
     public float DesiredYPosition = 9.6f;
     [SerializeField] private Rigidbody2D _rigidbody;
@@ -23,6 +24,7 @@ public class Balloon : MonoBehaviour, IDamageable
     [SerializeField] private GameObject _expDropPrefab;
     
     [SerializeField] private EventField<GameObject> _onBalloonDied;
+    [SerializeField] private EventField<RequestSpawnArgs> _requestSpawn;
     [SerializeField] private UnityEvent _onBalloonDiedAction;
     [SerializeField] private UnityEvent _onBalloonTakeDamageAction;
     
@@ -64,8 +66,22 @@ public class Balloon : MonoBehaviour, IDamageable
             PoolManager.SpawnObject(_expDropPrefab, transform.position, Quaternion.identity);
             PoolManager.ReleaseObject(gameObject);
             SoundManager.Instance.CreateSoundBuilder().WithRandomPitch().Play(SoundManager.Instance.Container.BalloonPop);
+            SpawnWeaker();
         }
         _onBalloonTakeDamageAction.Invoke();
+    }
+
+    public void SpawnWeaker()
+    {
+        int index = AllBalloons.TileDropTypes.IndexOf(ItemDefinition);
+        index--;
+        if(index < 0) return;
+        RequestSpawnArgs spawnArgs = new RequestSpawnArgs();
+        ItemDefinition item = AllBalloons.TileDropTypes[index] as ItemDefinition;
+        spawnArgs.Prefab = item.WorldPrefab;
+        spawnArgs.Position = transform.position;
+        spawnArgs.SpriteIndex = _balloonSprite.sortingOrder;
+        _requestSpawn.Raise(spawnArgs);
     }
     
     public void Heal(int healAmount)
