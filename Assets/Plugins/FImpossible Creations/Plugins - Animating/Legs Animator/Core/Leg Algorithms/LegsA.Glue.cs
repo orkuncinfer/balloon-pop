@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using static FIMSpace.FProceduralAnimation.LegsAnimator;
 
 namespace FIMSpace.FProceduralAnimation
 {
@@ -18,6 +17,9 @@ namespace FIMSpace.FProceduralAnimation
             float _gluingCulldown = 0f;
 
             protected bool G_JustLanded = false;
+
+            /// <summary> Can be used by custom modules </summary>
+            [NonSerialized] public float ExtraGluingBlend = 1f;
 
             Vector3 _GlueLastAttachPosition;
             Vector3 _GlueLastAttachPositionRootLocal;
@@ -68,9 +70,14 @@ namespace FIMSpace.FProceduralAnimation
                     _GlueLastAttachPositionRootLocal = ToRootLocalSpace(BoneEnd.position);
                     _G_LastPreGlueSourceLocalIKPos = _GlueLastAttachPosition;
                     _G_PreGlueSourceLocalIKPos = _SourceIKPos;
+                    A_PreIKPosForGluing = BoneEnd.position;
+                    _G_LasGroundedPosLocal = _GlueLastAttachPositionRootLocal;
                 }
 
-                G_Attachement = new GlueAttachement();
+                var attach = new GlueAttachement();
+                attach.PosInAttachementLocal = _FinalIKPos;
+                attach.RotInAttachementLocal = _FinalIKRot;
+                G_Attachement = attach;
 
                 _G_RefernceSwing = Vector3.zero;
                 _G_WasDisabled = true;
@@ -86,7 +93,7 @@ namespace FIMSpace.FProceduralAnimation
             {
                 #region Gluing blending switch, deactivation, reactivation etc.
 
-                _glueTargetBlend = Owner.GlueBlend * Owner.RadgolledDisablerBlend * Owner.NotSlidingBlend;
+                _glueTargetBlend = Owner.GlueBlend * ExtraGluingBlend * Owner.RagdolledDisablerBlend * Owner.NotSlidingBlend;
 
                 if (Owner.GlueOnlyOnIdle) _glueTargetBlend *= 1f - Owner.IsMovingBlend;
 
@@ -243,6 +250,14 @@ namespace FIMSpace.FProceduralAnimation
             /// <summary> During being attached </summary>
             void Gluing_UpdateAttachement()
             {
+                if (G_Attachement.NoTransform == false && G_Attachement.AttachedTo == null)
+                {
+                    // Reset attachement on attached to destroy
+                    G_Attachement = new GlueAttachement();
+                    G_AttachementHandler.OnLegRequireRepose();
+                    G_Attached = false;
+                }
+
                 if (G_Attached == false) // Transition towards attachement point
                 {
                     _GluePosition = G_AttachementHandler.GetGluePosition();
@@ -321,6 +336,8 @@ namespace FIMSpace.FProceduralAnimation
 
                     Vector3 offset = targetDragPos - _GluePosition;
                     G_GlueDragOffset = Vector3.Lerp(G_GlueDragOffset, offset, Owner.DeltaTime * 14f);
+
+                    if( float.IsNaN( G_GlueDragOffset.x ) || float.IsNaN( G_GlueDragOffset.z ) ) G_GlueDragOffset = Vector3.zero;
                 }
             }
 
@@ -336,7 +353,7 @@ namespace FIMSpace.FProceduralAnimation
                 }
 
                 float applyBlend = _glueTargetBlend * G_AttachementHandler.glueAnimationBlend;
-
+                
                 if (applyBlend >= 1f)
                 {
                     _FinalIKPos = _GluePosition + G_GlueDragOffset;

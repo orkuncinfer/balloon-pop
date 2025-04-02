@@ -462,6 +462,54 @@
             ]
         },
         {
+            "name": "Camera Controls",
+            "id": "0ee9ffc6-576e-4644-8f16-f8367220b427",
+            "actions": [
+                {
+                    "name": "RotateCamera",
+                    "type": "Value",
+                    "id": "80fe52cc-f95d-4e21-a469-dae23445183f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ZoomCamera",
+                    "type": "Value",
+                    "id": "7a6e87d8-bf82-43e2-8c0c-14a1a6eadbb5",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c6bad701-557c-4c1e-97c8-60d11e3f4e5d",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6d741fba-c3b8-4648-8557-60291da4ee38",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ZoomCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "Debugs",
             "id": "e7bcb2a6-1fbe-4578-bc96-4a10c9fcb3dc",
             "actions": [

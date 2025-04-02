@@ -25,6 +25,7 @@ namespace FIMSpace.FProceduralAnimation
 
         [Tooltip("Optional Rigidbody which is used for few helper calculations. If rigidbody is assigned, then rigidbody velocity will drive 'Desired Move Direction' value (! only if .IsMoving is true !), unless you use 'User_SetDesiredMovementDirection'")]
         public Rigidbody Rigidbody;
+
         public Character ECMCharacter;
         [Tooltip("Use rigidboy velocity state to automatically drive Leg Animator's helper 'IsMoving' flag")]
         public bool UseRigidbodyVelocityForIsMoving = false;
@@ -44,8 +45,10 @@ namespace FIMSpace.FProceduralAnimation
 
         /// <summary> (world space move direction)\n(When rigidbody is assigned, rigidbody velocity is used here)\n Control value which helps animation based gluing detection </summary>
         public Vector3 DesiredMovementDirection { get; private set; }
-        protected bool usingCustomDesiredMovementDirection = false;
+        public bool usingCustomDesiredMovementDirection { get; private set; }
 
+        CalibrateTransform _spineBoneCalibrate;
+        CalibrateTransform _ChestBoneCalibrate;
 
 
         #region Ragdolled State Switch Implementation
@@ -97,26 +100,39 @@ namespace FIMSpace.FProceduralAnimation
             User_SetDesiredMovementDirection(worldDirection);
         }
 
-        protected virtual void Controll_DefineHashes()
+        public void User_SetDesiredMovementDirectionOff()
+        {
+            usingCustomDesiredMovementDirection = false;
+        }
+
+        /// <summary>
+        /// Requires assigned 'Mecanim' parameter to calculate mecanim properties hashes
+        /// </summary>
+        public virtual void Controll_DefineHashes()
         {
             if (Mecanim == null) return;
-            if (string.IsNullOrWhiteSpace(GroundedParameter) == false) _hash_Grounded = Animator.StringToHash(GroundedParameter);
 
-            if (string.IsNullOrWhiteSpace(MovingParameter) == false)
+            if( string.IsNullOrWhiteSpace( GroundedParameter ) == false ) _hash_Grounded = Animator.StringToHash( GroundedParameter ); else _hash_Grounded = -1;
+
+            if( string.IsNullOrWhiteSpace( MovingParameter ) == false )
             {
-                _hash_Moving = Animator.StringToHash(MovingParameter);
+                _hash_Moving = Animator.StringToHash( MovingParameter );
 
-                for (int i = 0; i < Mecanim.parameterCount; i++)
-                    if (Mecanim.GetParameter(i).nameHash == _hash_Moving)
-                        if (Mecanim.GetParameter(i).type == AnimatorControllerParameterType.Float)
-                        {
-                            _hash_MovingIsFloat = true;
-                            break;
-                        }
+                if( Mecanim.runtimeAnimatorController != null )
+                {
+                    for( int i = 0; i < Mecanim.parameterCount; i++ )
+                        if( Mecanim.GetParameter( i ).nameHash == _hash_Moving )
+                            if( Mecanim.GetParameter( i ).type == AnimatorControllerParameterType.Float )
+                            {
+                                _hash_MovingIsFloat = true;
+                                break;
+                            }
+                }
             }
+            else _hash_Moving = -1;
 
-            if (string.IsNullOrWhiteSpace(SlidingParameter) == false) _hash_Sliding = Animator.StringToHash(SlidingParameter);
-            if (string.IsNullOrWhiteSpace(RagdolledParameter) == false) _hash_Ragdolled = Animator.StringToHash(RagdolledParameter);
+            if( string.IsNullOrWhiteSpace( SlidingParameter ) == false ) _hash_Sliding = Animator.StringToHash( SlidingParameter ); else _hash_Sliding = -1;
+            if( string.IsNullOrWhiteSpace( RagdolledParameter ) == false ) _hash_Ragdolled = Animator.StringToHash( RagdolledParameter ); else _hash_Ragdolled = -1;
         }
 
         public bool Helper_WasMoving { get; private set; }
@@ -133,7 +149,7 @@ namespace FIMSpace.FProceduralAnimation
             if (IsRagdolled)
             {
                 if (RagdolledTime < 0f) RagdolledTime = 0f; RagdolledTime += DeltaTime;
-                RadgolledDisablerBlend = Mathf.MoveTowards(RadgolledDisablerBlend, 0f, DeltaTime * 6f);
+                RagdolledDisablerBlend = Mathf.MoveTowards(RagdolledDisablerBlend, 0f, DeltaTime * 6f);
                 UpdateBeingRagdolled();
             }
             else
@@ -145,13 +161,13 @@ namespace FIMSpace.FProceduralAnimation
 
                 if (blendTo1)
                 {
-                    float was = RadgolledDisablerBlend;
-                    RadgolledDisablerBlend = Mathf.MoveTowards(RadgolledDisablerBlend, 1f, DeltaTime * 4f);
-                    if (was != RadgolledDisablerBlend) UpdateBeingRagdolled();
+                    float was = RagdolledDisablerBlend;
+                    RagdolledDisablerBlend = Mathf.MoveTowards(RagdolledDisablerBlend, 1f, DeltaTime * 4f);
+                    if (was != RagdolledDisablerBlend) UpdateBeingRagdolled();
                 }
                 else
                 {
-                    RadgolledDisablerBlend = Mathf.MoveTowards(RadgolledDisablerBlend, 0f, DeltaTime * 6f);
+                    RagdolledDisablerBlend = Mathf.MoveTowards(RagdolledDisablerBlend, 0f, DeltaTime * 6f);
                 }
             }
 
@@ -189,7 +205,7 @@ namespace FIMSpace.FProceduralAnimation
 
             if (IsGrounded && GroundedTime < 0.2f) _glueModeExecuted = EGlueMode.Moving;
 
-            //if (IsGrounded) GroundedTime += Time.deltaTime; else GroundedTime = -0.000001f;
+            //if (IsGrounded) GroundedTime += DeltaTime; else GroundedTime = -0.000001f;
             if (IsGrounded) { if (GroundedTime < 0f) GroundedTime = 0f; GroundedTime += DeltaTime; } else { if (GroundedTime > 0f) GroundedTime = 0f; GroundedTime -= DeltaTime; }
             if (IsMoving) { if (MovingTime < 0f) MovingTime = 0f; MovingTime += DeltaTime; } else { if (MovingTime > 0f) MovingTime = 0f; MovingTime -= DeltaTime; }
 
@@ -229,8 +245,7 @@ namespace FIMSpace.FProceduralAnimation
         //[Space(5)]
         //public float AnimationFloorLevel = 0.05f;
 
-
-        public MotionInfluenceProcessor MotionInfluence;
+        public MotionInfluenceProcessor MotionInfluence = new MotionInfluenceProcessor();
 
         /// <summary> Velocity and motion influence update </summary>
         void BaseObject_MotionUpdate()
@@ -292,7 +307,6 @@ namespace FIMSpace.FProceduralAnimation
             // Modules
         }
 
-
         private void RefreshTargetMovementDirectionHelper()
         {
             if (!usingCustomDesiredMovementDirection)
@@ -324,6 +338,14 @@ namespace FIMSpace.FProceduralAnimation
                 var leg = Legs[l];
                 leg.Leg_UpdateParams();
             }
+        }
+
+        struct CalibrateTransform
+        {
+            public Transform Transform;
+            private Quaternion initLocalRot;
+            public CalibrateTransform(Transform t) { Transform = t; initLocalRot = t.localRotation; }
+            public void Calibrate() { Transform.localRotation = initLocalRot; }
         }
 
     }

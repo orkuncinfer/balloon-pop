@@ -46,7 +46,13 @@ namespace FIMSpace.FProceduralAnimation
 
                     Vector3 currentFootForward = _FinalIKRot * AnkleIK.forward;
 
-                    float angle = Vector3.SignedAngle(originalFootForward.normalized, currentFootForward.normalized, -(ankleAlignedOnGroundHitRotation * IKProcessor.EndParentIKBone.up));
+                    originalFootForward = ToRootLocalSpaceDir(originalFootForward);
+                    originalFootForward.y = 0f;
+
+                    currentFootForward = ToRootLocalSpaceDir(currentFootForward); 
+                    currentFootForward.y = 0f;
+
+                    float angle = Vector3.SignedAngle(originalFootForward.normalized, currentFootForward.normalized, Vector3.up/* -(ankleAlignedOnGroundHitRotation * IKProcessor.EndParentIKBone.up)*/);
                     float angleABS = Mathf.Abs(angle);
 
                     //lastFootForwardAngleDiff = angle;

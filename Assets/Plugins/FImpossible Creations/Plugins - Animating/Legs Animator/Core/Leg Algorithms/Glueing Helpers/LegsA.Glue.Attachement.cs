@@ -17,7 +17,7 @@ namespace FIMSpace.FProceduralAnimation
                 public Vector3 NormalInAttachementLocal;
 
                 public Quaternion RotInAttachementLocal;
-                bool noTransform;
+                public bool NoTransform { get; private set; }
 
                 public GlueAttachement(Leg leg, RaycastHit legGroundHit)
                 {
@@ -26,14 +26,14 @@ namespace FIMSpace.FProceduralAnimation
 
                     if (legGroundHit.transform == null)
                     {
-                        noTransform = true;
+                        NoTransform = true;
                         PosInAttachementLocal = legGroundHit.point;
                         NormalInAttachementLocal = legGroundHit.normal;
                         RotInAttachementLocal = leg._PreviousFinalIKRot;
                     }
                     else
                     {
-                        noTransform = false;
+                        NoTransform = false;
                         PosInAttachementLocal = legGroundHit.transform.InverseTransformPoint(legGroundHit.point);
                         NormalInAttachementLocal = legGroundHit.transform.InverseTransformDirection(legGroundHit.normal);
 
@@ -50,19 +50,19 @@ namespace FIMSpace.FProceduralAnimation
 
                 internal Vector3 GetRelevantHitPoint()
                 {
-                    if (noTransform) return PosInAttachementLocal;
+                    if (NoTransform) return PosInAttachementLocal;
                     return AttachedTo.TransformPoint(PosInAttachementLocal);
                 }
 
                 internal Vector3 GetRelevantNormal()
                 {
-                    if (noTransform) return NormalInAttachementLocal;
+                    if (NoTransform) return NormalInAttachementLocal;
                     return AttachedTo.TransformDirection(NormalInAttachementLocal);
                 }
 
                 internal Quaternion GetRelevantAttachementRotation()
                 {
-                    if (noTransform) return RotInAttachementLocal;
+                    if (NoTransform) return RotInAttachementLocal;
                     return FEngineering.QToWorld(AttachedTo.rotation, RotInAttachementLocal);
                 }
 

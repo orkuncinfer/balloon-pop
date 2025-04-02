@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4457358166036269931}
   - component: {fileID: 2201566296096907037}
   m_Layer: 0
-  m_Name: StateModule_Equipment
+  m_Name: StateModule_EquipmentHandling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

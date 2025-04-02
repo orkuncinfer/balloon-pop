@@ -6,7 +6,7 @@ namespace FIMSpace.FProceduralAnimation
 {
     public partial class LegsAnimator
     {
-        public LegStepAnimatingParameters BaseLegAnimating;
+        public LegStepAnimatingParameters BaseLegAnimating = new LegStepAnimatingParameters();
         /// <summary> For future leg motion presets </summary>
         public LegStepAnimatingParameters LegAnimatingSettings { get { return BaseLegAnimating; } }
 
@@ -24,7 +24,7 @@ namespace FIMSpace.FProceduralAnimation
             public AnimationCurve MoveToGoalCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
             [Tooltip("Making foot motion move towards target not in full linear straight towards target motion but adding a bit curve back (positive value) or forward (negative values) making movement a bit more natural")]
             [FPD_FixedCurveWindow(0f, -1f, 1f, 1f, .4f, .6f, .9f)] public AnimationCurve SpherizeTrack = AnimationCurve.EaseInOut(0f, 0f, 1f, 0f);
-            [Range(0f,2f)] public float SpherizePower = 0.6f;
+            [Range(0f,2f)] public float SpherizePower = 0.3f;
 
 
             [Tooltip("Minimum leg raise height. If distance of target step animation is small, then foot raise is smaller - down to this minimum raise value.")]
@@ -53,6 +53,8 @@ namespace FIMSpace.FProceduralAnimation
             [FPD_FixedCurveWindow(0f, -1f, 1f, 1f)]
             public AnimationCurve FootRotationCurve;
 
+            [Tooltip( "When steps are too small, then leg will not apply hips motion to the system" )]
+            [Range( 0f, 0.2f )] public float DoStepAnimationOnDistanceFactor = 0.055f;
 
 
             #region Curves Definition

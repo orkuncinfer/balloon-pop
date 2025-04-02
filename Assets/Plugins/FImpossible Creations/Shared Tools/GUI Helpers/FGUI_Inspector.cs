@@ -7,9 +7,42 @@ namespace FIMSpace.FEditor
 {
     public static class FGUI_Inspector
     {
+        public static readonly GUILayoutOption[] _button_h22 = new GUILayoutOption[] { GUILayout.Height( 34 ) };
+        public static readonly GUILayoutOption[] _button_h18 = new GUILayoutOption[] { GUILayout.Height( 18 ) };
+        public static readonly GUILayoutOption[] _button_w18h18 = new GUILayoutOption[] { GUILayout.Width( 18 ), GUILayout.Height( 18 ) };
+        public static readonly GUILayoutOption[] _button_w20h18 = new GUILayoutOption[] { GUILayout.Width( 20 ), GUILayout.Height( 18 ) };
+        public static readonly GUILayoutOption[] _button_w22h18 = new GUILayoutOption[] { GUILayout.Width( 22 ), GUILayout.Height( 18 ) };
+        public static readonly GUILayoutOption[] _button_w20h16 = new GUILayoutOption[] { GUILayout.Width( 20 ), GUILayout.Height( 16 ) };
+        public static readonly GUILayoutOption[] _button_w22h16 = new GUILayoutOption[] { GUILayout.Width( 22 ), GUILayout.Height( 16 ) };
+        public static readonly GUILayoutOption[] _button_w19h15 = new GUILayoutOption[] { GUILayout.Width( 19 ), GUILayout.Height( 15 ) };
+        public static readonly GUILayoutOption[] _button_w14h14 = new GUILayoutOption[] { GUILayout.Width( 14 ), GUILayout.Height( 14 ) };
+
         public static readonly RectOffset ZeroOffset = new RectOffset(0, 0, 0, 0);
         public static Object LastObjSelected;
         public static GameObject LastGameObjectSelected;
+
+
+        /// <summary> Since remembering in which EditorGUI, EditorGUILayout, or EditorGUIUtility, or  GUILayoutUtility ahhh... in which if these classes you will find the desired variable is so confusing ¯\_(ツ)_/¯ each time when trying finding it, ending in googling for forums post with it </summary>
+        public static float InspectorViewWidth()
+        {
+#if UNITY_EDITOR
+            return EditorGUIUtility.currentViewWidth;
+#else
+            return 0f;
+#endif
+
+        }
+
+        public static bool IsRightMouseButton()
+        {
+            if (UnityEngine.Event.current == null) return false;
+
+            if (UnityEngine.Event.current.type == UnityEngine.EventType.Used)
+                if (UnityEngine.Event.current.button == 1 || UnityEngine.Event.current.control)
+                    return true;
+
+            return false;
+        }
 
         public static void HeaderBox(ref bool foldout, string title, bool frame, Texture icon = null, int height = 20, int iconsSize = 19, bool big = false)
         {
@@ -168,7 +201,7 @@ namespace FIMSpace.FEditor
         public static GUIStyle Style(Color bgColor, int off = -1)
         {
             GUIStyle newStyle = new GUIStyle(GUI.skin.box);
-            if (off < 0) { if (Screen.dpi != 120) newStyle.border = new RectOffset(off, off, off, off); else if (!displayedDPIWarning) { Debug.Log("<b>[HEY! UNITY DEVELOPER!]</b> It seems you have setted up incorrect DPI settings for unity editor. Check <b>Unity.exe -> Properties -> Compatibility -> Change DPI Settings -> Replace Scaling -> System / System (Upgraded)</b> And restart Unity Editor."); displayedDPIWarning = true; } }
+            if (off < 0) { if (Screen.dpi != 120) newStyle.border = new RectOffset(off, off, off, off); else if (!displayedDPIWarning) { /*Debug.Log("<b>[HEY! UNITY DEVELOPER!]</b> It seems you have setted up incorrect DPI settings for unity editor. Check <b>Unity.exe -> Properties -> Compatibility -> Change DPI Settings -> Replace Scaling -> System / System (Upgraded)</b> And restart Unity Editor.");*/ displayedDPIWarning = true; } }
             else newStyle.border = new RectOffset(off, off, off, off);
 
             Color[] solidColor = new Color[1] { bgColor };

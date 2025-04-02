@@ -5,6 +5,7 @@ using UnityEngine;
 namespace FIMSpace.FProceduralAnimation
 {
     [AddComponentMenu("FImpossible Creations/Legs Animator")]
+    [HelpURL("https://assetstore.unity.com/packages/tools/animation/legs-animator-154245")]
     [DefaultExecutionOrder(-7)]
     public partial class LegsAnimator : MonoBehaviour
     {
@@ -12,11 +13,12 @@ namespace FIMSpace.FProceduralAnimation
 
         /// <summary> Once per frame calculated component's blend value for the algorithms </summary>
         public float _MainBlend { get; protected set; }
-        
+
         float _lastMainBlend = 1f;
         /// <summary> For extra update calls liek IK refresh </summary>
         protected bool _lastMainBlendChanged { get; private set; }
 
+        public float _MainBlendNoRagdolling { get; protected set; }
         public float _MainBlendPlusGrounded { get; protected set; }
 
         [Tooltip("Total blend of the plugin effects. When zero it disables most of the calculations (but not all)")]
@@ -39,6 +41,7 @@ namespace FIMSpace.FProceduralAnimation
         private void Start()
         {
             _started = true;
+            if (baseTransform == null) baseTransform = transform;
             AllowUpdate = false;
 
             if (DelayedInitialization == false) Initialize();
@@ -58,12 +61,29 @@ namespace FIMSpace.FProceduralAnimation
                 if (!Rigidbody) Rigidbody = BaseTransform.GetComponentInChildren<Rigidbody>();
                 if (!Rigidbody) Rigidbody = BaseTransform.GetComponentInParent<Rigidbody>();
             }
-            if(ECMCharacter == null) ECMCharacter = Rigidbody.GetComponent<Character>();
+            if (Rigidbody)
+            {
+                if (Rigidbody.TryGetComponent<Character>(out Character eCMCharacter))
+                {
+                    ECMCharacter = eCMCharacter;
+                }
+            }
+            
             Initialize();
         }
 
         private void OnEnable()
         {
+
+            #region Recompile support (Thanks to zORg_alex on our Discord!)
+
+#if UNITY_EDITOR
+#if UNITY_2021_3_OR_NEWER
+            if (Application.isPlaying) UnityEditor.AssemblyReloadEvents.afterAssemblyReload += ReInitialize;
+#endif
+#endif
+            #endregion
+
             // Prevent start-disable not activated component error
             if (_started)
             {
@@ -71,6 +91,14 @@ namespace FIMSpace.FProceduralAnimation
                 else _wasInstantTriggered = false;
             }
         }
+
+        private void ReInitialize()
+        {
+            LegsInitialized = false;
+            DisposeModules();
+            Start();
+        }
+
 
         #endregion Start Coroutine
 
@@ -103,7 +131,19 @@ namespace FIMSpace.FProceduralAnimation
             // Camera Visibility culling
             if (DisableIfInvisible != null)
             {
-                if (DisableIfInvisible.isVisible == false)
+                bool allInvisible = true;
+
+                if (DisableIfInvisible.isVisible)
+                {
+                    allInvisible = false;
+
+                    for (int i = 0; i < DisableIfInvisibleExtraRenderers.Count; i++)
+                    {
+                        if (DisableIfInvisibleExtraRenderers[i].isVisible) { allInvisible = false; break; }
+                    }
+                }
+
+                if (allInvisible)
                 {
                     legsWasDisabled = true;
                     return;
@@ -128,7 +168,7 @@ namespace FIMSpace.FProceduralAnimation
             // Reactivating procedures
             if (legsWasDisabled)
             {
-                if (_MainBlend > 0f)
+                if (_MainBlendNoRagdolling > 0f)
                     if (LegsInitialized)
                     {
                         OnLegsReactivate();
@@ -139,14 +179,23 @@ namespace FIMSpace.FProceduralAnimation
 
         private void Update()
         {
+            if (LegsInitialized == false) return;
+            
             CheckActivation();
-            PrepareValues(Time.deltaTime);
+
+            float dt = UnscaledDeltaTime ? Time.unscaledDeltaTime : Time.deltaTime;
+            PrepareValues(dt);
+
+            if (ECMCharacter)
+            {
+                User_SetDesiredMovementDirection(ECMCharacter.GetMovementDirection());
+            }
 
             if (!AllowUpdate) return;
             if (AnimatePhysics) return;
             if (legsWasDisabled) return;
 
-            UpdateStack(Time.deltaTime);
+            UpdateStack(dt);
         }
 
         private bool _fixedUpdated = false;
@@ -156,12 +205,13 @@ namespace FIMSpace.FProceduralAnimation
             if (!AllowUpdate) return;
             if (legsWasDisabled) return;
 
-            PrepareValues(Time.fixedDeltaTime);
+            float dt = UnscaledDeltaTime ? Time.fixedUnscaledDeltaTime : Time.fixedDeltaTime;
+            PrepareValues(dt);
             ExtraFixedUpdate();
 
             if (AnimatePhysics == false) return;
 
-            UpdateStack(Time.fixedDeltaTime);
+            UpdateStack(dt);
             _fixedUpdated = true;
         }
 
@@ -170,13 +220,15 @@ namespace FIMSpace.FProceduralAnimation
         {
             if (!UseRigidbodyVelocityForIsMoving) return;
             if (!Rigidbody) return;
-            if(ECMCharacter == null) return;
-            
-            Vector3 localVelo = ToRootLocalSpaceVec(ECMCharacter.GetVelocity());
+        
+            Vector3 localVelo = ToRootLocalSpaceVec(Rigidbody.linearVelocity);
+            if (ECMCharacter)
+            {
+                localVelo = ToRootLocalSpaceVec(ECMCharacter.GetVelocity());
+            }
             localVelo.y = 0f;
             bool moving = (localVelo.magnitude) > ScaleReferenceNoScale * 0.02f;
             User_SetIsMoving(moving);
-            User_SetDesiredMovementDirection(ECMCharacter.GetMovementDirection());
         }
 
         private void LateUpdate()
@@ -204,15 +256,16 @@ namespace FIMSpace.FProceduralAnimation
         /// <summary> Prepare target blend value for the component's algorithms </summary>
         protected virtual void PrepareValues(float delta)
         {
-            _MainBlend = LegsAnimatorBlend * cullingBlend * protectedBlend * RadgolledDisablerBlend;
+            _MainBlendNoRagdolling = LegsAnimatorBlend * cullingBlend * protectedBlend;
+            _MainBlend = _MainBlendNoRagdolling * RagdolledDisablerBlend;
             _MainBlendPlusGrounded = _MainBlend * IsGroundedBlend;
             if (Mecanim != null) AnimatePhysics = Mecanim.updateMode == AnimatorUpdateMode.Fixed;
 
-            if (_lastMainBlend != _MainBlend) 
-            { 
+            if (_lastMainBlend != _MainBlend)
+            {
                 _lastMainBlendChanged = true;
                 for (int l = 0; l < Legs.Count; l++) Legs[l].IK_UpdateParamsBase();
-            } 
+            }
             else { _lastMainBlendChanged = false; }
 
             _lastMainBlend = _MainBlend;
@@ -235,8 +288,7 @@ namespace FIMSpace.FProceduralAnimation
                 if (_wasInstantTriggered == false) IK_TriggerGlueInstantTransition();
 
                 RefreshTargetMovementDirectionHelper();
-
-                RefreshMatrices();
+                //RefreshMatrices();
 
                 Controll_Update();
                 UpdateGroundedBlend();
@@ -252,6 +304,7 @@ namespace FIMSpace.FProceduralAnimation
             }
             else
             {
+                Controll_Update();
                 Legs_PreCalibrate();
                 legsWasDisabled = true;
             }
@@ -270,6 +323,8 @@ namespace FIMSpace.FProceduralAnimation
             MeasurePerformancePreLateUpdate(true);
 
             #endregion Editor Debug Performance Measure Start
+
+            RefreshMatrices();
 
             Legs_CheckAnimatorPose();
             Modules_AfterAnimatorCaptureUpdate();
@@ -364,6 +419,18 @@ namespace FIMSpace.FProceduralAnimation
             }
         }
 
+        /// <summary> Use if you're adding legs animator runtime </summary>
+        public void OnAddedReset()
+        {
+            MotionInfluence = new MotionInfluenceProcessor();
+            MotionInfluence.AxisMotionInfluence.x = 0f;
+
+            BaseLegAnimating = new LegStepAnimatingParameters();
+            LegAnimatingSettings.RefreshDefaultCurves();
+
+            CustomModules = new System.Collections.Generic.List<LegsAnimatorCustomModuleHelper>();
+        }
+
         #region Editor Code (void Reset())
 
 #if UNITY_EDITOR
@@ -373,13 +440,8 @@ namespace FIMSpace.FProceduralAnimation
 
         protected virtual void Reset()
         {
-            MotionInfluence = new MotionInfluenceProcessor();
-            MotionInfluence.AxisMotionInfluence.x = 0f;
+            OnAddedReset();
 
-            BaseLegAnimating = new LegStepAnimatingParameters();
-            LegAnimatingSettings.RefreshDefaultCurves();
-
-            CustomModules = new System.Collections.Generic.List<LegsAnimatorCustomModuleHelper>();
             var helper = new LegsAnimatorCustomModuleHelper(this);
             helper.ModuleReference = _Editor_DefaultModuleOnStart;
             if (helper.ModuleReference == null) return;
