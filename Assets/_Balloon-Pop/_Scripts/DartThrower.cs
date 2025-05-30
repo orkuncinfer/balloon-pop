@@ -1,4 +1,5 @@
 ﻿using System;
+using MyFastProjectile;
 using UnityEngine;
 
 public class DartThrower : MonoCore

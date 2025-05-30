@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630c854f5fb28704db287c035c1ed4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _statController: {fileID: 6355343301480519406}
 --- !u!1 &4985143496754328954
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,10 +94,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b70fcd5e6260241b1e7acd8db64046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInitialized: 0
   DataBase: {fileID: 11400000, guid: babec1d5d711ca44da49b0de8cb5d00e, type: 2}
   AttributeList: []
   StatList: []
+  PrimaryStatList: []
+  IsInitialized: 0
 --- !u!114 &3239192128332461593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,8 +123,17 @@ MonoBehaviour:
   AbilitySet: {fileID: 0}
   LastUsedAbility:
     Owner: {fileID: 0}
-  ActiveAbilities: []
-  Target: {fileID: 0}
+    AbilityActions: []
+    CustomClipTransition:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 0}
+      _Speed: 1
+      _NormalizedStartTime: 0
+  _target: {fileID: 0}
   TestAbility: {fileID: 0}
 --- !u!114 &8846476172219300560
 MonoBehaviour:
@@ -138,8 +147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49787952d4c72bd4ea0ec77c6e6fa1fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInitialized: 0
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
+  _allEffectsList: {fileID: 0}
   _initialEffects: []
+  IsInitialized: 0
 --- !u!114 &495334756100243723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,8 +180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e85204b77f26d4689c4e9bc5b2c920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugCanvas: {fileID: 7024509497372333798, guid: d94b94463511913429ae10a08e0f3ed8, type: 3}
-  _gameplayTags: []
 --- !u!114 &1563469108417727312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,21 +195,9 @@ MonoBehaviour:
   Description: 
   ChangeName: 
   Datas:
-  - rid: 3860127092610170881
+  - rid: -2
   references:
     version: 2
     RefIds:
-    - rid: 3860127092610170881
-      type: {class: Data_GAS, ns: , asm: Assembly-CSharp-firstpass}
-      data:
-        IsGlobal: 0
-        UseKey: 0
-        IsPersistent: 0
-        DataKey: 
-        OwnerActor: {fileID: 0}
-        IsInstalled: 0
-        _statController: {fileID: 6355343301480519406}
-        _abilityController: {fileID: 3239192128332461593}
-        _effectController: {fileID: 8846476172219300560}
-        _levelController: {fileID: 495334756100243723}
-        _tagController: {fileID: 2463381257905067462}
+    - rid: -2
+      type: {class: , ns: , asm: }

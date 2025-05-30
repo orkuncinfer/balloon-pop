@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Animancer;
 using ECM2;
+using ECM2.Examples.Networking.FishNet;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,8 +24,11 @@ public class State_PlayLocomotionAsset : MonoState
     [SerializeField] private float _velocityThreshold = 2f;
 
     private DS_MovingActor _movingActor;
+
+    private RPG_PlayerController _networkRpgPlayerController;
     
-    private Character _character;
+    private CharacterMovement _character;
+    private Rigidbody _rigidBody;
     public Vector2 MoveInput;
     private Data_Animancer _dataAnimancer;
     private LocomotionAsset _locomotionAssetData;
@@ -41,8 +45,14 @@ public class State_PlayLocomotionAsset : MonoState
     protected override void OnEnter()
     {
         base.OnEnter();
+
+#if USING_FISHNET
+        _networkRpgPlayerController = Owner.GetComponent<RPG_PlayerController>();
+#endif
+        
         _movingActor = Owner.GetData<DS_MovingActor>();
-        _character = Owner.GetComponent<Character>();
+        _character = Owner.GetComponent<CharacterMovement>();
+        _rigidBody= Owner.GetComponent<Rigidbody>();
         _dataAnimancer = Owner.GetData<Data_Animancer>();
         _locomotionAsset.GetData(Owner); 
         _dataAnimancer.AnimancerComponent.Layers[_layer].ApplyFootIK = true;
@@ -79,7 +89,7 @@ public class State_PlayLocomotionAsset : MonoState
                 _asset = linear;
                 var tr = _cachedTransitions[linear.GetTransition().Key];
                 if(_avatarMask) _dataAnimancer.AnimancerComponent.Layers[_layer].SetMask(_avatarMask);
-                var state = _dataAnimancer.AnimancerComponent.Layers[_layer].Play(tr,_asset2D.FadeDuration,_asset2D.FadeMode);
+                var state = _dataAnimancer.AnimancerComponent.Layers[_layer].Play(tr,_asset.FadeDuration,_asset.FadeMode);
                 state.ApplyFootIK = true;
             }
             else
@@ -87,12 +97,10 @@ public class State_PlayLocomotionAsset : MonoState
                 _asset = linear;
                 var tr = linear.Transition.CreateState();
                 if(_avatarMask) _dataAnimancer.AnimancerComponent.Layers[_layer].SetMask(_avatarMask);
-                var state = _dataAnimancer.AnimancerComponent.Layers[_layer].Play(tr,_asset2D.FadeDuration,_asset2D.FadeMode);
+                var state = _dataAnimancer.AnimancerComponent.Layers[_layer].Play(tr,_asset.FadeDuration,_asset.FadeMode);
                 state.ApplyFootIK = true;
                 _cachedTransitions.Add(linear.GetTransition().Key,tr);
             }
-            
-            Debug.Log($"played locomotion asset: {_asset.name} on layer {_layer}");
         }
         else if (_locomotionAssetData.Locomotion is MixerTransition2DAsset mixer)
         {
@@ -126,8 +134,20 @@ public class State_PlayLocomotionAsset : MonoState
         }
 
         // Get the world-space velocity
-        Vector3 worldVelocity = _character.GetVelocity();
+        Vector3 worldVelocity = Vector3.zero;
 
+        if(_character != null)
+            worldVelocity = _character.velocity;
+        else
+        {
+            worldVelocity = _rigidBody.linearVelocity;
+        }
+        
+        if (_networkRpgPlayerController)
+        {
+            //worldVelocity = _networkRpgPlayerController.LastSentVelocity;
+        }
+        
         // Convert world velocity to local velocity
         Vector3 localVelocity = Owner.transform.InverseTransformDirection(worldVelocity);
 

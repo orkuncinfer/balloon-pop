@@ -28,4 +28,6 @@ public class DS_MovingActor : Data
         get => _moveInput;
         set => _moveInput = value;
     }
+    
+    public bool BlockMoveInput { get; set; }
 }

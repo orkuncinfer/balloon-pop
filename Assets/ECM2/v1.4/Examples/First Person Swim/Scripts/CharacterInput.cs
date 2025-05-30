@@ -43,9 +43,23 @@ namespace ECM2.Examples.FirstPersonSwim
                 movementDirection += forward * inputMove.y;
                 
                 // Vertical movement
-
+                
                 if (_character.jumpInputPressed)
-                    movementDirection += Vector3.up;
+                {
+                    // Use immersion depth to check if we are at top of water line,
+                    // if yes, jump of of water
+
+                    float depth = _character.CalcImmersionDepth();
+                    if (depth > 0.65f)
+                        movementDirection += _character.GetUpVector();
+                    else
+                    {
+                        // Jump out of water
+
+                        _character.SetMovementMode(Character.MovementMode.Falling);
+                        _character.LaunchCharacter(_character.GetUpVector() * 9.0f, true);
+                    }
+                }
             }
             else
             {

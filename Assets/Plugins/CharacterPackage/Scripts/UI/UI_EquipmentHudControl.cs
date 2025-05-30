@@ -24,6 +24,9 @@ public class UI_EquipmentHudControl : MonoBehaviour
 
     private void OnInventoryInit()
     {
+        _owner = ActorUtilities.FindFirstActorInParents(transform);
+        _equipmentUser = _owner.GetData<DS_EquipmentUser>();
+        
         _equipmentInventory.onInventoryInitialized -= OnInventoryInit;
         
         _equipmentUser.onEquippedListChanged += OnEquippedListChanged;

@@ -11,7 +11,7 @@ public class InteractionObjectEquipment : MonoBehaviour
 
     public void PickUp()
     {
-        ActorBase actor =
+        Actor actor =
             ActorUtilities.FindFirstActorInParents(_interactionObject.lastUsedInteractionSystem.transform);
         _equippable.EquipThisInstance(actor);
     }

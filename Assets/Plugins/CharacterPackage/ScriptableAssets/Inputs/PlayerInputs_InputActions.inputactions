@@ -90,7 +90,7 @@
                     "name": "Ability-1",
                     "type": "Button",
                     "id": "cb3cf94f-016c-4b07-8eae-64fbde90f6be",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -99,7 +99,7 @@
                     "name": "Ability-2",
                     "type": "Button",
                     "id": "656cf721-5875-4ec0-aa4c-5191e7791834",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -341,7 +341,7 @@
                 {
                     "name": "",
                     "id": "4e83b6b7-0a7c-43f9-ae29-67da0b745714",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

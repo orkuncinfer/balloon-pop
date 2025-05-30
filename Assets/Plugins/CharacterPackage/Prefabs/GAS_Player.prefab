@@ -49,10 +49,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c318fcca40e141049b8d1abb76351195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInitialized: 0
   DataBase: {fileID: 11400000, guid: babec1d5d711ca44da49b0de8cb5d00e, type: 2}
   AttributeList: []
   StatList: []
+  PrimaryStatList: []
+  IsInitialized: 0
 --- !u!114 &2911527941767131919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +76,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9cebe87f2c0fc554189e396be762c199, type: 2}
   - {fileID: 11400000, guid: ac99efc38aade324c9caf47644189dab, type: 2}
   AbilitySet: {fileID: 0}
-  Target: {fileID: 0}
+  LastUsedAbility:
+    Owner: {fileID: 0}
+    AbilityActions: []
+    CustomClipTransition:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 0}
+      _Speed: 1
+      _NormalizedStartTime: 0
+  _target: {fileID: 0}
   TestAbility: {fileID: 0}
 --- !u!114 &8846476172219300560
 MonoBehaviour:
@@ -89,8 +102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49787952d4c72bd4ea0ec77c6e6fa1fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInitialized: 0
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
+  _allEffectsList: {fileID: 0}
   _initialEffects: []
+  IsInitialized: 0
 --- !u!114 &495334756100243723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,8 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e85204b77f26d4689c4e9bc5b2c920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugCanvas: {fileID: 7024509497372333798, guid: d94b94463511913429ae10a08e0f3ed8, type: 3}
-  _gameplayTags: []
 --- !u!114 &2335730016589749089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,19 +150,9 @@ MonoBehaviour:
   Description: GAS
   ChangeName: GAS
   Datas:
-  - rid: 3860127092610170880
+  - rid: -2
   references:
     version: 2
     RefIds:
-    - rid: 3860127092610170880
-      type: {class: Data_GAS, ns: , asm: Assembly-CSharp-firstpass}
-      data:
-        IsGlobal: 0
-        UseKey: 0
-        DataKey: {fileID: 0}
-        OwnerActor: {fileID: 0}
-        _statController: {fileID: 9078681099890183586}
-        _abilityController: {fileID: 2911527941767131919}
-        _effectController: {fileID: 8846476172219300560}
-        _levelController: {fileID: 495334756100243723}
-        _tagController: {fileID: 2463381257905067462}
+    - rid: -2
+      type: {class: , ns: , asm: }

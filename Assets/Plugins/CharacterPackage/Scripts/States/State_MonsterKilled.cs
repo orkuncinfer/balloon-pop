@@ -9,6 +9,7 @@ public class State_MonsterKilled : MonoState
     protected override void OnEnter()
     {
         base.OnEnter();
+        Debug.Log("dead11");
         _monsterData = Owner.GetData<Data_Monster>();
         _onMobKilled.Raise(new MobKilledEventArgs()
         {
@@ -26,4 +27,5 @@ public struct MobKilledEventArgs
 {
     public string MobId;
     public Vector3 Position;
+    
 }

@@ -9,8 +9,8 @@ using Object = UnityEngine.Object;
 public class Equippable : MonoBehaviour
 {
     [SerializeField][ReadOnly]
-    private ActorBase _owner; 
-    public ActorBase Owner 
+    private Actor _owner; 
+    public Actor Owner 
     {
         get => _owner;
         set => _owner = value;
@@ -39,7 +39,7 @@ public class Equippable : MonoBehaviour
     public bool IsEquipped => _isEquipped;
     private bool _isEquipped;
     
-    public virtual void OnEquip(ActorBase owner)
+    public virtual void OnEquip(Actor owner)
     {
         _owner = owner;
         Owner.GetData<DS_EquipmentUser>().SocketName = _equipSocketName;
@@ -84,7 +84,7 @@ public class Equippable : MonoBehaviour
         string unequipSlotName = ItemDefinition.GetData<Data_Equippable>().UnequipSlotName;
         Owner.SocketRegistry.SlotDictionary[unequipSlotName] = transform;
     }
-    public virtual void EquipThisInstance(ActorBase actor)
+    public virtual void EquipThisInstance(Actor actor)
     {
         Owner = actor;
         Owner.GetData<DS_EquipmentUser>().EquipWorldInstance(gameObject,EquipSocketName);

@@ -28,6 +28,8 @@ public class Service_GAS : ActorMonoService<Service_GAS>
         _levelController = GetComponent<LevelController>();
     }
 
+ 
+
     public override void OnServiceBegin()
     {
         base.OnServiceBegin();

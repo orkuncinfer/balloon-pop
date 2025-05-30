@@ -154,16 +154,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adefe50182e30e845ab9a13ab2832915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsAiming: 0
+  _owner: {fileID: 0}
   LerpSpeed: 2
   ik: {fileID: 7654469935183962509}
   headLookWeight: 1
   gunHoldWeight: 1
   gunHoldOffset: {x: -0.12, y: 0.08, z: 0.04}
-  leftHandOffset: {x: 0, y: 0, z: 0}
   _leftHandBendSpeed: 2
   recoil: {fileID: 4240945279452065992}
+  leftHandPoser: {fileID: 0}
+  rightHandPoser: {fileID: 0}
   LeftHandBendTarget: {fileID: 0}
+  AimFromCamera: 0
+  AimFrom: {fileID: 0}
 --- !u!114 &4240945279452065992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,7 +832,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3988937241763510190
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -843,6 +846,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -874,6 +878,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564e75481b8e3f845b2ad1b9ce168b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
 --- !u!114 &5490822422730472329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,16 +896,13 @@ MonoBehaviour:
   Sockets:
   - Key: root
     Transform: {fileID: 598605502573809205}
-    IsBone: 1
   - Key: right_hand
     Transform: {fileID: 575355767521907445}
-    IsBone: 1
   - Key: SwordPivot
     Transform: {fileID: 5136905606472000488}
-    IsBone: 0
   - Key: RiflePivot
     Transform: {fileID: 9029290212664672693}
-    IsBone: 0
+  Slots: []
 --- !u!114 &1697824307522605236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1936,15 +1940,15 @@ PrefabInstance:
       value: 0.21827315
       objectReference: {fileID: 0}
     - target: {fileID: 4885301371922852569, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 43714b68324cc2c409d534d9874f2a2b, type: 2}
     - target: {fileID: 4885301371922852569, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
-      propertyPath: m_Materials.Array.data[1]
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 766fd3ff04aab4745a764d33daac86fa, type: 2}
     - target: {fileID: 4885301371922852569, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
-      propertyPath: m_Materials.Array.data[2]
+      propertyPath: 'm_Materials.Array.data[2]'
       value: 
       objectReference: {fileID: 2100000, guid: 8b25e99361ac31d4e9ae83c46aee69ea, type: 2}
     - target: {fileID: 4947536876666625124, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}

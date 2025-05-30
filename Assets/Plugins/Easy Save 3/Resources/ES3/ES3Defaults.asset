@@ -52,8 +52,11 @@ MonoBehaviour:
     - ECM2.Walkthrough
     - Elringus.UnityConsole.Runtime
     - ExLib
+    - FishNet.Demos
+    - FishNet.Runtime
     - Flexalon
     - Flexalon.Samples
+    - GameKit.Dependencies
     - Google.Play.Games
     - LeTai.TrueShadow
     - LiteNetLib
@@ -69,8 +72,11 @@ MonoBehaviour:
     - MoreMountains.Feedbacks.TextMeshPro
     - MoreMountains.Feedbacks.URP
     - MoreMountains.Tools
+    - NewAssembly
+    - newdrops
     - Nobi.UiRoundedCorners
     - PackageTools
+    - Purchasing.Common
     - SingularityGroup.HotReload.Runtime
     - SingularityGroup.HotReload.Runtime.Public
     - StompyRobot.SRDebugger

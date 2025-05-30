@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -652,7 +651,7 @@ MonoBehaviour:
   _maxWalkSpeedCrouched: 3
   _maxFallSpeed: 40
   _brakingDecelerationFalling: 0
-  _fallingLateralFriction: 0.3
+  _fallingLateralFriction: 0
   _airControl: 0.3
   _canEverJump: 1
   _canJumpWhileCrouching: 1
@@ -713,6 +712,7 @@ MonoBehaviour:
     minMoveDistance: 0
     maxMovementIterations: 5
     maxDepenetrationIterations: 1
+    useFastGeomNormalPath: 0
     enablePhysicsInteraction: 0
     allowPushCharacters: 0
     impartPlatformMovement: 0

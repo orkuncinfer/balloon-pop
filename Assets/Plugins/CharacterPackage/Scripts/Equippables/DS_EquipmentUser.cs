@@ -64,6 +64,8 @@ public class DS_EquipmentUser : Data
     public float LerpSpeed;
 
     public List<Equippable> _equippedInstances; // stays here unless it is dropped
+
+    public Dictionary<int, Equippable> _equippedSlots = new Dictionary<int, Equippable>();
     public event Action onEquippedListChanged;
 
     private bool _equippedAsWorldInstance;//??
@@ -101,8 +103,8 @@ public class DS_EquipmentUser : Data
         
         if (EquipmentInstance.TryGetComponent(out Equippable weapon))
         {
-            weapon.Owner = OwnerActor;
-            weapon.OnEquip(OwnerActor);
+            weapon.Owner = OwnerActor as Actor;
+            weapon.OnEquip(weapon.Owner);
             if(_equippedInstances.Contains(weapon) == false)_equippedInstances.Add(weapon);
             onEquippedListChanged?.Invoke();
         }
@@ -168,8 +170,8 @@ public class DS_EquipmentUser : Data
         
         if (EquipmentInstance.TryGetComponent(out Equippable weapon))
         {
-            weapon.Owner = OwnerActor;
-            weapon.OnEquip(OwnerActor);
+            weapon.Owner = OwnerActor as Actor;
+            weapon.OnEquip(weapon.Owner);
             if(_equippedInstances.Contains(weapon) == false)_equippedInstances.Add(weapon);
             onEquippedListChanged?.Invoke();
         }
@@ -182,7 +184,7 @@ public class DS_EquipmentUser : Data
     {
         if (equipmentInstance.TryGetComponent(out Equippable weapon))
         {
-            weapon.Owner = OwnerActor;
+            weapon.Owner = OwnerActor as Actor;
             _equippedInstances.Add(weapon);
             onEquippedListChanged?.Invoke();
         }
@@ -209,6 +211,35 @@ public class DS_EquipmentUser : Data
         EquipmentInstance.transform.localPosition = Vector3.zero;
         EquipmentInstance.transform.localEulerAngles = Vector3.zero;
         EquipmentInstance.transform.localScale = Vector3.one;
+    }
+
+    [Button]
+    public void EquipToSlot(int index, GameObject equippable)
+    {
+        
+        if (_equippedSlots.ContainsKey(index))
+        {
+            if (_equippedSlots[index] != null)
+            {
+                _equippedSlots[index].OnUnequip(OwnerActor);
+                PoolManager.ReleaseObject(_equippedSlots[index].gameObject);
+            }
+            _equippedSlots.Remove(index);
+            
+        }
+        if(equippable == null) return;
+        GameObject equippableInstance = PoolManager.SpawnObject(equippable, Vector3.zero, Quaternion.identity);
+        if (equippableInstance.TryGetComponent(out Equippable weapon))
+        {
+            weapon.Owner = OwnerActor as Actor;
+            weapon.OnEquip(weapon.Owner);
+            _equippedSlots.Add(index,weapon);
+            onEquippedListChanged?.Invoke();
+        }
+
+        EquipmentInstance = _equippedSlots[index].gameObject;
+        SocketName = weapon.EquipSocketName;
+        SetInstanceTransform();
     }
 
     private void ReleaseInstance()

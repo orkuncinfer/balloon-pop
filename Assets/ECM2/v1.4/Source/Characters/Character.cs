@@ -1487,15 +1487,11 @@ namespace ECM2
 
         /// <summary>
         /// Applies a force to a rigidbody that simulates explosion effects.
-        /// The explosion is modeled as a sphere with a certain centre position and radius in world space;
-        /// normally, anything outside the sphere is not affected by the explosion and the force decreases in proportion to distance from the centre.
-        /// However, if a value of zero is passed for the radius then the full force will be applied regardless of how far the centre is from the rigidbody.
         /// </summary>
 
-        public void AddExplosionForce(float forceMagnitude, Vector3 origin, float explosionRadius,
-            ForceMode forceMode = ForceMode.Force)
+        public void AddExplosionForce(float forceMagnitude, Vector3 origin, float explosionRadius, float upwardModifier, ForceMode forceMode = ForceMode.Force)
         {
-            characterMovement.AddExplosionForce(forceMagnitude, origin, explosionRadius, forceMode);
+            characterMovement.AddExplosionForce(forceMagnitude, origin, explosionRadius, upwardModifier, forceMode);
         }
 
         /// <summary>
@@ -1802,38 +1798,6 @@ namespace ECM2
         {
             return characterMovement.velocity;
         }
-        public Vector3 GetWorldSpaceVelocity()
-        {
-            if(camera == null) camera = Camera.main;
-            Vector3 relativeMoveDirection = GetVelocity();
-            // Get the camera's forward and right vectors
-            Vector3 cameraForward = camera.transform.forward;
-            Vector3 cameraRight = camera.transform.right;
-
-            // Ignore the y-axis to keep movement on the horizontal plane
-            cameraForward.y = 0;
-            cameraRight.y = 0;
-    
-            // Normalize the vectors to ensure proper scaling
-            cameraForward.Normalize();
-            cameraRight.Normalize();
-
-            // Create a rotation matrix that represents the camera's current orientation relative to the world
-            Matrix4x4 cameraRotationMatrix = new Matrix4x4(
-                new Vector4(cameraRight.x, cameraRight.y, cameraRight.z, 0),
-                new Vector4(0, 1, 0, 0), // Y-axis (up) stays the same
-                new Vector4(cameraForward.x, cameraForward.y, cameraForward.z, 0),
-                new Vector4(0, 0, 0, 1)
-            );
-
-            // Use the inverse of the camera's rotation matrix to transform the relative movement direction
-            Matrix4x4 inverseCameraMatrix = cameraRotationMatrix.inverse;
-
-            // Convert the camera-relative movement direction to a world-space direction
-            Vector3 worldSpaceDirection = inverseCameraMatrix.MultiplyPoint3x4(relativeMoveDirection);
-
-            return worldSpaceDirection;
-        }
 
         /// <summary>
         /// Sets the character's velocity.
@@ -2024,14 +1988,15 @@ namespace ECM2
                     
                     ResetJumpState();
                     
-                    // If was flying or swimming, enable ground constraint
+                    // If it was flying or swimming, enable ground constraint
             
                     if (prevMovementMode == MovementMode.Flying || prevMovementMode == MovementMode.Swimming)
                         characterMovement.constrainToGround = true;
                     
                     // Trigger Landed event
                     
-                    OnLanded(characterMovement.landedVelocity);
+                    if (prevMovementMode == MovementMode.Falling)
+                        OnLanded(characterMovement.landedVelocity);
                     
                     break;
                 
@@ -2069,9 +2034,20 @@ namespace ECM2
             
             // Trigger movement mode changed event
             
-            MovementModeChanged?.Invoke(prevMovementMode, prevCustomMode);
+            InvokeMovementModeChangedEvent(prevMovementMode, prevCustomMode);
         }
         
+        /// <summary>
+        /// Triggers the MovementModeChanged event to notify subscribers of a change in movement mode.
+        /// This fix allow overriding OnMovementModeChanged method, something not possible before due it calling directly
+        /// MovementModeChanged?.Invoke(prevMovementMode, prevCustomMode)
+        /// </summary>
+
+        protected void InvokeMovementModeChangedEvent(MovementMode prevMovementMode, int prevCustomMode)
+        {
+            MovementModeChanged?.Invoke(prevMovementMode, prevCustomMode);
+        }
+
         /// <summary>
         /// Returns true if the Character is in the Walking movement mode (eg: on walkable ground).
         /// </summary>
@@ -2408,8 +2384,8 @@ namespace ECM2
         /// Apply a downward force when standing on top of non-kinematic physics objects (if applyStandingDownwardForce == true).
         /// The force applied is: mass * gravity * standingDownwardForceScale
         /// </summary>
-
-        protected virtual void ApplyDownwardsForce()
+        
+        public virtual void ApplyDownwardsForce()
         {
             Rigidbody groundRigidbody = characterMovement.groundRigidbody;
             if (!groundRigidbody || groundRigidbody.isKinematic)

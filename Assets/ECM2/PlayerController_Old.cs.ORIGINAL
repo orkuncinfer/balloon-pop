@@ -1,0 +1,241 @@
+using FishNet.Object;
+using FishNet.Object.Prediction;
+using FishNet.Transporting;
+using UnityEngine;
+
+namespace ECM2.Examples.Networking.FishNet
+{
+    /// <summary>
+    /// This example follows the FishNet character controller prediction example,
+    /// and shows how to replace the built-in CharacterController with ECM2 CharacterMovement component.
+    /// This shows the minimal data required to sync.
+    /// </summary>
+    
+    public class PlayerController : NetworkBehaviour
+    {
+        #region STRUCTS
+
+        /// <summary>
+        /// Input movement data.
+        /// </summary>
+        
+        private struct MoveData : IReplicateData
+        {
+            public readonly float horizontal;
+            public readonly float vertical;
+            public readonly bool jump;
+        
+            private uint _tick;
+
+            public MoveData(float horizontal, float vertical, bool jump)
+            {
+                this.horizontal = horizontal;
+                this.vertical = vertical;
+                this.jump = jump;
+                _tick = 0;
+            }
+
+            public void Dispose() { }
+            public uint GetTick() => _tick;
+            public void SetTick(uint value) => _tick = value;
+        }
+        
+        /// <summary>
+        /// Reconciliation data.
+        /// </summary>
+        
+        private struct ReconcileData : IReconcileData
+        {
+            public readonly Vector3 position;
+            public readonly Quaternion rotation;
+        
+            public readonly Vector3 velocity;
+        
+            public readonly bool constrainedToGround;
+            public readonly float unconstrainedTime;
+        
+            public readonly bool hitGround;
+            public readonly bool isWalkable;
+        
+            private uint _tick;
+
+            public ReconcileData(Vector3 position, Quaternion rotation, Vector3 velocity, bool constrainedToGround,
+                float unconstrainedTime, bool hitGround, bool isWalkable)
+            {
+                this.position = position;
+                this.rotation = rotation;
+                
+                this.velocity = velocity;
+                
+                this.constrainedToGround = constrainedToGround;
+                this.unconstrainedTime = unconstrainedTime;
+                
+                this.hitGround = hitGround;
+                this.isWalkable = isWalkable;
+
+                _tick = 0;
+            }
+
+            public void Dispose() { }
+            public uint GetTick() => _tick;
+            public void SetTick(uint value) => _tick = value;
+        }
+
+        #endregion
+
+        #region EDITOR EXPOSED FIELDS
+
+        public float rotationRate = 540.0f;
+
+        public float maxSpeed = 5;
+
+        public float acceleration = 20.0f;
+        public float deceleration = 20.0f;
+
+        public float groundFriction = 8.0f;
+        public float airFriction = 0.5f;
+
+        public float jumpImpulse = 6.5f;
+
+        [Range(0.0f, 1.0f)]
+        public float airControl = 0.3f;
+
+        public Vector3 gravity = Vector3.down * 9.81f;
+
+        #endregion
+
+        #region FIELDS
+
+        private bool _jump;
+
+        #endregion
+
+        #region PROPERTIES
+
+        private CharacterMovement characterMovement { get; set; }
+
+        #endregion
+
+        #region METHODS
+
+        private MoveData BuildMoveData()
+        {
+            if (!IsOwner)
+                return default;
+            
+            MoveData moveData;
+            
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+            
+            if (horizontal != 0 || vertical != 0)
+                moveData = new MoveData(horizontal, vertical, _jump);
+            else
+                moveData = new MoveData(horizontal, vertical, _jump);
+
+            _jump = false;
+
+            return moveData;
+        }
+
+        [Replicate]
+        private void Simulate(MoveData md, ReplicateState state = ReplicateState.Invalid,
+            Channel channel = Channel.Unreliable)
+        {
+            // Jump
+            
+            if (md.jump && characterMovement.isGrounded)
+            {
+                characterMovement.PauseGroundConstraint();
+                characterMovement.velocity.y = Mathf.Max(characterMovement.velocity.y, jumpImpulse);
+            }
+            
+            // Movement
+
+            Vector3 moveDirection = Vector3.right * md.horizontal + Vector3.forward * md.vertical;
+            moveDirection = Vector3.ClampMagnitude(moveDirection, 1.0f);
+            
+            Vector3 desiredVelocity = moveDirection * maxSpeed;
+
+            float actualAcceleration = characterMovement.isGrounded ? acceleration : acceleration * airControl;
+            float actualDeceleration = characterMovement.isGrounded ? deceleration : 0.0f;
+
+            float actualFriction = characterMovement.isGrounded ? groundFriction : airFriction;
+
+            float deltaTime = (float)TimeManager.TickDelta;
+            characterMovement.RotateTowards(moveDirection, rotationRate * deltaTime);
+            characterMovement.SimpleMove(desiredVelocity, maxSpeed, actualAcceleration, actualDeceleration,
+                actualFriction, actualFriction, gravity, true, deltaTime);
+        }
+        
+        public override void CreateReconcile()
+        {
+            base.CreateReconcile();
+            ReconcileData reconcileData = new ReconcileData(
+                characterMovement.position,
+                characterMovement.rotation,
+                characterMovement.velocity,
+                characterMovement.constrainToGround,
+                characterMovement.unconstrainedTimer,
+                characterMovement.currentGround.hitGround,
+                characterMovement.currentGround.isWalkable
+            );
+            Reconciliation(reconcileData);
+        }
+        
+
+        [Reconcile]
+        private void Reconciliation(ReconcileData rd, Channel channel = Channel.Unreliable)
+        {
+            characterMovement.SetState(
+                rd.position,
+                rd.rotation,
+                rd.velocity,
+                rd.constrainedToGround,
+                rd.unconstrainedTime,
+                rd.hitGround,
+                rd.isWalkable);
+        }
+        
+        private void OnTick()
+        {
+            Simulate(BuildMoveData());
+
+            if (IsServerStarted)
+            {
+                CreateReconcile();
+            }
+        }
+        
+        public override void OnStartNetwork()
+        {
+            TimeManager.OnTick += OnTick;
+        }
+        
+        public override void OnStopNetwork()
+        {
+            if (TimeManager != null)
+                TimeManager.OnTick -= OnTick;
+        }
+
+        #endregion
+
+        #region MONOBEHAVIOUR
+
+        private void Awake()
+        {
+            characterMovement = GetComponent<CharacterMovement>();
+        }
+        
+        private void Update()
+        {
+            if (!IsOwner)
+                return;
+            
+            if (Input.GetKeyDown(KeyCode.Space))
+                _jump = true;
+        }
+
+        #endregion
+    }
+}

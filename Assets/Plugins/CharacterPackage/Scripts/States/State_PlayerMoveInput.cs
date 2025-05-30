@@ -21,7 +21,8 @@ public class State_PlayerMoveInput : MonoState
     {
         base.OnUpdate();
         
-        _movingActor.MoveInput = movementInputAction.ReadValue<Vector2>().normalized;
+        if(!_movingActor.BlockMoveInput)
+            _movingActor.MoveInput = movementInputAction.ReadValue<Vector2>().normalized;
         
         _movingActor.LookDirection = _camera.transform.forward;
     }

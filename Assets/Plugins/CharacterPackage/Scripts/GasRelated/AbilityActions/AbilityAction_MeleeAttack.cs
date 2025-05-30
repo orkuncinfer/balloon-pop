@@ -13,7 +13,6 @@ public class AbilityAction_MeleeAttack : AbilityAction
     
     public override AbilityAction Clone()
     {
-        base.Clone();
         AbilityAction_MeleeAttack clone = AbilityActionPool<AbilityAction_MeleeAttack>.Shared.Get();
         clone.EventName = EventName;
         clone.HitEffect = HitEffect;
@@ -27,6 +26,12 @@ public class AbilityAction_MeleeAttack : AbilityAction
     public override void OnStart(Actor owner, ActiveAbility ability)
     {
         base.OnStart(owner, ability);
+        
+        Debug.Log("melee enter");
+        if (owner.GetEquippedInstance() == null)
+        {
+            return;
+        }
         if (owner.GetEquippedInstance().TryGetComponent(out MeleeWeapon weapon))
         {
             _meleeWeapon = weapon;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Sirenix.OdinInspector;
+using StatSystem;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -12,7 +13,7 @@ public class HealthBarUI : MonoState
     [SerializeField] private float _fillDuration = 0.5f ;
     
     private Transform m_MainCamera;
-    private Attribute _healthAttribute;
+    private Stat _healthAttribute;
     private Service_GAS _gas;
     
     private void LateUpdate()
@@ -25,15 +26,22 @@ public class HealthBarUI : MonoState
         base.OnEnter();
         _gas = Owner.GetService<Service_GAS>();
         
-        _healthAttribute = _gas.StatController.GetAttribute("Health");
-        _healthAttribute.onCurrentValueChanged += OnCurrentHealthChange;
+        _healthAttribute = _gas.StatController.GetStat("Health");
+        _healthAttribute.onStatValueChanged += OnCurrentHealthChange;
    
         UpdateHealthBarInstant(); 
+    }
+
+    protected override void OnExit()
+    {
+        base.OnExit();
+        _healthAttribute.onStatValueChanged -= OnCurrentHealthChange;
     }
 
 
     private void OnCurrentHealthChange()
     {
+        if(!gameObject.activeInHierarchy)return;
         UpdateHealthBar();
     }
 
@@ -44,12 +52,12 @@ public class HealthBarUI : MonoState
 
     void UpdateHealthBar()
     {
-        StartCoroutine(UpdateHealthFill(_healthAttribute.CurrentValue / (float)_healthAttribute.BaseValue));
+        StartCoroutine(UpdateHealthFill(_healthAttribute.Value / (float)_healthAttribute.BaseValue));
     }
 
     void UpdateHealthBarInstant()
     {
-        _energyFill.fillAmount = _healthAttribute.CurrentValue / (float)_healthAttribute.BaseValue;
+        _energyFill.fillAmount = _healthAttribute.Value / (float)_healthAttribute.BaseValue;
     }
 
     IEnumerator UpdateHealthFill(float newFillAmount)

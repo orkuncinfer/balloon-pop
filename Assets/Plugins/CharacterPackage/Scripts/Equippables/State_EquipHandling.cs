@@ -24,7 +24,9 @@ public class State_EquipHandling : MonoState
     {
         base.OnEnter();
         _equipmentUser = Owner.GetData<DS_EquipmentUser>();
-        _equipmentInventory = DefaultPlayerInventory.Instance.GetInventoryDefinition(EquipmentInventoryKey.ID);
+        
+        Actor owner = Owner as Actor;
+        _equipmentInventory = owner.GetInventoryDefinition(EquipmentInventoryKey.ID);
 
         _equipmentUser.onEquipmentDropped += OnEquipmentDropped;
         foreach (var slot in _equipmentInventory.InventoryData.InventorySlots)
@@ -73,7 +75,7 @@ public class State_EquipHandling : MonoState
         if(itemData == null )return;
         Vector3 spawnPos = Owner.transform.position + new Vector3(0, 1, 0);
       
-        ItemDefinition itemDefinition = InventoryUtils.FindItemWithId(itemData.ItemID);
+        ItemDefinition itemDefinition = InventoryUtils.FindItemDefinitionWithId(itemData.ItemID);
         GameObject spawned = PoolManager.SpawnObject(itemDefinition.DropPrefab,spawnPos,Quaternion.identity);
         spawned.GetComponent<ItemDropInstance>().SetItemData(itemData);
         spawned.GetComponent<ItemDropInstance>().DropCount = 1;
@@ -88,6 +90,7 @@ public class State_EquipHandling : MonoState
 
     private void OnSlotItemDataChanged(ItemData oldItem, ItemData newItem, int slotIndex)
     {
+        if(newItem == null) return;
         if (oldItem != null)
         {
             if (!string.IsNullOrEmpty(oldItem.ItemID))
@@ -112,8 +115,7 @@ public class State_EquipHandling : MonoState
                 }
             }
         }
-        
-        ItemDefinition itemDefinition = InventoryUtils.FindItemWithId(newItem.ItemID);
+        ItemDefinition itemDefinition = InventoryUtils.FindItemDefinitionWithId(newItem.ItemID);
         GameObject newInstance = PoolManager.SpawnObject(itemDefinition.WorldPrefab);
         newInstance.GetComponent<Equippable>().ItemData = newItem;
 
@@ -135,7 +137,7 @@ public class State_EquipHandling : MonoState
             DS_EquipmentUser equipmentUser = _equipmentUser;
             string itemID = _equipmentInventory.InventoryData.InventorySlots[slotIndex].ItemID;
             if(string.IsNullOrEmpty(itemID))return;
-            ItemDefinition itemDefinition = InventoryUtils.FindItemWithId(_equipmentInventory.InventoryData.InventorySlots[slotIndex].ItemID);
+            ItemDefinition itemDefinition = InventoryUtils.FindItemDefinitionWithId(_equipmentInventory.InventoryData.InventorySlots[slotIndex].ItemID);
             
             Transform equipmentInSlot = Owner.SocketRegistry.SlotDictionary[itemDefinition.GetData<Data_Equippable>().UnequipSlotName];
             

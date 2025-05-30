@@ -69,6 +69,11 @@ public class AimIKWeightHandler : ActorMonoService<AimIKWeightHandler>
         LastStaticUpdater.onLateUpdate += OnLate;
     }
 
+    private void OnDestroy()
+    {
+	    LastStaticUpdater.onLateUpdate -= OnLate;
+    }
+
     private void OnLate()
     {
 	    ik.solver.Update();

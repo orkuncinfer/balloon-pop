@@ -1174,6 +1174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564e75481b8e3f845b2ad1b9ce168b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
 --- !u!114 &8166089031944075372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1192,7 +1195,7 @@ MonoBehaviour:
   - Key: right_hand
     Transform: {fileID: 0}
   - Key: SwordPivot
-    Transform: {fileID: 0}
+    Transform: {fileID: 5068124620684446483}
   - Key: RiflePivot
     Transform: {fileID: 1363636859520462635}
   - Key: WeaponBack
@@ -3306,6 +3309,7 @@ Transform:
   - {fileID: 3144100701330823891}
   - {fileID: 1363636859520462635}
   - {fileID: 4353253072599960019}
+  - {fileID: 5068124620684446483}
   m_Father: {fileID: 4800866284879562125}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5555643217085437042
@@ -3347,6 +3351,37 @@ MonoBehaviour:
   - {fileID: 2430996398539550445}
   - {fileID: 3774965993508018349}
   - {fileID: 1669868595890309635}
+--- !u!1 &3229117098818628091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5068124620684446483}
+  m_Layer: 0
+  m_Name: SwordPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5068124620684446483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3229117098818628091}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.113619775, y: -0.44959602, z: 0.7642979, w: 0.4481101}
+  m_LocalPosition: {x: 0.1274, y: -0.043, z: 0.1063}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8222910810687736619}
+  m_LocalEulerAnglesHint: {x: 35.833, y: -45.335, z: 103.854}
 --- !u!1 &3262881201608670462
 GameObject:
   m_ObjectHideFlags: 0

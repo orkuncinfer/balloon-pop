@@ -9,6 +9,7 @@ public class State_CinemachineFollowVarAsset : MonoState
     protected override void OnEnter()
     {
         base.OnEnter();
+        if(_playerFollower.Value == null)return;
         Owner.GetData<Data_Camera>().CurrentCamera.Follow = _playerFollower.Value.transform;
     }
 }

@@ -69,7 +69,6 @@ namespace ECM2
             Vector3 rootMotionVelocity = GetRootMotionVelocity(deltaTime);
             _rootMotionDeltaPosition = Vector3.zero;
 
-            Debug.Log(rootMotionVelocity);
             return rootMotionVelocity;
         }
 

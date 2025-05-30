@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Project/Scenes/ThirdPersonScene.unity
-    guid: 0b76f415db5afff448563bb2fe61df42
+    path: Assets/_TemplateProject/Scenes/RPG Scene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/ECM2/v1.4/Examples/Networking/FishNet v4/CM/CM FishNet Example Scene.unity
+    guid: a1f88426d2fe33c44ab62b796358827d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
   m_UseUCBPForAssetBundles: 0

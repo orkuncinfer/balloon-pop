@@ -18,6 +18,8 @@ public class State_ShouldDieCheck : MonoState
 
     private void OnHealthChanged(int arg1, int arg2)
     {
+        //Debug.Log($"HealthChnged {Owner.transform.name} = " + arg2 + $"Real Stat = {_gas.StatController.GetStat("Health").Value}");
+        
         if (arg2 <= 0)
         {
             _livingData.ShouldDieTrigger = true;

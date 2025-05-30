@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 575771558654060641}
   - component: {fileID: 8631611629064271566}
   - component: {fileID: 3962838565497665587}
+  - component: {fileID: 1847424856078795811}
   m_Layer: 0
   m_Name: Dead
   m_TagString: Untagged
@@ -287,6 +288,23 @@ MonoBehaviour:
     _tagHashes:
     - 6afec4bb-96ff-46a1-ba08-203c1b6eb52f
   _removeOnExit: 1
+--- !u!114 &1847424856078795811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567085687522228179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c423330dbf0f1469c4ea8bc3af2884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsRunning: 0
+  IsFinished: 0
+  _eventField:
+    _addressType: 0
+    _eventKey: {fileID: 11400000, guid: c42f492597b111f4f826fb7596304c94, type: 2}
 --- !u!1 &1620186965616911249
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +546,7 @@ MonoBehaviour:
     minMoveDistance: 0
     maxMovementIterations: 5
     maxDepenetrationIterations: 1
+    useFastGeomNormalPath: 0
     enablePhysicsInteraction: 0
     allowPushCharacters: 0
     impartPlatformMovement: 0
@@ -933,6 +952,7 @@ MonoBehaviour:
       - rid: 95553393713479775
   - State: {fileID: 8631611629064271566}
     Transitions: []
+  _oneTimeEnter: 0
   references:
     version: 2
     RefIds:
@@ -1330,6 +1350,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 115387436672317323}
     m_Modifications:
+    - target: {fileID: 5267643771359641790, guid: 47328a941a0ddb844b3132310024527a, type: 3}
+      propertyPath: _addedNetworkObject
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5287131373415464797, guid: 47328a941a0ddb844b3132310024527a, type: 3}
       propertyPath: m_Name
       value: Service_GAS

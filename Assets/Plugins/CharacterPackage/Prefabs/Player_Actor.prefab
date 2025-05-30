@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d2e5d15777cf0041bcee17777295c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
   PlayerFollowerVar: {fileID: 11400000, guid: b56893f1410e4c447ae815174b3810b3, type: 2}
   Player: {fileID: 2614585179637846962}
 --- !u!114 &9139636003874493097
@@ -59,9 +62,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e92ad7adfe6a74caed3e4475b0da77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
-  minXRotation: -35
-  maxXRotation: 75
+  Sensitivity: 1
+  TopClamp: 70
+  BottomClamp: -30
+  LookAction: {fileID: 0}
 --- !u!1 &5049564229107952981
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +163,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4153916582480092734, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
-      propertyPath: _initialTags.Array.data[0]
+      propertyPath: '_initialTags.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: f7b2489220fef5547a9de7ec1c3fe1ba, type: 2}
     - target: {fileID: 4602961964453577906, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
@@ -262,12 +266,17 @@ PrefabInstance:
       propertyPath: _damageColor.r
       value: 0.9528302
       objectReference: {fileID: 0}
+    - target: {fileID: 8980925482572509903, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3983535027383559163, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
     - {fileID: 3811408424270948934, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
     - {fileID: 25518555169515770, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
     - {fileID: 8402577699194243085, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
     - {fileID: 4153916582480092734, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+    - {fileID: 6044088440316569816, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5092234967853923810, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
@@ -280,6 +289,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7208237998808775816, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
       insertIndex: 1
       addedObject: {fileID: 3659410922551880110}
+    - targetCorrespondingSourceObject: {fileID: 7208237998808775816, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 3436327559896216848, guid: 3856c14d84d6ae3409d33e6a0dcf3aa4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6973032019380409326}
@@ -326,7 +338,7 @@ MonoBehaviour:
   _initialTags:
   - {fileID: 11400000, guid: f7b2489220fef5547a9de7ec1c3fe1ba, type: 2}
   GameplayTags:
-    m_SerializedExplicitTags: []
+    _tagHashes: []
   _initialState: {fileID: 7256649439975874595}
   _returnToPoolOnStop: 0
 --- !u!1 &6703264386555028564 stripped
@@ -346,10 +358,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c318fcca40e141049b8d1abb76351195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInitialized: 0
   DataBase: {fileID: 11400000, guid: babec1d5d711ca44da49b0de8cb5d00e, type: 2}
   AttributeList: []
   StatList: []
+  PrimaryStatList: []
+  IsInitialized: 0
 --- !u!114 &3875582912145642358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +388,16 @@ MonoBehaviour:
   AbilitySet: {fileID: 0}
   LastUsedAbility:
     Owner: {fileID: 0}
-  ActiveAbilities: []
+    AbilityActions: []
+    CustomClipTransition:
+      _FadeDuration: 0.25
+      _Events:
+        _NormalizedTimes: []
+        _Callbacks: []
+        _Names: []
+      _Clip: {fileID: 0}
+      _Speed: 1
+      _NormalizedStartTime: 0
   Target: {fileID: 0}
   TestAbility: {fileID: 0}
 --- !u!114 &6802471551691580129
@@ -424,14 +446,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
+  _startWithTag: 0
+  _tag:
+    fullTag: 
+    tagHierarchy: []
+    hashCode: 
+    Description: 
   _abilityDS:
     Key: Ability_1
     From: 1
     _retrievedData:
       rid: -2
-  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
-  ActionName: Ability-1
+  ActionReference: {fileID: 0}
   CancelOnRelease: 0
+  ActivationPolicy: 0
+  CancelAbilitiesWithTag:
+    _tagHashes: []
+  Conditions: []
   references:
     version: 2
     RefIds:
@@ -451,14 +482,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
+  _startWithTag: 0
+  _tag:
+    fullTag: 
+    tagHierarchy: []
+    hashCode: 
+    Description: 
   _abilityDS:
     Key: Ability_2
     From: 1
     _retrievedData:
       rid: -2
-  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
-  ActionName: Ability-2
+  ActionReference: {fileID: 0}
   CancelOnRelease: 0
+  ActivationPolicy: 0
+  CancelAbilitiesWithTag:
+    _tagHashes: []
+  Conditions: []
   references:
     version: 2
     RefIds:
@@ -478,14 +518,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsRunning: 0
   IsFinished: 0
+  _startWithTag: 0
+  _tag:
+    fullTag: 
+    tagHierarchy: []
+    hashCode: 
+    Description: 
   _abilityDS:
     Key: Ability_Sprint
     From: 1
     _retrievedData:
       rid: -2
-  ActionAsset: {fileID: -944628639613478452, guid: 857877e365f181e48a2c6e0021ad4183, type: 3}
-  ActionName: Sprint
+  ActionReference: {fileID: 0}
   CancelOnRelease: 1
+  ActivationPolicy: 0
+  CancelAbilitiesWithTag:
+    _tagHashes: []
+  Conditions: []
   references:
     version: 2
     RefIds:

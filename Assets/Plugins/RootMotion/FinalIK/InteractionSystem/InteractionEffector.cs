@@ -48,7 +48,7 @@ namespace RootMotion.FinalIK {
 			// Find the effector if we haven't already
 			effector = interactionSystem.ik.solver.GetEffector(effectorType);
 			poser = effector.bone.GetComponent<Poser>();
-			if(poser != null)Debug.Log("Found the poser: " + poser + " for effectorType: " + poser.gameObject.name);
+			if(poser != null)//Debug.Log("Found the poser: " + poser + " for effectorType: " + poser.gameObject.name);
 			StoreDefaults();
 		}
 

@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630c854f5fb28704db287c035c1ed4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _statController: {fileID: 8524311648401155232}
-  _character: {fileID: 0}
 --- !u!1 &5639076799967174884
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,8 +107,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49787952d4c72bd4ea0ec77c6e6fa1fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInitialized: 0
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 0}
+  _networkObjectCache: {fileID: 0}
+  _allEffectsList: {fileID: 11400000, guid: 73847a2fae6413f488639d61660c38f2, type: 2}
   _initialEffects: []
+  IsInitialized: 0
 --- !u!114 &2766685833472613995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,10 +140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c318fcca40e141049b8d1abb76351195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInitialized: 0
   DataBase: {fileID: 11400000, guid: babec1d5d711ca44da49b0de8cb5d00e, type: 2}
   AttributeList: []
   StatList: []
+  PrimaryStatList: []
+  IsInitialized: 0
 --- !u!114 &4771157983594913283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +173,7 @@ MonoBehaviour:
       _Clip: {fileID: 0}
       _Speed: 1
       _NormalizedStartTime: 0
-  Target: {fileID: 0}
+  _target: {fileID: 0}
   TestAbility: {fileID: 11400000, guid: 7c97481c16eb3534e9d677beb3f9aa51, type: 2}
 --- !u!114 &6821283702313154547
 MonoBehaviour:

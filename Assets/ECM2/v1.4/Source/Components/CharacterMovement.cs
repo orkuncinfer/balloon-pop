@@ -414,6 +414,9 @@ namespace ECM2
             [Tooltip("Max number of iterations used to resolve penetrations.")]
             public int maxDepenetrationIterations;
 
+            [Tooltip("When enable, FindGeomOpposingNormal will use a faster path (approximation) sacrificing accuracy.")]
+            public bool useFastGeomNormalPath;
+
             [Space(15f)]
             [Tooltip("If enabled, the character will interact with dynamic rigidbodies when walking into them.")]
             public bool enablePhysicsInteraction;
@@ -665,6 +668,8 @@ namespace ECM2
 
         private Rigidbody _parentPlatform;
         private MovingPlatform _movingPlatform;
+        
+        private Vector3 _lastVelocityOnMovingPlatform;
 
         #endregion
 
@@ -1388,7 +1393,7 @@ namespace ECM2
             if (inHit.collider is MeshCollider nonConvexMeshCollider && !nonConvexMeshCollider.convex)
             {
                 Mesh sharedMesh = nonConvexMeshCollider.sharedMesh;
-                if (sharedMesh && sharedMesh.isReadable)
+                if (sharedMesh && sharedMesh.isReadable && !_advanced.useFastGeomNormalPath)
                     return MeshUtility.FindMeshOpposingNormal(sharedMesh, ref inHit);
 
                 // No read / write enabled, fallback to a raycast...
@@ -1407,7 +1412,7 @@ namespace ECM2
 
             // Terrain collider
             
-            if (inHit.collider is TerrainCollider)
+            if (inHit.collider is TerrainCollider && !_advanced.useFastGeomNormalPath)
             {
                 return FindTerrainOpposingNormal(ref inHit);
             }
@@ -4192,6 +4197,8 @@ namespace ECM2
 
         private void UpdateCurrentPlatform()
         {
+            _lastVelocityOnMovingPlatform = Vector3.zero;
+            
             _movingPlatform.lastPlatform = _movingPlatform.platform;
 
             if (_parentPlatform)
@@ -4210,6 +4217,8 @@ namespace ECM2
 
                 _movingPlatform.rotation = updatedRotation;
                 _movingPlatform.localRotation = Quaternion.Inverse(platformTransform.rotation) * updatedRotation;
+                
+                _lastVelocityOnMovingPlatform = velocity;
             }
         }
 
@@ -4261,23 +4270,16 @@ namespace ECM2
                 }
             }
 
-            if (impartPlatformVelocity)
+            if (impartPlatformVelocity && _movingPlatform.lastPlatform && _movingPlatform.platform != _movingPlatform.lastPlatform)
             {
-                Vector3 impartedPlatformVelocity = Vector3.zero;
+                _velocity -= _movingPlatform.platformVelocity;
 
-                if (_movingPlatform.lastPlatform && _movingPlatform.platform != _movingPlatform.lastPlatform)
-                {
-                    impartedPlatformVelocity -= _movingPlatform.platformVelocity;
-
-                    impartedPlatformVelocity += lastPlatformVelocity;
-                }
-
-                if (_movingPlatform.lastPlatform == null && _movingPlatform.platform)
-                {
-                    impartedPlatformVelocity -= _movingPlatform.platformVelocity;
-                }
-
-                _velocity += impartedPlatformVelocity;
+                _velocity += lastPlatformVelocity;
+            }
+            
+            if (impartPlatformVelocity && _movingPlatform.lastPlatform == null && _movingPlatform.platform)
+            {
+                _velocity = _lastVelocityOnMovingPlatform - _movingPlatform.platformVelocity;
             }
         }
 
@@ -4475,9 +4477,20 @@ namespace ECM2
             if (worldDirection == Vector3.zero)
                 return;
 
+            // inside your CharacterMovement.RotateTowards (or wherever you do LookRotation)
             Quaternion targetRotation = Quaternion.LookRotation(worldDirection, characterUp);
 
+// ensure targetRotation is in the same hemisphere as our current rotation:
+            if (Quaternion.Dot(rotation, targetRotation) < 0f)
+                targetRotation = new Quaternion(
+                    -targetRotation.x,
+                    -targetRotation.y,
+                    -targetRotation.z,
+                    -targetRotation.w);
+
+// now rotate—no more sudden flips:
             rotation = Quaternion.RotateTowards(rotation, targetRotation, maxDegreesDelta);
+
         }
 
         /// <summary>
@@ -4549,22 +4562,25 @@ namespace ECM2
 
         /// <summary>
         /// Applies a force to this Character that simulates explosion effects.
-        /// The explosion is modeled as a sphere with a certain centre position and radius in world space; 
-        /// normally, anything outside the sphere is not affected by the explosion and the force decreases in proportion to distance from the centre.
-        /// However, if a value of zero is passed for the radius then the full force will be applied regardless of how far the centre is from the rigidbody.
-        /// The force direction is from the given origin to the Character center.
         /// </summary>
 
-        public void AddExplosionForce(float strength, Vector3 origin, float radius, ForceMode forceMode = ForceMode.Force)
+        public void AddExplosionForce(float strength, Vector3 origin, float radius, float upwardModifier, ForceMode forceMode = ForceMode.Force)
         {
             Vector3 delta = worldCenter - origin;
             float deltaMagnitude = delta.magnitude;
+            if (deltaMagnitude > radius)
+                return;
 
-            float forceMagnitude = strength;
-            if (radius > 0.0f)
-                forceMagnitude *= 1.0f - Mathf.Clamp01(deltaMagnitude / radius);
+            Vector3 explosionDirection = delta.normalized;
+            float attenuation = 1.0f - Mathf.Clamp01(deltaMagnitude / radius);
+            Vector3 force = explosionDirection * (strength * attenuation);
 
-            AddForce(delta.normalized * forceMagnitude, forceMode);
+            if (upwardModifier != 0.0f)
+            {
+                force += Vector3.up * (upwardModifier * attenuation);
+            }
+
+            AddForce(force, forceMode);
         }
 
         /// <summary>
@@ -4695,14 +4711,13 @@ namespace ECM2
         /// This is a constant opposing force that directly lowers velocity by a constant value.</param>
         /// <param name="friction">Setting that affects movement control. Higher values allow faster changes in direction.</param>
         /// <param name="brakingFriction">Friction (drag) coefficient applied when braking (whenever desiredVelocity == Vector3.zero, or if character is exceeding max speed).</param>
-        /// <param name="gravity">The current gravity force. Defaults to zero.</param>
-        /// <param name="onlyHorizontal">Determines if the vertical velocity component should be ignored when falling (i.e. not-grounded) preserving gravity effects. Defaults to true.</param>
+        /// <param name="gravity">The current gravity force.</param>
+        /// <param name="onlyHorizontal">Determines if the vertical velocity component should be ignored when falling (i.e. not-grounded) preserving gravity effects.</param>
         /// <param name="deltaTime">The simulation deltaTime.</param>
         /// <returns>Return CollisionFlags. It indicates the direction of a collision: None, Sides, Above, and Below.</returns>
 
         public CollisionFlags SimpleMove(Vector3 desiredVelocity, float maxSpeed, float acceleration,
-            float deceleration, float friction, float brakingFriction, Vector3 gravity = default,
-            bool onlyHorizontal = true, float deltaTime = 0.0f)
+            float deceleration, float friction, float brakingFriction, Vector3 gravity, bool onlyHorizontal, float deltaTime)
         {
             if (isGrounded)
             {
@@ -4846,7 +4861,7 @@ namespace ECM2
 
 #if UNITY_EDITOR
 
-        public static void DrawDisc(Vector3 _pos, Quaternion _rot, float _radius, Color _color = default,
+        private static void DrawDisc(Vector3 _pos, Quaternion _rot, float _radius, Color _color = default,
             bool solid = true)
         {
             if (_color != default)

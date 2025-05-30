@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
+using MyFastProjectile;
 using UnityEngine;
 
 public class State_PlayerShootControl : MonoState
