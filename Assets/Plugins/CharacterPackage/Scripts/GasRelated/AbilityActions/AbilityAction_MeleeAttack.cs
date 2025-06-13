@@ -8,35 +8,36 @@ public class AbilityAction_MeleeAttack : AbilityAction
     public GameObject HitEffect;
     public AbilityDefinition OnHitApplyAbility;
     private MeleeWeapon _meleeWeapon;
-    ActiveAbility _ability;
     private List<Collider> _appliedColliders = new List<Collider>();
     
     public override AbilityAction Clone()
     {
+        base.Clone();
         AbilityAction_MeleeAttack clone = AbilityActionPool<AbilityAction_MeleeAttack>.Shared.Get();
         clone.EventName = EventName;
+        clone.AnimWindow = AnimWindow;
+        
         clone.HitEffect = HitEffect;
         clone._meleeWeapon = _meleeWeapon;
-        clone._ability = _ability;
         clone.OnHitApplyAbility = OnHitApplyAbility;
         clone._hasTick = true;
         return clone;
     }
 
-    public override void OnStart(Actor owner, ActiveAbility ability)
+    public override void OnStart()
     {
-        base.OnStart(owner, ability);
+        base.OnStart();
         
         Debug.Log("melee enter");
-        if (owner.GetEquippedInstance() == null)
+        if (Owner.GetEquippedInstance() == null)
         {
             return;
         }
-        if (owner.GetEquippedInstance().TryGetComponent(out MeleeWeapon weapon))
+        if (Owner.GetEquippedInstance().TryGetComponent(out MeleeWeapon weapon))
         {
             _meleeWeapon = weapon;
             _meleeWeapon.onHit += OnHit;
-            _ability = ability;
+            //ActiveAbility = ability; ?
         }
     }
     
@@ -59,9 +60,9 @@ public class AbilityAction_MeleeAttack : AbilityAction
             abilityController.AddAndTryActivateAbility(OnHitApplyAbility);
         }
         
-        _ability.AbilityDefinition.GameplayEffectDefinitions.ForEach(effect =>
+        ActiveAbility.AbilityDefinition.GameplayEffectDefinitions.ForEach(effect =>
         {
-            _ability.ApplyEffects(obj.gameObject);
+            ActiveAbility.ApplyEffects(obj.gameObject);
             _appliedColliders.Add(obj);
         });
         PoolManager.SpawnObject(HitEffect, obj.ClosestPoint(_meleeWeapon.Collider.center), Quaternion.identity);

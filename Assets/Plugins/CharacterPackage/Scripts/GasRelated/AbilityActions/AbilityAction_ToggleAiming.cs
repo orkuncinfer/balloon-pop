@@ -34,11 +34,11 @@ public class AbilityAction_ToggleAiming : AbilityAction
         _ik = null;
         _weightHandler = null;
     }
-    public override void OnStart(Actor owner, ActiveAbility ability)
+    public override void OnStart()
     {
-        base.OnStart(owner, ability);
-        _weightHandler = owner.GetComponentInChildren<AimIKWeightHandler>();
-        _ik = owner.GetComponentInChildren<FullBodyBipedIK>();
+        base.OnStart();
+        _weightHandler = Owner.GetComponentInChildren<AimIKWeightHandler>();
+        _ik = Owner.GetComponentInChildren<FullBodyBipedIK>();
         if (_weightHandler != null)
         {
             _initialAimingState = _weightHandler.IsAiming;

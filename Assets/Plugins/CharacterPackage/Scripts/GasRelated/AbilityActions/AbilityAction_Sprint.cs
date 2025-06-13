@@ -15,9 +15,9 @@ public class AbilityAction_Sprint : AbilityAction
         return clone;
     }
 
-    public override void OnStart(Actor owner, ActiveAbility ability)
+    public override void OnStart()
     {
-        base.OnStart(owner, ability);
+        base.OnStart();
         Debug.Log("Sprint started");
     }
     

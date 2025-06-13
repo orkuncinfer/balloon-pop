@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedTabIndex: 1
   historyItemsMax: 20
-  history: []
+  history:
+  - context: 1
+    title: 
+    unityObject: {fileID: 11500000, guid: 69a08e42af298854d91260ba50888952, type: 3}
+    objectGuid: GlobalObjectId_V1-1-69a08e42af298854d91260ba50888952-11500000-0
   favorites:
   - context: 1
     title: 

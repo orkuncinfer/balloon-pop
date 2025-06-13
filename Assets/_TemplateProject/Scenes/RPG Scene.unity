@@ -873,6 +873,44 @@ MonoBehaviour:
   _componentIndexCache: 255
   _addedNetworkObject: {fileID: 285049642}
   _networkObjectCache: {fileID: 0}
+--- !u!1 &450314830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7024452477814875396, guid: ba1bf7abfe2ae78479303b2a4210f5dc, type: 3}
+  m_PrefabInstance: {fileID: 1724562684}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &450314839 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2328547033062797158, guid: ba1bf7abfe2ae78479303b2a4210f5dc, type: 3}
+  m_PrefabInstance: {fileID: 1724562684}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450314830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &450314844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450314830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8cac635f24954048aad3a6ff9110beb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 450314839}
+  _networkObjectCache: {fileID: 0}
+  IgnoredParameters: []
+  _animator: {fileID: 0}
+  _synchronizeWhenDisabled: 0
+  _smoothFloats: 1
+  _interpolation: 2
+  _clientAuthoritative: 1
+  _sendToOwner: 0
 --- !u!1001 &462561533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3613,7 +3651,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7024452477814875396, guid: ba1bf7abfe2ae78479303b2a4210f5dc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 450314844}
   m_SourcePrefab: {fileID: 100100000, guid: ba1bf7abfe2ae78479303b2a4210f5dc, type: 3}
 --- !u!1 &1754594619
 GameObject:

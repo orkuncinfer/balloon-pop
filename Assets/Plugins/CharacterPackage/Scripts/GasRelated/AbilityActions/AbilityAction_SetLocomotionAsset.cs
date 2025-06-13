@@ -19,10 +19,10 @@ public class AbilityAction_SetLocomotionAsset : AbilityAction
 
     }
 
-    public override void OnStart(Actor owner, ActiveAbility ability)
+    public override void OnStart()
     {
-        base.OnStart(owner, ability);
-        _locomotionAsset.GetData(owner);
+        base.OnStart();
+        _locomotionAsset.GetData(Owner);
         _locomotionAsset.Data.Value = _locomotionAssetData;
     }
 

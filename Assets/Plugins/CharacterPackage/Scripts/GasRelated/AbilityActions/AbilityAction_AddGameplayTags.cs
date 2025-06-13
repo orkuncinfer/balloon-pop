@@ -12,15 +12,22 @@ public class AbilityAction_AddGameplayTags : AbilityAction
     {
         AbilityAction_AddGameplayTags clone = AbilityActionPool<AbilityAction_AddGameplayTags>.Shared.Get();
         clone.EventName = EventName;
+        clone.AnimWindow = AnimWindow;
+        
         clone._character = _character;
         clone._tagsToAdd = _tagsToAdd;
         return clone;
     }
 
-    public override void OnStart(Actor owner, ActiveAbility ability)
+    public override void OnStart()
     {
-        base.OnStart(owner, ability);
-        owner.GameplayTags.AddTags(_tagsToAdd);
+        base.OnStart();
+        Owner.GameplayTags.AddTags(_tagsToAdd);
+        Debug.Log($"Tag Count : {_tagsToAdd.GetTags().Count}" );
+        foreach (var tagg in _tagsToAdd.GetTags())
+        {
+            Debug.Log($"TagAdded : {tagg.FullTag}" );
+        }
     }
     
     public override void OnTick(Actor owner)
@@ -36,5 +43,10 @@ public class AbilityAction_AddGameplayTags : AbilityAction
             Debug.Log(Owner);
         }
         Owner.GameplayTags.RemoveTags(_tagsToAdd);
+        foreach (var tagg in _tagsToAdd.GetTags())
+        {
+            Debug.Log($"Tag Removed : {tagg.FullTag}" );
+        }
+        AbilityActionPool<AbilityAction_AddGameplayTags>.Shared.Release(this);
     }
 }

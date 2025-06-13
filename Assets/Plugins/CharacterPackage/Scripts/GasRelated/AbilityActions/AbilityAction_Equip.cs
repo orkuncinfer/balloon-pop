@@ -26,9 +26,9 @@ public class AbilityAction_Equip : AbilityAction
         _equippable = null;
     }
 
-    public override void OnStart(Actor owner, ActiveAbility ability)
+    public override void OnStart()
     {
-        base.OnStart(owner, ability);
+        base.OnStart();
         Transform weaponTransform = Owner.GetData<DS_EquipmentUser>().ItemToEquip.transform;
         _equippable = weaponTransform.GetComponent<Equippable>();
         Transform socket = Owner.GetSocket(_equipSocketName);

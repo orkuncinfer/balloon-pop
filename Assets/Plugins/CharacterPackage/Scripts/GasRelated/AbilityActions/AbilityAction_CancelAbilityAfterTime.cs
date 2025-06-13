@@ -15,10 +15,10 @@ public class AbilityAction_CancelAbilityAfterTime : AbilityAction
         return clone;
     }
 
-    public override void OnStart(Actor owner, ActiveAbility ability)
+    public override void OnStart()
     {
-        base.OnStart(owner, ability);
-        _abilityController = owner.GetComponentInChildren<AbilityController>();
+        base.OnStart();
+        _abilityController = Owner.GetComponentInChildren<AbilityController>();
       
         DOVirtual.DelayedCall(Time, () =>
         {

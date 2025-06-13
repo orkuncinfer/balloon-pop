@@ -22,11 +22,11 @@ public class AbilityAction_Aiming : AbilityAction
         _weightHandler = null;
     }
 
-    public override void OnStart(Actor owner, ActiveAbility ability)
+    public override void OnStart()
     {
-        base.OnStart(owner, ability);
-        _weightHandler = owner.GetComponentInChildren<AimIKWeightHandler>();
-        _ik = owner.GetComponentInChildren<FullBodyBipedIK>();
+        base.OnStart();
+        _weightHandler = Owner.GetComponentInChildren<AimIKWeightHandler>();
+        _ik = Owner.GetComponentInChildren<FullBodyBipedIK>();
 
         //_weightHandler.LeftHandPoserToggle(true); why?
         _weightHandler.IsAiming = true;

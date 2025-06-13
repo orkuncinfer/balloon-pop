@@ -25,12 +25,12 @@ public class AbilityAction_ShootingWeapon : AbilityAction
         _heldGun = null;
     }
 
-    public override void OnStart(Actor owner, ActiveAbility ability)
+    public override void OnStart()
     {
-        base.OnStart(owner, ability);
-        _weightHandler = owner.GetComponentInChildren<AimIKWeightHandler>();
+        base.OnStart();
+        _weightHandler = Owner.GetComponentInChildren<AimIKWeightHandler>();
     
-        _heldGun = owner.GetEquippedInstance().GetComponent<Gun>();
+        _heldGun = Owner.GetEquippedInstance().GetComponent<Gun>();
         _heldGun.GetComponent<GunFireComponent>().StartFire();
         LastStaticUpdater.onLateUpdate += OnLateUpdate;
     }

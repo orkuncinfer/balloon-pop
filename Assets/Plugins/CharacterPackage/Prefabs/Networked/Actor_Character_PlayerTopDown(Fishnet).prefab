@@ -2403,7 +2403,7 @@ MonoBehaviour:
   _cancelOnRelease: 0
   _activationPolicy: 1
   _inputBufferDuration: 0.1
-  _networkRequestCooldown: 0.2
+  _networkRequestCooldown: 0.05
   _cancelAbilitiesWithTag:
     _tagHashes: []
   _activationConditions: []

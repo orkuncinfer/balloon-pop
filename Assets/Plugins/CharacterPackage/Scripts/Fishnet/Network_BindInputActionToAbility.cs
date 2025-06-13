@@ -163,14 +163,51 @@ public class Network_BindInputActionToAbility :
     private void OnInputTriggered(InputAction.CallbackContext context)
     {
         // Start input session with buffering
+        if (Time.time >= _inputEndTime) // no buffer exists
+        {
+            ServerRegisterAbility(true);
+        }
+        _inputEndTime = Time.time + _inputBufferDuration;
         _pressingInput = true;
         _isInputActive = true;
         _hasActivatedThisInput = false;
-        _inputEndTime = Time.time + _inputBufferDuration;
         
         CancelConflictingAbilities();
     }
-    
+    [ServerRpc]
+    private void ServerRegisterAbility(bool register)
+    {
+        ObserverRegisterAbility(register);
+        if(!IsServerOnly)return;
+        if (register)
+        {
+            Debug.Log($"Server : Registered Ability {_tag.FullTag}");
+            _gasService.AbilityController.TryActivateAbilityWithGameplayTag(_tag);
+            _gasService.AbilityController.RegisterQueueAbilityGameplayTag(_tag);
+        }
+        else
+        {
+            Debug.Log($"Server : Unregistered Ability {_tag.FullTag}");
+            _gasService.AbilityController.UnregisterQueueAbilityGameplayTag(_tag);
+        }
+        
+    }
+    [ObserversRpc(ExcludeOwner = false)]
+    private void ObserverRegisterAbility(bool register)
+    {
+        if(IsServerOnly)return;
+        if (register)
+        {
+            Debug.Log($"Server : Registered Ability {_tag.FullTag}");
+            _gasService.AbilityController.TryActivateAbilityWithGameplayTag(_tag);
+            _gasService.AbilityController.RegisterQueueAbilityGameplayTag(_tag);
+        }
+        else
+        {
+            Debug.Log($"Server : Unregistered Ability {_tag.FullTag}");
+            _gasService.AbilityController.UnregisterQueueAbilityGameplayTag(_tag);
+        }
+    }
     private void OnInputReleased(InputAction.CallbackContext context)
     {
         _pressingInput = false;
@@ -211,14 +248,14 @@ public class Network_BindInputActionToAbility :
             _ => true
         };
    
-        if (shouldTryActivation && TryActivateAbility())
+        /*if (shouldTryActivation && TryActivateAbility())
         {
             // For performed policy, end buffering immediately on successful activation
             if (_activationPolicy == AbilityInputActivationPolicy.OnPerformed)
             {
                 EndInput();
             }
-        }
+        }*/
     }
     
     private void EndInput()
@@ -228,7 +265,7 @@ public class Network_BindInputActionToAbility :
         {
             CancelActiveAbility();
         }
-        
+        ServerRegisterAbility(false);
         _isInputActive = false;
         _hasActivatedThisInput = false;
     }
@@ -258,7 +295,7 @@ public class Network_BindInputActionToAbility :
             }
             
             // Authoritative server request
-            ServerRpc_ActivateAbility();
+            //ServerRpc_ActivateAbility();
         }
 #else
         if (ActivateAbilityLocally())
@@ -284,7 +321,7 @@ public class Network_BindInputActionToAbility :
         // Check ability availability
         if (_startWithTag)
         {
-            return _gasService.AbilityController.CanActivateAbilityWithTag(_tag);
+            return _gasService.AbilityController.CanActivateAbilityWithTag(_tag, out var definition);
         }
         
         return _cachedAbilityDefinition != null && 
@@ -317,7 +354,7 @@ public class Network_BindInputActionToAbility :
     {
         // Server validation and execution
         if (!CanActivateAbility()) return;
-        
+        return;
         if (IsServerOnly && ActivateAbilityLocally())
         {
             // Server successfully activated, inform observers

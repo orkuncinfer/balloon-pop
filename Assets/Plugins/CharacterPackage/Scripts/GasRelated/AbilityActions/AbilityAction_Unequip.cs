@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AbilityAction_Unequip : AbilityAction
 {
-    ActiveAbility _ability;
     [SerializeField] private bool _attachToSocket;
     [SerializeField] private string _socketName;
     [SerializeField] private float _lerpSpeed = 3f;
@@ -29,9 +28,9 @@ public class AbilityAction_Unequip : AbilityAction
         _equippable = null;
     }
 
-    public override void OnStart(Actor owner, ActiveAbility ability)
+    public override void OnStart()
     {
-        base.OnStart(owner, ability);
+        base.OnStart();
         
         if (Owner.GetEquippedInstance().TryGetComponent(out Equippable equipable))
         {

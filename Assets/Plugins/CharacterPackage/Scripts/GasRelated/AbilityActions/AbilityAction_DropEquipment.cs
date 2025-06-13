@@ -13,10 +13,10 @@ public class AbilityAction_DropEquipment : AbilityAction
         base.Reset();
     }
 
-    public override void OnStart(Actor owner, ActiveAbility ability)
+    public override void OnStart()
     {
-        base.OnStart(owner, ability);
-        owner.GetData<DS_EquipmentUser>().DropCurrent();
+        base.OnStart();
+        Owner.GetData<DS_EquipmentUser>().DropCurrent();
         
         RequestEndAbility();
     }

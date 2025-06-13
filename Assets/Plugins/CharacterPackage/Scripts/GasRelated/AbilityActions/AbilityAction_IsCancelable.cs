@@ -9,14 +9,17 @@ public class AbilityAction_IsCancelable : AbilityAction
     {
         AbilityAction_IsCancelable clone = AbilityActionPool<AbilityAction_IsCancelable>.Shared.Get();
         clone.EventName = EventName;
+        clone.AnimWindow = AnimWindow;
+        
         clone._tagsToAdd = _tagsToAdd;
         return clone;
     }
 
-    public override void OnStart(Actor owner, ActiveAbility ability)
+    public override void OnStart()
     {
-        base.OnStart(owner, ability);
+        base.OnStart();
         ActiveAbility.CanBeCanceled = true;
+        //Owner.GetService<Service_GAS>().AbilityController
     }
     
     public override void OnTick(Actor owner)
@@ -28,5 +31,6 @@ public class AbilityAction_IsCancelable : AbilityAction
     {
         base.OnExit();
         ActiveAbility.CanBeCanceled = false;
+        AbilityActionPool<AbilityAction_IsCancelable>.Shared.Release(this);
     }
 }

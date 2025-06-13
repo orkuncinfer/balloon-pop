@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class AbilityAction_Dying : AbilityAction
 {
-    
-    
     public override AbilityAction Clone()
     {
         AbilityAction_Dying clone = AbilityActionPool<AbilityAction_Dying>.Shared.Get();
@@ -14,10 +12,10 @@ public class AbilityAction_Dying : AbilityAction
         return clone;
     }
 
-    public override void OnStart(Actor owner, ActiveAbility ability)
+    public override void OnStart()
     {
-        base.OnStart(owner, ability);
-        Transform skeleton = owner.GetComponentInChildren<Animator>().transform;
+        base.OnStart();
+        Transform skeleton = Owner.GetComponentInChildren<Animator>().transform;
 
         if (skeleton.TryGetComponent(out LegsAnimator  legsAnimator))
         {
@@ -28,7 +26,7 @@ public class AbilityAction_Dying : AbilityAction
             leanAnimator.enabled = false;
         }
 
-        owner.GetData<Data_Living>().ShouldDieTrigger = true;
+        Owner.GetData<Data_Living>().ShouldDieTrigger = true;
     }
     
 

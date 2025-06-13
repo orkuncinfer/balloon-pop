@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class AbilityAction_ReloadWeapon : AbilityAction
 {
-    ActiveAbility _ability;
-    
     private AimIKWeightHandler _weightHandler;
     private Gun _heldGun;
     public override AbilityAction Clone()
@@ -21,17 +19,17 @@ public class AbilityAction_ReloadWeapon : AbilityAction
         _heldGun = null;
     }
 
-    public override void OnStart(Actor owner, ActiveAbility ability)
+    public override void OnStart()
     {
-        base.OnStart(owner, ability);
-        _weightHandler = owner.GetComponentInChildren<AimIKWeightHandler>();
+        base.OnStart();
+        _weightHandler = Owner.GetComponentInChildren<AimIKWeightHandler>();
 
-        ItemDefinition weaponItem = owner.GetEquippedInstance().GetComponent<Equippable>().ItemDefinition;
+        ItemDefinition weaponItem = Owner.GetEquippedInstance().GetComponent<Equippable>().ItemDefinition;
         ClipTransition reloadClip = weaponItem.GetData<Data_Gun>().ReloadClip;
-        ability.SetAnimData(reloadClip);
-        owner.GetComponentInChildren<AnimancerController>().PlayClipTransition(ability,reloadClip);
+        ActiveAbility.SetAnimData(reloadClip);
+        Owner.GetComponentInChildren<AnimancerController>().PlayClipTransition(ActiveAbility,reloadClip);
         
-        _heldGun = owner.GetEquippedInstance().GetComponent<Gun>();
+        _heldGun = Owner.GetEquippedInstance().GetComponent<Gun>();
         _heldGun.Reload();
     }
 
